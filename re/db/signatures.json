@@ -73529,6 +73529,58 @@
     }
    ],
    "used_by": []
+  },
+  {
+   "id": "game.weather_update",
+   "section": ".xtls",
+   "pattern": "48 8D 05 ?? ?? ?? ?? 48 89 01 48 8B 59 10 48 85 DB 0F 84",
+   "match": "0x14479e1be",
+   "anchor": "0x3",
+   "resolve": {
+    "kind": "riprel",
+    "insn": "0x0",
+    "len": 7
+   },
+   "target": "0x145c06960",
+   "kind": "data",
+   "names": [
+    "vt_Game_WeatherUpdate"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-24",
+     "by": "vmknolle",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "game.weather_state",
+   "section": ".xtls",
+   "pattern": "C5 F8 29 B4 24 70 02 00 00 48 89 CF 4C 8B 35",
+   "match": "0x144795d54",
+   "anchor": "0xf",
+   "resolve": {
+    "kind": "riprel",
+    "insn": "0xc",
+    "len": 7
+   },
+   "target": "0x146ce91d8",
+   "kind": "data",
+   "names": [
+    "g_Game_WeatherState"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-24",
+     "by": "vmknolle",
+     "how": "static"
+    }
+   ],
+   "used_by": []
   }
  ]
 }
