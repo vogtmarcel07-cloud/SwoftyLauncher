@@ -6,6 +6,7 @@ mod offline;
 mod recover;
 mod run;
 mod send_logs;
+mod setup;
 mod time;
 mod update;
 
@@ -95,6 +96,11 @@ enum Command {
         about = "Offline play: consent and the launch extension that runs sessions without EA AntiCheat"
     )]
     Offline(offline::OfflineCommand),
+    #[command(
+        subcommand,
+        about = "The one-time setup before modded play: put the game folder back, verify it, then play"
+    )]
+    Setup(setup::SetupCommand),
     #[command(subcommand, about = "Show and change addon settings in the profile")]
     Settings(SettingsCommand),
     #[command(subcommand, about = "List and delete profiles")]
@@ -435,6 +441,7 @@ fn dispatch(store: &Store, cli: Cli) -> Result<ExitCode> {
         Command::Restore { game } => build::restore(&store, game),
         Command::Addons(cmd) => addons(&store, &profile, cmd).map(|_| ExitCode::SUCCESS),
         Command::Offline(cmd) => offline::command(&store, cmd).map(|_| ExitCode::SUCCESS),
+        Command::Setup(cmd) => setup::command(&store, cmd).map(|_| ExitCode::SUCCESS),
         Command::Settings(cmd) => settings(&store, &profile, cmd).map(|_| ExitCode::SUCCESS),
         Command::Profile(cmd) => profiles(&store, cmd).map(|_| ExitCode::SUCCESS),
         Command::Db { game, cmd } => db::command(&store, &profile, game, cmd),
@@ -527,6 +534,9 @@ fn addons(store: &Store, profile: &str, cmd: AddonsCommand) -> Result<()> {
             for result in store.install_addons(&path) {
                 let m = result.with_context(|| format!("installing {}", path.display()))?;
                 println!("installed {} {}", m.id, m.version);
+                for line in swofty_core::tracks::left_out_lines(store, &m) {
+                    println!("warning: {line}");
+                }
             }
         }
         AddonsCommand::Enable { id }

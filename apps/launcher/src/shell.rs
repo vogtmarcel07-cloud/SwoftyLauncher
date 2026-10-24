@@ -29,7 +29,7 @@ use crate::game::{self, Install, Launch, Owner, Probe};
 use crate::game_edited::Edited;
 use crate::library::{AddonIcon, Library};
 use crate::pages::{addon_icon, label};
-use crate::theme::{Palette, palette};
+use crate::theme::{Palette, SCROLLBAR_GAP, ScrollArea, palette};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Page {
@@ -655,8 +655,16 @@ impl Shell {
             window.push_notification(Notification::info("Play when the conflict check finishes."), cx);
             return;
         }
+        if !swofty_core::setup::done(&self.store.root) {
+            self.open_setup(window, cx);
+            return;
+        }
         if !swofty_core::offline::is_accepted(&self.store.root) {
             self.confirm_offline_play(window, cx);
+            return;
+        }
+        if swofty_core::setup::first_launch(&self.store.root) {
+            self.first_launch_notice(window, cx);
             return;
         }
         self.notice = None;
@@ -672,7 +680,15 @@ impl Shell {
             self.launch_mode(),
         ) {
             Ok(l) => self.launch = Some(l),
-            Err(e) => window.push_notification(Notification::error(e).title("Could not launch F1 25"), cx),
+            Err(e) => {
+                self.launch_failed_seen = game::now_secs();
+                window.push_notification(
+                    Notification::error(e)
+                        .title("Could not launch F1 25")
+                        .autohide(false),
+                    cx,
+                );
+            }
         }
         cx.notify();
     }
@@ -1212,15 +1228,16 @@ impl Shell {
                 v_flex()
                     .flex_1()
                     .min_h_0()
+                    .mr(px(-SCROLLBAR_GAP))
                     .pt(px(if short { 4. } else { 12. }))
                     .gap(px(6.))
                     .child(label("ADDON PANELS", p).px(px(8.)))
                     .child(
                         v_flex()
-                            .id("panels")
                             .flex_1()
                             .min_h_0()
-                            .overflow_y_scroll()
+                            .scroll_y("panels")
+                            .pr(px(SCROLLBAR_GAP))
                             .gap(px(1.))
                             .children(self.panels(p, cx)),
                     ),

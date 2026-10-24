@@ -269,9 +269,9 @@ fn steps(edited: &Edited, repair: &Repair, p: Palette) -> impl IntoElement {
         })
 }
 
-fn discord_link(p: Palette) -> Stateful<Div> {
+pub(crate) fn discord_link(id: &'static str, p: Palette) -> Stateful<Div> {
     h_flex()
-        .id("game-edited-discord")
+        .id(id)
         .h(px(36.))
         .px(px(10.))
         .gap(px(8.))
@@ -292,7 +292,7 @@ fn footer(shell: WeakEntity<Shell>, leftovers: bool, open: Option<Open>, p: Pale
     DialogFooter::new()
         .w_full()
         .justify_between()
-        .child(discord_link(p))
+        .child(discord_link("game-edited-discord", p))
         .child(
             h_flex()
                 .gap(px(8.))
@@ -379,11 +379,8 @@ impl Shell {
                 .margin_top(px(top))
                 .child(
                     v_flex()
-                        .id("game-edited-body")
                         .gap(px(12.))
                         .pt(px(2.))
-                        .max_h(px((vh - 112.).max(300.)))
-                        .overflow_y_scroll()
                         .child(illustration(p))
                         .child(heading(&edited, &repair, p))
                         .child(files_box(&edited, p))

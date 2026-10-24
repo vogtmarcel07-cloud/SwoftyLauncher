@@ -30,7 +30,9 @@ With F1 25 on both Steam and the EA app, select the game name next to the cover 
 
 1. [Install your addons](/using/addons) and [mods](/using/mods), then pick a [profile](/using/profiles).
 2. Press **Play**.
-3. On your first launch, select **Accept and launch** in the **Modded play runs offline** dialog. For why modded play runs offline, see [Offline play](/reference/safety).
+3. On your first Play, the launcher opens a one-time setup. Say whether your game folder holds mods Swofty didn't add, then select **I understand**. Select **Verify game files in Steam**, wait for Steam to finish, then select **I've verified, continue**. On the EA app copy, repair the game in the EA app instead.
+4. On your first launch, select **Accept and launch** in the **Modded play runs offline** dialog. For why modded play runs offline, see [Offline play](/reference/safety).
+5. The first launch after the setup can take 5 to 8 minutes. Don't press Play in Steam or the EA app while it runs.
 
 You'll see **Launching…** on the button, then **Stop** while the game runs. If Steam is closed, the launcher starts it and waits for it to sign in first; see [Steam](/reference/launch#steam). When you want to play vanilla, launch through Steam as usual.
 
@@ -61,6 +63,27 @@ When the mods did not load and `version.dll` is still in the game folder, the la
 - the antivirus registered with Windows
 
 The **Mods did not load** dialog then names what it found and its fix, for example turning off Smart App Control, or an antivirus's DLL protection for `F1_25.exe`. The details are under `[loader]` in `state\wrapper-run.log`, which [Send Logs](/using/send-logs) includes.
+
+## If Windows blocks the launcher
+
+Smart App Control on Windows 11, and app control policies on work or school PCs, block programs that aren't code-signed. The launcher's programs aren't code-signed. When Windows blocks one as you press **Play**, a **Could not launch F1 25** notification names the program, such as `swofty.exe`, and the error code. When it blocks one later in the launch, a **Windows blocked a Swofty program** dialog does the same, and F1 25 is not started.
+
+| Error | Blocked by |
+|---|---|
+| 4551, 577 | Smart App Control or an app control policy |
+| 4556 to 4559, 4580 to 4582 | Smart App Control |
+| 1260, 786 | A Windows policy set by whoever manages the PC |
+| 225, 226 | An antivirus, see [If the mods don't load](#if-the-mods-don-t-load) |
+
+Smart App Control has no exceptions for single apps. To use the launcher, turn it off:
+
+1. Open **Windows Security** > **App & browser control** > **Smart App Control settings**.
+2. Select **Off**.
+3. Press **Play** again.
+
+On some versions of Windows, Smart App Control can only be turned back on by resetting Windows. Microsoft Defender Antivirus keeps protecting the PC with it off. To keep Smart App Control on, play F1 25 from Steam, without mods.
+
+If Smart App Control is already off, a policy set by whoever manages the PC blocked the program. They can allow the launcher folder and the game folder.
 
 ## If your game files aren't the ones Steam installed
 
