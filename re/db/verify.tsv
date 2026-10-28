@@ -1117,3 +1117,11 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	fuel-verify	func	Game_Mfd_FuelMix_Refresh	L1	agree	xref:0x1417885f2	V1116 fuel-verify: movzx eax,byte [rax+0x12]; shr al,2; and al,1 -> [rsp+0x2e]
 2026-10-28	fuel-verify	func	Game_Vehicle_ApplyControls	L1	agree	xref:0x14389b83c,0x14389bad4,0x14389bbf3	V1117 fuel-verify: table [0x14606ec28]+0x28+veh*0x20+mix*4 == 0 -> call 0x14468e6a0
 2026-10-28	fuel-verify	func	Car_FuelEcu_SetMix	L1	agree	xref:0x14468e6a0,0x1553ff46b	V1118 fuel-verify: XOR-decoded writes ecu+0x130..0x160, calls 0x144689a70/0x1446a5130, mov [rsi+0x128],ebx
+2026-10-28	ap-verify	func	Car_F1Aero_UpdateWingOpen	L1	agree	xref:0x1446cb65f,0x1446cb6d0,0x1446cb709	V1119 recorded by engine-re from ap-verify (blind capstone): brake > 0.05 / throttle < 0.9 clear +0x1988 bit0; +0x19a8 moves at rate, clamped 0..1
+2026-10-28	ap-verify	func	Game_DRS_UpdateCars	L1	agree	xref:0x142bea69d	V1120 ap-verify: mov byte [r13+0x19ac],cl with r13 = [r12+0x80]
+2026-10-28	ap-verify	func	Game_DRS_UpdateZoneTracker	L1	agree	xref:0x142be75e8,0x142be76a0	V1121 ap-verify: zone type cmp 0x30 setne vs car byte +0xa7
+2026-10-28	ap-verify	func	Car_Diff_SetupDrivenWheels	L1	agree	xref:0x14467e7c0	V1122 ap-verify: FL/FR added for DriveType 1/2, shares d0..dc as claimed
+2026-10-28	ap-verify	func	Car_Read_Differential	L1	agree	xref:0x1553d2759	V1123 ap-verify: FWD/4WD/RWD -> 1/2/3 else 0
+2026-10-28	ap-verify	func	Car_Solver_PrepareWheel	L1	agree	xref:0x1446dbce3,0x1446dbced	V1124 ap-verify: diff+0xd0[i] -> solver+0x440[i]
+2026-10-28	ap-verify	func	Car_Solver_PrepareDrivetrain	L1	agree	xref:0x1446db350,0x1446db374,0x1446db390	V1125 ap-verify: solver+0x4e4 product incl. engine+0x2598 XOR
+2026-10-28	ap-verify	func	Car_Engine_ApplyFuelMode	L1	agree	xref:0x1553f9a6a	V1126 ap-verify: engine+0x2528 plain = limiter XOR * revs scale XOR; names not string-checked
