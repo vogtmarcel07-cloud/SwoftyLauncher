@@ -10729,7 +10729,7 @@
    "target": "0x1435676a0",
    "kind": "func_start",
    "names": [
-    "Sess_RuleManager_OnSessionEnter"
+    "Sess_RuleManager_Initialise"
    ],
    "verified": [
     {
@@ -10873,7 +10873,7 @@
    "target": "0x14473db90",
    "kind": "func_start",
    "names": [
-    "Game_Place_VehicleBlend_Thunk"
+    "Game_Teleport_VehicleImmediate_Thunk"
    ],
    "verified": [
     {
@@ -10969,7 +10969,7 @@
    "target": "0x143a3d780",
    "kind": "func_start",
    "names": [
-    "Game_Get_ModelNodeId"
+    "Ne_Get_NameId"
    ],
    "verified": [
     {
