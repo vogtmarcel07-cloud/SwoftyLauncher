@@ -1149,3 +1149,9 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	tr-verify	func	Car_Chassis_Build	L1	agree	xref:0x14462979a,0x144629912,0x1446288bf	V1148 tr-verify: phase loop 0..6 call [rax+0x28], lists +0x4f8.., mov [rdi+0x5f0],rdi
 2026-10-28	tr-verify	func	Hud_MfdVm_RefreshPanelAvailability	L1	partial	xref:0x1414f641c	V1149 tr-verify: binder maps holders 0x440..0x4e0; 0x1414f70b0 loads holder pointers and calls setter 0x140973e20 (6 calls), no direct store
 2026-10-28	tr-verify	func	Car_GearBox_GetClutchSlipping	L1	agree	xref:0x1446a6090,0x1446e399b	V1150 tr-verify: cmp byte [rcx+0x694],0 -> 0.0/1.0; mov byte [rsi+0x538],1
+2026-10-28	aaa-verify	func	Game_Env_GetAirDensityRatio	L1	agree	xref:0x142f478b9,0x1446b7efb,0x1446dd40f	V1151 recorded by engine-re from aaa-verify (blind capstone): returns [[rcx+8]+0xfa0]+0x294 or 1.0; tyre call unconditional; aero jl HV < 100 -> constant -0.91875
+2026-10-28	aaa-verify	func	Game_Env_GetAirTemperatureC	L1	agree	xref:0x142f4776f	V1152 aaa-verify: TIS+0x3f0a7f == 0 -> 10.0, else lerp +0x308/+0x30c by +0x310
+2026-10-28	aaa-verify	func	Sess_Set_SessionDefaultFuelErs	L1	partial	xref:0x142f43b7b,0x142f43bbb	V1153 aaa-verify: 3 for 5..14 and 18, 1 for 15..17, none for 0..4/19; 'Controls' object name not provable
+2026-10-28	aaa-verify	func	Ai_Parse_DriverParameterMap	L1	partial	xref:0x14065af10,0x140683db9	V1154 aaa-verify: 10 calls + tail jmp, name table 0x145639210 idx 10 = wet_weather_ability
+2026-10-28	aaa-verify	func	Game_Player_ApplyAssistsToVehicle	L1	agree	xref:0x142424117,0x14242418e	V1155 aaa-verify: braking assist 0 / 0.61 / 0.91 / 1.0 -> record +0xd0
+2026-10-28	aaa-verify	func	Game_Vehicle_ApplyControls	L1	agree	xref:0x14389a5c8,0x14389a630,0x14389b146,0x14389b152	V1156 aaa-verify: brake blend in + (tgt-in)*level; steering assist +0x1a4/+0x1a8
