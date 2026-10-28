@@ -1183,3 +1183,17 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	sp-verify	func	Game_Read_QualifyingConfig	L2	agree	decomp:re/decomp/142e44b50.c;xref:0x142e4782c	V1182 claim 10 TrackPitData offsets
 2026-10-28	sp-verify	func	Game_PitStopLogic_NeSequenceClipTargetImpl	L2	agree	decomp:re/decomp/1403bbda0.c;xref:0x1403bc081	V1183 claim 11; idx >= 27 writes 1.0
 2026-10-28	sp-verify	func	Sess_Read_StopGoPenaltyConfig	L2	agree	decomp:re/decomp/1507566f0.c;xref:0x150756813	V1184 claim 12
+2026-10-28	gb-verify	func	Car_Contact_QueryWheels	L2	agree	decomp:re/decomp/1446d8cf0.c;xref:0x1446daef4	V1185 claim 1 depth/bumps on wheel+0x254
+2026-10-28	gb-verify	func	Car_Parse_SurfaceMaterial	L2	partial	decomp:re/decomp/14463d0d0.c;xref:0x14463d5ba	V1186 claim 2; key is bumpsrealproportion; entry 0x14463d0d0 not 0x14463d580
+2026-10-28	gb-verify	func	Car_Surface_ApplySlowdown	L2	partial	decomp:re/decomp/1446b4f80.c;xref:0x1446b43b0	V1187 claim 3; impulse at contact point (mass*k*dt), 95 % mean, degenerate 0.11
+2026-10-28	gb-verify	func	Car_Contact_InstallBodyFilters	L1	partial	xref:0x142f0689c	V1188 claim 4; entry 0x142f06740; list confirmed, no HDG+/MDG+
+2026-10-28	gb-verify	func	Car_Contact_BodyLiftNormal	L2	partial	decomp:re/decomp/142f057a0.c;xref:0x142f06740	V1189 claim 4; normal = world up, chassis up only vs CARW/CARB
+2026-10-28	gb-verify	func	Game_AutoResetToTrack_StartTimer	L2	partial	decomp:re/decomp/142f01210.c;xref:0x142f03a30	V1190 claim 5; 0x142f03a30 only posts message; reason 15 target in .data1
+2026-10-28	gb-verify	func	Ai_BehaviourRecover_Evaluate	L1	agree	decomp:re/decomp/140653440.c	V1191 claim 6 no stuck/surface logic
+2026-10-28	gb-verify	func	Game_Game_RetireLocalPlayer	L2	agree	decomp:re/decomp/142cea5b0.c;xref:0x142cea230	V1192 claim 7
+2026-10-28	gb-verify	func	Game_Breakable_ParseActivation	L2	agree	decomp:re/decomp/144588c90.c;xref:0x145bed943	V1193 claim 8; else max(v,1)
+2026-10-28	gb-verify	func	Game_Breakable_OnContact	L2	agree	decomp:re/decomp/14458bb90.c;xref:0x145bed8a8	V1194 claim 9
+2026-10-28	gb-verify	func	Game_Breakable_Activate	L2	partial	decomp:re/decomp/14458bc70.c;xref:0x145bed8a8	V1195 claim 10; pool full evicts farthest entry, not silent no-op
+2026-10-28	gb-verify	func	Ne_Phys_BuildContactRows	L2	agree	decomp:re/decomp/1440f6e20.c;xref:0x1440e7350	V1196 claim 11; K,S scaled by island s (CFM/s)
+2026-10-28	gb-verify	func	Ne_PhysMaterial_CombinePair	L2	agree	decomp:re/decomp/1440e7350.c;xref:0x1440f6e20	V1197 claim 12 stale cache
+2026-10-28	gb-verify	func	Ne_PhysBody_ApplyImpulse	L1	partial	decomp:re/decomp/1440c12e0.c	V1198 claim 13; +0x400 clamp only in angular branch
