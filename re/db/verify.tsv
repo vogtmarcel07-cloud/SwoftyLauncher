@@ -1171,3 +1171,15 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	dcso-verify	func	Ne_Player_SetFFBInputDeviceId	L2	agree	decomp:re/decomp/1434d82d0.c;xref:0x1434d9647	V1170 claim 12 curve formula
 2026-10-28	dcso-verify	func	Game_Vehicle_ApplyControls	L2	agree	decomp:re/decomp/14389a2b0.c;xref:0x14389b656	V1171 claim 13; axis names inferred
 2026-10-28	dcso-verify	func	Car_PadAssist_DriftAssist	L2	agree	decomp:re/decomp/1447546c0.c;xref:0x1447552bc	V1172 claim 14 static scan, indirect writes not excluded
+2026-10-28	sp-verify	func	Car_Setup_SetSliderValue	L2	agree	decomp:re/decomp/140b782f0.c;xref:0x14975a4d7	V1173 claim 1; re-applies all items
+2026-10-28	sp-verify	func	Car_Setup_ApplyTuning	L2	agree	decomp:re/decomp/140c11550.c;xref:0x140c12854	V1174 claim 2; bits 17/18 together
+2026-10-28	sp-verify	func	Gdb_Load_SetupSliders	L2	agree	decomp:re/decomp/149a29f90.c;xref:0x14605a428	V1175 claim 3 + reverse_direction
+2026-10-28	sp-verify	func	Game_CarSetupMgr_OnParcFermeStateChange	L2	agree	decomp:re/decomp/140c0abc0.c;xref:0x140c0ac15	V1176 claim 4; parc ferme naming not verified
+2026-10-28	sp-verify	func	Car_Setup_SetCustomSliderStep	L2	partial	decomp:re/decomp/140c112b0.c;xref:0x140c1137b	V1177 claim 5: skip mask ~(1<<i), 17/18 together, ORs binding+0x18
+2026-10-28	sp-verify	func	Game_PitLane_UpdateMovement	L2	partial	decomp:re/decomp/1434b83e0.c;xref:0x1434bb61b	V1178 claim 6: rec+0xe4 in states 3/4; box timer rec+0xf0; random release time branch
+2026-10-28	sp-verify	func	Game_PitLane_GenerateSplines	L2	agree	decomp:re/decomp/1434ca550.c;xref:0x1434ca67f	V1179 claim 7
+2026-10-28	sp-verify	func	Game_PitLane_UpdateLimitZones	L2	agree	decomp:re/decomp/1434cc6b0.c;xref:0x1434ccf72	V1180 claim 8; message identity not confirmed
+2026-10-28	sp-verify	func	Game_Read_PitCrewTrainingConfig	L2	agree	decomp:re/decomp/14102b110.c;xref:0x14102c6b1	V1181 claim 9
+2026-10-28	sp-verify	func	Game_Read_QualifyingConfig	L2	agree	decomp:re/decomp/142e44b50.c;xref:0x142e4782c	V1182 claim 10 TrackPitData offsets
+2026-10-28	sp-verify	func	Game_PitStopLogic_NeSequenceClipTargetImpl	L2	agree	decomp:re/decomp/1403bbda0.c;xref:0x1403bc081	V1183 claim 11; idx >= 27 writes 1.0
+2026-10-28	sp-verify	func	Sess_Read_StopGoPenaltyConfig	L2	agree	decomp:re/decomp/1507566f0.c;xref:0x150756813	V1184 claim 12
