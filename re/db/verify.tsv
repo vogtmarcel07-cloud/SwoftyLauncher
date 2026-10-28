@@ -1155,3 +1155,5 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	aaa-verify	func	Ai_Parse_DriverParameterMap	L1	partial	xref:0x14065af10,0x140683db9	V1154 aaa-verify: 10 calls + tail jmp, name table 0x145639210 idx 10 = wet_weather_ability
 2026-10-28	aaa-verify	func	Game_Player_ApplyAssistsToVehicle	L1	agree	xref:0x142424117,0x14242418e	V1155 aaa-verify: braking assist 0 / 0.61 / 0.91 / 1.0 -> record +0xd0
 2026-10-28	aaa-verify	func	Game_Vehicle_ApplyControls	L1	agree	xref:0x14389a5c8,0x14389a630,0x14389b146,0x14389b152	V1156 aaa-verify: brake blend in + (tgt-in)*level; steering assist +0x1a4/+0x1a8
+2026-10-28	aaa-verify	func	Game_Set_VehicleController_Thunk	L2	agree	xref:0x14389cc90	V1157 recorded by engine-re from aaa-verify: jmp 0x1519eb350; reason table index 14 ROBODRIVER
+2026-10-28	aaa-verify	func	Ai_Ers_DecidePushReasons	L1	agree	xref:0x145636d60	V1158 aaa-verify: vtable 0x145636d40 slot 4
