@@ -1218,3 +1218,11 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	pl-verify	func	Car_CollisionVfx_OnContact	L2	partial	decomp:re/decomp/144705380.c;xref:0x14462afbe	V1217 claim 5; variant table, mgr array
 2026-10-29	pl-verify	func	Car_BodyDamage_ApplyToAeroAndCooling	L2	partial	decomp:re/decomp/1446521d0.c;xref:0x1446dceb0	V1218 claim 6/7; three sums
 2026-10-29	pl-verify	func	Render_Particles_SelectScrapeEffect	L1	agree	decomp:re/decomp/144704740.c;xref:0x145c01852	V1219 claim 8
+2026-10-29	cf-verify	func	Game_SimFlags_SetBit	L2	agree	decomp:re/decomp/142f38f80.c;xref:0x142f39070	V1220 claim 1
+2026-10-29	cf-verify	func	Game_SimFlags_CarSetBit	L2	agree	decomp:re/decomp/142f38e60.c;xref:0x142f38f80	V1221 claim 1
+2026-10-29	cf-verify	func	Game_SimFlags_RecordSetBit	L2	agree	decomp:re/decomp/142f39070.c;xref:0x142f38e60	V1222 claim 1 index->bit table
+2026-10-29	cf-verify	func	Game_AssistManager_BuildAssistSettings	L2	agree	xref:0x14242254c	V1223 claims 2/3; option names unverified
+2026-10-29	cf-verify	func	Car_Update	L2	partial	xref:0x144740170	V1224 claim 4; b0/b1 addresses swapped
+2026-10-29	cf-verify	func	Game_Set_VehicleController_Thunk	L2	agree	decomp:re/decomp/14389cc90.c;xref:0x1519eb350	V1225 claim 6
+2026-10-29	cf-verify	func	Game_Assists_SetTyreTempFreeze	L1	partial	decomp:re/decomp/1424238a0.c	V1226 claim 7; value from local, names H
+2026-10-29	cf-verify	func	Game_Season_ApplyDamageModeFlags	L1	partial	decomp:re/decomp/143099190.c	V1227 claim 8; writes rules record not car
