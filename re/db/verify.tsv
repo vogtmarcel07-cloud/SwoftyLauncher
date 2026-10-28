@@ -1125,3 +1125,13 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	ap-verify	func	Car_Solver_PrepareWheel	L1	agree	xref:0x1446dbce3,0x1446dbced	V1124 ap-verify: diff+0xd0[i] -> solver+0x440[i]
 2026-10-28	ap-verify	func	Car_Solver_PrepareDrivetrain	L1	agree	xref:0x1446db350,0x1446db374,0x1446db390	V1125 ap-verify: solver+0x4e4 product incl. engine+0x2598 XOR
 2026-10-28	ap-verify	func	Car_Engine_ApplyFuelMode	L1	agree	xref:0x1553f9a6a	V1126 ap-verify: engine+0x2528 plain = limiter XOR * revs scale XOR; names not string-checked
+2026-10-28	cg-verify	func	Car_Build_VtfComponents	L1	agree	xref:0x14473c36e,0x14473c883	V1127 recorded by engine-re from cg-verify (blind capstone): 23 qword stores car+0x530..+0x5e0, names Engine .. F1BodyDamage
+2026-10-28	cg-verify	func	Car_BrakeEcu_DistributeTorque	L1	agree	xref:0x144676289,0x14467637f	V1128 cg-verify: bias vs 0.5, xor eax,[rdx+0x100]; mov [rdx+0xf8],eax per wheel
+2026-10-28	cg-verify	func	Car_Tyre_UpdateTemperature	L1	partial	xref:0x1446b8130	V1129 cg-verify: cmp dword [rax+0x9f40],0xd; jl (constant 13, i.e. HandlingVersion >= 13); blister meaning not checked
+2026-10-28	cg-verify	func	Car_Setup_ApplyTuning	L1	partial	xref:0x140c11593,0x140c11596,0x140c11684	V1130 cg-verify: 64-bit mask; bits 0x1/0x2 skip wing blocks; polarity for 0x4..0x1000 not uniform/untraced
+2026-10-28	cg-verify	func	Car_BodyDamage_ApplyToAeroAndCooling	L1	agree	xref:0x144652247,0x144652279	V1131 cg-verify: clamps [0.1,1] and [1,5] confirmed
+2026-10-28	cg-verify	func	Game_Read_OverridesCarMonitorMaximisedConfig	L1	agree	xref:0x141f7222f,0x141f728cf,0x141f7274d,0x141f72254	V1132 cg-verify: tab templates + 7 calls to 0x1414bdac0 (= BuildTabs)
+2026-10-28	cg-verify	func	Game_Flow_SessionStatePause	L1	agree	xref:0x142d76cb2,0x142d76d0a,0x142d76e04	V1133 cg-verify: djb2 quit/retire compares + call 0x142cea5b0
+2026-10-28	cg-verify	func	Game_PauseAvailability_Rebuild	L1	partial	xref:0x142bb338f,0x142bbd14c	V1134 cg-verify: zeroes 24 bytes at rcx; VM+0x278 only for caller 0x142bbd14c
+2026-10-28	cg-verify	func	Hud_Bind_DynamicMfdViewModel	L1	agree	xref:0x1414f6759	V1135 cg-verify: mods_panel_enabled referenced inside the bind
+2026-10-28	cg-verify	func	Game_CarSetupVm_ShowParcFerme	L1	agree	xref:0x140c1c0df	V1136 cg-verify: lng_cs_parc_ferme_title referenced
