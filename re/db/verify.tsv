@@ -1197,3 +1197,17 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	gb-verify	func	Ne_Phys_BuildContactRows	L2	agree	decomp:re/decomp/1440f6e20.c;xref:0x1440e7350	V1196 claim 11; K,S scaled by island s (CFM/s)
 2026-10-28	gb-verify	func	Ne_PhysMaterial_CombinePair	L2	agree	decomp:re/decomp/1440e7350.c;xref:0x1440f6e20	V1197 claim 12 stale cache
 2026-10-28	gb-verify	func	Ne_PhysBody_ApplyImpulse	L1	partial	decomp:re/decomp/1440c12e0.c	V1198 claim 13; +0x400 clamp only in angular branch
+2026-10-28	su-verify	func	Car_Update_WheelSurfaceAndEcuGrip	L2	agree	decomp:re/decomp/1446dc480.c;xref:0x145bff4d8	V1199 claim 1/4 body vtable, loader last call
+2026-10-28	su-verify	func	Car_Physics_StepVehicle	L2	partial	decomp:re/decomp/1446dceb0.c;xref:0x145bff4e0	V1200 claim 5/6; no explicit rake input
+2026-10-28	su-verify	func	Car_Suspension_PublishWheelState	L2	partial	decomp:re/decomp/1446e4330.c;xref:0x145bff4f0	V1201 claim 7; once per frame unverified
+2026-10-28	su-verify	func	Car_Setup_SetFrontSpring	L2	partial	decomp:re/decomp/1446d7580.c;xref:0x140c11550	V1202 claim 2; HV fallback only +0x1660; thunk
+2026-10-28	su-verify	func	Car_Setup_SetRearSpring	L2	partial	decomp:re/decomp/1446d7780.c;xref:0x140c11550	V1203 claim 2
+2026-10-28	su-verify	func	Car_Setup_SetFrontRideHeight	L2	partial	decomp:re/decomp/1446d7c80.c;xref:0x140c11550	V1204 claim 3; +0x164c / +0x1648 on opposite axles
+2026-10-28	su-verify	func	Car_Setup_SetRearRideHeight	L2	partial	decomp:re/decomp/1446d8080.c;xref:0x140c11550	V1205 claim 3
+2026-10-28	su-verify	func	Car_Solver_PrepareDrivetrain	L2	agree	decomp:re/decomp/1446db280.c;xref:0x1446dc480	V1206 claim 4 lane loader mappings exact
+2026-10-28	su-verify	func	Car_Suspension_Integrate	L2	partial	decomp:re/decomp/1446e1920.c;xref:0x1446dceb0	V1207 claim 5; ARB MR +0x240, Fz only HV < 7
+2026-10-28	su-verify	func	Car_Aero_FrontRideHeight	L2	partial	decomp:re/decomp/1446cb000.c;xref:0x1446dd570	V1208 claim 6
+2026-10-28	su-verify	func	Car_Aero_RearRideHeight	L2	partial	decomp:re/decomp/1446cb260.c;xref:0x1446dd53c	V1209 claim 6; rear ref +0x98
+2026-10-28	su-verify	func	Car_SuspensionSystem_OnTuningChanged	L1	agree	decomp:re/decomp/15543f450.c	V1210 claim 8
+2026-10-28	su-verify	func	Car_Tuning_SetSuspension	L2	partial	decomp:re/decomp/1446a7be0.c;xref:0x15543f450	V1211 claim 8; range +0x228..+0x254
+2026-10-28	su-verify	func	Car_SuspensionSystem_ResetRestAndSpring	L1	partial	decomp:re/decomp/1446b1460.c	V1212 claim 8; VTF stock source unverified
