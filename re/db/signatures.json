@@ -10969,7 +10969,7 @@
    "target": "0x143a3d780",
    "kind": "func_start",
    "names": [
-    "Ne_Get_NameId"
+    "Game_Get_ModelNodeId"
    ],
    "verified": [
     {
