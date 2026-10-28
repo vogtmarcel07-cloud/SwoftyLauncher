@@ -1157,3 +1157,17 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	aaa-verify	func	Game_Vehicle_ApplyControls	L1	agree	xref:0x14389a5c8,0x14389a630,0x14389b146,0x14389b152	V1156 aaa-verify: brake blend in + (tgt-in)*level; steering assist +0x1a4/+0x1a8
 2026-10-28	aaa-verify	func	Game_Set_VehicleController_Thunk	L2	agree	xref:0x14389cc90	V1157 recorded by engine-re from aaa-verify: jmp 0x1519eb350; reason table index 14 ROBODRIVER
 2026-10-28	aaa-verify	func	Ai_Ers_DecidePushReasons	L1	agree	xref:0x145636d60	V1158 aaa-verify: vtable 0x145636d40 slot 4
+2026-10-28	dcso-verify	func	Car_Physics_PreAdvance	L2	agree	decomp:re/decomp/144641610.c;xref:0x144641dd0	V1159 claim 1 wake reset 1.0 + length max(0.1, 2|v.fwd|)
+2026-10-28	dcso-verify	func	Car_Physics_PreAdvance	L2	partial	decomp:re/decomp/144641610.c;xref:0x1446423b6	V1160 claim 2: s = 8/W clamped [1,80], f = 0 when x > 1
+2026-10-28	dcso-verify	func	Ne_PhysMaterial_CombinePair	L2	agree	decomp:re/decomp/1440e7350.c;xref:0x1440f6e20	V1161 claim 3 sqrt(a*b) 9 floats; field names not checked
+2026-10-28	dcso-verify	func	Car_Contact_ModifyVehicle	L2	partial	decomp:re/decomp/142f04040.c;xref:0x142f043ae	V1162 claim 4: DRUB r' = 1+(r-1)*s, not r*s; 0.01/100 for state 3
+2026-10-28	dcso-verify	func	Game_Breakable_ParseActivation	L2	agree	decomp:re/decomp/144588c90.c;xref:0x144588d60	V1163 claim 5 physical_tyres/tecpro -> 200
+2026-10-28	dcso-verify	func	Car_BodyDamage_OnCollision	L2	partial	decomp:re/decomp/1446512c0.c;xref:0x14465162e	V1164 claim 6: k=5 only with bit3 + no attachment + up<0.8; 1 m/s cutoff only when bit3 clear
+2026-10-28	dcso-verify	func	Car_Surface_ApplySlowdown	L2	agree	decomp:re/decomp/1446b4f80.c;xref:0x1446b43b0	V1165 claim 7 + 95 % pull to wheel mean
+2026-10-28	dcso-verify	func	Car_Parse_SurfaceMaterial	L2	agree	decomp:re/decomp/14463d0d0.c;xref:0x14463b7b4	V1166 claim 8 defaults
+2026-10-28	dcso-verify	func	Game_TrackInfo_SampleWheelSurface	L2	agree	decomp:re/decomp/144792f50.c;xref:0x144793035	V1167 claim 9 2.5/3.5 ramp; d = TrackSpace distance not checked
+2026-10-28	dcso-verify	func	Game_SimFlags_RecordSetBit	L2	agree	decomp:re/decomp/142f39070.c;xref:0x142f3907d	V1168 claim 10 jump table
+2026-10-28	dcso-verify	func	Car_Surface_SampleAt	L2	partial	decomp:re/decomp/142f478d0.c;xref:0x142f47f2e	V1169 claim 11: bit4 DOES select grip vs proGrip here (bump selection in 0x1446daccc too)
+2026-10-28	dcso-verify	func	Ne_Player_SetFFBInputDeviceId	L2	agree	decomp:re/decomp/1434d82d0.c;xref:0x1434d9647	V1170 claim 12 curve formula
+2026-10-28	dcso-verify	func	Game_Vehicle_ApplyControls	L2	agree	decomp:re/decomp/14389a2b0.c;xref:0x14389b656	V1171 claim 13; axis names inferred
+2026-10-28	dcso-verify	func	Car_PadAssist_DriftAssist	L2	agree	decomp:re/decomp/1447546c0.c;xref:0x1447552bc	V1172 claim 14 static scan, indirect writes not excluded
