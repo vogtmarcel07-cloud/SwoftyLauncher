@@ -1211,3 +1211,10 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	su-verify	func	Car_SuspensionSystem_OnTuningChanged	L1	agree	decomp:re/decomp/15543f450.c	V1210 claim 8
 2026-10-28	su-verify	func	Car_Tuning_SetSuspension	L2	partial	decomp:re/decomp/1446a7be0.c;xref:0x15543f450	V1211 claim 8; range +0x228..+0x254
 2026-10-28	su-verify	func	Car_SuspensionSystem_ResetRestAndSpring	L1	partial	decomp:re/decomp/1446b1460.c	V1212 claim 8; VTF stock source unverified
+2026-10-29	pl-verify	func	Car_Chassis_PlacePlankShape	L2	partial	decomp:re/decomp/144676a80.c;xref:0x144676ea4	V1213 claim 1; offset + (COM - V)
+2026-10-29	pl-verify	func	Car_F1Plank_Read	L2	agree	decomp:re/decomp/144652aa0.c;xref:0x145bf8a50	V1214 claim 2 no wear field
+2026-10-29	pl-verify	func	Car_Contact_PlankFlag	L2	agree	decomp:re/decomp/142f05890.c;xref:0x142f06785	V1215 claim 3
+2026-10-29	pl-verify	func	Car_BodyDamage_OnCollision	L2	partial	decomp:re/decomp/1446512c0.c;xref:0x144650b00	V1216 claim 4; extra gate, 5x only floor non-car
+2026-10-29	pl-verify	func	Car_CollisionVfx_OnContact	L2	partial	decomp:re/decomp/144705380.c;xref:0x14462afbe	V1217 claim 5; variant table, mgr array
+2026-10-29	pl-verify	func	Car_BodyDamage_ApplyToAeroAndCooling	L2	partial	decomp:re/decomp/1446521d0.c;xref:0x1446dceb0	V1218 claim 6/7; three sums
+2026-10-29	pl-verify	func	Render_Particles_SelectScrapeEffect	L1	agree	decomp:re/decomp/144704740.c;xref:0x145c01852	V1219 claim 8
