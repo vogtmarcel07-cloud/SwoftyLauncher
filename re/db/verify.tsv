@@ -1135,3 +1135,11 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-28	cg-verify	func	Game_PauseAvailability_Rebuild	L1	partial	xref:0x142bb338f,0x142bbd14c	V1134 cg-verify: zeroes 24 bytes at rcx; VM+0x278 only for caller 0x142bbd14c
 2026-10-28	cg-verify	func	Hud_Bind_DynamicMfdViewModel	L1	agree	xref:0x1414f6759	V1135 cg-verify: mods_panel_enabled referenced inside the bind
 2026-10-28	cg-verify	func	Game_CarSetupVm_ShowParcFerme	L1	agree	xref:0x140c1c0df	V1136 cg-verify: lng_cs_parc_ferme_title referenced
+2026-10-28	car2-verify	func	Car_Update_WheelSurfaceAndEcuGrip	L1	agree	xref:0x1446dc4e8,0x1446dc531	V1137 recorded by engine-re from car2-verify (blind capstone): 360.0 at 0x145faa60c/610, count -> body+0xa4c
+2026-10-28	car2-verify	func	Car_Physics_StepVehicle	L1	agree	xref:0x1446dcf20,0x1446dcf2c,0x1446dcf3c,0x1446dcf44	V1138 car2-verify: cmp [car+0x9f40],7; >=7 dafa0, dee60, e1920; <7 e1920, dafa0, dee60
+2026-10-28	car2-verify	func	Car_FuelTank_Step	L1	partial	xref:0x14468f080,0x14468f0af	V1139 car2-verify: floor 0.1 when car+0x124 == 1, else 0.05; 'AI' meaning of +0x124 not proven
+2026-10-28	car2-verify	func	Car_Engine_UpdateTemperature	L1	agree	xref:0x144689754,0x1446897c1	V1140 car2-verify: [car+0x548]+0x160 XOR +0x168 read
+2026-10-28	car2-verify	func	Game_Failure_Apply	L1	agree	xref:0x1409b33bc,0x1409b349f	V1141 car2-verify: jump table 0x145671650; type 0 -> Engine+0x2534, type 5 -> F1Aero+0x1988 |= 2, +0x1994 = 1e9
+2026-10-28	car2-verify	func	Car_Tyre_SetCompound	L1	partial	xref:0x1554370e9,0x15543711b	V1142 car2-verify: reads compound+0x688, else vcall + 273.15; writes ctx+0x64/+0x6c/+0x68 (ctx = wheel+8)
+2026-10-28	car2-verify	func	Car_Tyre_UpdateWear	L1	partial	xref:0x1446b7afe,0x1446b7b4c	V1143 car2-verify: /1e6, clamp [0,1], stored ctx+0x80 (= wheel+0x88 since ctx = wheel+8)
+2026-10-28	car2-verify	func	Car_Tyre_UpdateDeflation	L1	agree	xref:0x155453f96,0x155453fa8	V1144 car2-verify: out+0x58 <- src+0x54 again; +0x60 never read (expected source maybe +0x58)
