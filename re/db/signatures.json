@@ -73320,7 +73320,7 @@
    "target": "0x140669790",
    "kind": "func_start",
    "names": [
-    "Ai_ScDeltaPace"
+    "Ai_Apply_TetherSpeedCap"
    ],
    "verified": [
     {
