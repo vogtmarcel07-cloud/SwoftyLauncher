@@ -1240,3 +1240,12 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	en-verify	func	Game_Engineer_OnRedFlagDeploy	L2	agree	decomp:re/decomp/142a53ad0.c;xref:0x1457bb3f0	V1239 claims 6/7
 2026-10-29	en-verify	func	Game_Engineer_OnRedFlagWithdrawn	L2	agree	decomp:re/decomp/142a53aa0.c;xref:0x142a54c30	V1240 claim 7
 2026-10-29	en-verify	func	Sess_YellowFlagReason_ToString	L2	partial	decomp:re/decomp/1435827f0.c;xref:0x14356d950	V1241 claim 3; param_1 only
+2026-10-29	tl-verify	func	Sess_Rules_CornerCuttingTimeGained	L2	partial	xref:0x1435a0b40	V1242 L1; speed grades gated by rec+0xac, record not vehicle
+2026-10-29	tl-verify	func	Sess_Issue_StopGo	L2	partial	xref:0x143572a00	V1243 L2; conditional mapping, table rewritten at runtime
+2026-10-29	tl-verify	func	Sess_Rules_ReadCornerCuttingSettings	L2	agree	xref:0x1435a0c53	V1244 L3
+2026-10-29	tl-verify	func	Sess_MultipleWarningsPenalty_SendData	L2	agree	xref:0x1435b6d57	V1245 L4
+2026-10-29	tl-verify	func	Sess_RC_SendCarsGroupedData	L2	agree	xref:0x143621363	V1246 U1 (msg lea at 0x143621bd1)
+2026-10-29	tl-verify	func	Sess_Flags_UpdateYellowReasons	L2	partial	xref:0x14356eca6	V1247 U2; matrix base this+0x19c
+2026-10-29	v3-verify	func	Sess_RaceStrategy_RedFlagRecompute	L2	partial	xref:0x1436abf80	V1248 R1; +0x170 only local player
+2026-10-29	v3-verify	func	Sess_Strategy_RedFlagRecomputeAll	L2	partial	xref:0x142dfd595	V1249 R2; argument dereferenced
+2026-10-29	v3-verify	func	Sess_RedFlagStrategyCalc_Update	L2	partial	xref:0x142dfd595	V1250 R2; vtable start unverifiable
