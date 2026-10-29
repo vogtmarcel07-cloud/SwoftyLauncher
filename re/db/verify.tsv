@@ -1233,3 +1233,10 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	bt-verify	func	Game_PauseMenu_ResetToTrackCfg	L2	agree	decomp:re/decomp/142bb7020.c;xref:0x1457cb8c0	V1232 claim 5
 2026-10-29	bt-verify	func	Car_Update	L2	partial	decomp:re/decomp/14473fd80.c;xref:0x144740efc	V1233 claim 6; 6 legal types when 9f28 == 0
 2026-10-29	bt-verify	func	Game_OffTrack_StuckMonitor	L2	agree	decomp:re/decomp/142521230.c;xref:0x144740efc	V1234 claim 7
+2026-10-29	en-verify	func	Sess_Rules_ReadUnlappingSettings	L2	agree	decomp:re/decomp/14361f370.c;xref:0x14361fff0	V1235 claim 1
+2026-10-29	en-verify	func	Sess_RC_SendCarsGroupedData	L2	partial	decomp:re/decomp/14361fff0.c;xref:0x145f96cb8	V1236 claim 2; grouping meaning interpreted
+2026-10-29	en-verify	func	Sess_Flags_UpdateYellowReasons	L2	agree	decomp:re/decomp/14356d950.c;xref:0x14356eca6	V1237 claim 2 bit 0x1000
+2026-10-29	en-verify	func	Game_Engineer_OnSafetyCarMessage	L2	partial	decomp:re/decomp/142a54c30.c;xref:0x142a5558e	V1238 claims 4/5/7; pointer array, not inline
+2026-10-29	en-verify	func	Game_Engineer_OnRedFlagDeploy	L2	agree	decomp:re/decomp/142a53ad0.c;xref:0x1457bb3f0	V1239 claims 6/7
+2026-10-29	en-verify	func	Game_Engineer_OnRedFlagWithdrawn	L2	agree	decomp:re/decomp/142a53aa0.c;xref:0x142a54c30	V1240 claim 7
+2026-10-29	en-verify	func	Sess_YellowFlagReason_ToString	L2	partial	decomp:re/decomp/1435827f0.c;xref:0x14356d950	V1241 claim 3; param_1 only
