@@ -1249,3 +1249,10 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	v3-verify	func	Sess_RaceStrategy_RedFlagRecompute	L2	partial	xref:0x1436abf80	V1248 R1; +0x170 only local player
 2026-10-29	v3-verify	func	Sess_Strategy_RedFlagRecomputeAll	L2	partial	xref:0x142dfd595	V1249 R2; argument dereferenced
 2026-10-29	v3-verify	func	Sess_RedFlagStrategyCalc_Update	L2	partial	xref:0x142dfd595	V1250 R2; vtable start unverifiable
+2026-10-29	sd-verify	func	Sess_ScStoppedCarAccumulator_Update	L2	partial	xref:0x14362f0c0	V1251 D1; base to both totals, +50 priority only
+2026-10-29	sd-verify	func	Sess_ScDebrisAccumulator_Update	L2	partial	xref:0x1436312d0	V1252 D2; 350 * detached volume fraction
+2026-10-29	sd-verify	func	Sess_ScCond_DeploymentPoints_Update	L2	agree	xref:0x14362f0c0	V1253 D3
+2026-10-29	sd-verify	func	Sess_ScCond_DeploymentFrequency_Update	L2	partial	xref:0x14362f0c0	V1254 D4; timer semantics, lap_threshold not here
+2026-10-29	sd-verify	func	Sess_ScCond_ReturnVsc_Update	L2	partial	xref:0x14363a4b0	V1255 D5; extra return conditions
+2026-10-29	sd-verify	func	Sess_ScCond_MaxLapsCompleted_Read	L2	agree	xref:0x145853c80	V1256 D6
+2026-10-29	sd-verify	func	Sess_ScCond_DynamicObstruction_Update	L2	agree	xref:0x143631bd0	V1257 D7
