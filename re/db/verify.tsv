@@ -1264,3 +1264,14 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	fb-verify	func	Sess_Restart_SessionSystems	L2	partial	xref:0x142d892d0	V1263 C6 behaviour agree, class name not provable
 2026-10-29	fb-verify	global	vt_Game_MessageFlashbackUsed	L1	agree	xref:0x142da2a3a	V1264 C5 getName 0x142c88930
 2026-10-29	fb-verify	func	Sess_Register_RaceRecordables	L2	agree	xref:0x1407f7320	V1265 C1 94 registrations (hub_names.txt)
+2026-10-29	carlive-verify	func	Car_Update	L2	partial	xref:0x144740b60;xref:0x144740783	V1266 C1 substep loop call confirmed; clamp only on the speed branch (jbe 0x14474053a/0x14474056f skips it); per-frame per-car unproven statically
+2026-10-29	carlive-verify	func	Car_Steering_Update	L1	agree	xref:0x1446a7979	V1267 C2 per-side fraction caps min(f,1)*Lock and Ackermann outer wheel
+2026-10-29	carlive-verify	func	Car_GearBox_Update	L1	agree	xref:0x1446a6c46	V1268 C3 gb+0x698 formula; gb+0xe8 plain (not XOR); car+0x1c0 clutch label unproven
+2026-10-29	carlive-verify	func	Car_Powertrain_Step	L1	partial	xref:0x1446e3a27;xref:0x1446e3e3d	V1269 C4/C5 turbo MaxBoost read only in mode 2; diff multiples read plain; every substep unproven
+2026-10-29	carlive-verify	func	Car_Read_Engine	L1	partial	xref:0x144686154	V1270 C4 TurboMode parser stores Engine-def +0x21f0 (powertrain sees +0x2208 via +0x18 shift)
+2026-10-29	carlive-verify	func	Car_Diff_ApplyTuning	L1	partial	xref:0x14467e010	V1271 C5 writer is a jmp stub into .data1, write side not verifiable statically
+2026-10-29	carlive-verify	func	Car_BodyDamage_OnCollision	L2	partial	xref:0x14465162e	V1272 C6 0.0003 const sole ref; no unique func_start sig
+2026-10-29	carlive-verify	global	k_Car_BodyDamage_ImpulseScale	L1	agree	xref:0x14465162e	V1273 C6 value 0.0003f, sole reference
+2026-10-29	carlive-verify	func	Car_FrontWing_OnCollision	L1	partial	xref:0x144660096	V1274 C6 +0x2c read; class name by adjacency only
+2026-10-29	carlive-verify	func	Car_SuspDamage_OnCollision	L1	partial	xref:0x144654e98	V1275 C6 +0x128 read; class name by adjacency only
+2026-10-29	carlive-verify	func	Car_SuspDamage_UpdateJointLimits	L1	partial	xref:0x144656442	V1276 C6 +0x128 reads; registered only from .data1
