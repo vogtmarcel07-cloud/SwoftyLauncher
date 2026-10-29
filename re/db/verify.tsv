@@ -1226,3 +1226,10 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-29	cf-verify	func	Game_Set_VehicleController_Thunk	L2	agree	decomp:re/decomp/14389cc90.c;xref:0x1519eb350	V1225 claim 6
 2026-10-29	cf-verify	func	Game_Assists_SetTyreTempFreeze	L1	partial	decomp:re/decomp/1424238a0.c	V1226 claim 7; value from local, names H
 2026-10-29	cf-verify	func	Game_Season_ApplyDamageModeFlags	L1	partial	decomp:re/decomp/143099190.c	V1227 claim 8; writes rules record not car
+2026-10-29	bt-verify	func	Car_Contact_ReadTunables	L2	partial	decomp:re/decomp/142f04ec0.c;xref:0x142f04040	V1228 claim 1; 12 slots, copies to 0x146081100..
+2026-10-29	bt-verify	func	Car_Contact_ModifyVehicle	L2	agree	decomp:re/decomp/142f04040.c;xref:0x142f0435c	V1229 claims 1/2 gates
+2026-10-29	bt-verify	func	Car_Contact_InstallBodyFilters	L2	agree	decomp:re/decomp/142f06740.c;xref:0x142f0689c	V1230 claim 3
+2026-10-29	bt-verify	func	Game_AutoResetToTrack_Init	L2	agree	decomp:re/decomp/142f00a70.c;xref:0x142f01210	V1231 claim 4
+2026-10-29	bt-verify	func	Game_PauseMenu_ResetToTrackCfg	L2	agree	decomp:re/decomp/142bb7020.c;xref:0x1457cb8c0	V1232 claim 5
+2026-10-29	bt-verify	func	Car_Update	L2	partial	decomp:re/decomp/14473fd80.c;xref:0x144740efc	V1233 claim 6; 6 legal types when 9f28 == 0
+2026-10-29	bt-verify	func	Game_OffTrack_StuckMonitor	L2	agree	decomp:re/decomp/142521230.c;xref:0x144740efc	V1234 claim 7
