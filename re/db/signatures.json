@@ -105098,6 +105098,60 @@
     }
    ],
    "used_by": []
+  },
+  {
+   "id": "render.model_component_vtable",
+   "section": ".xtls",
+   "pattern": "48 8D 15 ?? ?? ?? ?? 48 89 10 48 8D 15 ?? ?? ?? ?? 48 89 50 18 48 8D 15 ?? ?? ?? ?? 48 89 50 20 48 8D 15",
+   "match": "0x1444e0243",
+   "anchor": "0x3",
+   "resolve": {
+    "kind": "riprel",
+    "insn": "0x0",
+    "len": 7
+   },
+   "target": "0x145a908a0",
+   "kind": "data",
+   "names": [
+    "vt_Render_ModelComponent"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": [
+    "addons/wet-track"
+   ]
+  },
+  {
+   "id": "game.car_monitor_container_handle_fullscreen",
+   "section": ".xtls",
+   "pattern": "56 57 53 48 83 EC 40 48 89 CE 48 8B 81 28 09 00",
+   "match": "0x141f79580",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x141f79580",
+   "kind": "func_start",
+   "names": [
+    "Game_CarMonitorContainer_HandleFullscreen"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": [
+    "addons/red-flag-pit"
+   ]
   }
  ]
 }
