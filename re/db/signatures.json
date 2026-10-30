@@ -102216,7 +102216,7 @@
    "target": "0x1427b80d0",
    "kind": "func_start",
    "names": [
-    "Game_Parse_EventRestrictionJson"
+    "Game_Parse_EventRuleRestrictionsJson"
    ],
    "verified": [
     {
@@ -102264,7 +102264,7 @@
    "target": "0x14283c3a0",
    "kind": "func_start",
    "names": [
-    "Game_Strategy_ReadBool4ArrayMask"
+    "Game_Json_ReadBool4ArrayMask_PerTyre"
    ],
    "verified": [
     {
@@ -102312,7 +102312,7 @@
    "target": "0x143286ae0",
    "kind": "func_start",
    "names": [
-    "Game_Trophies_ParseAwardsJson"
+    "Game_Trophies_ParseAwardJsonToShared"
    ],
    "verified": [
     {
@@ -102600,7 +102600,7 @@
    "target": "0x144445db0",
    "kind": "func_start",
    "names": [
-    "Game_Neos_SignalRReadStatusInt"
+    "Game_Neos_SignalRCheckStatusEquals"
    ],
    "verified": [
     {
