@@ -75008,6 +75008,176 @@
     }
    ],
    "used_by": []
+  },
+  {
+   "id": "session.sc_cond_off_track_update",
+   "section": ".xtls",
+   "pattern": "56 57 55 53 48 8B 51 10 48 8B 41 18 48 39 C2 74 73 49 89 C0",
+   "match": "0x143635200",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x143635200",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScCond_OffTrack_Update"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "session.sc_cond_min_laps_out_update",
+   "section": ".xtls",
+   "pattern": "56 57 53 48 8B 51 10 48 8B 41 18 48 39 C2 74 74",
+   "match": "0x143636870",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x143636870",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScCond_MinLapsOut_Update"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "session.sc_cond_pit_area_clear_update",
+   "section": ".xtls",
+   "pattern": "56 48 89 C8 48 8B 51 10 48 8B 49 18 48 39 CA 74",
+   "match": "0x1436373d0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x1436373d0",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScCond_PitAreaClear_Update"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "session.sc_state_vsc_enter",
+   "section": ".xtls",
+   "pattern": "56 57 48 83 EC 48 C5 F8 29 7C 24 30 C5 F8 29 74 24 20 80 7A",
+   "match": "0x14363a4b0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14363a4b0",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScState_Vsc_Enter"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "session.sc_state_deploy_enter",
+   "section": ".xtls",
+   "pattern": "48 83 EC 48 48 89 C8 48 8B 49 58 44 0F B6 81 08",
+   "match": "0x143645670",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x143645670",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScState_Deploy_Enter"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "session.sc_state_deploy_exit",
+   "section": ".xtls",
+   "pattern": "48 8B 41 48 48 8B 4A 18 48 8B 49 58 48 85 C9 74",
+   "match": "0x143646270",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x143646270",
+   "kind": "mid",
+   "names": [
+    "Sess_ScState_Deploy_Exit"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": [],
+   "func_start": "0x143646270",
+   "expect": "48 8B 41 48 48 8B"
+  },
+  {
+   "id": "session.sc_state_deploy_read_tunables",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 54 56 57 55 53 48 BF 34 CA 4D 5F",
+   "match": "0x143646320",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x143646320",
+   "kind": "func_start",
+   "names": [
+    "Sess_ScState_Deploy_ReadTunables"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
   }
  ]
 }

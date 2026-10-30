@@ -1396,3 +1396,27 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-30	sb3-verify-b	func	Sess_DriveThroughPenalty_SendData	L1	agree	decomp:re/decomp/1435a7200.c;xref:0x1435a7200	V1395 channel and format confirmed
 2026-10-30	sb3-verify-b	func	Sess_DriveThroughPenalty_SendData_2	L1	agree	decomp:re/decomp/1435a9070.c;xref:0x1435a9070	V1396 channel and format confirmed
 2026-10-30	sb3-verify-b	func	Sess_Misconduct_RemoveWatchedIncident	L1	partial	decomp:re/decomp/1435b1550.c;xref:0x1435b1550	V1397 Role and Blue Flag/mask [+0x40]+0x548 hold; but ([+0x218]+0x14) bit is a pit-wall-side mask ('On Opposite Sides Of Pit Wall'), not a class bit; flag 0x40 (record+0x30 xor) = 'In Opposite Pitting States'; bVar4 lap/distance compare = 'Position Handed Back'
+2026-10-30	sb4-verify	func	Sess_MultipleWarningsPenalty_SendData_2	L1	agree	decomp:re/decomp/1435b7240.c;xref:0x14584ee40	V1398 channel+fmt strings match; message 0xb2 send
+2026-10-30	sb4-verify	func	Sess_Misconduct_CheckEnvironmentContact	L1	agree	decomp:re/decomp/1435baf40.c;xref:0x145803613	V1399 MISCONDUCT + both format strings match
+2026-10-30	sb4-verify	func	Sess_SafetyCarEmergencyGhosting_Init	L1	agree	decomp:re/decomp/1435c27d0.c;xref:0x14584dbd8	V1400 vtable slot0; stores matched entry [2] at +0x98 (key global 0x145f96c98)
+2026-10-30	sb4-verify	func	Sess_SpeedLimitPenalty_ReceiveData	L1	agree	decomp:re/decomp/1435c5070.c;xref:0x14584debd	V1401 strings match
+2026-10-30	sb4-verify	func	Sess_SpeedLimitPenalty_SendData	L1	agree	decomp:re/decomp/1435c55d0.c;xref:0x14584ee80	V1402 strings match
+2026-10-30	sb4-verify	func	Sess_StopGoPenalty_ReceiveData	L1	agree	decomp:re/decomp/1435c6a40.c;xref:0x14584e0bf	V1403 strings match
+2026-10-30	sb4-verify	func	Sess_StopGoPenalty_SendData	L1	agree	decomp:re/decomp/1435c6ef0.c;xref:0x14584e0bf	V1404 strings match
+2026-10-30	sb4-verify	func	Sess_StopGoPenalty_SendData_2	L1	agree	decomp:re/decomp/1435c76a0.c;xref:0x14584e0bf	V1405 strings match
+2026-10-30	sb4-verify	func	Sess_Misconduct_CheckWallRiding	L1	agree	decomp:re/decomp/1435ca400.c;xref:0x145803613	V1406 strings match
+2026-10-30	sb4-verify	func	Sess_Build_SafetyCarLogicGraph	L1	partial	decomp:re/decomp/1435f81a0.c;xref:0x1435f906b	V1407 states/transitions ok; vtable store at 906b ok. AheadOfLead (key 0x145f96c98) is attached only to Deploy_To_Group (block 4620); Pacing_To_Return gets 0x145f968c0 + Cars Grouped (0x145f96ca8), not AheadOfLead
+2026-10-30	sb4-verify	func	Sess_SafetyCarDeployment_PreSessionRestart	L1	agree	decomp:re/decomp/143608ed0.c;xref:0x14584ee40	V1408 string+channel match
+2026-10-30	sb4-verify	func	Sess_SafetyCarDeployment_OnSessionRestart	L1	agree	decomp:re/decomp/143608f50.c;xref:0x14584ee40	V1409 string+channel match
+2026-10-30	sb4-verify	func	Sess_SafetyCarTether_Update	L1	partial	decomp:re/decomp/14360d700.c;xref:0x145851068	V1410 offsets +0x18/+0x20/+0x69, 0x108 1/2, attach aff0 detach b550 receive d4d0 ok; send is 0x143610340 only - 0x14360bf30 is onPlayerDriverChanged
+2026-10-30	sb4-verify	func	Sess_SafetyCarLogic_Subscribe	L1	agree	decomp:re/decomp/1436156c0.c;xref:0x1436720db	V1411 5 subscriptions match
+2026-10-30	sb4-verify	func	Sess_RC_HandleAheadOfLeadData	L1	agree	decomp:re/decomp/14361c620.c;xref:0x145857c60	V1412 stores msg+0x10/+0x18 into per-vehicle 0xc entries; logs 'Recievied Ahead of lead'
+2026-10-30	sb4-verify	func	Sess_RC_SendAheadOfLeadData	L1	agree	decomp:re/decomp/14361dac0.c;xref:0x145857c60	V1413 msg id 0x8f, name string at 0x145857c88
+2026-10-30	sb4-verify	func	Sess_Read_DeploymentPoints	L1	agree	decomp:re/decomp/14362f0c0.c;xref:0x145858410	V1414 key prefix built on stack incl deployment_points_track_entry; entry chosen by track name hash, fallback 'default' ('monaco' not in code); race length key from table 0x145858410 via +0x6c; keys ok
+2026-10-30	sb4-verify	func	Sess_ScCond_OffTrack_Update	L1	agree	decomp:re/decomp/143635200.c;xref:0x145853b50	V1415 vtable 145853b40 slot2; all four hold tests match
+2026-10-30	sb4-verify	func	Sess_ScCond_MinLapsOut_Update	L1	agree	decomp:re/decomp/143636870.c;xref:0x145853d40	V1416 vtable slot2; compare ok, a7c cleared only on success
+2026-10-30	sb4-verify	func	Sess_ScCond_PitAreaClear_Update	L1	agree	decomp:re/decomp/1436373d0.c;xref:0x145853e80	V1417 vtable slot2; mask +0x40; holds all entries when no car in range (also filters +0x32<0x40)
+2026-10-30	sb4-verify	func	Sess_ScState_Vsc_Enter	L1	partial	decomp:re/decomp/14363a4b0.c;xref:0x1435fc5a1	V1418 formulas ok (b54, b60, b48=-1). event+0x1c is a BYTE==2 check here (trigger: +0x18==3); override is global int 0xb64 (>0, then -1), which siblings 14363a5b0/6a0 store from event+0x1c
+2026-10-30	sb4-verify	func	Sess_ScState_Deploy_Enter	L1	agree	decomp:re/decomp/143645670.c;xref:0x145855070	V1419 msg +0x10 entry,+0x14 vehicle,+0x18 phase 0,+0x1c type 1,+0x1d kind (4 for VSC upgrade)
+2026-10-30	sb4-verify	func	Sess_ScState_Deploy_Exit	L1	agree	decomp:re/decomp/143646270.c;xref:0x145855078	V1420 all offsets and masks match (0xffffbf7f when tunable<=0)
+2026-10-30	sb4-verify	func	Sess_ScState_Deploy_ReadTunables	L1	agree	decomp:re/decomp/143646320.c;xref:0x145855060	V1421 vtable slot2; table 0x146cc4278; bfc and 1460ff710 mph->m/s
