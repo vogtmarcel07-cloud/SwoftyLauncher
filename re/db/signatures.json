@@ -26162,7 +26162,7 @@
    "target": "0x1442493e0",
    "kind": "func_start",
    "names": [
-    "Ne_UINodeBase_NeUICommunicationMessageType"
+    "Ne_UINodeBase_OnVMSetDataContext"
    ],
    "verified": [
     {
@@ -26186,7 +26186,7 @@
    "target": "0x1442fc290",
    "kind": "func_start",
    "names": [
-    "Ne_UIElementBase_NeUICommunicationMessageType"
+    "Ne_UIElementBase_HandleCommunicationMessage"
    ],
    "verified": [
     {
@@ -26282,7 +26282,7 @@
    "target": "0x1443bbd20",
    "kind": "func_start",
    "names": [
-    "Ne_AnimSetResource_Construct"
+    "Ne_AnimSetResourceFactory_CreateResource"
    ],
    "verified": [
     {
@@ -32210,7 +32210,7 @@
    "target": "0x14414cdd0",
    "kind": "func_start",
    "names": [
-    "Ne_SaveSystem2Win_ReadSecurityInfoFile"
+    "Ne_SaveSystem2Win_ProcessSerialiserActions"
    ],
    "verified": [
     {
@@ -35114,7 +35114,7 @@
    "target": "0x1445cd9d0",
    "kind": "func_start",
    "names": [
-    "Ne_Replay_RegisterRecordable"
+    "Ne_ReplayRecordable_ReadFrom"
    ],
    "verified": [
     {
@@ -35138,7 +35138,7 @@
    "target": "0x1445c41a0",
    "kind": "func_start",
    "names": [
-    "Ne_ReplayBuffer_FindBasePositions"
+    "Ne_ReplayBuffer_GetOldestValidPosition"
    ],
    "verified": [
     {
@@ -43554,7 +43554,7 @@
    "target": "0x144141c00",
    "kind": "func_start",
    "names": [
-    "Ne_SaveSystem2Win_WriteInfoXml"
+    "Ne_SaveSystem2Win_BuildSavePackageAndInfoXml"
    ],
    "verified": [
     {
@@ -49362,7 +49362,7 @@
    "target": "0x1445aa000",
    "kind": "func_start",
    "names": [
-    "Ne_ParameterStudio_CountInstances"
+    "Ne_ParameterStudio_ReserveInstancePools"
    ],
    "verified": [
     {
@@ -77448,6 +77448,246 @@
    "kind": "func_start",
    "names": [
     "Ne_PhysBody_ApplyImpulse"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.presence_name_resolver_e_a_d_p_update_to_resolve_list",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 81 EC 08 01 00 00 48 8B 41 70 48",
+   "match": "0x1441266b0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x1441266b0",
+   "kind": "func_start",
+   "names": [
+    "Ne_PresenceNameResolverEADP_UpdateToResolveList"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.presence_name_resolver_e_a_d_p_on_batch_player_cards_request_complete",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 81 EC 28 02 00 00 C5 F8 29 B4 24 10 02 00 00 4C 89 8C 24 70 01 00 00",
+   "match": "0x144127cc0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x144127cc0",
+   "kind": "func_start",
+   "names": [
+    "Ne_PresenceNameResolverEADP_OnBatchPlayerCardsRequestComplete"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.presence_name_resolver_e_a_d_p_update_to_resolve_list_lambda",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 56 57 53 48 83 EC 40 C5 F8 29 7C 24 30 C5 F8 29 74 24 20 48 89 C8 0F B6",
+   "match": "0x14412a040",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14412a040",
+   "kind": "func_start",
+   "names": [
+    "Ne_PresenceNameResolverEADP_UpdateToResolveList_Lambda"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.presence_name_resolver_fixed_add_name",
+   "section": ".xtls",
+   "pattern": "56 57 53 48 81 EC 20 01 00 00 4C 89 C6 48 89 D7",
+   "match": "0x14412a320",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14412a320",
+   "kind": "func_start",
+   "names": [
+    "Ne_PresenceNameResolverFixed_AddName"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.presence_name_resolver_fixed_start_resolving",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 81 EC 88 01 00 00 31",
+   "match": "0x14412a4d0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14412a4d0",
+   "kind": "func_start",
+   "names": [
+    "Ne_PresenceNameResolverFixed_StartResolving"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.u_i_message_system_on_metadata_asset_cleanup",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC 28 48 83 79 48",
+   "match": "0x1442d98c0",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x1442d98c0",
+   "kind": "func_start",
+   "names": [
+    "Ne_UIMessageSystem_OnMetadataAssetCleanup"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.o_s_operation_handle_register_self",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC 38 4D 89 C4 49 89 D7 49 89",
+   "match": "0x14443c380",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14443c380",
+   "kind": "func_start",
+   "names": [
+    "Ne_OSOperationQueue_StartPendingOperation"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.o_s_operation_handle_unregister_self",
+   "section": ".xtls",
+   "pattern": "56 57 48 83 EC 28 48 89 CE 80 3D ?? ?? ?? ?? 01 75 65 B8 75",
+   "match": "0x14443d110",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14443d110",
+   "kind": "func_start",
+   "names": [
+    "Ne_OSOperationHandle_UnregisterSelf"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.o_s_h_t_t_p_request_and_response_response_handler_cb_http_response",
+   "section": ".xtls",
+   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC 68 4D 89 CD 44",
+   "match": "0x14443f420",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14443f420",
+   "kind": "func_start",
+   "names": [
+    "Ne_OSHTTPRequestAndResponseResponseHandler_CbHttpResponse"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-30",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
+  },
+  {
+   "id": "core.get_c_str_len",
+   "section": ".xtls",
+   "pattern": "48 8B C1 48 F7 D9 48 A9 07 00 00 00 74 0F 66 90",
+   "match": "0x14535e010",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x14535e010",
+   "kind": "func_start",
+   "names": [
+    "Ne_Get_CStrLen"
    ],
    "verified": [
     {
