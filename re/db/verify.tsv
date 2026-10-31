@@ -6903,3 +6903,98 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	ld0-verify	func	0x1446ce000	L1	partial	decomp:re/decomp/1446ce000.c;xref:0x1446cdd02	V6902 grip-limited angle v^2/(grip*9.81) and block fields +0x22dc/+0x239c confirmed; no +0x54 steering_rate_scale access found; caller Car_PadAssist_DriftAssist
 2026-10-31	ld0-verify	func	0x14476efa0	L1	partial	decomp:re/decomp/14476efa0.c;xref:0x14466034f	V6903 generic thread-safe event post (0x18 node, list +0x58/+0x60, CS +0x98, SetEvent +0x90) confirmed but nothing in body is front-wing specific; only caller Car_FrontWing_OnCollision; better name Car_EventQueue_PostEvent
 2026-10-31	ld0-verify	func	0x1447949b0	L1	agree	decomp:re/decomp/1447949b0.c;xref:0x140158971	V6904 clamp +-5000, 4 samples via 0x14479ecc0, tile 0x8000 at +0xc88, cell +0x3f0a1c, default +0x3f0a34 confirmed; callers are Car_Chassis_InitialiseRuntime (listed as Car_Parse_Chassis) + 0x140157d90 + Render_Skidmarks_Update
+2026-10-31	lg0-verify	global	0x141f46f6b	L1	agree	xref:0x141f46f6b;decomp:re/decomp/141f46eb0.c	V6905 bytes and enclosing function match
+2026-10-31	lg0-verify	global	0x142e909e9	L1	agree	xref:0x142e909e9;decomp:re/decomp/142e90560.c	V6906 bytes and enclosing function match
+2026-10-31	lg0-verify	global	0x14465162e	L1	agree	xref:0x14465162e;decomp:re/decomp/1446512c0.c	V6907 bytes and enclosing function match
+2026-10-31	lg0-verify	global	0x145624020	L1	agree	xref:0x140385ae8;decomp:re/decomp/140385760.c	V6908 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14565c1f8	L1	agree	xref:0x14071fa12;decomp:re/decomp/141322d00.c	V6909 content and refs match
+2026-10-31	lg0-verify	global	0x14565cee0	L1	agree	xref:0x14071e6c7;decomp:re/decomp/14071e470.c	V6910 table content and refs match
+2026-10-31	lg0-verify	global	0x14570ddd8	L1	agree	xref:0x14174e589	V6911 table content and refs match
+2026-10-31	lg0-verify	global	0x14570ddf0	L1	agree	xref:0x14174e5a8	V6912 table content and refs match
+2026-10-31	lg0-verify	global	0x14571b340	L1	agree	xref:0x1417f80ce;decomp:re/decomp/1417f8090.c	V6913 table content and refs match
+2026-10-31	lg0-verify	global	0x145735d60	L1	agree	xref:0x141979a22;decomp:re/decomp/141f41d60.c	V6914 table content and refs match
+2026-10-31	lg0-verify	global	0x145736548	L1	agree	xref:0x1419bf5a3	V6915 table content and refs match
+2026-10-31	lg0-verify	global	0x145740ac0	L1	agree	xref:0x141c865de;decomp:re/decomp/141c85f70.c	V6916 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145755e58	L1	agree	xref:0x141c495e9	V6917 table content and refs match
+2026-10-31	lg0-verify	global	0x14575e000	L1	agree	xref:0x142170b21	V6918 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14575e300	L1	agree	xref:0x141c43327;decomp:re/decomp/141c43290.c	V6919 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14576f5d8	L1	agree	xref:0x141f3dac8	V6920 table content and refs match
+2026-10-31	lg0-verify	global	0x145784c18	L1	agree	xref:0x1422e60ea	V6921 table content and refs match
+2026-10-31	lg0-verify	global	0x145784d80	L1	agree	xref:0x1422fef31	V6922 table content and refs match
+2026-10-31	lg0-verify	global	0x1457d31d0	L1	agree	xref:0x142c7573c;decomp:re/decomp/142d9bf60.c	V6923 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457d4030	L1	agree	xref:0x142da2a3d;decomp:re/decomp/142da2760.c	V6924 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457de6c0	L1	agree	xref:0x142db2fbe	V6925 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e02c0	L1	agree	xref:0x142dc4e73	V6926 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e0920	L1	agree	xref:0x142db4e3f	V6927 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e1260	L1	agree	xref:0x142db5501	V6928 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e2690	L1	agree	xref:0x142db648e	V6929 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e35c0	L1	agree	xref:0x142dca571	V6930 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e36d0	L1	agree	xref:0x142d99fd4	V6931 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e4680	L1	agree	xref:0x142db8911	V6932 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e48d0	L1	agree	xref:0x142dae3bd	V6933 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e49b0	L1	agree	xref:0x142db8ebe	V6934 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e4ab0	L1	agree	xref:0x142dbcb0f	V6935 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e6c90	L1	agree	xref:0x142dbc5c2	V6936 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e8560	L1	agree	xref:0x142dbc74e	V6937 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e8660	L1	agree	xref:0x142dbcad6	V6938 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e89b0	L1	agree	xref:0x142df8e33	V6939 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x1457e8a80	L1	agree	xref:0x142df8e04	V6940 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14583d5f0	L1	agree	xref:0x1407e767c	V6941 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145845b90	L1	agree	xref:0x1434bc64f;decomp:re/decomp/1434bc540.c	V6942 content and refs match
+2026-10-31	lg0-verify	global	0x14584b0d0	L1	agree	xref:0x1407f4b5b	V6943 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14584ed08	L1	agree	xref:0x1435840b7;decomp:re/decomp/143583fb0.c	V6944 content and refs match
+2026-10-31	lg0-verify	global	0x14584ed88	L1	agree	xref:0x1435b1b0f;decomp:re/decomp/1435b1550.c	V6945 content and refs match
+2026-10-31	lg0-verify	global	0x14584f6b8	L1	partial	xref:0x14353a3e8	V6946 19 type strings ok; the 0x14534d918/UNK_14566fd16 compare path and unknown->0 not verified
+2026-10-31	lg0-verify	global	0x14584f880	L1	agree	xref:0x143539c73;decomp:re/decomp/14353b030.c	V6947 table content and refs match
+2026-10-31	lg0-verify	global	0x145853950	L1	agree	xref:0x1435fb3de;decomp:re/decomp/1435f81a0.c	V6948 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a1a0	L1	agree	xref:0x1437b3b6e	V6949 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a310	L1	agree	xref:0x14084394f	V6950 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a470	L1	agree	xref:0x140843b4d	V6951 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a530	L1	agree	xref:0x140843cc1	V6952 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a660	L1	agree	xref:0x1437b42ee	V6953 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585a780	L1	agree	xref:0x1437b43d3	V6954 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585ab10	L1	agree	xref:0x1437b4831	V6955 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585aba0	L1	agree	xref:0x1437b4aae	V6956 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585ac40	L1	agree	xref:0x1437b4b8e	V6957 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585acf0	L1	agree	xref:0x1437b4c6e	V6958 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585adb0	L1	agree	xref:0x1437b4e6f	V6959 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585b6a0	L1	agree	xref:0x1437b512e	V6960 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585bd40	L1	agree	xref:0x14083fca1	V6961 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585bff0	L1	agree	xref:0x1437b562e	V6962 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585c0c0	L1	agree	xref:0x140842071	V6963 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585c5d0	L1	agree	xref:0x1437b57de	V6964 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585c960	L1	agree	xref:0x1437b5a5f	V6965 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585ca00	L1	agree	xref:0x1408408ec	V6966 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585cad0	L1	agree	xref:0x140840a71	V6967 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585cbb0	L1	agree	xref:0x1437b5e2e	V6968 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585cdb0	L1	agree	xref:0x140841bf1	V6969 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585cf50	L1	agree	xref:0x1437c0c6d	V6970 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585dd70	L1	agree	xref:0x1436effaa	V6971 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585de10	L1	agree	xref:0x1436f0e2a	V6972 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585de90	L1	agree	xref:0x1408418a1	V6973 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585e300	L1	agree	xref:0x1437b6771	V6974 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585e450	L1	agree	xref:0x1437b6c81	V6975 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585e5d0	L1	agree	xref:0x1437b6fbf	V6976 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585e9d0	L1	agree	xref:0x1437b70fe	V6977 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585eaf0	L1	agree	xref:0x1437b71e1	V6978 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585eba0	L1	agree	xref:0x140845ac1	V6979 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585ee10	L1	agree	xref:0x1436fb130	V6980 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585eee0	L1	agree	xref:0x140842476	V6981 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585efd0	L1	agree	xref:0x140842447	V6982 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585f0a0	L1	agree	xref:0x140842632	V6983 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585f170	L1	agree	xref:0x140842782	V6984 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585f310	L1	agree	xref:0x140842221	V6985 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585f5d0	L1	agree	xref:0x1437b846f	V6986 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585f990	L1	agree	xref:0x1437b897f	V6987 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585fa50	L1	agree	xref:0x1437b8adf	V6988 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x14585fba0	L1	agree	xref:0x1437b8c51	V6989 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145884850	L1	agree	xref:0x142d31ef1	V6990 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145a66ba0	L1	agree	xref:0x14435334c	V6991 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145a6cb50	L1	agree	xref:0x14432f16f	V6992 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145a908a0	L1	agree	xref:0x1444d118f	V6993 name/class, slots and refs match
+2026-10-31	lg0-verify	global	0x145bf68d0	L1	agree	xref:0x144651632;decomp:re/decomp/1446512c0.c	V6994 table content and refs match
+2026-10-31	lg0-verify	global	0x145faa638	L1	agree	xref:0x144700c2b;decomp:re/decomp/1447006f0.c	V6995 content and refs match
+2026-10-31	lg0-verify	global	0x145faa63c	L1	partial	xref:0x144700c49;decomp:re/decomp/1447006f0.c	V6996 1.25 default and use in TyreForceReal_Update ok; param string frictionWetMultiple not seen referenced at the store site
+2026-10-31	lg0-verify	global	0x146ca0e90	L1	agree	xref:0x1406a7458;decomp:re/decomp/1407a1870.c	V6997 table content and refs match
+2026-10-31	lg0-verify	global	0x146ca1600	L1	agree	xref:0x142ca92fc	V6998 content and refs match
+2026-10-31	lg0-verify	global	0x146ca5500	L1	agree	xref:0x1406a73c0	V6999 content and refs match
