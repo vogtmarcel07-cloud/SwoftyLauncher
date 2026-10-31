@@ -23258,7 +23258,7 @@
    "target": "0x1431717c0",
    "kind": "func_start",
    "names": [
-    "Game_Error_Confused"
+    "Game_NetworkLeagues_UpdateStateMachine"
    ],
    "verified": [
     {
@@ -30938,7 +30938,7 @@
    "target": "0x14328ec60",
    "kind": "func_start",
    "names": [
-    "Game_Vm_UserId"
+    "Game_UserGamerPic_CreateTexture"
    ],
    "verified": [
     {
@@ -38090,7 +38090,7 @@
    "target": "0x1434b3fd0",
    "kind": "func_start",
    "names": [
-    "Game_Analytics_Flushing"
+    "Game_LoadingTimes_EndAssetGroupRegion"
    ],
    "verified": [
     {
@@ -43626,7 +43626,7 @@
    "target": "0x14364a730",
    "kind": "func_start",
    "names": [
-    "Game_CompressedSave_AddWriteRequest"
+    "Game_CompressedSave_GetNextAction"
    ],
    "verified": [
     {
@@ -45258,7 +45258,7 @@
    "target": "0x143526e60",
    "kind": "func_start",
    "names": [
-    "Career_Upgrades_CheckDualDevelopment"
+    "Career_Upgrades_FilterDualDevelopment"
    ],
    "verified": [
     {
@@ -49434,7 +49434,7 @@
    "target": "0x14316c790",
    "kind": "func_start",
    "names": [
-    "Game_PlayerSet_DiscardPlayer"
+    "Game_PlayerSetSubsystem_UpdatePlayerSetIDs"
    ],
    "verified": [
     {
@@ -51810,7 +51810,7 @@
    "target": "0x1432952c0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OnlineServicesConfig"
+    "Game_F1os_InitOnlineServices"
    ],
    "verified": [
     {
@@ -51858,7 +51858,7 @@
    "target": "0x1434b3190",
    "kind": "func_start",
    "names": [
-    "Game_Read_PerformanceMonitoringConfig"
+    "Game_PerformanceMonitoring_Init"
    ],
    "verified": [
     {
@@ -51882,7 +51882,7 @@
    "target": "0x14365a8b0",
    "kind": "func_start",
    "names": [
-    "Game_Read_GameConfig_6"
+    "Game_SaveSystem_Init"
    ],
    "verified": [
     {
@@ -51906,7 +51906,7 @@
    "target": "0x1436c5ef0",
    "kind": "func_start",
    "names": [
-    "Game_Read_GameConfig_7"
+    "Game_DriverHqIntro_UpdateQueue"
    ],
    "verified": [
     {
@@ -51930,7 +51930,7 @@
    "target": "0x1436e7dc0",
    "kind": "func_start",
    "names": [
-    "Game_Read_NetworkConfig_4"
+    "Game_ReadyMonitor_InitPolicyAndBindSessionNodes"
    ],
    "verified": [
     {
@@ -55314,7 +55314,7 @@
    "target": "0x14315ae90",
    "kind": "func_start",
    "names": [
-    "Game_GameSessionMatchingAttribs_UpdateRatings"
+    "Game_GameSessionMatchingAttribs_Update"
    ],
    "verified": [
     {
@@ -56322,7 +56322,7 @@
    "target": "0x143297080",
    "kind": "func_start",
    "names": [
-    "Game_OnlineTaskBase_CreateErrorFromJSON"
+    "Game_F1os_HandleHttpRequestResult"
    ],
    "verified": [
     {
@@ -60762,7 +60762,7 @@
    "target": "0x1436ea400",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_UpdateSpectatorSkip"
+    "Game_StateReadyMonitor_OnStateUpdate"
    ],
    "verified": [
     {
@@ -60810,7 +60810,7 @@
    "target": "0x1436f1bf0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_CanJoinLobbyWatching"
+    "Game_NetworkReady_SelectJoinLobbyLink"
    ],
    "verified": [
     {
@@ -66762,7 +66762,7 @@
    "target": "0x1430fe110",
    "kind": "func_start",
    "names": [
-    "Game_NetworkOSSession_SentFirstSessionMessageConnection"
+    "Game_NetworkOSSession_SendSessionMessageToConnection"
    ],
    "verified": [
     {
@@ -66834,7 +66834,7 @@
    "target": "0x1430ffb70",
    "kind": "func_start",
    "names": [
-    "Game_NetworkOSSession_PreviousSessionLeft"
+    "Game_NetworkOSSession_OnPreviousSessionLeaveResult"
    ],
    "verified": [
     {
@@ -66858,7 +66858,7 @@
    "target": "0x1431005a0",
    "kind": "func_start",
    "names": [
-    "Game_Datasync_ReceivedStartMessageAs"
+    "Game_Datasync_HandleStartMessage"
    ],
    "verified": [
     {
@@ -66882,7 +66882,7 @@
    "target": "0x143100c40",
    "kind": "func_start",
    "names": [
-    "Game_Datasync_GotHashExchangeStaleCookie"
+    "Game_Datasync_HandleHashExchangeMessage"
    ],
    "verified": [
     {
@@ -66906,7 +66906,7 @@
    "target": "0x1431033e0",
    "kind": "func_start",
    "names": [
-    "Game_Datasync_GotDataRequestStaleCookie"
+    "Game_Datasync_HandleDataRequestMessage"
    ],
    "verified": [
     {
@@ -67002,7 +67002,7 @@
    "target": "0x1431041a0",
    "kind": "func_start",
    "names": [
-    "Game_Datasync_FinishingSyncImmediatelyAsOffline"
+    "Game_Datasync_StartSyncSession"
    ],
    "verified": [
     {
@@ -67026,7 +67026,7 @@
    "target": "0x143105150",
    "kind": "func_start",
    "names": [
-    "Game_Datasync_SyncCookiePeerIgnoredAsReachedMax"
+    "Game_Datasync_LogPeerSyncIgnored"
    ],
    "verified": [
     {
@@ -67050,7 +67050,7 @@
    "target": "0x14310c1d0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_PlayerTeamTeamPositionCarNumber"
+    "Game_NetworkEntrants_RegisterEntrant"
    ],
    "verified": [
     {
@@ -67122,7 +67122,7 @@
    "target": "0x143110b90",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_EntrantChangeTeamsReHost"
+    "Game_NetworkEntrants_HandleEntrantsDocumentMessageRequest"
    ],
    "verified": [
     {
@@ -67194,7 +67194,7 @@
    "target": "0x143116ca0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_PlayerAlreadyEntrantDoNothing"
+    "Game_NetworkEntrants_TryRegisterEntrant"
    ],
    "verified": [
     {
@@ -67218,7 +67218,7 @@
    "target": "0x1431239f0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_ReceivedUpdateMessageAttributeSet"
+    "Game_AttributeSetReplicationManager_HandleAttributeSetUpdate"
    ],
    "verified": [
     {
@@ -67242,7 +67242,7 @@
    "target": "0x143130280",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_ReplicatedDriverCreation"
+    "Game_NetworkEntrants_AddReplicatedPlayerDriver"
    ],
    "verified": [
     {
@@ -67386,7 +67386,7 @@
    "target": "0x143148760",
    "kind": "func_start",
    "names": [
-    "Game_NetworkJournal_ValidJournalEntries"
+    "Game_NetworkJournal_SendValidEntriesMessage"
    ],
    "verified": [
     {
@@ -67410,7 +67410,7 @@
    "target": "0x1431491f0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkJournal_SupportedIfNESmoketestEnabled"
+    "Game_NetworkJournal_SendCreateEntryMessage"
    ],
    "verified": [
     {
@@ -67458,7 +67458,7 @@
    "target": "0x143154850",
    "kind": "func_start",
    "names": [
-    "Game_NetworkMatching_OneDoneMatchingStartsTimerAuto"
+    "Game_NetworkMatching_OneAndDoneQuitSession"
    ],
    "verified": [
     {
@@ -67506,7 +67506,7 @@
    "target": "0x1431588e0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkMatching_OneDoneMatchingBeenDisabled"
+    "Game_NetworkMatching_OneAndDoneEvaluateWeekend"
    ],
    "verified": [
     {
@@ -67554,7 +67554,7 @@
    "target": "0x14315a450",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLeagues_MigrationGroupSizeDecreased"
+    "Game_NetworkLeagues_MigrationGroupSizeChanged"
    ],
    "verified": [
     {
@@ -67578,7 +67578,7 @@
    "target": "0x14315a700",
    "kind": "func_start",
    "names": [
-    "Game_NetworkMatching_ClientLeavingSession"
+    "Game_NetworkMatching_UpdateLeave"
    ],
    "verified": [
     {
@@ -67602,7 +67602,7 @@
    "target": "0x14315d880",
    "kind": "func_start",
    "names": [
-    "Game_Network_CategoryOptionUsing"
+    "Game_NetworkMatching_SetupFromUnranked"
    ],
    "verified": [
     {
@@ -67626,7 +67626,7 @@
    "target": "0x143161030",
    "kind": "func_start",
    "names": [
-    "Game_InviteManager_SessionInvitationIgnoredRequestID"
+    "Game_InviteManager_OnSessionInvitationReceived"
    ],
    "verified": [
     {
@@ -67650,7 +67650,7 @@
    "target": "0x143161ce0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkInvite_InviteCompletedAs"
+    "Game_InviteManager_Complete"
    ],
    "verified": [
     {
@@ -67674,7 +67674,7 @@
    "target": "0x143163710",
    "kind": "func_start",
    "names": [
-    "Game_SSL_FetchKeyMaterial"
+    "Game_InviteManager_JoinInvite"
    ],
    "verified": [
     {
@@ -67698,7 +67698,7 @@
    "target": "0x143164c90",
    "kind": "func_start",
    "names": [
-    "Game_NetworkInvite_HostConnectionInfo"
+    "Game_InviteManager_JoinHost"
    ],
    "verified": [
     {
@@ -67746,7 +67746,7 @@
    "target": "0x14316d250",
    "kind": "func_start",
    "names": [
-    "Game_Network_ConnectionMissingDiscarding"
+    "Game_PlayerSetSubsystem_SendPlayerSetInfoMessages"
    ],
    "verified": [
     {
@@ -67794,7 +67794,7 @@
    "target": "0x14317e690",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLeagues_IncorrectlyDefinedLeague"
+    "Game_NetworkLeagues_ParseLeagueJson"
    ],
    "verified": [
     {
@@ -67818,7 +67818,7 @@
    "target": "0x143180630",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLeagues_HttpTransactionStatusCode"
+    "Game_NetworkLeagues_HandleHttpResponse"
    ],
    "verified": [
     {
@@ -67842,7 +67842,7 @@
    "target": "0x143180aa0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLeagues_OptionNonStringValue"
+    "Game_NetworkLeagues_ParseLeagueOptions"
    ],
    "verified": [
     {
@@ -67866,7 +67866,7 @@
    "target": "0x143180fa0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLeagues_IncorrectlyDefinedLeagueEvent"
+    "Game_NetworkLeagues_ParseLeagueEventJson"
    ],
    "verified": [
     {
@@ -67890,7 +67890,7 @@
    "target": "0x143184840",
    "kind": "func_start",
    "names": [
-    "Game_NetworkCustomisation_ReceivingNewConnection"
+    "Game_CustomisationReplicationManager_OnNewConnection"
    ],
    "verified": [
     {
@@ -67914,7 +67914,7 @@
    "target": "0x14318d560",
    "kind": "func_start",
    "names": [
-    "Game_NetworkCustomisation_HandlingPlayerLifeDataVehicle"
+    "Game_CustomisationRepl_HandleSegmentedDecalsAdd"
    ],
    "verified": [
     {
@@ -67962,7 +67962,7 @@
    "target": "0x1431a03d0",
    "kind": "func_start",
    "names": [
-    "Game_Network_UploadedUsageRatioNaN"
+    "Game_Network_ParseUploadedBandwidthStats"
    ],
    "verified": [
     {
@@ -67986,7 +67986,7 @@
    "target": "0x1431bf560",
    "kind": "func_start",
    "names": [
-    "Game_NetworkEntrants_FindPlayerSetEntryPlayerConnection"
+    "Game_EntrantReplicationManager_AddReplicatedPlayer"
    ],
    "verified": [
     {
@@ -68010,7 +68010,7 @@
    "target": "0x143223e10",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_LocalPlayerReadySystemEntersReady"
+    "Game_ReadySystem_EnterReadyMonitor"
    ],
    "verified": [
     {
@@ -68058,7 +68058,7 @@
    "target": "0x143225040",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_ExitingSuperReadyStateAsEnough"
+    "Game_ReadySystem_Update"
    ],
    "verified": [
     {
@@ -68082,7 +68082,7 @@
    "target": "0x143227440",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_ValidPlayerCorrectState"
+    "Game_ReadySystem_SetLocalPlayersReady"
    ],
    "verified": [
     {
@@ -68106,7 +68106,7 @@
    "target": "0x143227920",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_UnpausingAdvancesSuperReadyTime"
+    "Game_ReadySystem_SetIsPaused"
    ],
    "verified": [
     {
@@ -68178,7 +68178,7 @@
    "target": "0x14322d270",
    "kind": "func_start",
    "names": [
-    "Game_Network_NetworkSOCGuid"
+    "Game_SavedOnlineChampionship_SerialiseSaveDataContainer"
    ],
    "verified": [
     {
@@ -68202,7 +68202,7 @@
    "target": "0x14322f650",
    "kind": "func_start",
    "names": [
-    "Game_Network_NetworkSOCGuid_2"
+    "Game_SavedOnlineChampionship_DeserialiseSaveDataContainer"
    ],
    "verified": [
     {
@@ -68298,7 +68298,7 @@
    "target": "0x14323a930",
    "kind": "func_start",
    "names": [
-    "Game_Network_TotalConnectivityAICount"
+    "Game_Network_DistributeAIDrivers"
    ],
    "verified": [
     {
@@ -68346,7 +68346,7 @@
    "target": "0x14323e5b0",
    "kind": "func_start",
    "names": [
-    "Game_Network_DropInRequestsSizeAfterRemoving"
+    "Game_VehicleDropInManager_UpdateDropInRequests"
    ],
    "verified": [
     {
@@ -68370,7 +68370,7 @@
    "target": "0x1432495e0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkMechanical_VehicleRacingVehicleCar"
+    "Game_VehicleMechanicalManager_AttachVehicle"
    ],
    "verified": [
     {
@@ -68394,7 +68394,7 @@
    "target": "0x143252220",
    "kind": "func_start",
    "names": [
-    "Game_Network_MOXMechanicalVehicleRacingVehicle"
+    "Game_Network_MOXMechanicalAttachVehicle"
    ],
    "verified": [
     {
@@ -68514,7 +68514,7 @@
    "target": "0x143256510",
    "kind": "func_start",
    "names": [
-    "Game_NetworkProgress_SourceProgressData"
+    "Game_VehicleProgressData_Extrapolate"
    ],
    "verified": [
     {
@@ -68538,7 +68538,7 @@
    "target": "0x143259920",
    "kind": "func_start",
    "names": [
-    "Game_Network_UpdatedVehicleState"
+    "Game_Network_FormationLapSetVehicleState"
    ],
    "verified": [
     {
@@ -68562,7 +68562,7 @@
    "target": "0x14325b7d0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkProgress_ProgressDuplicatedLatest"
+    "Game_NetworkProgress_ValidateProgressOrder"
    ],
    "verified": [
     {
@@ -68586,7 +68586,7 @@
    "target": "0x14325eab0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPclock_PossibleClockChangeOnlyValidOffset"
+    "Game_NetworkPclock_UpdatePhysicsClock"
    ],
    "verified": [
     {
@@ -68610,7 +68610,7 @@
    "target": "0x14325f3e0",
    "kind": "func_start",
    "names": [
-    "Game_Network_RealDtPhysDt"
+    "Game_Network_DetectLagSpike"
    ],
    "verified": [
     {
@@ -68634,7 +68634,7 @@
    "target": "0x14325f800",
    "kind": "func_start",
    "names": [
-    "Game_Network_UpdatingProgressVehicle"
+    "Game_VehicleProgressManager_OnMessageDriverPlayerChanged"
    ],
    "verified": [
     {
@@ -68682,7 +68682,7 @@
    "target": "0x1432666b0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkData_ActiveSessionSkippingActorProgress"
+    "Game_NetworkData_HandlePacketActorProgress"
    ],
    "verified": [
     {
@@ -68706,7 +68706,7 @@
    "target": "0x143271400",
    "kind": "func_start",
    "names": [
-    "Game_NetworkProgress_VehicleIdThreadIdTimeStamp"
+    "Game_VehicleProgressPrediction_CalculateProgress"
    ],
    "verified": [
     {
@@ -68730,7 +68730,7 @@
    "target": "0x143273710",
    "kind": "func_start",
    "names": [
-    "Game_Network_GameSessionStartLightsSeesHoldTime"
+    "Game_Network_UpdateStartLightsSync"
    ],
    "verified": [
     {
@@ -68754,7 +68754,7 @@
    "target": "0x14328d0b0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkUI_OverridesBackScreenDestination"
+    "Game_MultiplayerTransitionViewModel_Advance"
    ],
    "verified": [
     {
@@ -68778,7 +68778,7 @@
    "target": "0x143291870",
    "kind": "func_start",
    "names": [
-    "Game_NetworkNTP_ReceivedStratumZero"
+    "Game_NetworkNTP_ReceiveThread"
    ],
    "verified": [
     {
@@ -68970,7 +68970,7 @@
    "target": "0x1432c2980",
    "kind": "func_start",
    "names": [
-    "Game_F1os_StoppingOnlineServiceTask"
+    "Game_F1os_OnlineServiceTask_HandleResult"
    ],
    "verified": [
     {
@@ -69018,7 +69018,7 @@
    "target": "0x1432c8100",
    "kind": "func_start",
    "names": [
-    "Game_OnlineSystemGetFriends_ListBlockedUsersQueuedRequestID"
+    "Game_OnlineSystemGetFriendsListTask_OnStart"
    ],
    "verified": [
     {
@@ -69066,7 +69066,7 @@
    "target": "0x1432cd000",
    "kind": "func_start",
    "names": [
-    "Game_OnlineSystemSearchForE_PlayerSearchRequestQueuedRequestID"
+    "Game_OnlineSystemSearchForEADPFriendTask_OnStart"
    ],
    "verified": [
     {
@@ -69114,7 +69114,7 @@
    "target": "0x1432cea90",
    "kind": "func_start",
    "names": [
-    "Game_OnlineSystemGetFriendR_ListReceivedFriendRequestQueued"
+    "Game_OnlineSystemGetFriendRequestListTask_OnStart"
    ],
    "verified": [
     {
@@ -69210,7 +69210,7 @@
    "target": "0x1432dc910",
    "kind": "func_start",
    "names": [
-    "Game_F1osTasksystem_IgnoringBecauseTaskAlready"
+    "Game_F1osTasksystem_RaiseTaskError"
    ],
    "verified": [
     {
@@ -69258,7 +69258,7 @@
    "target": "0x14336b390",
    "kind": "func_start",
    "names": [
-    "Game_F1osTasksystem_RefreshingSessionTokenReceived"
+    "Game_OnlineServerLogInTask_HandleSessionTokenRefresh"
    ],
    "verified": [
     {
@@ -69282,7 +69282,7 @@
    "target": "0x14336be50",
    "kind": "func_start",
    "names": [
-    "Game_F1os_GeolocationExternallyToldCountry"
+    "Game_OnlineServerLogInTask_OnResponse"
    ],
    "verified": [
     {
@@ -69306,7 +69306,7 @@
    "target": "0x14336ed90",
    "kind": "func_start",
    "names": [
-    "Game_F1os_ServerStatusFindServerStatus"
+    "Game_F1os_ServerStatusTask_OnResponse"
    ],
    "verified": [
     {
@@ -69522,7 +69522,7 @@
    "target": "0x143609cf0",
    "kind": "func_start",
    "names": [
-    "Game_Network_SendingTeleportMessageSafetyCar"
+    "Game_Network_ApplySafetyCarTeleportMessage"
    ],
    "verified": [
     {
@@ -69570,7 +69570,7 @@
    "target": "0x143614c80",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTyres_FormationSetFromNetworkParking"
+    "Game_NetworkTyres_FormationSetFromNetwork"
    ],
    "verified": [
     {
@@ -69594,7 +69594,7 @@
    "target": "0x143617950",
    "kind": "func_start",
    "names": [
-    "Game_NetworkFormationLAP_SetFromNetworkHostComplete"
+    "Game_NetworkFormationLap_SetFromNetwork"
    ],
    "verified": [
     {
@@ -69666,7 +69666,7 @@
    "target": "0x1436d64a0",
    "kind": "func_start",
    "names": [
-    "Game_Flow_TempLOGCallingStateFrontendWorld"
+    "Game_StateFrontendWorld_OnStateEnter"
    ],
    "verified": [
     {
@@ -69714,7 +69714,7 @@
    "target": "0x1436dd020",
    "kind": "func_start",
    "names": [
-    "Game_Network_StateLaunchOnlineGameModeButBeen"
+    "Game_StateLaunch_OnStateUpdate"
    ],
    "verified": [
     {
@@ -69738,7 +69738,7 @@
    "target": "0x1436dff80",
    "kind": "func_start",
    "names": [
-    "Game_FadeRequests_PlayingAreAnyLocalSpectatorsShould"
+    "Game_LoadingScreen_UpdateTyreAllocationExit"
    ],
    "verified": [
     {
@@ -69786,7 +69786,7 @@
    "target": "0x1436f2830",
    "kind": "func_start",
    "names": [
-    "Game_NetworkReady_ReturnsTrueSessionNullptr"
+    "Game_NetworkReady_CanProgressToSession"
    ],
    "verified": [
     {
@@ -124494,7 +124494,7 @@
    "target": "0x1436d6f50",
    "kind": "func_start",
    "names": [
-    "Vm_Unk_1436d6f50"
+    "Vm_StateFrontendWorld_OnStateUpdate"
    ],
    "verified": [
     {
