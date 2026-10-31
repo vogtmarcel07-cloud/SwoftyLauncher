@@ -13508,7 +13508,7 @@
    "target": "0x144657290",
    "kind": "func_start",
    "names": [
-    "Car_TyreDeformation_LoadNodeGraph"
+    "Car_Read_F1TyreDamage"
    ],
    "verified": [
     {
@@ -13556,7 +13556,7 @@
    "target": "0x14470bd80",
    "kind": "func_start",
    "names": [
-    "Car_TyreDeformation_CheckParticles"
+    "Car_TyreDeformation_UpdateParticles"
    ],
    "verified": [
     {
@@ -15164,7 +15164,7 @@
    "target": "0x144660cd0",
    "kind": "func_start",
    "names": [
-    "Car_Damage_SetComponentDamage"
+    "Car_F1WingDamage_SetNetBits"
    ],
    "verified": [
     {
@@ -15188,7 +15188,7 @@
    "target": "0x14467c280",
    "kind": "func_start",
    "names": [
-    "Car_Collision_CarToCar"
+    "Car_Collision_OnContact"
    ],
    "verified": [
     {
@@ -16244,7 +16244,7 @@
    "target": "0x14462e6d0",
    "kind": "func_start",
    "names": [
-    "Car_Parse_Chassis"
+    "Car_Chassis_InitialiseRuntime"
    ],
    "verified": [
     {
@@ -26882,7 +26882,7 @@
    "target": "0x144724ae0",
    "kind": "func_start",
    "names": [
-    "Game_ReplayFrame_RecordMarkKiller"
+    "Game_ReplayFrame_RecordKillers"
    ],
    "verified": [
     {
@@ -32618,7 +32618,7 @@
    "target": "0x1446034b0",
    "kind": "func_start",
    "names": [
-    "Game_Progress_ClampToSingleLap"
+    "Game_VehicleProgress_TickAndPostSectorMessages"
    ],
    "verified": [
     {
@@ -32642,7 +32642,7 @@
    "target": "0x14460fcd0",
    "kind": "func_start",
    "names": [
-    "Game_TodStitching_InstancesDestIter"
+    "Game_TodStitching_InterpolateInstances"
    ],
    "verified": [
     {
@@ -32714,7 +32714,7 @@
    "target": "0x1446f5610",
    "kind": "func_start",
    "names": [
-    "Game_FfbDebug_M_lastPadIndex"
+    "Game_RacingFFBEffectXInput_SetGamepadVibration"
    ],
    "verified": [
     {
@@ -33146,7 +33146,7 @@
    "target": "0x1446f1880",
    "kind": "func_start",
    "names": [
-    "Game_Ffb_SetPluginScale"
+    "Game_Ffb_AddPlugin"
    ],
    "verified": [
     {
@@ -33242,7 +33242,7 @@
    "target": "0x1446efd10",
    "kind": "func_start",
    "names": [
-    "Game_Ffb_CheckDeviceSupport"
+    "Game_FfbController_InitGeneric"
    ],
    "verified": [
     {
@@ -33410,7 +33410,7 @@
    "target": "0x144729da0",
    "kind": "func_start",
    "names": [
-    "Game_WheelLights_Update"
+    "Game_WheelLights_FillPlayerRecord"
    ],
    "verified": [
     {
@@ -35090,7 +35090,7 @@
    "target": "0x14472a6e0",
    "kind": "func_start",
    "names": [
-    "Game_TelemetryUdp_LogPacketSizes"
+    "Game_TelemetryUdp_InitFromConfig"
    ],
    "verified": [
     {
@@ -38234,7 +38234,7 @@
    "target": "0x144738050",
    "kind": "func_start",
    "names": [
-    "Game_TelemetryUdp_FlushFormat"
+    "Game_TelemetryUdp_FlushAndRegisterEventCodes"
    ],
    "verified": [
     {
@@ -48042,7 +48042,7 @@
    "target": "0x144662060",
    "kind": "func_start",
    "names": [
-    "Car_Component_LogFitFailure"
+    "Car_Component_CreateFitProxy"
    ],
    "verified": [
     {
@@ -48954,7 +48954,7 @@
    "target": "0x144725390",
    "kind": "func_start",
    "names": [
-    "Game_SkidmarksReplay_Rewind"
+    "Game_SkidmarksReplay_StepFrame"
    ],
    "verified": [
     {
@@ -49266,7 +49266,7 @@
    "target": "0x14463da30",
    "kind": "func_start",
    "names": [
-    "Render_Particles_OnVehicleEvent"
+    "Render_Particles_UpdateVehicleEffects"
    ],
    "verified": [
     {
@@ -49338,7 +49338,7 @@
    "target": "0x144467200",
    "kind": "func_start",
    "names": [
-    "Render_GroundCover_LoadCascadeModel"
+    "Render_GroundCover_ReadCascadeConfig"
    ],
    "verified": [
     {
@@ -52650,7 +52650,7 @@
    "target": "0x1444fa1e0",
    "kind": "func_start",
    "names": [
-    "Game_Read_QConfig_2"
+    "Game_StaticInit_EngineTypeNameRegistry"
    ],
    "verified": [
     {
@@ -52674,7 +52674,7 @@
    "target": "0x1445068a0",
    "kind": "func_start",
    "names": [
-    "Game_Read_QConfig_3"
+    "Game_StaticInit_SplineTypesAndCommands"
    ],
    "verified": [
     {
@@ -52698,7 +52698,7 @@
    "target": "0x14454c3d0",
    "kind": "func_start",
    "names": [
-    "Game_Read_RtaoConfig_2"
+    "Game_Register_CameraDebugSettings"
    ],
    "verified": [
     {
@@ -52722,7 +52722,7 @@
    "target": "0x144624660",
    "kind": "func_start",
    "names": [
-    "Game_Read_TodConfig"
+    "Game_StaticInit_TimeOfDayTypes"
    ],
    "verified": [
     {
@@ -52770,7 +52770,7 @@
    "target": "0x14465eeb0",
    "kind": "func_start",
    "names": [
-    "Game_Read_TyreDamageConfig"
+    "Game_Register_TyreDamageTweakables"
    ],
    "verified": [
     {
@@ -52794,7 +52794,7 @@
    "target": "0x1446c9a50",
    "kind": "func_start",
    "names": [
-    "Game_Read_RideHeightConfig"
+    "Game_Aero_RegisterDebugChannels"
    ],
    "verified": [
     {
@@ -52866,7 +52866,7 @@
    "target": "0x1449bbf40",
    "kind": "func_start",
    "names": [
-    "Game_Read_EadpConfig_2"
+    "Game_Eadp_DirectorLoadHardcodedConfiguration"
    ],
    "verified": [
     {
@@ -72978,7 +72978,7 @@
    "target": "0x144446600",
    "kind": "func_start",
    "names": [
-    "Game_Neos_SignalRConnectionReconnectRequest"
+    "Game_Neos_SignalRHandleServerMessages"
    ],
    "verified": [
     {
@@ -73026,7 +73026,7 @@
    "target": "0x144447d60",
    "kind": "func_start",
    "names": [
-    "Game_NeosWS_WebSocketTransportWinHttp"
+    "Game_NeosWS_WinHttpHandleUpgradeResponse"
    ],
    "verified": [
     {
@@ -73050,7 +73050,7 @@
    "target": "0x1444483d0",
    "kind": "func_start",
    "names": [
-    "Game_NeosWS_DetachedWebSocketStream"
+    "Game_NeosWS_DetachWebSocketStream"
    ],
    "verified": [
     {
@@ -73074,7 +73074,7 @@
    "target": "0x14449ddb0",
    "kind": "func_start",
    "names": [
-    "Game_NeUgcSearcher_SearchStillProgressCallbackWill"
+    "Game_NeUgcSearcher_Destroy"
    ],
    "verified": [
     {
@@ -73098,7 +73098,7 @@
    "target": "0x14454e8e0",
    "kind": "func_start",
    "names": [
-    "Game_NeCheckEventChainUid_BroadcastCameraGetFocusObjectEvent"
+    "Game_BroadcastCameraGetFocusObjectEventNode_OnInput"
    ],
    "verified": [
     {
@@ -73122,7 +73122,7 @@
    "target": "0x1445507a0",
    "kind": "func_start",
    "names": [
-    "Game_NeCheckEventChainUid_ChangeCameraEventNodeInputPinUid"
+    "Game_ChangeCameraEventNode_OnInput"
    ],
    "verified": [
     {
@@ -73146,7 +73146,7 @@
    "target": "0x144550bc0",
    "kind": "func_start",
    "names": [
-    "Game_NeCheckEventChainUid_GetVehicleInFocusEventNodeInputPin"
+    "Game_GetVehicleInFocusEventNode_OnInput"
    ],
    "verified": [
     {
@@ -127088,7 +127088,7 @@
    "target": "0x14468e550",
    "kind": "func_start",
    "names": [
-    "Car_FuelEcu_Reset"
+    "Car_FuelEcu_ApplySetup"
    ],
    "verified": [
     {
@@ -127454,7 +127454,7 @@
    "target": "0x14360a880",
    "kind": "func_start",
    "names": [
-    "Sess_SafetyCar_BuildOrderedCarList"
+    "Sess_SafetyCar_BuildGroupedCarList"
    ],
    "verified": [
     {
@@ -127718,7 +127718,7 @@
    "target": "0x1436abb70",
    "kind": "func_start",
    "names": [
-    "Sess_Strategy_RefreshParticipantData"
+    "Sess_Strategy_UpdateTeammatePairs"
    ],
    "verified": [
     {
@@ -128030,7 +128030,7 @@
    "target": "0x1440e5320",
    "kind": "func_start",
    "names": [
-    "Ne_PhysWorld_QueryTilesInAabb"
+    "Ne_PhysWorld_QueryAabbAnyHit"
    ],
    "verified": [
     {
@@ -128318,7 +128318,7 @@
    "target": "0x144656f80",
    "kind": "func_start",
    "names": [
-    "Car_Tyre_SetPunctureActive"
+    "Car_Tyre_SetPunctureState"
    ],
    "verified": [
     {
@@ -128438,7 +128438,7 @@
    "target": "0x144688ff0",
    "kind": "func_start",
    "names": [
-    "Car_FuelTank_ComputeFlow"
+    "Car_Engine_ComputeNetTorque"
    ],
    "verified": [
     {
@@ -128512,7 +128512,7 @@
    "target": "0x1446a60d0",
    "kind": "func_start",
    "names": [
-    "Car_GearBox_UpdateShiftTimers"
+    "Car_GearBox_UpdateShiftTimersAndFaults"
    ],
    "verified": [
     {
@@ -129066,7 +129066,7 @@
    "target": "0x14476a560",
    "kind": "func_start",
    "names": [
-    "Car_Chassis_ResetVtfBuffers"
+    "Car_Chassis_DestroyVtfBuffers"
    ],
    "verified": [
     {
@@ -129090,7 +129090,7 @@
    "target": "0x14476a690",
    "kind": "func_start",
    "names": [
-    "Car_Chassis_ClearComponentList"
+    "Car_Chassis_DestroyComponentList"
    ],
    "verified": [
     {
@@ -129308,7 +129308,7 @@
    "target": "0x14534a0ec",
    "kind": "func_start",
    "names": [
-    "Ne_Crt_Fopen"
+    "Ne_Crt_Localtime64"
    ],
    "verified": [
     {
