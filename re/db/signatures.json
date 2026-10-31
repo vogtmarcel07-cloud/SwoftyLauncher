@@ -156966,6 +156966,30 @@
     }
    ],
    "used_by": []
+  },
+  {
+   "id": "game.read_eadp_config_acc30",
+   "section": ".xtls",
+   "pattern": "40 55 57 41 54 41 55 41 56 41 57 48 8D 6C 24 D8",
+   "match": "0x1449acc30",
+   "anchor": "0x0",
+   "resolve": {
+    "kind": "addr"
+   },
+   "target": "0x1449acc30",
+   "kind": "func_start",
+   "names": [
+    "Game_Read_EadpConfig"
+   ],
+   "verified": [
+    {
+     "build": "d873a1c8d2044cef",
+     "date": "2026-10-31",
+     "by": "engine-re",
+     "how": "static"
+    }
+   ],
+   "used_by": []
   }
  ]
 }
