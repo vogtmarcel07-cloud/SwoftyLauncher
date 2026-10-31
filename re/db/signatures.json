@@ -43554,7 +43554,7 @@
    "target": "0x144141c00",
    "kind": "func_start",
    "names": [
-    "Ne_SaveSystem2Win_BuildSavePackageAndInfoXml"
+    "Ne_SaveSystem2Win_WriteInfoXml"
    ],
    "verified": [
     {
@@ -78198,7 +78198,7 @@
    "target": "0x14243fd10",
    "kind": "func_start",
    "names": [
-    "Sess_ResolveEntityHandle"
+    "Sess_Find_Vehicle"
    ],
    "verified": [
     {
@@ -114058,7 +114058,7 @@
    "used_by": []
   },
   {
-   "id": "core.resource_release",
+   "id": "vm.release_node",
    "section": ".xtls",
    "pattern": "56 57 48 83 EC 28 48 85 D2 0F 84 ?? ?? ?? ?? 48 89 D6 48 89 CF 48 83 7A",
    "match": "0x1442b3d70",
@@ -114069,7 +114069,7 @@
    "target": "0x1442b3d70",
    "kind": "func_start",
    "names": [
-    "Ne_Resource_Release"
+    "Vm_Release_Node"
    ],
    "verified": [
     {
