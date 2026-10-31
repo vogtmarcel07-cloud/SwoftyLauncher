@@ -105309,7 +105309,7 @@
    "target": "0x1401f3a10",
    "kind": "func_start",
    "names": [
-    "Ne_ModelProxyTexture_SetCacheTimeoutHint"
+    "Game_ModelProxyTexture_SetCacheTimeoutHint"
    ],
    "verified": [
     {
