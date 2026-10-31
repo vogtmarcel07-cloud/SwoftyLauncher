@@ -13868,7 +13868,7 @@
    "target": "0x14377a0f0",
    "kind": "func_start",
    "names": [
-    "Game_StatEvent_DrsFirstActivation"
+    "Game_StatEvent_WriteActivateDRS"
    ],
    "verified": [
     {
@@ -24626,7 +24626,7 @@
    "target": "0x143a691a0",
    "kind": "func_start",
    "names": [
-    "Game_ERPInfo_EError"
+    "Game_EgoErpLoader_HandleError"
    ],
    "verified": [
     {
@@ -24650,7 +24650,7 @@
    "target": "0x143a6a9d0",
    "kind": "func_start",
    "names": [
-    "Game_ERPInfo_EUnloading"
+    "Game_EgoErpLoader_ProcessUnload"
    ],
    "verified": [
     {
@@ -25274,7 +25274,7 @@
    "target": "0x143fcd400",
    "kind": "func_start",
    "names": [
-    "Game_Hub_Create"
+    "Game_EadpSDK_InitHub"
    ],
    "verified": [
     {
@@ -25682,7 +25682,7 @@
    "target": "0x1440dfa30",
    "kind": "func_start",
    "names": [
-    "Game_PhysicsCollisionSystem_Construct"
+    "Game_PhysicsCollisionSystem_ResizeIntersectionUnits"
    ],
    "verified": [
     {
@@ -31706,7 +31706,7 @@
    "target": "0x143d84490",
    "kind": "func_start",
    "names": [
-    "Game_Rtt_RttGenerator"
+    "Game_Rtt_CreateScenes"
    ],
    "verified": [
     {
@@ -31946,7 +31946,7 @@
    "target": "0x14403bbb0",
    "kind": "func_start",
    "names": [
-    "Game_Audio_CompressDataHelper"
+    "Game_NetworkVoice_UpdateLocalMicrophone"
    ],
    "verified": [
     {
@@ -31994,7 +31994,7 @@
    "target": "0x14406b390",
    "kind": "func_start",
    "names": [
-    "Game_Network_ESystemMessageID_ConnectionLeft"
+    "Game_Network_HandleSystemMessage"
    ],
    "verified": [
     {
@@ -32018,7 +32018,7 @@
    "target": "0x144070210",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_ConnectionLeftCallback"
+    "Game_NetworkTransport_HandleClientDisconnection"
    ],
    "verified": [
     {
@@ -33674,7 +33674,7 @@
    "target": "0x1438ac4f0",
    "kind": "func_start",
    "names": [
-    "Game_Vr_ExecuteTransition"
+    "Game_VrVirtualMonitorSystem_RequestEnableVirtualMonitor"
    ],
    "verified": [
     {
@@ -34610,7 +34610,7 @@
    "target": "0x14389bc50",
    "kind": "func_start",
    "names": [
-    "Game_ControllerSet_ClearFlags"
+    "Game_ControllerSet_ClearFlagsAndActivate"
    ],
    "verified": [
     {
@@ -35330,7 +35330,7 @@
    "target": "0x143f82d40",
    "kind": "func_start",
    "names": [
-    "Game_Bink_LoadSubtitles"
+    "Game_Bink_OnOpen"
    ],
    "verified": [
     {
@@ -46818,7 +46818,7 @@
    "target": "0x14380e200",
    "kind": "func_start",
    "names": [
-    "Game_HudCustomisation_CopyUiData"
+    "Game_HudCustomisation_HandleSignal"
    ],
    "verified": [
     {
@@ -46866,7 +46866,7 @@
    "target": "0x14388dfc0",
    "kind": "func_start",
    "names": [
-    "Game_HudCustomisation_CreateSavePath"
+    "Game_HudCustomisation_LoadSaveConfigSets"
    ],
    "verified": [
     {
@@ -51954,7 +51954,7 @@
    "target": "0x143736fb0",
    "kind": "func_start",
    "names": [
-    "Game_Read_ContractsNegotiatedConfig"
+    "Game_StatEvent_WriteContractsNegotiated"
    ],
    "verified": [
     {
@@ -51978,7 +51978,7 @@
    "target": "0x143761ec0",
    "kind": "func_start",
    "names": [
-    "Game_Read_DistanceTravelledConfig"
+    "Game_StatEvent_WriteDistanceTravelledGroup"
    ],
    "verified": [
     {
@@ -52026,7 +52026,7 @@
    "target": "0x14379fe50",
    "kind": "func_start",
    "names": [
-    "Game_Read_StreamedInstallConfig_2"
+    "Game_StreamedInstall_InitChunkTable"
    ],
    "verified": [
     {
@@ -52050,7 +52050,7 @@
    "target": "0x1437d4130",
    "kind": "func_start",
    "names": [
-    "Game_Read_GameVersionNumberConfig"
+    "Game_UIModule_RegisterBehavioursAndVersion"
    ],
    "verified": [
     {
@@ -52146,7 +52146,7 @@
    "target": "0x143bc2ff0",
    "kind": "func_start",
    "names": [
-    "Game_Read_RendererGfxConfig_2"
+    "Game_PostFx_CreateMotionBloomLensFlare"
    ],
    "verified": [
     {
@@ -52170,7 +52170,7 @@
    "target": "0x143d5f8b0",
    "kind": "func_start",
    "names": [
-    "Game_Read_ParticleHeatHazeGeneratorConfig"
+    "Game_ParticleHeatHaze_CreateGenerator"
    ],
    "verified": [
     {
@@ -52218,7 +52218,7 @@
    "target": "0x1442e2f80",
    "kind": "func_start",
    "names": [
-    "Game_Read_RendererUIConfig"
+    "Game_UIDrawing_InitBuffers"
    ],
    "verified": [
     {
@@ -52242,7 +52242,7 @@
    "target": "0x144353880",
    "kind": "func_start",
    "names": [
-    "Game_Read_SubtitlesDataConfig_2"
+    "Game_Bind_SubtitlesDataNodes"
    ],
    "verified": [
     {
@@ -52266,7 +52266,7 @@
    "target": "0x1443ba3d0",
    "kind": "func_start",
    "names": [
-    "Game_Read_AnimationConfig"
+    "Game_Animation_InitSystem"
    ],
    "verified": [
     {
@@ -52314,7 +52314,7 @@
    "target": "0x1443c8d70",
    "kind": "func_start",
    "names": [
-    "Game_Read_JobQueueSystemConfig"
+    "Game_JobQueueSystem_Init"
    ],
    "verified": [
     {
@@ -52386,7 +52386,7 @@
    "target": "0x1443d5ce0",
    "kind": "func_start",
    "names": [
-    "Game_Read_RecommendedPCSpecConfig"
+    "Game_Hardware_CheckRecommendedPCSpec"
    ],
    "verified": [
     {
@@ -52410,7 +52410,7 @@
    "target": "0x1443dd2b0",
    "kind": "func_start",
    "names": [
-    "Game_Read_RendererGfxConfig_4"
+    "Game_Read_RendererGfxDisplayConfig"
    ],
    "verified": [
     {
@@ -52434,7 +52434,7 @@
    "target": "0x1443e6db0",
    "kind": "func_start",
    "names": [
-    "Game_Read_AudioConfig_2"
+    "Game_Audio_ResolveEventParamKeys"
    ],
    "verified": [
     {
@@ -52482,7 +52482,7 @@
    "target": "0x1443f0aa0",
    "kind": "func_start",
    "names": [
-    "Game_Read_AudioConfig_4"
+    "Game_Audio_ResolveEmitterEventKeys"
    ],
    "verified": [
     {
@@ -52506,7 +52506,7 @@
    "target": "0x1443f19f0",
    "kind": "func_start",
    "names": [
-    "Game_Read_AudioConfig_5"
+    "Game_Audio_ResolveStopEventEmitterKeys"
    ],
    "verified": [
     {
@@ -60906,7 +60906,7 @@
    "target": "0x143eb8070",
    "kind": "func_start",
    "names": [
-    "Game_TextureStreamingVerbose_Clearing"
+    "Game_TextureStreaming_AdjustQualityFactor"
    ],
    "verified": [
     {
@@ -60930,7 +60930,7 @@
    "target": "0x143f31280",
    "kind": "func_start",
    "names": [
-    "Game_Ramdisc_Found"
+    "Game_Ramdisc_FindFile"
    ],
    "verified": [
     {
@@ -60954,7 +60954,7 @@
    "target": "0x143f92920",
    "kind": "func_start",
    "names": [
-    "Game_VideoVerbose_False"
+    "Game_Video_UpdatePausedState"
    ],
    "verified": [
     {
@@ -61434,7 +61434,7 @@
    "target": "0x144047600",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_DestroyDisconnectingAndTimedOutConnectingC"
+    "Game_NetworkTransport_UpdateOffline"
    ],
    "verified": [
     {
@@ -69858,7 +69858,7 @@
    "target": "0x14379c250",
    "kind": "func_start",
    "names": [
-    "Game_ThumbnailSystem_WritingOutJpegTookMicroseconds"
+    "Game_ThumbnailSystem_RequestAndWriteScreenshot"
    ],
    "verified": [
     {
@@ -69906,7 +69906,7 @@
    "target": "0x1437f2110",
    "kind": "func_start",
    "names": [
-    "Game_UILatency_FrameUICarMarkerContextChanged"
+    "Game_UILatency_UpdateCarMarkerContext"
    ],
    "verified": [
     {
@@ -69930,7 +69930,7 @@
    "target": "0x143801e90",
    "kind": "func_start",
    "names": [
-    "Game_Fade_UINodeGraphFadeOutRequestNode"
+    "Game_Fade_UINodeGraphFadeRequest"
    ],
    "verified": [
     {
@@ -69954,7 +69954,7 @@
    "target": "0x143802f80",
    "kind": "func_start",
    "names": [
-    "Game_UIHubTrace_CarouselOpenAnimCompleted"
+    "Game_UIHubTrace_OnAnimationEvent"
    ],
    "verified": [
     {
@@ -70218,7 +70218,7 @@
    "target": "0x1438060f0",
    "kind": "func_start",
    "names": [
-    "Game_UIHubTrace_HubRemainingOpenAsFlaggedPersist"
+    "Game_UIHubTrace_UnregisterCommunicator"
    ],
    "verified": [
     {
@@ -70266,7 +70266,7 @@
    "target": "0x143852230",
    "kind": "func_start",
    "names": [
-    "Game_UITrack_TrackFoundGameModeTracklistWill"
+    "Game_UITrack_FindTrackInfoWithFallback"
    ],
    "verified": [
     {
@@ -70290,7 +70290,7 @@
    "target": "0x143883f60",
    "kind": "func_start",
    "names": [
-    "Game_TOPLevelUI_ThereOngoingReconnectingIgnore"
+    "Game_TOPLevelUI_TryReconnect"
    ],
    "verified": [
     {
@@ -70362,7 +70362,7 @@
    "target": "0x143985820",
    "kind": "func_start",
    "names": [
-    "Game_NetworkAsync_AsyncJobQueueSecondsLength"
+    "Game_NeNetwork_Update"
    ],
    "verified": [
     {
@@ -70386,7 +70386,7 @@
    "target": "0x1439f14f0",
    "kind": "func_start",
    "names": [
-    "Game_Window_NeWindowWinUpdateAspectRatioAuto"
+    "Game_Window_NeWindowWinUpdateAspectRatio"
    ],
    "verified": [
     {
@@ -70434,7 +70434,7 @@
    "target": "0x1439f7d80",
    "kind": "func_start",
    "names": [
-    "Game_Window_NeWindowWinChangeSettingsChanging"
+    "Game_Window_NeWindowWinChangeSettings"
    ],
    "verified": [
     {
@@ -70458,7 +70458,7 @@
    "target": "0x1439fa850",
    "kind": "func_start",
    "names": [
-    "Game_Window_NeWindowWinSetDisplayModeAdapter"
+    "Game_Window_NeWindowWinSetDisplayMode"
    ],
    "verified": [
     {
@@ -70530,7 +70530,7 @@
    "target": "0x143fd16b0",
    "kind": "func_start",
    "names": [
-    "Game_EadpSDK_UnknownEadpServerEnvironment"
+    "Game_EadpSDK_OnSignInStateChanged"
    ],
    "verified": [
     {
@@ -70554,7 +70554,7 @@
    "target": "0x143fd6f20",
    "kind": "func_start",
    "names": [
-    "Game_EadpSDK_LogoutIsLoggedInLoggedInUserIndex"
+    "Game_EadpSDK_Logout"
    ],
    "verified": [
     {
@@ -70578,7 +70578,7 @@
    "target": "0x143fd71f0",
    "kind": "func_start",
    "names": [
-    "Game_EadpPresence_PresenceUpdateUserIDPresenceType"
+    "Game_EadpPresence_OnFriendPresenceUpdate"
    ],
    "verified": [
     {
@@ -70626,7 +70626,7 @@
    "target": "0x143fdb010",
    "kind": "func_start",
    "names": [
-    "Game_EadpSDK_UserLongerLoggedClearing"
+    "Game_EadpSDK_RefreshEaSubscriptions"
    ],
    "verified": [
     {
@@ -70650,7 +70650,7 @@
    "target": "0x143fdc380",
    "kind": "func_start",
    "names": [
-    "Game_EadpSDK_SubscriptionsWebApiReturned"
+    "Game_EadpSDK_ParseSubscriptionsResponse"
    ],
    "verified": [
     {
@@ -70722,7 +70722,7 @@
    "target": "0x143fea580",
    "kind": "func_start",
    "names": [
-    "Game_EdapPresence_CreatingPresenceCache"
+    "Game_EadpPresence_RegisterPresenceCallback"
    ],
    "verified": [
     {
@@ -70746,7 +70746,7 @@
    "target": "0x143ff28e0",
    "kind": "func_start",
    "names": [
-    "Game_EadpNotifications_ReceiveNotificationCheckDetails"
+    "Game_EadpNotifications_ProcessNotificationStream"
    ],
    "verified": [
     {
@@ -70794,7 +70794,7 @@
    "target": "0x143ff7210",
    "kind": "func_start",
    "names": [
-    "Game_EadpInvites_InviteRemovedServer"
+    "Game_EadpInvites_OnInviteListUpdate"
    ],
    "verified": [
     {
@@ -70818,7 +70818,7 @@
    "target": "0x143ffe070",
    "kind": "func_start",
    "names": [
-    "Game_EadpPlayerCard_PlayerCardReturns"
+    "Game_EadpPlayerCard_OnPlayerCardsReceived"
    ],
    "verified": [
     {
@@ -70914,7 +70914,7 @@
    "target": "0x144009440",
    "kind": "func_start",
    "names": [
-    "Game_NeEadpErrorsDataServic_IgnoringExceptionReasonMicrosoft"
+    "Game_NeEadpErrors_HandleException"
    ],
    "verified": [
     {
@@ -70938,7 +70938,7 @@
    "target": "0x144024e20",
    "kind": "func_start",
    "names": [
-    "Game_Leaderboards_LoadingLeaderboardNameIdSortTypeNP"
+    "Game_Leaderboards_LoadDefinitions"
    ],
    "verified": [
     {
@@ -71058,7 +71058,7 @@
    "target": "0x144027dd0",
    "kind": "func_start",
    "names": [
-    "Game_Leaderboards_WriteRequestFinishedRequestId"
+    "Game_Leaderboards_OnRequestFinished"
    ],
    "verified": [
     {
@@ -71106,7 +71106,7 @@
    "target": "0x14402eca0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkVoice_CreateSetOpusSETForceChannels"
+    "Game_NetworkVoice_CreateOpusCodec"
    ],
    "verified": [
     {
@@ -71130,7 +71130,7 @@
    "target": "0x144030710",
    "kind": "func_start",
    "names": [
-    "Game_NetworkVoice_CreateLocalDevice"
+    "Game_NetworkVoice_CreateNetVoiceObject"
    ],
    "verified": [
     {
@@ -71154,7 +71154,7 @@
    "target": "0x144034250",
    "kind": "func_start",
    "names": [
-    "Game_NetworkVoice_DataConnectionAllDataReliableSize"
+    "Game_NetworkVoice_SendVoiceData"
    ],
    "verified": [
     {
@@ -71178,7 +71178,7 @@
    "target": "0x144037620",
    "kind": "func_start",
    "names": [
-    "Game_NetworkVoice_EVoiceMessageID"
+    "Game_NetworkVoice_HandleVoiceMessage"
    ],
    "verified": [
     {
@@ -71202,7 +71202,7 @@
    "target": "0x144038730",
    "kind": "func_start",
    "names": [
-    "Game_NetworkVoice_NeNetVoiceNotificationClient"
+    "Game_NetworkVoice_WaveInStopAndClose"
    ],
    "verified": [
     {
@@ -71298,7 +71298,7 @@
    "target": "0x144048650",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_MyConnIDTheirConnIDMode"
+    "Game_NetworkTransport_RecvThreadFunc"
    ],
    "verified": [
     {
@@ -71322,7 +71322,7 @@
    "target": "0x14404a860",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTraffic_DecodedPacketEmpty"
+    "Game_NetworkTraffic_DecodePackets"
    ],
    "verified": [
     {
@@ -71346,7 +71346,7 @@
    "target": "0x14404aa50",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTraffic_BufferTooSmallEvenBytePacketHeader"
+    "Game_NetworkTraffic_ValidatePacketHeader"
    ],
    "verified": [
     {
@@ -71370,7 +71370,7 @@
    "target": "0x14404cae0",
    "kind": "func_start",
    "names": [
-    "Game_Http_ValidSessionHandleCreateSessionURI"
+    "Game_Http_BeginRequest"
    ],
    "verified": [
     {
@@ -71394,7 +71394,7 @@
    "target": "0x14404d610",
    "kind": "func_start",
    "names": [
-    "Game_Http_CallbackStatusId"
+    "Game_Http_StatusCallback"
    ],
    "verified": [
     {
@@ -71418,7 +71418,7 @@
    "target": "0x14404e260",
    "kind": "func_start",
    "names": [
-    "Game_Http_WaitingResponseServer"
+    "Game_Http_OnResponseReceived"
    ],
    "verified": [
     {
@@ -71490,7 +71490,7 @@
    "target": "0x144051df0",
    "kind": "func_start",
    "names": [
-    "Game_Http_CrackURIWebSocketSucceededPort"
+    "Game_Http_CrackUri"
    ],
    "verified": [
     {
@@ -71538,7 +71538,7 @@
    "target": "0x1440555c0",
    "kind": "func_start",
    "names": [
-    "Game_SSL_HandshakeCompletedSuccessfully"
+    "Game_SSL_ProcessHandshake"
    ],
    "verified": [
     {
@@ -71562,7 +71562,7 @@
    "target": "0x14405ac50",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_CouldnFindFreeAllocationSlot"
+    "Game_NetworkTransport_AddConnectionToStore"
    ],
    "verified": [
     {
@@ -71586,7 +71586,7 @@
    "target": "0x14405b7b0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_ConnectionIdNowFree"
+    "Game_NetworkTransport_RemoveConnectionFromStore"
    ],
    "verified": [
     {
@@ -71610,7 +71610,7 @@
    "target": "0x14405f260",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTransport_NeNetReliableAsyncSocket"
+    "Game_NetworkTransport_ReliableAsyncSocketInit"
    ],
    "verified": [
     {
@@ -71658,7 +71658,7 @@
    "target": "0x144065920",
    "kind": "func_start",
    "names": [
-    "Game_NetworkSession_MigrationHostTaskSucceededNotify"
+    "Game_NetworkSession_UpdateMigrationHostTask"
    ],
    "verified": [
     {
@@ -71682,7 +71682,7 @@
    "target": "0x144065aa0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkConnection_LocalMachineBecameHost"
+    "Game_NetworkConnQuality_UpdateArbiter"
    ],
    "verified": [
     {
@@ -71706,7 +71706,7 @@
    "target": "0x14406e7d0",
    "kind": "func_start",
    "names": [
-    "Game_Network_AddingConnectionRTTList"
+    "Game_Network_OnConnectionArrived"
    ],
    "verified": [
     {
@@ -71730,7 +71730,7 @@
    "target": "0x14406f280",
    "kind": "func_start",
    "names": [
-    "Game_NetworkTraffic_QueuedPacketSizeConnectionId"
+    "Game_NetworkTraffic_PushPacket"
    ],
    "verified": [
     {
@@ -71778,7 +71778,7 @@
    "target": "0x144085e20",
    "kind": "func_start",
    "names": [
-    "Game_NetworkSession_NeNetSessionPS5InRoomRoomBecome"
+    "Game_NetworkSession_F1OSUpdateStateMachine"
    ],
    "verified": [
     {
@@ -71802,7 +71802,7 @@
    "target": "0x14408cad0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLAN_LocalIPAddress"
+    "Game_NetworkLAN_DiscoveryServerStart"
    ],
    "verified": [
     {
@@ -71850,7 +71850,7 @@
    "target": "0x144090ac0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkLAN_LANDiscoveryClientSizeMessageReply"
+    "Game_NetworkLAN_DiscoveryClientReceiveReply"
    ],
    "verified": [
     {
@@ -71874,7 +71874,7 @@
    "target": "0x144092f10",
    "kind": "func_start",
    "names": [
-    "Game_Network_DisconnectingTransportAddr"
+    "Game_Network_MigrateConnections"
    ],
    "verified": [
     {
@@ -72114,7 +72114,7 @@
    "target": "0x1440a53f0",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPlayfabParty_UnhandledStateChangeId"
+    "Game_NetworkPlayfabParty_HandleStateChange"
    ],
    "verified": [
     {
@@ -72234,7 +72234,7 @@
    "target": "0x1440b7030",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPlayfab_CrossplayInitialisationMsg"
+    "Game_NetworkPlayfab_CrossplayInitCallback"
    ],
    "verified": [
     {
@@ -72258,7 +72258,7 @@
    "target": "0x1440b9470",
    "kind": "func_start",
    "names": [
-    "Game_NetworkParty_ActingRequestedJoinPartyOperation"
+    "Game_NetworkParty_ManagerUpdate"
    ],
    "verified": [
     {
@@ -72282,7 +72282,7 @@
    "target": "0x1440ba650",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPartyTransport_PlayfabHandlingStateChangeType"
+    "Game_NetworkPartyTransport_HandlePlayfabStateChange"
    ],
    "verified": [
     {
@@ -72330,7 +72330,7 @@
    "target": "0x1440bd080",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPartyTransport_StartProcessCreatingJoiningNew"
+    "Game_NetworkPartyTransport_StartCreateOrJoinNetwork"
    ],
    "verified": [
     {
@@ -72354,7 +72354,7 @@
    "target": "0x144117e00",
    "kind": "func_start",
    "names": [
-    "Game_UIMessage_NePlayerManagerPlatformUpdateWin"
+    "Game_UIMessage_PlayerManagerPlatformUpdate"
    ],
    "verified": [
     {
@@ -72378,7 +72378,7 @@
    "target": "0x144125280",
    "kind": "func_start",
    "names": [
-    "Game_NetworkPresence_AddedUserIDEadpResolveList"
+    "Game_NetworkPresence_EadpResolveUserNames"
    ],
    "verified": [
     {
@@ -72402,7 +72402,7 @@
    "target": "0x14412e9e0",
    "kind": "func_start",
    "names": [
-    "Game_Avatars_ComparingVsVs"
+    "Game_Avatars_RequestAvatarImage"
    ],
    "verified": [
     {
@@ -72426,7 +72426,7 @@
    "target": "0x1441344d0",
    "kind": "func_start",
    "names": [
-    "Game_Avatars_AttemptingRetrieveImageIdSize"
+    "Game_Avatars_RetrieveImageIntoBuffer"
    ],
    "verified": [
     {
@@ -72498,7 +72498,7 @@
    "target": "0x14415c150",
    "kind": "func_start",
    "names": [
-    "Game_NeUgc_OpenLegalAgreementInSteamOverlay"
+    "Game_NeUgc_UpdateStateMachine"
    ],
    "verified": [
     {
@@ -72618,7 +72618,7 @@
    "target": "0x1441db170",
    "kind": "func_start",
    "names": [
-    "Game_UIFlow_NeUIFlowLoadAssetsLoadAssetGroup"
+    "Game_UIFlow_Update"
    ],
    "verified": [
     {
@@ -72642,7 +72642,7 @@
    "target": "0x1441e2910",
    "kind": "func_start",
    "names": [
-    "Game_UITextureLoader_CouldnFindCachedRequests"
+    "Game_UITextureLoader_FindCachedRequest"
    ],
    "verified": [
     {
@@ -72786,7 +72786,7 @@
    "target": "0x144289cc0",
    "kind": "func_start",
    "names": [
-    "Game_UIVisualNavigation_VeHitOurPreviouslyFocusedNodeLet"
+    "Game_UIVisualNavigation_FindNextFocusNode"
    ],
    "verified": [
     {
@@ -72930,7 +72930,7 @@
    "target": "0x144443b50",
    "kind": "func_start",
    "names": [
-    "Game_Neos_SendingWebSocketString"
+    "Game_Neos_ConnectWebSocketUpdate"
    ],
    "verified": [
     {
@@ -126220,7 +126220,7 @@
    "target": "0x143885700",
    "kind": "func_start",
    "names": [
-    "FePopup_Broadcast_Notifications"
+    "FePopup_UIConnectionManager_Update"
    ],
    "verified": [
     {
@@ -126268,7 +126268,7 @@
    "target": "0x1438a9950",
    "kind": "func_start",
    "names": [
-    "Game_DriverStatisticsComponent_ProcessPatch"
+    "Game_Component_SampleCurveLut"
    ],
    "verified": [
     {
@@ -126340,7 +126340,7 @@
    "target": "0x144179360",
    "kind": "func_start",
    "names": [
-    "Vm_Link_RegistryNode"
+    "Vm_Read_NodeStringValue"
    ],
    "verified": [
     {
