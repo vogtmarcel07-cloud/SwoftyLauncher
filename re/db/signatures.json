@@ -13676,7 +13676,7 @@
    "target": "0x1429805c0",
    "kind": "func_start",
    "names": [
-    "Ai_QualiPace_Debug"
+    "Ai_QualiPace_EstimateLapTime"
    ],
    "verified": [
     {
@@ -13892,7 +13892,7 @@
    "target": "0x142521720",
    "kind": "func_start",
    "names": [
-    "Game_Overtakes_AddWatch"
+    "Game_Overtakes_UpdateWatches"
    ],
    "verified": [
     {
@@ -14804,7 +14804,7 @@
    "target": "0x142c29190",
    "kind": "func_start",
    "names": [
-    "Game_F1DataFeed_SkipStreamLine"
+    "Game_F1DataFeedSystem_RequestLoadReplay"
    ],
    "verified": [
     {
@@ -29186,7 +29186,7 @@
    "target": "0x141d8f9f0",
    "kind": "func_start",
    "names": [
-    "Game_Ui_AddTabCEScreen"
+    "Game_SessionResultsContainerViewModel_SetupTabs"
    ],
    "verified": [
     {
@@ -29642,7 +29642,7 @@
    "target": "0x1428c3ef0",
    "kind": "func_start",
    "names": [
-    "Game_FrontendSceneCar_ChangeCarSpawnPoint"
+    "Game_FrontendSceneCar_ApplyCarConfiguration"
    ],
    "verified": [
     {
@@ -29666,7 +29666,7 @@
    "target": "0x142a3b7a0",
    "kind": "func_start",
    "names": [
-    "Game_FadeRequests_OnLocalHumanEnteredGarage"
+    "Game_Garage_OnLocalHumanEnteredGarage"
    ],
    "verified": [
     {
@@ -34010,7 +34010,7 @@
    "target": "0x141f0fed0",
    "kind": "func_start",
    "names": [
-    "Game_VideoExport_CreateHighlightsFolder"
+    "Game_VideoExport_StartHighlightExport"
    ],
    "verified": [
     {
@@ -34034,7 +34034,7 @@
    "target": "0x141f0a230",
    "kind": "func_start",
    "names": [
-    "Game_VideoExport_RestoreGraphics"
+    "Game_VideoExport_FinishExportRestoreUi"
    ],
    "verified": [
     {
@@ -34178,7 +34178,7 @@
    "target": "0x142a69440",
    "kind": "func_start",
    "names": [
-    "Game_Input_SerialiseControlScheme"
+    "Game_GameControlSchemeManager_SerialiseSaveDataContainer"
    ],
    "verified": [
     {
@@ -34250,7 +34250,7 @@
    "target": "0x142a71420",
    "kind": "func_start",
    "names": [
-    "Game_DeviceDataLoader_ListDirectory"
+    "Game_DeviceDataLoader_LoadActionMapFiles"
    ],
    "verified": [
     {
@@ -34274,7 +34274,7 @@
    "target": "0x142a76ae0",
    "kind": "func_start",
    "names": [
-    "Game_DeviceDataLoader_Request"
+    "Game_GameInputModule_Update"
    ],
    "verified": [
     {
@@ -34322,7 +34322,7 @@
    "target": "0x142a577d0",
    "kind": "func_start",
    "names": [
-    "Game_InputModule_ReadAxisSnapshot"
+    "Game_InputModule_BuildAxisSnapshotDisplay"
    ],
    "verified": [
     {
@@ -38970,7 +38970,7 @@
    "target": "0x1429cec50",
    "kind": "func_start",
    "names": [
-    "Game_InstantRace_FlagSaveSlot"
+    "Game_InstantRace_FillSaveSlotInfo"
    ],
    "verified": [
     {
@@ -39834,7 +39834,7 @@
    "target": "0x14147c2d0",
    "kind": "func_start",
    "names": [
-    "Game_TimeTrial_Leave"
+    "Game_TimeTrial_OnGameModeChanged"
    ],
    "verified": [
     {
@@ -39858,7 +39858,7 @@
    "target": "0x141793c90",
    "kind": "func_start",
    "names": [
-    "Game_PitLane_SetDoPracticePitStop_2"
+    "Game_PitLane_RegisterDoPracticePitStopListener"
    ],
    "verified": [
     {
@@ -40050,7 +40050,7 @@
    "target": "0x141e72b20",
    "kind": "func_start",
    "names": [
-    "Game_ResultsContainer_OpenPauseMenu"
+    "Game_ResultsContainer_OpenPauseOrCloseContainer"
    ],
    "verified": [
     {
@@ -40746,7 +40746,7 @@
    "target": "0x142586a60",
    "kind": "func_start",
    "names": [
-    "Game_Session_SetLapsCompletedPercentage"
+    "Game_Session_UpdateChampionshipSessionData"
    ],
    "verified": [
     {
@@ -46170,7 +46170,7 @@
    "target": "0x141435170",
    "kind": "func_start",
    "names": [
-    "Game_DecalGeneration_OnReadback"
+    "Game_DecalGeneration_UpdateService"
    ],
    "verified": [
     {
@@ -46266,7 +46266,7 @@
    "target": "0x14142e7f0",
    "kind": "func_start",
    "names": [
-    "Game_DecalCustomisation_SwapAssetGroup"
+    "Game_GameDecalCustomisationSystem_Update"
    ],
    "verified": [
     {
@@ -46386,7 +46386,7 @@
    "target": "0x142a99780",
    "kind": "func_start",
    "names": [
-    "Game_CustomLivery_SetColour"
+    "Game_CustomLiveryModel_ApplyCustomisation"
    ],
    "verified": [
     {
@@ -46794,7 +46794,7 @@
    "target": "0x141c10810",
    "kind": "func_start",
    "names": [
-    "Game_HudCustomisation_LeaveScreen"
+    "Game_HudCustomisationViewModel_OnCommandRaised"
    ],
    "verified": [
     {
@@ -47058,7 +47058,7 @@
    "target": "0x142aae940",
    "kind": "func_start",
    "names": [
-    "Game_MyTeamFacilitiesScene_Deactivate"
+    "Game_MyTeamFacilitiesScene_OnActiveChanged"
    ],
    "verified": [
     {
@@ -48066,7 +48066,7 @@
    "target": "0x141f58a20",
    "kind": "func_start",
    "names": [
-    "Car_Component_Fit"
+    "Car_PuComponent_FitSelected"
    ],
    "verified": [
     {
@@ -48162,7 +48162,7 @@
    "target": "0x1428aed30",
    "kind": "func_start",
    "names": [
-    "Game_VehicleSpawning_Despawn"
+    "Game_VehicleSpawning_ProcessPendingRequests"
    ],
    "verified": [
     {
@@ -50274,7 +50274,7 @@
    "target": "0x141475da0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesOsdConfig"
+    "Game_Hud_BuildOsdCarEntry"
    ],
    "verified": [
     {
@@ -50298,7 +50298,7 @@
    "target": "0x1414869d0",
    "kind": "func_start",
    "names": [
-    "Game_Read_SessionTopCarConfig"
+    "Game_Hud_BuildBroadcastTopCarEndOfSession"
    ],
    "verified": [
     {
@@ -50322,7 +50322,7 @@
    "target": "0x1414a0270",
    "kind": "func_start",
    "names": [
-    "Game_Read_GameModeDataConfig"
+    "Game_GhostlapTrace_Initialise"
    ],
    "verified": [
     {
@@ -50346,7 +50346,7 @@
    "target": "0x1414c7cd0",
    "kind": "func_start",
    "names": [
-    "Game_Read_MfdConfig"
+    "Game_Hud_InitMfdOsdViewModel"
    ],
    "verified": [
     {
@@ -50418,7 +50418,7 @@
    "target": "0x14151fcc0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesOsdConfig_2"
+    "Game_Hud_BuildPracticeTargetIcons"
    ],
    "verified": [
     {
@@ -50442,7 +50442,7 @@
    "target": "0x141569430",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesOsdConfig_3"
+    "Game_Hud_BuildPracticeLapIcons"
    ],
    "verified": [
     {
@@ -50514,7 +50514,7 @@
    "target": "0x1417dacc0",
    "kind": "func_start",
    "names": [
-    "Game_Read_NewsHubConfig"
+    "Game_Build_NewsHubViewModel"
    ],
    "verified": [
     {
@@ -50610,7 +50610,7 @@
    "target": "0x1419a4000",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesTeamHqConfig"
+    "Game_Get_SponsorRiskStatusIcon"
    ],
    "verified": [
     {
@@ -50634,7 +50634,7 @@
    "target": "0x1419ad560",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesTeamHqConfig_2"
+    "Game_Build_TeamHqCards_A"
    ],
    "verified": [
     {
@@ -50658,7 +50658,7 @@
    "target": "0x1419b0900",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesTeamHqConfig_3"
+    "Game_Build_TeamHqCards_B"
    ],
    "verified": [
     {
@@ -50682,7 +50682,7 @@
    "target": "0x1419c51a0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesTeamHqConfig_4"
+    "Game_Build_TeamHqCards_C"
    ],
    "verified": [
     {
@@ -50754,7 +50754,7 @@
    "target": "0x141a69a50",
    "kind": "func_start",
    "names": [
-    "Game_Read_SelectedTeamConfig"
+    "Game_Build_DriverCareerTeamSelect"
    ],
    "verified": [
     {
@@ -50826,7 +50826,7 @@
    "target": "0x141cc3540",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesTeamHqConfig_5"
+    "Game_Build_TeamHqCards_D"
    ],
    "verified": [
     {
@@ -50874,7 +50874,7 @@
    "target": "0x141cef700",
    "kind": "func_start",
    "names": [
-    "Game_Read_SettingsConfig"
+    "Game_PhotoModeViewModel_Construct"
    ],
    "verified": [
     {
@@ -50922,7 +50922,7 @@
    "target": "0x141d723e0",
    "kind": "func_start",
    "names": [
-    "Game_Read_CustomisationConfig"
+    "Game_RenderBadgeViewModel_InitJob"
    ],
    "verified": [
     {
@@ -50946,7 +50946,7 @@
    "target": "0x141d75800",
    "kind": "func_start",
    "names": [
-    "Game_Read_CustomisationConfig_2"
+    "Game_RenderBadgeViewModel_SetTexture"
    ],
    "verified": [
     {
@@ -50970,7 +50970,7 @@
    "target": "0x141d97750",
    "kind": "func_start",
    "names": [
-    "Game_Read_OptionsConfig"
+    "Game_OptionsUI_OnScreenActivated"
    ],
    "verified": [
     {
@@ -50994,7 +50994,7 @@
    "target": "0x141f71fa0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesCarMonitorMaximisedConfig"
+    "Game_GarageMonitorContainerVm_BuildTabs"
    ],
    "verified": [
     {
@@ -51018,7 +51018,7 @@
    "target": "0x141f893f0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesCarMonitorMaximisedConfig_2"
+    "Game_GarageMonitorPracticeSelectVm_Update"
    ],
    "verified": [
     {
@@ -51042,7 +51042,7 @@
    "target": "0x142015a30",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesCustomisationConfig_2"
+    "Game_Customisation_BuildMenuItem"
    ],
    "verified": [
     {
@@ -51066,7 +51066,7 @@
    "target": "0x1421c36c0",
    "kind": "func_start",
    "names": [
-    "Game_Read_OverridesF1WorldConfig"
+    "Game_FanZone_BuildRoomActivityEntry"
    ],
    "verified": [
     {
@@ -51090,7 +51090,7 @@
    "target": "0x14228fd80",
    "kind": "func_start",
    "names": [
-    "Game_Read_FrontendLobbyConfig"
+    "Game_FrontendLobby_BuildStatusPanels"
    ],
    "verified": [
     {
@@ -51114,7 +51114,7 @@
    "target": "0x142355020",
    "kind": "func_start",
    "names": [
-    "Game_Read_SpecialisationExtraDetailsConfig"
+    "Game_OwnerPerks_UpdateSpecialisationNode"
    ],
    "verified": [
     {
@@ -51138,7 +51138,7 @@
    "target": "0x142419550",
    "kind": "func_start",
    "names": [
-    "Game_Read_SettingsConfig_2"
+    "Game_DifficultySystem_ApplySettingsToUi"
    ],
    "verified": [
     {
@@ -51258,7 +51258,7 @@
    "target": "0x142a733f0",
    "kind": "func_start",
    "names": [
-    "Game_Read_LeadPlayerConfig_2"
+    "Game_GameInputModule_Initialise"
    ],
    "verified": [
     {
@@ -51282,7 +51282,7 @@
    "target": "0x142be35f0",
    "kind": "func_start",
    "names": [
-    "Game_Read_ProximityArrowsConfig"
+    "Game_ProximityArrows_Update"
    ],
    "verified": [
     {
@@ -51306,7 +51306,7 @@
    "target": "0x142c02c90",
    "kind": "func_start",
    "names": [
-    "Game_Read_ReplayDataConfig"
+    "Game_ReplayDataModel_Construct"
    ],
    "verified": [
     {
@@ -51330,7 +51330,7 @@
    "target": "0x142c04a30",
    "kind": "func_start",
    "names": [
-    "Game_Read_ReplayConfig"
+    "Game_ReplayUI_ApplyReplayDebugFlags"
    ],
    "verified": [
     {
@@ -56850,7 +56850,7 @@
    "target": "0x142767670",
    "kind": "func_start",
    "names": [
-    "Game_Network_LeaveMultiplayerSession"
+    "Game_Network_UpdateMultiplayerSessionState"
    ],
    "verified": [
     {
@@ -63306,7 +63306,7 @@
    "target": "0x141726e30",
    "kind": "func_start",
    "names": [
-    "Game_TOPLevelUI_CurrentCareerCompletedProgressSave"
+    "Game_TopLevelUI_ResolveCareerCompletedSave"
    ],
    "verified": [
     {
@@ -63378,7 +63378,7 @@
    "target": "0x1417f00a0",
    "kind": "func_start",
    "names": [
-    "Game_Pagination_PageEqualCurrentPage"
+    "Game_Pagination_RequestPage"
    ],
    "verified": [
     {
@@ -63522,7 +63522,7 @@
    "target": "0x141a91170",
    "kind": "func_start",
    "names": [
-    "Game_UI_SelectPressedNothingSelected"
+    "Game_UI_OnSelectPressed"
    ],
    "verified": [
     {
@@ -63546,7 +63546,7 @@
    "target": "0x141da11d0",
    "kind": "func_start",
    "names": [
-    "Game_OptionsUI_ExitingViewUpdatingFilterLevel"
+    "Game_OptionsUI_OnCommandRaised_Base"
    ],
    "verified": [
     {
@@ -63570,7 +63570,7 @@
    "target": "0x141dae7f0",
    "kind": "func_start",
    "names": [
-    "Game_OptionsUI_UIHiddenIgnoreCommand"
+    "Game_OptionsUI_OnCommandRaised"
    ],
    "verified": [
     {
@@ -63594,7 +63594,7 @@
    "target": "0x141dbd9d0",
    "kind": "func_start",
    "names": [
-    "Game_OptionsUI_SetDynamicTexturesUpdate"
+    "Game_SettingsEditScreenViewModel_OnScreenUpdate"
    ],
    "verified": [
     {
@@ -63618,7 +63618,7 @@
    "target": "0x141dbf690",
    "kind": "func_start",
    "names": [
-    "Game_OptionsUI_DataChangedButCurrentEditingScheme"
+    "Game_SettingsEditScreenViewModel_OnDataChanged"
    ],
    "verified": [
     {
@@ -63642,7 +63642,7 @@
    "target": "0x141dcfe30",
    "kind": "func_start",
    "names": [
-    "Game_OptionsUI_BackPressIgnoredDonAllowBack"
+    "Game_OptionsUI_OnCommandRaised_Menu"
    ],
    "verified": [
     {
@@ -63666,7 +63666,7 @@
    "target": "0x141dffe30",
    "kind": "func_start",
    "names": [
-    "Game_FriendsList_SocialHubFriendsTabBaseViewModel"
+    "Game_FriendsList_BuildFriendsListFromF1OS"
    ],
    "verified": [
     {
@@ -63738,7 +63738,7 @@
    "target": "0x142214550",
    "kind": "func_start",
    "names": [
-    "Game_Network_MultiplayerContextMatchingContext"
+    "Game_FrontendLobbyTabViewModel_OnScreenActivated"
    ],
    "verified": [
     {
@@ -63762,7 +63762,7 @@
    "target": "0x142226950",
    "kind": "func_start",
    "names": [
-    "Game_Network_SessionDoesExist"
+    "Game_Network_JoinSessionValidate"
    ],
    "verified": [
     {
@@ -63786,7 +63786,7 @@
    "target": "0x1424b0e10",
    "kind": "func_start",
    "names": [
-    "Game_EntrantsUI_UITextureAssetCouldnFindValid"
+    "Game_EntrantsUI_ResolveUITextureAsset"
    ],
    "verified": [
     {
@@ -63834,7 +63834,7 @@
    "target": "0x1428c9060",
    "kind": "func_start",
    "names": [
-    "Game_FadeRequests_PendingChangeCustomDriverDoesn"
+    "Game_FrontendSceneManager_Update"
    ],
    "verified": [
     {
@@ -63858,7 +63858,7 @@
    "target": "0x142a1a0b0",
    "kind": "func_start",
    "names": [
-    "Game_Options_OptionValueSubsetMismatch"
+    "Game_Options_FindValueSubset"
    ],
    "verified": [
     {
@@ -63906,7 +63906,7 @@
    "target": "0x142aba840",
    "kind": "func_start",
    "names": [
-    "Game_OptionsWatched_OptionRawValueChangingCurrent"
+    "Game_OptionsWatched_SetOptionRawValue"
    ],
    "verified": [
     {
@@ -64002,7 +64002,7 @@
    "target": "0x142accfc0",
    "kind": "func_start",
    "names": [
-    "Game_Options_OptionsValueMustManagedOption"
+    "Game_OptionsSystem_AddDummyUnhandledOptions"
    ],
    "verified": [
     {
@@ -64026,7 +64026,7 @@
    "target": "0x142cd62a0",
    "kind": "func_start",
    "names": [
-    "Game_Network_MOXStartLightsECompleteCountTime"
+    "Game_StartLights_Update"
    ],
    "verified": [
     {
@@ -64098,7 +64098,7 @@
    "target": "0x142cec430",
    "kind": "func_start",
    "names": [
-    "Game_Network_FoundNetresultID"
+    "Game_Game_CreateSession"
    ],
    "verified": [
     {
@@ -120529,7 +120529,7 @@
    "target": "0x141a22240",
    "kind": "func_start",
    "names": [
-    "Vm_Unk_141a22240"
+    "Vm_Bind_TitleDescriptionEntry"
    ],
    "verified": [
     {
@@ -120697,7 +120697,7 @@
    "target": "0x141b012b0",
    "kind": "func_start",
    "names": [
-    "Vm_Unk_141b012b0"
+    "Vm_Build_EventListEntries"
    ],
    "verified": [
     {
@@ -121609,7 +121609,7 @@
    "target": "0x1424fc250",
    "kind": "func_start",
    "names": [
-    "Ent_Pack_VehicleCustomisation"
+    "Ent_Pack_VehicleCustomisationStatId"
    ],
    "verified": [
     {
@@ -121657,7 +121657,7 @@
    "target": "0x1425069b0",
    "kind": "func_start",
    "names": [
-    "Ent_Pack_VehicleRef"
+    "Ent_Pack_VehicleStatId"
    ],
    "verified": [
     {
@@ -121849,7 +121849,7 @@
    "target": "0x14292a560",
    "kind": "func_start",
    "names": [
-    "Game_FrontendSceneComponentCar_Despawn"
+    "Game_PitDriveThrough_NotifyLocalPlayerVehicle"
    ],
    "verified": [
     {

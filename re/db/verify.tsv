@@ -4325,3 +4325,443 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	lb04-verify	func	0x140ff4190	L1	agree	decomp:re/decomp/140ff4190.c;xref:0x140ff2486,0x140ff570c	V4324 log/pretty strings and body checked in decomp
 2026-10-31	lb04-verify	func	0x140ff43c0	L1	agree	decomp:re/decomp/140ff43c0.c;xref:0x140ff2906,0x140ff577a	V4325 log/pretty strings and body checked in decomp
 2026-10-31	lb04-verify	func	0x140ff7320	L1	agree	decomp:re/decomp/140ff7320.c;xref:0x142d50413,0x1436b05a0	V4326 log/pretty strings and body checked in decomp
+2026-10-31	lb06-verify	func	0x141428060	L1	agree	decomp:re/decomp/141428060.c;xref:0x14142800a	V4327 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141429730	L1	agree	decomp:re/decomp/141429730.c;xref:0x14142828d	V4328 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14142bd50	L1	agree	decomp:re/decomp/14142bd50.c;xref:0x14142da75	V4329 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14142c330	L1	agree	decomp:re/decomp/14142c330.c;xref:0x141ffdc74	V4330 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14142dc70	L1	agree	decomp:re/decomp/14142dc70.c;xref:0x14142e7c6	V4331 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14142e050	L1	agree	decomp:re/decomp/14142e050.c;xref:0x141fece65	V4332 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14142e7f0	L1	partial	decomp:re/decomp/14142e7f0.c	V4333 Whole body is the decal-customisation system Update(dt): pending file processing, per-service update (calls 0x141435170 x5), removes deactivated services; asset group swap log is one branch. Better: Game_GameDecalCustomisationSystem_Update (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1414317f0	L1	agree	decomp:re/decomp/1414317f0.c;xref:0x141435aee	V4334 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141434260	L1	agree	decomp:re/decomp/141434260.c;xref:0x143713460	V4335 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1414346c0	L1	agree	decomp:re/decomp/1414346c0.c	V4336 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141434c30	L1	agree	decomp:re/decomp/141434c30.c	V4337 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141434cb0	L1	agree	decomp:re/decomp/141434cb0.c;xref:0x141428b73	V4338 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141435170	L1	partial	decomp:re/decomp/141435170.c;xref:0x14142f143	V4339 61 KB generation-service state machine/update (ePreloadingDecals, eGenerateBake, readback, releaseResources, eWaitForAbuseImageWritten); calls ChangeState/Generate/ReleaseResources/BeginGeneration/LinkFile. Readback is one state. Better: Game_DecalGeneration_UpdateService
+2026-10-31	lb06-verify	func	0x1414371c0	L1	agree	decomp:re/decomp/1414371c0.c;xref:0x1414365b7	V4340 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1414378f0	L1	agree	decomp:re/decomp/1414378f0.c;xref:0x141436e79	V4341 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141437aa0	L1	agree	decomp:re/decomp/141437aa0.c;xref:0x141436ee7	V4342 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141475da0	L1	partial	decomp:re/decomp/141475da0.c;xref:0x1414ad01d	V4343 68 KB builder of per-car OSD entry (car%u, index, nub_colour, driver, team, pit_state, pit timers, mp_icon) plus car_online_icons keys; not just a key read. Better: Hud_Build_OsdCarEntry
+2026-10-31	lb06-verify	func	0x14147b720	L1	agree	decomp:re/decomp/14147b720.c;xref:0x14147e172	V4344 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14147c2d0	L1	partial	decomp:re/decomp/14147c2d0.c;xref:0x1414a1e04	V4345 40 KB onGameModeChanged handler (GHOSTLAP-TRACE) subscribing/unsubscribing ~20 TT messages; Leaving-time-trial log is one branch; calls SetReference and rival download. Better: Game_TimeTrial_OnGameModeChanged
+2026-10-31	lb06-verify	func	0x141482d60	L1	agree	decomp:re/decomp/141482d60.c;xref:0x14147c82a	V4346 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141484aa0	L1	agree	decomp:re/decomp/141484aa0.c;xref:0x141482ff1	V4347 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1414869d0	L1	partial	decomp:re/decomp/1414869d0.c;xref:0x1414aec7d	V4348 51 KB broadcast top-car/end-of-session builder (weather icons, eos_* strings, race winner, chequered flag); top_car keys are a small part. Better: Hud_Build_BroadcastTopCarEndOfSession
+2026-10-31	lb06-verify	func	0x1414a0270	L1	partial	decomp:re/decomp/1414a0270.c	V4349 40 KB GhostlapTrace initialise (log %s() initialise) binding pbTimeInMS/rival/leaderboard fields from game_mode_data; not only key read. Better: Game_GhostlapTrace_Initialise (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1414bf420	L1	agree	decomp:re/decomp/1414bf420.c	V4350 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1414c7450	L1	agree	decomp:re/decomp/1414c7450.c;xref:0x1414c2fd6	V4351 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1414c7cd0	L1	partial	decomp:re/decomp/1414c7cd0.c;xref:0x141c117fe	V4352 226 KB HUD/MFD view model init: flashback/checkpoint/hud notification messages, tutorial notifications, osd_visibility timing, pit_stop_minigame; mfd.* keys small part. Better: Hud_Init_MfdOsdViewModel
+2026-10-31	lb06-verify	func	0x1414f1740	L1	agree	decomp:re/decomp/1414f1740.c;xref:0x1414f1362	V4353 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1414f5970	L1	agree	decomp:re/decomp/1414f5970.c	V4354 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1414f70b0	L1	agree	decomp:re/decomp/1414f70b0.c;xref:0x1414f6e10	V4355 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141510f00	L1	agree	decomp:re/decomp/141510f00.c;xref:0x1414c911a	V4356 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141515ba0	L1	agree	decomp:re/decomp/141515ba0.c;xref:0x141508377	V4357 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14151fcc0	L1	partial	decomp:re/decomp/14151fcc0.c	V4358 50 KB practice-target icon/VM builder (perfect/good wear, fuel, ers management strings, reset_targets), not only key reads. Better: Hud_Build_PracticeTargetIcons (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1415291c0	L1	agree	decomp:re/decomp/1415291c0.c	V4359 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141569430	L1	partial	decomp:re/decomp/141569430.c;xref:0x141568f0f	V4360 20 KB practice lap icon builder (graph_lap_icon_*, quali_pace_lap_*, lng_hud_laps) not only key reads. Better: Hud_Build_PracticeLapIcons
+2026-10-31	lb06-verify	func	0x1415aa6e0	L1	agree	decomp:re/decomp/1415aa6e0.c;xref:0x1415aa45f	V4361 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1415acd60	L1	agree	decomp:re/decomp/1415acd60.c	V4362 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1415db4d0	L1	agree	decomp:re/decomp/1415db4d0.c;xref:0x1415dacc6	V4363 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141610510	L1	agree	decomp:re/decomp/141610510.c;xref:0x1414ac2b3	V4364 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141643830	L1	agree	decomp:re/decomp/141643830.c	V4365 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1416bbbc0	L1	agree	decomp:re/decomp/1416bbbc0.c;xref:0x141a4b567	V4366 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141726e30	L1	partial	decomp:re/decomp/141726e30.c	V4367 28 KB career-save resolution/populate (completed + no in-progress slot, load another slot, session_data/track/team/round name), log is two branches. Better: Game_TopLevelUI_ResolveCareerCompletedSave (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141784580	L1	agree	decomp:re/decomp/141784580.c;xref:0x1417844b1	V4368 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141784ea0	L1	agree	decomp:re/decomp/141784ea0.c	V4369 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1417883a0	L1	agree	decomp:re/decomp/1417883a0.c;xref:0x141536187	V4370 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141788bc0	L1	agree	decomp:re/decomp/141788bc0.c;xref:0x1417884d0	V4371 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141790a20	L1	agree	decomp:re/decomp/141790a20.c;xref:0x1415361ba	V4372 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141793ac0	L1	agree	decomp:re/decomp/141793ac0.c;xref:0x141540675	V4373 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141793c90	L1	partial	decomp:re/decomp/141793c90.c;xref:0x14154057a	V4374 Not the setter: it subscribes DB ref current_pit_stop_type_selection with callback 0x141793ac0 (pcStack_78 = FUN_141793ac0, registered at +0x100) after computing the vehicle index; the setter is 0x141793ac0. Better: Game_PitLane_RegisterDoPracticePitStopListener
+2026-10-31	lb06-verify	func	0x1417dacc0	L1	partial	decomp:re/decomp/1417dacc0.c;xref:0x1417d9f5f	V4375 67 KB news hub VM builder (news_first_boot, lng_news, unclaimed count, panels, display_name/subtitle); not just 3 keys. Better: Game_Build_NewsHubViewModel
+2026-10-31	lb06-verify	func	0x1417f00a0	L1	partial	decomp:re/decomp/1417f00a0.c;xref:0x1417f0092	V4376 Function is the pagination RequestPage logic (page outside total, page requested, span building, view requires requests, refresh fallbacks); page-equal log is one branch. Better: Game_Pagination_RequestPage
+2026-10-31	lb06-verify	func	0x1417f0220	L1	agree	decomp:re/decomp/1417f0220.c;xref:0x1417f01cb	V4377 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1417f0a80	L1	agree	decomp:re/decomp/1417f0a80.c;xref:0x14178463b	V4378 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1417f8090	L1	agree	decomp:re/decomp/1417f8090.c;xref:0x1418042ce	V4379 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14180b660	L1	agree	decomp:re/decomp/14180b660.c;xref:0x141f42fe6	V4380 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14184ca90	L1	agree	decomp:re/decomp/14184ca90.c;xref:0x14184ca0b	V4381 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14184e780	L1	agree	decomp:re/decomp/14184e780.c;xref:0x141e02f3d	V4382 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1418522f0	L1	agree	decomp:re/decomp/1418522f0.c;xref:0x141851fe6	V4383 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14186ffc0	L1	agree	decomp:re/decomp/14186ffc0.c;xref:0x1418caaf2	V4384 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14188f530	L1	agree	decomp:re/decomp/14188f530.c;xref:0x141886d07	V4385 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1418cfc90	L1	agree	decomp:re/decomp/1418cfc90.c;xref:0x1418cfaac	V4386 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1418dfec0	L1	agree	decomp:re/decomp/1418dfec0.c;xref:0x1419e2e53	V4387 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1418e0290	L1	agree	decomp:re/decomp/1418e0290.c;xref:0x1418e013b	V4388 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x14196a7c0	L1	agree	decomp:re/decomp/14196a7c0.c;xref:0x14196da86	V4389 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1419a4000	L1	partial	decomp:re/decomp/1419a4000.c;xref:0x1419c5d01	V4390 Picks one of five sponsor risk_status_icon keys (risk_state_01..05) by value thresholds 0x15/0x29/0x3d/0x51/0x65 (param_2), not a generic key read. Better: Game_Get_SponsorRiskStatusIcon
+2026-10-31	lb06-verify	func	0x1419ad560	L1	partial	decomp:re/decomp/1419ad560.c	V4391 38-55 KB cost-cap card VM builder (cost_cap, spent, budget, breaching cap card title/desc), not just a key read. Better: Game_Build_TeamHq...Cards (subsystem Game_Build_*) (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1419b0900	L1	partial	decomp:re/decomp/1419b0900.c	V4392 38-55 KB driver contract timeline card builder (dc_* textures, lng_contracts_timeline_*), not just a key read. Better: Game_Build_TeamHq...Cards (subsystem Game_Build_*) (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1419c51a0	L1	partial	decomp:re/decomp/1419c51a0.c;xref:0x14168205a	V4393 38-55 KB sponsor contract overlay/offer builder (risk_status_overlay + lng_contract_current_offer, header success, offer accepted), not just a key read. Better: Game_Build_TeamHq...Cards (subsystem Game_Build_*)
+2026-10-31	lb06-verify	func	0x1419cd960	L1	agree	decomp:re/decomp/1419cd960.c;xref:0x1419ce251	V4394 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1419ce620	L1	agree	decomp:re/decomp/1419ce620.c;xref:0x141c4606d	V4395 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1419d2030	L1	agree	decomp:re/decomp/1419d2030.c	V4396 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1419d7170	L1	agree	decomp:re/decomp/1419d7170.c	V4397 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x1419d86f0	L1	agree	decomp:re/decomp/1419d86f0.c;xref:0x1419d8344	V4398 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1419ee670	L1	agree	decomp:re/decomp/1419ee670.c;xref:0x1419ec05e	V4399 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x1419fe120	L1	agree	decomp:re/decomp/1419fe120.c;xref:0x1419fd98a	V4400 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a02e70	L1	agree	decomp:re/decomp/141a02e70.c;xref:0x141a016aa	V4401 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a22240	L1	partial	decomp:re/decomp/141a22240.c;xref:0x14159fdf7	V4402 Binds generic title/title_localised/description/instance_data VM nodes via 0x140846270/0x140975db0; label is not a description. Better: Vm_Bind_TitleDescriptionEntry
+2026-10-31	lb06-verify	func	0x141a495f0	L1	agree	decomp:re/decomp/141a495f0.c	V4403 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141a68e80	L1	agree	decomp:re/decomp/141a68e80.c;xref:0x141a6828c	V4404 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a690b0	L1	agree	decomp:re/decomp/141a690b0.c;xref:0x141a684d6	V4405 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a691e0	L1	agree	decomp:re/decomp/141a691e0.c;xref:0x141a68716	V4406 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a69a50	L1	partial	decomp:re/decomp/141a69a50.c	V4407 28 KB driver-career team select VM (open_secret_meetings, back, open_confirm_selections, open_team_mate_select, _two_players/_official), not only 3 selected_team keys. Better: Game_Build_DriverCareerTeamSelect (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141a6add0	L1	agree	decomp:re/decomp/141a6add0.c;xref:0x141a6913d	V4408 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a7a6c0	L1	agree	decomp:re/decomp/141a7a6c0.c;xref:0x141a7ad27	V4409 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141a91170	L1	partial	decomp:re/decomp/141a91170.c;xref:0x14080ecdf	V4410 61 KB menu select-pressed handler (goto_engineering, nav_anim, weather icons, race_info, collaborative events); nothing-selected log is one branch. Better: Game_UI_OnSelectPressed
+2026-10-31	lb06-verify	func	0x141b012b0	L1	partial	decomp:re/decomp/141b012b0.c;xref:0x141b00f62	V4411 113 KB list-entry builder (entry_%d: name, position, marker_flags, state, esports_event, reward boost, vehicle type, info_1..3, track, mods, description); label only covers description loc. Better: Vm_Build_EventListEntries
+2026-10-31	lb06-verify	func	0x141b19e80	L1	agree	decomp:re/decomp/141b19e80.c;xref:0x1498d39ee	V4412 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141bb17f0	L1	agree	decomp:re/decomp/141bb17f0.c	V4413 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141c0e650	L1	agree	decomp:re/decomp/141c0e650.c	V4414 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141c10810	L1	partial	decomp:re/decomp/141c10810.c	V4415 40 KB command dispatch of HUD customisation VM (leave+discard / save, show_options -> PrepareOptionsUI, filter, hardware settings); Leave is one branch. Better: Game_HudCustomisationViewModel_OnCommandRaised (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141c13460	L1	agree	decomp:re/decomp/141c13460.c;xref:0x141c10c43	V4416 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141c1e530	L1	agree	decomp:re/decomp/141c1e530.c;xref:0x141496fb3	V4417 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a5d5f0	L1	agree	decomp:re/decomp/142a5d5f0.c;xref:0x142a5cdb6	V4418 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a5ec00	L1	agree	decomp:re/decomp/142a5ec00.c	V4419 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb06-verify	func	0x141c37970	L1	agree	decomp:re/decomp/141c37970.c;xref:0x141c36938	V4420 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a5f900	L1	agree	decomp:re/decomp/142a5f900.c	V4421 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142a63340	L1	agree	decomp:re/decomp/142a63340.c;xref:0x142a6a276	V4422 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141c3f130	L1	agree	decomp:re/decomp/141c3f130.c	V4423 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141c43290	L1	agree	decomp:re/decomp/141c43290.c;xref:0x141bf4267	V4424 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141c7b880	L1	agree	decomp:re/decomp/141c7b880.c;xref:0x141c727f5	V4425 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a69440	L1	partial	decomp:re/decomp/142a69440.c	V4426 serialises whole control_schemes list + control_schemes_player_index into save container (Failed-to-serialise is one branch); better Game_GameControlSchemeManager_SerialiseSaveDataContainer (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142a69b20	L1	agree	decomp:re/decomp/142a69b20.c	V4427 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142a6a990	L1	agree	decomp:re/decomp/142a6a990.c;xref:0x1434d7823	V4428 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141c85f70	L1	agree	decomp:re/decomp/141c85f70.c	V4429 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb09-verify	func	0x142a6bdd0	L1	agree	decomp:re/decomp/142a6bdd0.c;xref:0x141da9e65	V4430 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a6fc70	L1	agree	decomp:re/decomp/142a6fc70.c;xref:0x142a76c55	V4431 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141c86fc0	L1	agree	decomp:re/decomp/141c86fc0.c	V4432 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141c8a080	L1	agree	decomp:re/decomp/141c8a080.c	V4433 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb09-verify	func	0x142a71420	L1	partial	decomp:re/decomp/142a71420.c;xref:0x142a71414	V4434 lists actionmaps/ dir, reads, parses, matches typeid: whole actionmap loader not just listing; better Game_DeviceDataLoader_LoadActionMapFiles
+2026-10-31	lb09-verify	func	0x142a733f0	L1	partial	decomp:re/decomp/142a733f0.c	V4435 10.6KB GameInputModule init: registers onDeviceConnected/forceRefresh callbacks (0x142a749d8/0x142a74bb3), EGO_INPUT_SYSTEM device/axis tooltip data, eye/head tracking opts, MessageOnOptionsLoaded; better Game_GameInputModule_Initialise (vtable/indirect)
+2026-10-31	lb06-verify	func	0x141c8bcc0	L1	agree	decomp:re/decomp/141c8bcc0.c;xref:0x141c8d537	V4436 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141c8d540	L1	agree	decomp:re/decomp/141c8d540.c;xref:0x141c8bb58	V4437 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141cc3540	L1	partial	decomp:re/decomp/141cc3540.c;xref:0x141cc2de1	V4438 38-55 KB sponsor counter-offer tile builder (counter_offer_%I64u, success rate, seasonal goal, signing bonus), not just a key read. Better: Game_Build_TeamHq...Cards (subsystem Game_Build_*)
+2026-10-31	lb09-verify	func	0x142a75d80	L1	agree	decomp:re/decomp/142a75d80.c;xref:0x142a749d8	V4439 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141cea5d0	L1	agree	decomp:re/decomp/141cea5d0.c	V4440 name/description match decomp: strings and callees consistent (vtable/indirect, no direct call site)
+2026-10-31	lb06-verify	func	0x141cef700	L1	partial	decomp:re/decomp/141cef700.c	V4441 Photo mode settings VM construct: 25 settings.*.selected_option refs and wires the OnSelectionChanged/ColourGrade/Exposure/Brightness/Saturation/Contrast handlers (callers of 0x141d05b80..0x141d06f00 are all here). Better: Game_PhotoModeViewModel_Construct (vtable/indirect, no direct call site)
+2026-10-31	lb09-verify	func	0x142a76950	L1	agree	decomp:re/decomp/142a76950.c;xref:0x142a74bb3	V4442 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a76ae0	L1	partial	decomp:re/decomp/142a76ae0.c	V4443 8.4KB GameInputModule::update (m_pendingRefresh, refreshData, clearInputSnapshot) with DeviceDataLoader request inlined; better Game_GameInputModule_Update (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142a79e70	L1	agree	decomp:re/decomp/142a79e70.c;xref:0x142a78353	V4444 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141cfe090	L1	agree	decomp:re/decomp/141cfe090.c;xref:0x140ef4f8c	V4445 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141d05b80	L1	agree	decomp:re/decomp/141d05b80.c;xref:0x141cef7a7	V4446 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141d06930	L1	agree	decomp:re/decomp/141d06930.c;xref:0x141cef900	V4447 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a7b130	L1	agree	decomp:re/decomp/142a7b130.c;xref:0x14da3acdb	V4448 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7b590	L1	agree	decomp:re/decomp/142a7b590.c;xref:0x142a5e5f6	V4449 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7c680	L1	agree	decomp:re/decomp/142a7c680.c;xref:0x141da8e07	V4450 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141d06ac0	L1	agree	decomp:re/decomp/141d06ac0.c;xref:0x141cef945	V4451 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a7d830	L1	agree	decomp:re/decomp/142a7d830.c;xref:0x1425b0a57	V4452 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7e0b0	L1	agree	decomp:re/decomp/142a7e0b0.c;xref:0x1425b07f5	V4453 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb06-verify	func	0x141d06c40	L1	agree	decomp:re/decomp/141d06c40.c;xref:0x141cef98a	V4454 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141d06da0	L1	agree	decomp:re/decomp/141d06da0.c;xref:0x141cef9cf	V4455 name/description match decomp: strings and callees consistent
+2026-10-31	lb06-verify	func	0x141d06f00	L1	agree	decomp:re/decomp/141d06f00.c;xref:0x141cefa14	V4456 name/description match decomp: strings and callees consistent
+2026-10-31	lb09-verify	func	0x142a7e4a0	L1	agree	decomp:re/decomp/142a7e4a0.c;xref:0x1425aec05	V4457 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7ef40	L1	agree	decomp:re/decomp/142a7ef40.c;xref:0x14255cdbb	V4458 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7f430	L1	agree	decomp:re/decomp/142a7f430.c;xref:0x14255c639	V4459 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a7fb20	L1	agree	decomp:re/decomp/142a7fb20.c;xref:0x1425b0834	V4460 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a8f790	L1	agree	decomp:re/decomp/142a8f790.c;xref:0x142a9bc39	V4461 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a8fe40	L1	agree	decomp:re/decomp/142a8fe40.c;xref:0x1428aa3eb	V4462 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a90980	L1	agree	decomp:re/decomp/142a90980.c;xref:0x142a9042f	V4463 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a91720	L1	agree	decomp:re/decomp/142a91720.c	V4464 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142a92ba0	L1	agree	decomp:re/decomp/142a92ba0.c;xref:0x14142ef13	V4465 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a97c70	L1	agree	decomp:re/decomp/142a97c70.c;xref:0x1414379d5	V4466 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a992f0	L1	agree	decomp:re/decomp/142a992f0.c;xref:0x14db375a8	V4467 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a99780	L1	partial	decomp:re/decomp/142a99780.c;xref:0x142a99393	V4468 looks up livery/customisation by stat id, falls back to default customisation, sets colours; better Game_CustomLiveryModel_ApplyCustomisation
+2026-10-31	lb09-verify	func	0x142a9a310	L1	agree	decomp:re/decomp/142a9a310.c;xref:0x14db487e7	V4469 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a9a910	L1	agree	decomp:re/decomp/142a9a910.c;xref:0x14db487f5	V4470 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a9e9d0	L1	agree	decomp:re/decomp/142a9e9d0.c;xref:0x142b0f55b	V4471 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a9f080	L1	agree	decomp:re/decomp/142a9f080.c;xref:0x142b0f592	V4472 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142a9f390	L1	agree	decomp:re/decomp/142a9f390.c	V4473 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142aa1b30	L1	agree	decomp:re/decomp/142aa1b30.c;xref:0x142aa2122	V4474 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142aa1db0	L1	agree	decomp:re/decomp/142aa1db0.c;xref:0x142514ba1	V4475 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142aae940	L1	partial	decomp:re/decomp/142aae940.c;xref:0x142aae3cb	V4476 7.9KB scene system handler for both deactivate and activate (setup) plus car component lookup; better Game_MyTeamFacilitiesScene_OnActiveChanged
+2026-10-31	lb09-verify	func	0x142ab0ce0	L1	agree	decomp:re/decomp/142ab0ce0.c;xref:0x142ab0829	V4477 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ab45a0	L1	agree	decomp:re/decomp/142ab45a0.c	V4478 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142ab4620	L1	agree	decomp:re/decomp/142ab4620.c	V4479 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142ab60b0	L1	agree	decomp:re/decomp/142ab60b0.c;xref:0x142ab6b9e	V4480 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ab7170	L1	agree	decomp:re/decomp/142ab7170.c;xref:0x142ab06fb	V4481 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142aba840	L1	partial	decomp:re/decomp/142aba840.c;xref:0x14e2173b4	V4482 2.9KB option raw-value setter: builds watch keys %s/%d/%llx, handles restrictions, logs change; better Game_OptionsWatched_SetOptionRawValue
+2026-10-31	lb09-verify	func	0x142abd800	L1	agree	decomp:re/decomp/142abd800.c;xref:0x142abd9b7	V4483 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142abe3e0	L1	agree	decomp:re/decomp/142abe3e0.c;xref:0x142abe314	V4484 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142abe6d0	L1	agree	decomp:re/decomp/142abe6d0.c;xref:0x142abe39b	V4485 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ac9260	L1	agree	decomp:re/decomp/142ac9260.c;xref:0x142ac7ae5	V4486 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142accfc0	L1	partial	decomp:re/decomp/142accfc0.c;xref:0x142ace393	V4487 5KB scope OptionsSystem.AddDummyUnhandledOptions: registers/validates options, logs unhandled-in-any-context and must-be-managed; better Game_OptionsSystem_AddDummyUnhandledOptions
+2026-10-31	lb09-verify	func	0x142ace510	L1	agree	decomp:re/decomp/142ace510.c;xref:0x1413e5267	V4488 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ad42e0	L1	agree	decomp:re/decomp/142ad42e0.c;xref:0x142ac93bc	V4489 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ad6480	L1	agree	decomp:re/decomp/142ad6480.c;xref:0x140bb59e7	V4490 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ad7170	L1	agree	decomp:re/decomp/142ad7170.c	V4491 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142ad9680	L1	agree	decomp:re/decomp/142ad9680.c;xref:0x142ada6bc	V4492 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142af1f30	L1	agree	decomp:re/decomp/142af1f30.c;xref:0x142af1dac	V4493 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142b0f3a0	L1	agree	decomp:re/decomp/142b0f3a0.c	V4494 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142b165f0	L1	agree	decomp:re/decomp/142b165f0.c	V4495 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142b96ce0	L1	agree	decomp:re/decomp/142b96ce0.c;xref:0x142b927e6	V4496 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142b970c0	L1	agree	decomp:re/decomp/142b970c0.c;xref:0x142b92a26	V4497 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bb3370	L1	agree	decomp:re/decomp/142bb3370.c;xref:0x142bb724d	V4498 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bc10f0	L1	agree	decomp:re/decomp/142bc10f0.c	V4499 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142bce8c0	L1	agree	decomp:re/decomp/142bce8c0.c;xref:0x142bce24f	V4500 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bcf0a0	L1	agree	decomp:re/decomp/142bcf0a0.c;xref:0x142bce263	V4501 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bcf890	L1	agree	decomp:re/decomp/142bcf890.c;xref:0x142bce4d8	V4502 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bd1ae0	L1	agree	decomp:re/decomp/142bd1ae0.c;xref:0x142bd29bd	V4503 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bd1e30	L1	agree	decomp:re/decomp/142bd1e30.c;xref:0x142bce45d	V4504 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bd27a0	L1	agree	decomp:re/decomp/142bd27a0.c;xref:0x142bb76e8	V4505 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bd2ad0	L1	agree	decomp:re/decomp/142bd2ad0.c;xref:0x142bce41f	V4506 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bd6d10	L1	agree	decomp:re/decomp/142bd6d10.c	V4507 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142bdaa20	L1	agree	decomp:re/decomp/142bdaa20.c;xref:0x142bda7bf	V4508 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142be35f0	L1	partial	decomp:re/decomp/142be35f0.c	V4509 9.9KB proximity arrows update: reads 5 config keys then per-player arrows visible/outerAnimFraction/innerAnimFraction/carID/red_visible; better Game_ProximityArrows_Update (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142be7590	L1	agree	decomp:re/decomp/142be7590.c;xref:0x142be9955	V4510 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142be98d0	L1	agree	decomp:re/decomp/142be98d0.c	V4511 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142bebaa0	L1	agree	decomp:re/decomp/142bebaa0.c;xref:0x142beb5e1	V4512 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bebc60	L1	agree	decomp:re/decomp/142bebc60.c;xref:0x142beb618	V4513 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142bebcf0	L1	agree	decomp:re/decomp/142bebcf0.c;xref:0x142beb64f	V4514 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142becf90	L1	agree	decomp:re/decomp/142becf90.c;xref:0x142bebcd5	V4515 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142befb40	L1	partial	decomp:re/decomp/142befb40.c;xref:0x142bebdba	V4516 copies elements of three markup vectors (offsets 0x3e8/0x408/0x608 = types 0x1f/0x20/0x30) into 32-byte entries; IDs 1..12, x_mode Full/Partial, ParseZoneIdType and no-TrackSpace message are NOT in this body (caller/UpdateZoneTracker)
+2026-10-31	lb09-verify	func	0x142c02c90	L1	partial	decomp:re/decomp/142c02c90.c;xref:0x14e46fc34	V4517 constructor binding ~30 replay_data.* UI-db properties (vtable set, handle init), not reading settings; better Game_ReplayDataModel_Construct
+2026-10-31	lb09-verify	func	0x142c04a30	L1	partial	decomp:re/decomp/142c04a30.c;xref:0x142c04c45	V4518 reads 3 bools and acts on them (force advanced UI, reset onboarding flags, disable tutorials); better Game_ReplayUI_ApplyReplayDebugFlags
+2026-10-31	lb09-verify	func	0x142c1ea50	L1	agree	decomp:re/decomp/142c1ea50.c;xref:0x142c1ae2c	V4519 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c209f0	L1	agree	decomp:re/decomp/142c209f0.c;xref:0x142c1fd6f	V4520 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c29190	L1	partial	decomp:re/decomp/142c29190.c;xref:0x141e2008c	V4521 21KB requestLoadReplay (STARTING/FINISHED LOADING, entrants, time of day, weather); skip-stream-line is a part; better Game_F1DataFeedSystem_RequestLoadReplay
+2026-10-31	lb09-verify	func	0x142c2f250	L1	agree	decomp:re/decomp/142c2f250.c;xref:0x142c1b65d	V4522 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c2f980	L1	agree	decomp:re/decomp/142c2f980.c;xref:0x142c1b66d	V4523 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c31280	L1	agree	decomp:re/decomp/142c31280.c;xref:0x1405b852e	V4524 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c31e10	L1	agree	decomp:re/decomp/142c31e10.c;xref:0x142c2b271	V4525 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c46a00	L1	agree	decomp:re/decomp/142c46a00.c;xref:0x142c469d0	V4526 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c4ade0	L1	agree	decomp:re/decomp/142c4ade0.c;xref:0x142c4656d	V4527 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c66490	L1	agree	decomp:re/decomp/142c66490.c;xref:0x14327f9c1	V4528 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c66d90	L1	agree	decomp:re/decomp/142c66d90.c;xref:0x142c6d5a6	V4529 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c6d630	L1	agree	decomp:re/decomp/142c6d630.c	V4530 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142c6def0	L1	agree	decomp:re/decomp/142c6def0.c;xref:0x142c6d8cb	V4531 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c6f690	L1	agree	decomp:re/decomp/142c6f690.c;xref:0x142c6ec0e	V4532 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142c8f9d0	L1	agree	decomp:re/decomp/142c8f9d0.c	V4533 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb08-verify	func	0x142471c60	L1	agree	decomp:re/decomp/142471c60.c;xref:0x141854ec9	V4534 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1424720e0	L1	agree	decomp:re/decomp/1424720e0.c;xref:0x140c2f00e	V4535 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1424726f0	L1	agree	decomp:re/decomp/1424726f0.c;xref:0x140c2d5f0	V4536 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cd4630	L1	agree	decomp:re/decomp/142cd4630.c;xref:0x14292ab7e	V4537 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x142473670	L1	agree	decomp:re/decomp/142473670.c;xref:0x141401afa	V4538 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142473a80	L1	agree	decomp:re/decomp/142473a80.c;xref:0x141a20cd5	V4539 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cd62a0	L1	partial	decomp:re/decomp/142cd62a0.c;xref:0x142d56ca9	V4540 3.4KB StartLights update state machine (eWaitForStart, eCompleteCount, formation, all_green, beep); better Game_StartLights_Update
+2026-10-31	lb09-verify	func	0x142ce43a0	L1	agree	decomp:re/decomp/142ce43a0.c;xref:0x142cd9098	V4541 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142ce82c0	L1	agree	decomp:re/decomp/142ce82c0.c;xref:0x142cebaf5	V4542 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x142473f80	L1	agree	decomp:re/decomp/142473f80.c;xref:0x141401ce7	V4543 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142474a60	L1	agree	decomp:re/decomp/142474a60.c;xref:0x140c2f025	V4544 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142475600	L1	agree	decomp:re/decomp/142475600.c;xref:0x14276d35b	V4545 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142ce9980	L1	agree	decomp:re/decomp/142ce9980.c;xref:0x142ce8eed	V4546 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142cea230	L1	agree	decomp:re/decomp/142cea230.c;xref:0x142cea220	V4547 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142cea650	L1	agree	decomp:re/decomp/142cea650.c;xref:0x142d76d77	V4548 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x1424761a0	L1	agree	decomp:re/decomp/1424761a0.c;xref:0x140c2f1da	V4549 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cec430	L1	partial	decomp:re/decomp/142cec430.c	V4550 8KB Create Session: picks game/flow_*.xml, session.number_of_laps; Found netresult ID is minor; better Game_Game_CreateSession (vtable/indirect)
+2026-10-31	lb09-verify	func	0x142cf17d0	L1	agree	decomp:re/decomp/142cf17d0.c;xref:0x14ba7fa3e	V4551 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x142476770	L1	agree	decomp:re/decomp/142476770.c;xref:0x140c2e04d	V4552 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cf24b0	L1	agree	decomp:re/decomp/142cf24b0.c;xref:0x142df13ac	V4553 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb09-verify	func	0x142cf2960	L1	agree	decomp:re/decomp/142cf2960.c;xref:0x14e73da68	V4554 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x142476bd0	L1	agree	decomp:re/decomp/142476bd0.c;xref:0x140c2fc04	V4555 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1424773f0	L1	agree	decomp:re/decomp/1424773f0.c;xref:0x140fe5ecd	V4556 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142477900	L1	agree	decomp:re/decomp/142477900.c;xref:0x1410f6bd2	V4557 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cf32b0	L1	agree	decomp:re/decomp/142cf32b0.c	V4558 name/strings/body match; log-based claim holds for this function size (vtable/indirect)
+2026-10-31	lb08-verify	func	0x142477cb0	L1	agree	decomp:re/decomp/142477cb0.c;xref:0x140fe92c2	V4559 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142477f90	L1	agree	decomp:re/decomp/142477f90.c;xref:0x1411291bf	V4560 Name and logged strings/offsets match body
+2026-10-31	lb09-verify	func	0x142cf4820	L1	agree	decomp:re/decomp/142cf4820.c;xref:0x142cf47f1	V4561 name/strings/body match; log-based claim holds for this function size
+2026-10-31	lb08-verify	func	0x14248ac00	L1	agree	decomp:re/decomp/14248ac00.c	V4562 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1424b0e10	L1	partial	decomp:re/decomp/1424b0e10.c;xref:0x1424bfa10	V4563 2.7 KB UI texture asset resolver (ui_texture_path/textures/path/name, 13 calls); error log is the failure branch. Better: Game_EntrantsUI_ResolveUITextureAsset
+2026-10-31	lb08-verify	func	0x1424b6550	L1	agree	decomp:re/decomp/1424b6550.c;xref:0x1424a6651	V4564 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1424fc250	L1	partial	decomp:re/decomp/1424fc250.c;xref:0x1405f2ec0	V4565 Packs label->stat_id (out={u8 0,u16 stat_id@+2}, 0 if missing) via key stat_id; NOT +0x64/0x3fff0000: those are in caller Sess_Parse_Entrant (0x142453495 writes 0x3fff0000 when label empty). Better: Ent_Pack_VehicleCustomisationStatId
+2026-10-31	lb08-verify	func	0x142504a90	L1	agree	decomp:re/decomp/142504a90.c;xref:0x14cca1269	V4566 All field keys and +0x60..+0x63 bool offsets confirmed
+2026-10-31	lb08-verify	func	0x1425069b0	L1	partial	decomp:re/decomp/1425069b0.c;xref:0x140bab8fb	V4567 Same helper shape as Ent_Pack_VehicleCustomisation: label->stat_id packed in high word, 0 if missing; no 0x3fff0000 / +0x5c inside (caller side), 39 callers. Better: Ent_Pack_VehicleStatId
+2026-10-31	lb08-verify	func	0x142517580	L1	agree	decomp:re/decomp/142517580.c;xref:0x140c62d73	V4568 Override flags +0x1a60..63, gap +0x1a5c, overtake_mode_* strings match; lap-progress setting names not seen in body
+2026-10-31	lb08-verify	func	0x142518490	L1	agree	decomp:re/decomp/142518490.c;xref:0x153243c67	V4569 Null checks (+0x28, +0x5a8), button bits 0x10/0x08, +0x1a6c/+0x1a68, 0x200 flag and vtable slot 0x145790988 confirmed
+2026-10-31	lb08-verify	func	0x142521720	L1	partial	decomp:re/decomp/142521720.c	V4570 1.7 KB overtake watch tracker: adds, removes (inactive/swapped) and records overtakes (3 more log strings). Better: Game_Overtakes_UpdateWatches
+2026-10-31	lb08-verify	func	0x1425292d0	L1	agree	decomp:re/decomp/1425292d0.c;xref:0x142529254	V4571 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14252f270	L1	agree	decomp:re/decomp/14252f270.c	V4572 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142533fa0	L1	agree	decomp:re/decomp/142533fa0.c;xref:0x14252ebe6	V4573 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14253f1b0	L1	agree	decomp:re/decomp/14253f1b0.c;xref:0x14253ca26	V4574 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142540070	L1	agree	decomp:re/decomp/142540070.c;xref:0x14253e6a6	V4575 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142542680	L1	agree	decomp:re/decomp/142542680.c;xref:0x1416e59d7	V4576 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1425439c0	L1	agree	decomp:re/decomp/1425439c0.c;xref:0x14254283f	V4577 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142586a60	L1	partial	decomp:re/decomp/142586a60.c;xref:0x14255a941	V4578 10 KB, 47 calls, serialises/updates session blocks (F1W-OS eBlock, data_version); setPercentageOfLapsCompleted log is one inlined bit. Better: Game_Session_UpdateChampionshipSessionData
+2026-10-31	lb08-verify	func	0x1425adcd0	L1	agree	decomp:re/decomp/1425adcd0.c;xref:0x14255c078	V4579 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1425ae100	L1	agree	decomp:re/decomp/1425ae100.c;xref:0x14255e060	V4580 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1425ae530	L1	agree	decomp:re/decomp/1425ae530.c;xref:0x141ab06d2	V4581 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1425b0a00	L1	agree	decomp:re/decomp/1425b0a00.c;xref:0x1425ae989	V4582 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1427322b0	L1	agree	decomp:re/decomp/1427322b0.c;xref:0x142731f06	V4583 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142742670	L1	agree	decomp:re/decomp/142742670.c;xref:0x14170cc47	V4584 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14275af20	L1	agree	decomp:re/decomp/14275af20.c	V4585 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1427668b0	L1	agree	decomp:re/decomp/1427668b0.c;xref:0x14258e013	V4586 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142767250	L1	agree	decomp:re/decomp/142767250.c;xref:0x14258ebc9	V4587 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142767670	L1	partial	decomp:re/decomp/142767670.c;xref:0x14258fc0a	V4588 8.3 KB multi-purpose body (eGood/eExcellent/lng_invalid UI strings, Sess_Get_PlayerVehicleIndex calls); leaveMultiplayerSession log is one part. Better: Game_Network_UpdateMultiplayerSessionState
+2026-10-31	lb08-verify	func	0x1428847f0	L1	agree	decomp:re/decomp/1428847f0.c;xref:0x14d20a103	V4589 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142884a90	L1	agree	decomp:re/decomp/142884a90.c	V4590 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142884fe0	L1	agree	decomp:re/decomp/142884fe0.c;xref:0x142884baf	V4591 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14288e870	L1	agree	decomp:re/decomp/14288e870.c;xref:0x1428cae6d	V4592 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14288e9e0	L1	agree	decomp:re/decomp/14288e9e0.c;xref:0x1428cb124	V4593 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142890400	L1	agree	decomp:re/decomp/142890400.c	V4594 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14289d9b0	L1	agree	decomp:re/decomp/14289d9b0.c;xref:0x1428ef0c1	V4595 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x14289edf0	L1	agree	decomp:re/decomp/14289edf0.c;xref:0x1428dfd57	V4596 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428a3a50	L1	agree	decomp:re/decomp/1428a3a50.c;xref:0x142e3f4e8	V4597 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428a3f80	L1	agree	decomp:re/decomp/1428a3f80.c;xref:0x142e3f5c7	V4598 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428aed30	L1	partial	decomp:re/decomp/1428aed30.c	V4599 10 KB per-frame VehicleSpawningSystem work: pending visibility changes, startSpawning/startDespawning, max cars per frame, requestVehicleSpawn; not just despawn. Better: Game_VehicleSpawning_ProcessPendingRequests
+2026-10-31	lb08-verify	func	0x1428b1750	L1	agree	decomp:re/decomp/1428b1750.c;xref:0x1428c57cd	V4600 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428b22f0	L1	agree	decomp:re/decomp/1428b22f0.c;xref:0x1428c3e63	V4601 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428b2730	L1	agree	decomp:re/decomp/1428b2730.c;xref:0x1402496f0	V4602 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428b2d70	L1	agree	decomp:re/decomp/1428b2d70.c;xref:0x1428c3e97	V4603 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428b3100	L1	agree	decomp:re/decomp/1428b3100.c;xref:0x1428c3ecd	V4604 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428b7b80	L1	agree	decomp:re/decomp/1428b7b80.c;xref:0x1428960b1	V4605 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428bda10	L1	agree	decomp:re/decomp/1428bda10.c;xref:0x141643e0e	V4606 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428c3ef0	L1	partial	decomp:re/decomp/1428c3ef0.c;xref:0x1428ced5b	V4607 7 KB: dirty/livery/decals/sticker/number change detection (doesCarNeedRespawn inlined), setCarAsDecalEditorVehicle, spawn point change; changeCarSpawnPoint log is one branch. Better: Game_FrontendSceneCar_ApplyCarConfiguration
+2026-10-31	lb08-verify	func	0x1428c85f0	L1	agree	decomp:re/decomp/1428c85f0.c;xref:0x1428c8237	V4608 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428c8af0	L1	agree	decomp:re/decomp/1428c8af0.c;xref:0x1428c825b	V4609 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428c9060	L1	disagree	decomp:re/decomp/1428c9060.c;xref:0x14b44395b	V4610 19.9 KB FrontendSceneManager per-frame update: transition state machine (eIdle/eRequested/ePendingSwitch/eFadeIn), pending driver/car/object changes, camera/cutscene switch; the named log is one branch. Better: Game_FrontendSceneManager_Update
+2026-10-31	lb08-verify	func	0x1428cf660	L1	agree	decomp:re/decomp/1428cf660.c;xref:0x1428c91ad	V4611 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428d7b40	L1	agree	decomp:re/decomp/1428d7b40.c;xref:0x1428d76a6	V4612 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428d8680	L1	agree	decomp:re/decomp/1428d8680.c;xref:0x1428d772f	V4613 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428d96c0	L1	agree	decomp:re/decomp/1428d96c0.c;xref:0x1428c20f1	V4614 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428d9a90	L1	agree	decomp:re/decomp/1428d9a90.c;xref:0x140c833b6	V4615 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428db0e0	L1	agree	decomp:re/decomp/1428db0e0.c;xref:0x1416ca2a2	V4616 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428dd3e0	L1	agree	decomp:re/decomp/1428dd3e0.c;xref:0x140c82329	V4617 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ddc30	L1	agree	decomp:re/decomp/1428ddc30.c;xref:0x140c82a33	V4618 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428e3dc0	L1	agree	decomp:re/decomp/1428e3dc0.c;xref:0x1421aec0a	V4619 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428e72e0	L1	agree	decomp:re/decomp/1428e72e0.c;xref:0x1410f69d8	V4620 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428e8d90	L1	agree	decomp:re/decomp/1428e8d90.c;xref:0x141cc0c76	V4621 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428e9c00	L1	agree	decomp:re/decomp/1428e9c00.c;xref:0x141cc0cd3	V4622 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ea4c0	L1	agree	decomp:re/decomp/1428ea4c0.c;xref:0x14173855e	V4623 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428eb470	L1	agree	decomp:re/decomp/1428eb470.c;xref:0x1417e38e9	V4624 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428eb990	L1	agree	decomp:re/decomp/1428eb990.c;xref:0x1417e3804	V4625 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ebaf0	L1	agree	decomp:re/decomp/1428ebaf0.c;xref:0x14254809e	V4626 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ec420	L1	agree	decomp:re/decomp/1428ec420.c;xref:0x1425481b2	V4627 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ecdb0	L1	agree	decomp:re/decomp/1428ecdb0.c;xref:0x142547f39	V4628 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428ecf20	L1	agree	decomp:re/decomp/1428ecf20.c;xref:0x14254cbbb	V4629 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428efd50	L1	agree	decomp:re/decomp/1428efd50.c	V4630 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428f0cf0	L1	agree	decomp:re/decomp/1428f0cf0.c;xref:0x14059c825	V4631 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428f19c0	L1	agree	decomp:re/decomp/1428f19c0.c	V4632 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428f35b0	L1	agree	decomp:re/decomp/1428f35b0.c;xref:0x14289cb2c	V4633 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428fdad0	L1	agree	decomp:re/decomp/1428fdad0.c	V4634 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1428fe140	L1	agree	decomp:re/decomp/1428fe140.c	V4635 VTF keys confirmed, vtable slot 0x1457af388; also sets shadow/reflection/custom_decals
+2026-10-31	lb08-verify	func	0x14292a560	L1	disagree	decomp:re/decomp/14292a560.c;xref:0x142929cf9	V4636 Not a car despawn: resolves local player vehicle index (player list +0x2e0, entry+0x82, as Sess_Get_PlayerVehicleIndex inlined) twice and calls 0x142a3f330 and 0x142f0c6a0 with it; no despawn/cxx string; only caller is PitDriveThrough_OnNoAnimFadeOut. Better: Game_PitDriveThrough_NotifyLocalPlayerVehicle
+2026-10-31	lb08-verify	func	0x142944640	L1	agree	decomp:re/decomp/142944640.c;xref:0x14295f489	V4637 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x1429805c0	L1	partial	decomp:re/decomp/1429805c0.c;xref:0x14297ef41	V4638 Float-returning qualifying pace estimator (tyre/mass/lap-progress maths, vcalls +0x150 twice); the QUALI_PACE_DEBUG log is only a debug print. Better: Ai_QualiPace_EstimateLapTime
+2026-10-31	lb08-verify	func	0x1429cec50	L1	partial	decomp:re/decomp/1429cec50.c;xref:0x140ba2086	V4639 6.9 KB populate of save-slot info (resizes 0x108-byte entries, difficulty keys challenge_career_difficulty/story_difficulty), 78 callers incl. SetHotloadFlags/Launch; flag log is one part. Better: Game_InstantRace_FillSaveSlotInfo
+2026-10-31	lb08-verify	func	0x1429e5390	L1	agree	decomp:re/decomp/1429e5390.c	V4640 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a1a0b0	L1	partial	decomp:re/decomp/142a1a0b0.c;xref:0x142910fe7	V4641 Option value-subset lookup/validator returning a pointer (values, find failed + mismatch logs); callers FindOptionValueSubsetRange/LoadContextTags. Better: Game_Options_FindValueSubset
+2026-10-31	lb08-verify	func	0x142a224f0	L1	agree	decomp:re/decomp/142a224f0.c;xref:0x14d83faea	V4642 game_setup.scenarios keys, 0x50-byte entries via 0x142a33aa0 and log confirmed
+2026-10-31	lb08-verify	func	0x142a39b80	L1	agree	decomp:re/decomp/142a39b80.c;xref:0x142a3ff65	V4643 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a3b7a0	L1	partial	decomp:re/decomp/142a3b7a0.c;xref:0x142a41cc7	V4644 2.3 KB local-human-entered-garage handler (NETWORK/V logs, garage UI flow, vehicle active) plus a fade-in request; channel FADE_REQUESTS is only a sub-call. Better: Game_Garage_OnLocalHumanEnteredGarage
+2026-10-31	lb08-verify	func	0x142a3c0f0	L1	agree	decomp:re/decomp/142a3c0f0.c;xref:0x142a4096b	V4645 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a41120	L1	agree	decomp:re/decomp/142a41120.c;xref:0x142a3f754	V4646 Offsets +0x10/+0x14, 1->0x142a3a560, 0->0x1434d1350 and 0x1434d0340 confirmed; reached via handler 0x142a409b0
+2026-10-31	lb08-verify	func	0x142a416c0	L1	agree	decomp:re/decomp/142a416c0.c;xref:0x142a3f996	V4647 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a42040	L1	agree	decomp:re/decomp/142a42040.c;xref:0x142a41e3b	V4648 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a427e0	L1	agree	decomp:re/decomp/142a427e0.c;xref:0x142a6acf2	V4649 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a4a6c0	L1	agree	decomp:re/decomp/142a4a6c0.c;xref:0x142a4a3d4	V4650 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a561c0	L1	agree	decomp:re/decomp/142a561c0.c;xref:0x141dbb2a0	V4651 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a56310	L1	agree	decomp:re/decomp/142a56310.c;xref:0x141dbdda9	V4652 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a577d0	L1	partial	decomp:re/decomp/142a577d0.c;xref:0x140c8f3bc	V4653 5.4 KB: axis snapshot read plus UI icon/tooltip building (icon_raw, icons_tool_tips, key_pressed, num_more, #input_device.%s.axis.%s +/-). Better: Game_InputModule_BuildAxisSnapshotDisplay
+2026-10-31	lb08-verify	func	0x142a598c0	L1	agree	decomp:re/decomp/142a598c0.c;xref:0x142a69b57	V4654 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a5c7f0	L1	agree	decomp:re/decomp/142a5c7f0.c;xref:0x142a69b6d	V4655 Name and logged strings/offsets match body
+2026-10-31	lb08-verify	func	0x142a5d050	L1	agree	decomp:re/decomp/142a5d050.c;xref:0x142a5d00a	V4656 Name and logged strings/offsets match body
+2026-10-31	lb07-verify	func	0x141d07060	L1	agree	decomp:re/decomp/141d07060.c;xref:0x141cefa59	V4657 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d071c0	L1	agree	decomp:re/decomp/141d071c0.c;xref:0x141cefa9e	V4658 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07320	L1	agree	decomp:re/decomp/141d07320.c;xref:0x141cefae3	V4659 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d074a0	L1	agree	decomp:re/decomp/141d074a0.c;xref:0x141cefb28	V4660 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07600	L1	agree	decomp:re/decomp/141d07600.c;xref:0x141cefb6d	V4661 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07760	L1	agree	decomp:re/decomp/141d07760.c;xref:0x141cefbb2	V4662 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d078c0	L1	agree	decomp:re/decomp/141d078c0.c;xref:0x1411573fd	V4663 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07ad0	L1	agree	decomp:re/decomp/141d07ad0.c;xref:0x141cefc3c	V4664 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07c50	L1	agree	decomp:re/decomp/141d07c50.c;xref:0x141cefc81	V4665 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d07de0	L1	agree	decomp:re/decomp/141d07de0.c;xref:0x141cefcc6	V4666 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d08280	L1	agree	decomp:re/decomp/141d08280.c;xref:0x141cefd95	V4667 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d08780	L1	agree	decomp:re/decomp/141d08780.c;xref:0x141cefe1f	V4668 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d089c0	L1	agree	decomp:re/decomp/141d089c0.c;xref:0x141cefe64	V4669 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d09040	L1	agree	decomp:re/decomp/141d09040.c;xref:0x141cefeee	V4670 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d09430	L1	agree	decomp:re/decomp/141d09430.c;xref:0x141ceff78	V4671 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d247c0	L1	agree	decomp:re/decomp/141d247c0.c;xref:0x141d247b8	V4672 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d255a0	L1	agree	decomp:re/decomp/141d255a0.c;xref:0x141d24c0c	V4673 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d28d70	L1	agree	decomp:re/decomp/141d28d70.c;xref:0x141d2308d	V4674 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d58df0	L1	agree	decomp:re/decomp/141d58df0.c;xref:0x141d58046	V4675 Looks up the 3 listed DB keys (grid engineer, game_state intros); small; name acceptable
+2026-10-31	lb07-verify	func	0x141d6f4c0	L1	agree	decomp:re/decomp/141d6f4c0.c	V4676 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141d723e0	L1	disagree	decomp:re/decomp/141d723e0.c	V4677 Is RenderBadgeViewModel::initJob (builds stat-id list: environment/slot/preloaded/network badges, preLoadBadgeTextures, env pass); cstm_badge_large keys are texture-path lookups, not a config reader. Better Game_RenderBadgeViewModel_InitJob (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141d75800	L1	disagree	decomp:re/decomp/141d75800.c;xref:0x141d78909	V4678 Is RenderBadgeViewModel::setTexture (layer texture set for bg/bg_style/emblem/emblem_style, log Setting texture for layer); not a config reader. Better Game_RenderBadgeViewModel_SetTexture
+2026-10-31	lb07-verify	func	0x141d76d70	L1	agree	decomp:re/decomp/141d76d70.c;xref:0x141d2d535	V4679 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d778d0	L1	agree	decomp:re/decomp/141d778d0.c;xref:0x141d733c8	V4680 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d77e70	L1	agree	decomp:re/decomp/141d77e70.c;xref:0x141d7a365	V4681 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d79e00	L1	agree	decomp:re/decomp/141d79e00.c	V4682 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141d7bce0	L1	agree	decomp:re/decomp/141d7bce0.c;xref:0x141d80275	V4683 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d7dcd0	L1	agree	decomp:re/decomp/141d7dcd0.c;xref:0x141d2321e	V4684 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d7e4a0	L1	agree	decomp:re/decomp/141d7e4a0.c	V4685 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141d7e950	L1	agree	decomp:re/decomp/141d7e950.c;xref:0x141e71688	V4686 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d7eb30	L1	agree	decomp:re/decomp/141d7eb30.c;xref:0x141e71969	V4687 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d8f9f0	L1	partial	decomp:re/decomp/141d8f9f0.c	V4688 CE-tab log is one of ~14 strings at line 713 of 1513; function sets up session-results container tabs (close, advance, persistent, featured_driver, tab tooltips). Better Game_SessionResultsContainerViewModel_SetupTabs (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141d92230	L1	agree	decomp:re/decomp/141d92230.c;xref:0x14093222c	V4689 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d97750	L1	partial	decomp:re/decomp/141d97750.c;xref:0x141d96f73	V4690 Keys o_category/show_report_code are only part of a 1541-line OPTIONS-UI screen setup (dynamic texture loading, settings_home/save_load/select tabs, Message handlers, tooltips). Better Game_OptionsUI_OnScreenActivated
+2026-10-31	lb07-verify	func	0x141d9ca70	L1	agree	decomp:re/decomp/141d9ca70.c;xref:0x141d9b95a	V4691 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d9efb0	L1	agree	decomp:re/decomp/141d9efb0.c;xref:0x141d9ea44	V4692 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d9f240	L1	agree	decomp:re/decomp/141d9f240.c;xref:0x141d9eaa3	V4693 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141d9f6d0	L1	agree	decomp:re/decomp/141d9f6d0.c;xref:0x141da17f7	V4694 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141da11d0	L1	partial	decomp:re/decomp/141da11d0.c;xref:0x141d35995	V4695 391-line command dispatcher (hash switch back_pressed/open/race_style_selected); the ignored-command log is only one branch. Better Game_OptionsUI_OnCommandRaised_Base
+2026-10-31	lb07-verify	func	0x141da5de0	L1	agree	decomp:re/decomp/141da5de0.c;xref:0x141da4308	V4696 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141dae7f0	L1	partial	decomp:re/decomp/141dae7f0.c;xref:0x141db26c7	V4697 3276-line command handler of the options screen (show_view, show_bg, cat_* categories, test buttons); UI-hidden log is one early branch (also inlines the filter-level ignore). Better Game_OptionsUI_OnCommandRaised
+2026-10-31	lb07-verify	func	0x141db26d0	L1	agree	decomp:re/decomp/141db26d0.c	V4698 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141dbd9d0	L1	partial	decomp:re/decomp/141dbd9d0.c	V4699 786-line SettingsEditScreenViewModel update (dynamic textures, enable_list, cat_ea_trax, Snap); log is first line only. Better Game_SettingsEditScreenViewModel_OnScreenUpdate (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141dbf690	L1	partial	decomp:re/decomp/141dbf690.c;xref:0x141dad8cf	V4700 178-line SettingsEditScreen data-changed handler with two branches (device disconnected -> back to controls home; scheme still valid). Better Game_SettingsEditScreenViewModel_OnDataChanged
+2026-10-31	lb07-verify	func	0x141dc23f0	L1	agree	decomp:re/decomp/141dc23f0.c;xref:0x141dbf2ed	V4701 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141dcfe30	L1	partial	decomp:re/decomp/141dcfe30.c;xref:0x141dd1ae7	V4702 1195-line command handler (start_event, begin_braking_point, career_wizard, back_pressed...); back-press-ignored is one branch. Better Game_OptionsUI_OnCommandRaised_Menu
+2026-10-31	lb07-verify	func	0x141dd66c0	L1	agree	decomp:re/decomp/141dd66c0.c;xref:0x141da5dbe	V4703 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141ded550	L1	agree	decomp:re/decomp/141ded550.c	V4704 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141dffe30	L1	partial	decomp:re/decomp/141dffe30.c	V4705 1396-line friends-list builder (platform + EA friends from F1OS, blocked exclusion, GetFriends error); log is one step. Better Game_FriendsList_BuildFriendsListFromF1OS (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141e72110	L1	agree	decomp:re/decomp/141e72110.c	V4706 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141e72b20	L1	partial	decomp:re/decomp/141e72b20.c	V4707 296 lines: dispatcher; target==pause opens vm_open_pause/vm_open_results (logs opening pause menu) else vm_close_container (logs close container start). Better Game_ResultsContainer_OpenPauseOrCloseContainer (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141e9b9f0	L1	agree	decomp:re/decomp/141e9b9f0.c	V4708 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141f0a230	L1	partial	decomp:re/decomp/141f0a230.c	V4709 468-line highlight-export screen handler (theatre recent/saved highlight rows focus, highlights_export_left, progress flag); reinstate-graphics log at line 366 is one step. Better Game_VideoExport_FinishExportRestoreUi (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141f0fed0	L1	partial	decomp:re/decomp/141f0fed0.c;xref:0x141f1240b	V4710 319 lines: starts highlight export (enter_highlight_export_screen, track name, progress DB keys, ExportHighlightVideoStart); save-path create is one step. Better Game_VideoExport_StartHighlightExport
+2026-10-31	lb07-verify	func	0x141f41d60	L1	agree	decomp:re/decomp/141f41d60.c	V4711 Verified: code<4 guard, i>4 break, stride 0x220 at +0x6b0, 4 inline colours, construct @0x141f41e56 and move-assign @0x141f41e7d (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141f45d30	L1	agree	decomp:re/decomp/141f45d30.c;xref:0x141f462a7	V4712 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x141f46eb0	L1	agree	decomp:re/decomp/141f46eb0.c	V4713 Verified: alloc 0x900 call, construct @0x141f46f94, move-assign @0x141f46fb8 into this+0x668, no E8 callers, vtable slot 0x98 of 0x14575e300 (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141f48030	L1	agree	decomp:re/decomp/141f48030.c;xref:0x141f47825	V4714 Verified cmp r14d,3 @0x141f48218, cmp r13d,4 @0x141f4821e, jump table @0x141f48231, colours inline, BuildPieSlot @0x141f484bd
+2026-10-31	lb07-verify	func	0x141f49bc0	L1	agree	decomp:re/decomp/141f49bc0.c;xref:0x141f15b02	V4715 Verified: type==code count, state==3 fitted, percent, slot handles +0x88/0xa8/0xc8/0xe8 stride 0x220, guards cmp cl,3 @0x141f49c23 and cmp ebx,3 @0x141f49c28
+2026-10-31	lb07-verify	func	0x141f58a20	L1	partial	decomp:re/decomp/141f58a20.c;xref:0x141f5832c	V4716 PU components VM command handler: sends enable_components, resolves selected components, calls Car_PuComponent_SetFittedId, logs Fit component, then PopulateList/RefreshSummary. Better Car_PuComponent_FitSelected
+2026-10-31	lb07-verify	func	0x141f71fa0	L1	partial	decomp:re/decomp/141f71fa0.c;xref:0x141f77316	V4717 cm_nav_* keys exist but function builds the garage-monitor tabs (overview, practice select, data, vehicle mgmt, tyre select, car setup, timings, tv feed), not a config reader. Better Game_GarageMonitorContainerVm_BuildTabs
+2026-10-31	lb07-verify	func	0x141f893f0	L1	partial	decomp:re/decomp/141f893f0.c	V4718 2535-line garage-monitor practice-select VM update (programmes, objectives, Message*UpdateUIResults, session timer, warnings); max_pp_status_icons keys are a small part. Better Game_GarageMonitorPracticeSelectVm_Update (vtable/indirect)
+2026-10-31	lb07-verify	func	0x141fb9610	L1	agree	decomp:re/decomp/141fb9610.c	V4719 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x142015a30	L1	partial	decomp:re/decomp/142015a30.c;xref:0x142013d15	V4720 1494-line customisation menu item descriptor builder (pip_menu_icons, casual_item_catergories, lng_customisation_*); called 12x from one function. Better Game_Customisation_BuildMenuItem
+2026-10-31	lb07-verify	func	0x1421b8030	L1	agree	decomp:re/decomp/1421b8030.c;xref:0x1421b8247	V4721 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1421c36c0	L1	partial	decomp:re/decomp/1421c36c0.c;xref:0x1421c09a9	V4722 Builds a fan-zone room activity entry (goal/announce/members icons and tab textures, PLAYER_NAME substitution, fan_zone_rooms_entry_activity). Better Game_FanZone_BuildRoomActivityEntry
+2026-10-31	lb07-verify	func	0x1422052b0	L1	agree	decomp:re/decomp/1422052b0.c	V4723 name/cxx or log string and body match; body size consistent with name (vtable/indirect)
+2026-10-31	lb07-verify	func	0x142214550	L1	partial	decomp:re/decomp/142214550.c;xref:0x14ad8eef2	V4724 1047-line FrontendLobbyTabViewModel::onScreenActivated/createData (MessageLobbyTrackVoteChanged, KickVoteChanged); context log is one line. Better Game_FrontendLobbyTabViewModel_OnScreenActivated
+2026-10-31	lb07-verify	func	0x142226950	L1	partial	decomp:re/decomp/142226950.c;xref:0x141a9a1db	V4725 Join-session check: safety-rating test vs session, else error network_error_unsuitable_safety_rating or network_invite_join_error_doesnt_exist; session-does-not-exist is one branch. Better Game_Network_JoinSessionValidate
+2026-10-31	lb07-verify	func	0x14228fd80	L1	partial	decomp:re/decomp/14228fd80.c	V4726 1657-line frontend-lobby status panel builder (status_top/bottom, notification, timer, labels/values, low-time colour, spectators/players visibility). Better Game_FrontendLobby_BuildStatusPanels (vtable/indirect)
+2026-10-31	lb07-verify	func	0x1422a41d0	L1	agree	decomp:re/decomp/1422a41d0.c;xref:0x1422a3184	V4727 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422a7b50	L1	agree	decomp:re/decomp/1422a7b50.c;xref:0x1422a6c2f	V4728 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422a8fb0	L1	agree	decomp:re/decomp/1422a8fb0.c;xref:0x1422a7fe3	V4729 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422a9070	L1	agree	decomp:re/decomp/1422a9070.c;xref:0x1422a87ea	V4730 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bb0f0	L1	agree	decomp:re/decomp/1422bb0f0.c;xref:0x1422c69b1	V4731 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bb390	L1	agree	decomp:re/decomp/1422bb390.c;xref:0x1422c0e22	V4732 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bb780	L1	agree	decomp:re/decomp/1422bb780.c;xref:0x1422c6c78	V4733 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bb920	L1	agree	decomp:re/decomp/1422bb920.c;xref:0x1422c2ffa	V4734 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bbda0	L1	agree	decomp:re/decomp/1422bbda0.c;xref:0x1406c398c	V4735 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bbe80	L1	agree	decomp:re/decomp/1422bbe80.c;xref:0x1422c7b35	V4736 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422bbf60	L1	agree	decomp:re/decomp/1422bbf60.c;xref:0x1422c53d2	V4737 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422c3540	L1	agree	decomp:re/decomp/1422c3540.c;xref:0x1422ca377	V4738 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422c5900	L1	agree	decomp:re/decomp/1422c5900.c;xref:0x1422bf83a	V4739 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422c7570	L1	agree	decomp:re/decomp/1422c7570.c;xref:0x1422c537d	V4740 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422c86e0	L1	agree	decomp:re/decomp/1422c86e0.c;xref:0x1422c476b	V4741 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422ca8a0	L1	agree	decomp:re/decomp/1422ca8a0.c;xref:0x1422bf886	V4742 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422caed0	L1	agree	decomp:re/decomp/1422caed0.c;xref:0x1422c7b75	V4743 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1422cc780	L1	agree	decomp:re/decomp/1422cc780.c;xref:0x1422bda56	V4744 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14231c710	L1	agree	decomp:re/decomp/14231c710.c;xref:0x142319d18	V4745 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142331b90	L1	agree	decomp:re/decomp/142331b90.c;xref:0x142329c23	V4746 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142355020	L1	partial	decomp:re/decomp/142355020.c	V4747 2348-line owner-perks specialisation node update (OwnerPerksNodeUpdated, levels, points, stewardship/engineering/commercial, team card); extra_details diagram keys minor. Better Game_OwnerPerks_UpdateSpecialisationNode (vtable/indirect)
+2026-10-31	lb07-verify	func	0x142417640	L1	agree	decomp:re/decomp/142417640.c;xref:0x142417104	V4748 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142419550	L1	partial	decomp:re/decomp/142419550.c;xref:0x142418af7	V4749 5663-line DifficultySystem settings applier (updateUIReference/updateAIStrengthUIReference over ~30 settings.* keys, invalid-value logs). Better Game_DifficultySystem_ApplySettingsToUi
+2026-10-31	lb07-verify	func	0x142424060	L1	agree	decomp:re/decomp/142424060.c;xref:0x142422c89	V4750 Verified cmp/setne offsets +0x78->0xd4, +0x80->0xd5, +0x68->0xd6, +0x84->0xd7 (stride 0x14), fuel msg 0x145884f00, patch bytes valid
+2026-10-31	lb07-verify	func	0x142424d50	L1	agree	decomp:re/decomp/142424d50.c;xref:0x140baa963	V4751 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14242ad00	L1	agree	decomp:re/decomp/14242ad00.c;xref:0x14242a57f	V4752 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14243b9f0	L1	agree	decomp:re/decomp/14243b9f0.c;xref:0x14243b0a9	V4753 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142453880	L1	agree	decomp:re/decomp/142453880.c;xref:0x140bac005	V4754 Looks up label in preloaded_driver_customisation_properties of entrants.driver_customisations, writes stat_id (u16 at +2) else 0x3fff0000; caller Sess_Parse_Entrant passes out ptr
+2026-10-31	lb07-verify	func	0x14245f590	L1	agree	decomp:re/decomp/14245f590.c;xref:0x140ba27de	V4755 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246d700	L1	agree	decomp:re/decomp/14246d700.c;xref:0x1401a120f	V4756 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246ddd0	L1	agree	decomp:re/decomp/14246ddd0.c;xref:0x140fe5c02	V4757 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246e3a0	L1	agree	decomp:re/decomp/14246e3a0.c;xref:0x141443186	V4758 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246ec30	L1	agree	decomp:re/decomp/14246ec30.c;xref:0x140f05edf	V4759 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246f280	L1	agree	decomp:re/decomp/14246f280.c;xref:0x14245f445	V4760 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246f8d0	L1	agree	decomp:re/decomp/14246f8d0.c;xref:0x140fe5d6d	V4761 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x14246fde0	L1	agree	decomp:re/decomp/14246fde0.c;xref:0x1414011a7	V4762 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142470620	L1	agree	decomp:re/decomp/142470620.c;xref:0x140fe91d3	V4763 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x142470be0	L1	agree	decomp:re/decomp/142470be0.c;xref:0x140fe602f	V4764 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1424710e0	L1	agree	decomp:re/decomp/1424710e0.c;xref:0x141fca15c	V4765 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb07-verify	func	0x1424717e0	L1	agree	decomp:re/decomp/1424717e0.c;xref:0x140fe93ce	V4766 name/cxx or log string and body match; body size consistent with name
