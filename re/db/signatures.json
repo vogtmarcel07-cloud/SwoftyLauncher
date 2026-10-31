@@ -144797,7 +144797,7 @@
    "target": "0x14024c370",
    "kind": "func_start",
    "names": [
-    "Game_Entrants_GetDriverCustomisationByEntrant"
+    "Game_Entrants_GetDriverCustomisationByEntrantIdx"
    ],
    "verified": [
     {
