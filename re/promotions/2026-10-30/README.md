@@ -7,12 +7,12 @@ and are listed here for the owner.
 
 | owner | lane | rows | file |
 |---|---|---|---|
-| re-career-teams | game | 821 | `re-career-teams.tsv` |
-| career-re | career | 57 | `career-re.tsv` |
-| car-re | car | 42 | `car-re.tsv` |
-| overlay | render | 28 | `overlay.tsv` |
-| ui-re | hud / fe_* | 10 | `ui-re.tsv` |
-| ai-re | ai | 9 | `ai-re.tsv` |
+| re-career-teams | game | 2013 | `re-career-teams.tsv` |
+| car-re | car | 132 | `car-re.tsv` |
+| ai-re | ai | 82 | `ai-re.tsv` |
+| overlay | render | 2 | `overlay.tsv` |
+| career-re | career | done | `career-re.tsv` (54 of 57 are L2 on main now) |
+| ui-re | hud / fe_* | done | `ui-re.tsv` (7 of 10 are L2 on main now) |
 
 Each file: `addr`, `name`, `sig` (signature id in `signatures.json`), `verify` (verifier and V-number of the agree row).
 
