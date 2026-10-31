@@ -7668,3 +7668,361 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	vp5-verify	func	0x144775920	L1	agree	decomp:re/decomp/144775920.c;xref:0x144715d50	V7667 decomp body and callers match claim
 2026-10-31	vp5-verify	func	0x144775930	L1	agree	decomp:re/decomp/144775930.c;xref:0x144713599	V7668 decomp body and callers match claim
 2026-10-31	vp5-verify	func	0x14534dd8c	L1	agree	decomp:re/decomp/14534dd8c.c;xref:0x14015a2e4	V7669 decomp body and callers match claim
+2026-10-31	vq2-verify	func	0x144d54420	L1	agree	decomp:re/decomp/144d54420.c;xref:0x14491ce92	V7670 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14532e950	L1	agree	decomp:re/decomp/14532e950.c;xref:0x14532df6a	V7671 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145349d08	L1	agree	decomp:re/decomp/145349d08.c;xref:0x144d57160	V7672 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145349d58	L1	agree	decomp:re/decomp/145349d58.c;xref:0x14029b085	V7673 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14534a050	L1	agree	decomp:re/decomp/14534a050.c;xref:0x145349d1c	V7674 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14534e05c	L1	agree	decomp:re/decomp/14534e05c.c;xref:0x14534dd33	V7675 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145351784	L1	agree	decomp:re/decomp/145351784.c;xref:0x1403133f4	V7676 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145357d30	L1	agree	decomp:re/decomp/145357d30.c;xref:0x143bc62d1	V7677 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145370600	L1	agree	decomp:re/decomp/145370600.c;xref:0x145351b3c	V7678 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1453725f0	L1	agree	decomp:re/decomp/1453725f0.c;xref:0x145351881	V7679 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145378180	L1	agree	decomp:re/decomp/145378180.c;xref:0x14390e3b9	V7680 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x145378320	L1	partial	decomp:re/decomp/145378320.c;xref:0x14018781a	V7681 Ne_Crt_Memchr - body reads 16 bytes per stride (SSE-style, threshold 0x1f), not 8-byte strides
+2026-10-31	vq2-verify	func	0x140100d70	L1	agree	decomp:re/decomp/140100d70.c;xref:0x1400fe1f7	V7682 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x140104640	L1	agree	decomp:re/decomp/140104640.c;xref:0x1401030ac	V7683 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x140129830	L1	agree	decomp:re/decomp/140129830.c;xref:0x1401064f5	V7684 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x140129b50	L1	agree	decomp:re/decomp/140129b50.c;xref:0x1401094a1	V7685 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14024c580	L1	partial	decomp:re/decomp/14024c580.c;xref:0x14024c6a5	V7686 Game_CutScene_FindVehicleBySlotStatId - returns looked-up pointer; log only on miss path
+2026-10-31	vq2-verify	func	0x1403118b0	L1	partial	decomp:re/decomp/1403118b0.c;xref:0x140311809	V7687 Ne_Handle_ReleaseSlotWithErrorTrace - clears slot bitmap under critical section, no SetEvent/Release Win32 call
+2026-10-31	vq2-verify	func	0x14032c930	L1	agree	decomp:re/decomp/14032c930.c;xref:0x1401edf77	V7688 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14032c940	L1	partial	decomp:re/decomp/14032c940.c;xref:0x1401ed51d	V7689 Ne_HashMap_AllocNodePool_MaterialActorId - allocs 0x34 node block and chains free list, not a lookup
+2026-10-31	vq2-verify	func	0x14032ca20	L1	agree	decomp:re/decomp/14032ca20.c;xref:0x1401ed554	V7690 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14080edc0	L1	agree	decomp:re/decomp/14080edc0.c;xref:0x14080eb6d	V7691 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14082abc0	L1	agree	decomp:re/decomp/14082abc0.c;xref:0x140829493	V7692 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x140c22460	L1	agree	decomp:re/decomp/140c22460.c;xref:0x140c21b4d	V7693 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1410c59c0	L1	agree	decomp:re/decomp/1410c59c0.c;xref:0x140feed64	V7694 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1410c5a70	L1	agree	decomp:re/decomp/1410c5a70.c;xref:0x140feee19	V7695 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x141107280	L1	agree	decomp:re/decomp/141107280.c;xref:0x1410f6ad2	V7696 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x141442820	L1	agree	decomp:re/decomp/141442820.c;xref:0x1401aec4b	V7697 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14145d2b0	L1	agree	decomp:re/decomp/14145d2b0.c;xref:0x1413cc51d	V7698 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14146c110	L1	agree	decomp:re/decomp/14146c110.c;xref:0x14142b48b	V7699 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14146e320	L1	agree	decomp:re/decomp/14146e320.c;xref:0x14146e30f	V7700 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x141605e20	L1	agree	decomp:re/decomp/141605e20.c;xref:0x141605c02	V7701 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1417a96f0	L1	agree	decomp:re/decomp/1417a96f0.c;xref:0x1416c6fb6	V7702 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x141b732f0	L1	agree	decomp:re/decomp/141b732f0.c;xref:0x141a8d6c4	V7703 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x141e6f830	L1	agree	decomp:re/decomp/141e6f830.c;xref:0x141d7165d	V7704 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x142cc4e60	L1	agree	decomp:re/decomp/142cc4e60.c;xref:0x142cc4c00	V7705 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x142ee5120	L1	agree	decomp:re/decomp/142ee5120.c;xref:0x142ee5112	V7706 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x142ee5130	L1	agree	decomp:re/decomp/142ee5130.c;xref:0x142eda09a	V7707 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x142eefe50	L1	agree	decomp:re/decomp/142eefe50.c;xref:0x142e82c40	V7708 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14332fce0	L1	agree	decomp:re/decomp/14332fce0.c;xref:0x1432b471a	V7709 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1434c0600	L1	agree	decomp:re/decomp/1434c0600.c;xref:0x1434b8028	V7710 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1434c1c00	L1	agree	decomp:re/decomp/1434c1c00.c;xref:0x1434bf8a4	V7711 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1434c2870	L1	agree	decomp:re/decomp/1434c2870.c;xref:0x1434bf6d9	V7712 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1434c3520	L1	agree	decomp:re/decomp/1434c3520.c;xref:0x1434be69e	V7713 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1435d9410	L1	agree	decomp:re/decomp/1435d9410.c;xref:0x1434f4324	V7714 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1435d9bb0	L1	agree	decomp:re/decomp/1435d9bb0.c;xref:0x1434f49ee	V7715 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143759dd0	L1	agree	decomp:re/decomp/143759dd0.c;xref:0x141f10f44	V7716 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143905280	L1	agree	decomp:re/decomp/143905280.c;xref:0x143a4224f	V7717 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143918140	L1	agree	decomp:re/decomp/143918140.c;xref:0x14357aec6	V7718 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14391d010	L1	agree	decomp:re/decomp/14391d010.c;xref:0x140226c6f	V7719 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14396a260	L1	agree	decomp:re/decomp/14396a260.c;xref:0x140187c02	V7720 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143995ae0	L1	agree	decomp:re/decomp/143995ae0.c;xref:0x143991264	V7721 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143995e20	L1	agree	decomp:re/decomp/143995e20.c;xref:0x1439915d8	V7722 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1439db490	L1	agree	decomp:re/decomp/1439db490.c;xref:0x143a1297b	V7723 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1439fe470	L1	agree	decomp:re/decomp/1439fe470.c;xref:0x144719bd5	V7724 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1439fe5e0	L1	agree	decomp:re/decomp/1439fe5e0.c;xref:0x143c2cf5d	V7725 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1439fe750	L1	agree	decomp:re/decomp/1439fe750.c;xref:0x143c2cf3a	V7726 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a02f70	L1	agree	decomp:re/decomp/143a02f70.c;xref:0x143a0151a	V7727 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a03140	L1	agree	decomp:re/decomp/143a03140.c;xref:0x143a0154a	V7728 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a07b70	L1	agree	decomp:re/decomp/143a07b70.c;xref:0x143c3eae7	V7729 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a174b0	L1	agree	decomp:re/decomp/143a174b0.c;xref:0x1439d5669	V7730 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a18ef0	L1	agree	decomp:re/decomp/143a18ef0.c;xref:0x14298ff60	V7731 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a18f00	L1	agree	decomp:re/decomp/143a18f00.c;xref:0x1439d6ab6	V7732 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a1a250	L1	agree	decomp:re/decomp/143a1a250.c;xref:0x1439d74f1	V7733 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a1d630	L1	agree	decomp:re/decomp/143a1d630.c;xref:0x1439d8b1e	V7734 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a1f070	L1	agree	decomp:re/decomp/143a1f070.c;xref:0x1439d9497	V7735 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a1f1d0	L1	agree	decomp:re/decomp/143a1f1d0.c;xref:0x1430f08c9	V7736 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a1f490	L1	agree	decomp:re/decomp/143a1f490.c;xref:0x1439dbee7	V7737 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a27980	L1	agree	decomp:re/decomp/143a27980.c;xref:0x1439bacc8	V7738 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a280a0	L1	agree	decomp:re/decomp/143a280a0.c;xref:0x1439d709c	V7739 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a28820	L1	agree	decomp:re/decomp/143a28820.c;xref:0x1439d707a	V7740 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a28e60	L1	agree	decomp:re/decomp/143a28e60.c;xref:0x1439d7133	V7741 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a2a260	L1	agree	decomp:re/decomp/143a2a260.c;xref:0x1439d7516	V7742 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a2a9e0	L1	agree	decomp:re/decomp/143a2a9e0.c;xref:0x1439d7548	V7743 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a2b020	L1	agree	decomp:re/decomp/143a2b020.c;xref:0x1439d7530	V7744 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a6e370	L1	agree	decomp:re/decomp/143a6e370.c;xref:0x143a6e287	V7745 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a6fa90	L1	agree	decomp:re/decomp/143a6fa90.c;xref:0x143a6e2bd	V7746 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a6fdd0	L1	agree	decomp:re/decomp/143a6fdd0.c;xref:0x143a6e2cf	V7747 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a70340	L1	agree	decomp:re/decomp/143a70340.c;xref:0x143a6e2e1	V7748 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a74f10	L1	agree	decomp:re/decomp/143a74f10.c;xref:0x143a5a453	V7749 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143a74f20	L1	agree	decomp:re/decomp/143a74f20.c;xref:0x143a59f28	V7750 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143aca640	L1	partial	decomp:re/decomp/143aca640.c;xref:0x143abdd3e	V7751 Render_Streaming_PooledList_InsertBefore_A - pooled list insert-before returning 0xc ENOMEM, real function not catch funclet
+2026-10-31	vq2-verify	func	0x143acb7d0	L1	partial	decomp:re/decomp/143acb7d0.c;xref:0x143abe7a9	V7752 Render_Streaming_PooledList_InsertBefore_B - pooled list insert-before, real function not catch funclet
+2026-10-31	vq2-verify	func	0x143b46e50	L1	agree	decomp:re/decomp/143b46e50.c;xref:0x143b1c6e5	V7753 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143b46fe0	L1	agree	decomp:re/decomp/143b46fe0.c;xref:0x143b1c6f1	V7754 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143b47170	L1	agree	decomp:re/decomp/143b47170.c;xref:0x143b1c6fd	V7755 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143b47300	L1	agree	decomp:re/decomp/143b47300.c;xref:0x143b1c706	V7756 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143b47490	L1	agree	decomp:re/decomp/143b47490.c;xref:0x143b1c70e	V7757 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143b8be50	L1	agree	decomp:re/decomp/143b8be50.c;xref:0x143b8be36	V7758 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143bca600	L1	agree	decomp:re/decomp/143bca600.c;xref:0x143bafb6e	V7759 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143bdfd10	L1	agree	decomp:re/decomp/143bdfd10.c;xref:0x140140edd	V7760 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143be2500	L1	agree	decomp:re/decomp/143be2500.c;xref:0x143be24e5	V7761 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143db30c0	L1	agree	decomp:re/decomp/143db30c0.c;xref:0x143db295e	V7762 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ebf950	L1	agree	decomp:re/decomp/143ebf950.c;xref:0x143b59366	V7763 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ebf960	L1	agree	decomp:re/decomp/143ebf960.c;xref:0x142e8dd7e	V7764 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ec4ff0	L1	partial	decomp:re/decomp/143ec4ff0.c;xref:0x143b86f84	V7765 Ne_FlatHashMap_FindSlotKey16_C - hashes 16-byte key + mult at +0x10, no strcmp; unlike FindByFnv1a_B
+2026-10-31	vq2-verify	func	0x143ecbad0	L1	agree	decomp:re/decomp/143ecbad0.c;xref:0x143bc98bf	V7766 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ecc110	L1	agree	decomp:re/decomp/143ecc110.c;xref:0x143bafc0f	V7767 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ed2c80	L1	agree	decomp:re/decomp/143ed2c80.c;xref:0x143b77bbf	V7768 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ed3910	L1	agree	decomp:re/decomp/143ed3910.c;xref:0x143b77b0b	V7769 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ed51b0	L1	agree	decomp:re/decomp/143ed51b0.c;xref:0x143bf04ce	V7770 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ed51c0	L1	agree	decomp:re/decomp/143ed51c0.c;xref:0x143beff19	V7771 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143edb740	L1	partial	decomp:re/decomp/143edb740.c;xref:0x143bf8272	V7772 Ne_FlatHashMap_FindSlotKey16_D - identical to _C, 16-byte key hash, not B layout
+2026-10-31	vq2-verify	func	0x143ee3640	L1	agree	decomp:re/decomp/143ee3640.c;xref:0x143c64f7c	V7773 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143f0d760	L1	agree	decomp:re/decomp/143f0d760.c;xref:0x143b81f1a	V7774 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143f0dd70	L1	agree	decomp:re/decomp/143f0dd70.c;xref:0x143b81f58	V7775 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143f0f3d0	L1	agree	decomp:re/decomp/143f0f3d0.c;xref:0x143c488e4	V7776 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x143ffdb40	L1	agree	decomp:re/decomp/143ffdb40.c;xref:0x143fd5059	V7777 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1440cd9b0	L1	agree	decomp:re/decomp/1440cd9b0.c;xref:0x14444a425	V7778 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144106000	L1	agree	decomp:re/decomp/144106000.c;xref:0x1440c7962	V7779 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144134df0	L1	agree	decomp:re/decomp/144134df0.c;xref:0x144134d9b	V7780 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144136850	L1	agree	decomp:re/decomp/144136850.c;xref:0x1441360fa	V7781 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144252eb0	L1	agree	decomp:re/decomp/144252eb0.c;xref:0x140b98e76	V7782 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144456600	L1	agree	decomp:re/decomp/144456600.c;xref:0x144449855	V7783 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1445361a0	L1	agree	decomp:re/decomp/1445361a0.c;xref:0x1406af584	V7784 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14459d8f0	L1	agree	decomp:re/decomp/14459d8f0.c;xref:0x14456f85c	V7785 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14459d900	L1	agree	decomp:re/decomp/14459d900.c;xref:0x144590747	V7786 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1445bc6d0	L1	agree	decomp:re/decomp/1445bc6d0.c;xref:0x1445b0357	V7787 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1445bcca0	L1	agree	decomp:re/decomp/1445bcca0.c;xref:0x1445b038b	V7788 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1445e4e90	L1	agree	decomp:re/decomp/1445e4e90.c;xref:0x1445dbdc2	V7789 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1449a2150	L1	agree	decomp:re/decomp/1449a2150.c;xref:0x143fd4aa1	V7790 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1449a21d0	L1	agree	decomp:re/decomp/1449a21d0.c;xref:0x143fd49f3	V7791 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1449a3530	L1	agree	decomp:re/decomp/1449a3530.c;xref:0x143fd501a	V7792 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1449a35b0	L1	agree	decomp:re/decomp/1449a35b0.c;xref:0x143fd5034	V7793 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x1449e16b4	L1	agree	decomp:re/decomp/1449e16b4.c;xref:0x1401b034e	V7794 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x144aec780	L1	agree	decomp:re/decomp/144aec780.c;xref:0x143e6307c	V7795 name+concrete claims match decomp
+2026-10-31	vq2-verify	func	0x14532e54c	L1	agree	decomp:re/decomp/14532e54c.c;xref:0x140100a54	V7796 name+concrete claims match decomp
+2026-10-31	vq1-verify	func	0x143abdfe0	L1	agree	decomp:re/decomp/143abdfe0.c;xref:0x143abd955	V7797 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143abf420	L1	partial	decomp:re/decomp/143abf420.c;xref:0x143ab5b94	V7798 Render_Streaming_ProcessRequestStep: body is TLS error-trace ring plumbing; queue/priority role not shown by code
+2026-10-31	vq1-verify	func	0x143ac0d90	L1	agree	decomp:re/decomp/143ac0d90.c;xref:0x143ac0303	V7799 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ac1260	L1	agree	decomp:re/decomp/143ac1260.c;xref:0x143abd8d5	V7800 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143b45550	L1	agree	decomp:re/decomp/143b45550.c;xref:0x143b1dbb3	V7801 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143b5a210	L1	agree	decomp:re/decomp/143b5a210.c;xref:0x143b5a6e9	V7802 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143b5ea10	L1	agree	decomp:re/decomp/143b5ea10.c;xref:0x1400fe223	V7803 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bc74c0	L1	agree	decomp:re/decomp/143bc74c0.c;xref:0x143b82f0b	V7804 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bd9b30	L1	agree	decomp:re/decomp/143bd9b30.c;xref:0x143bd7d48	V7805 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bd9e40	L1	agree	decomp:re/decomp/143bd9e40.c;xref:0x143bd7dde	V7806 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bdc9f0	L1	partial	decomp:re/decomp/143bdc9f0.c;xref:0x14029d21d	V7807 Render_RenderGraph_AppendPassDesc: appends 0x160-byte element to vector at +0x50/+0x58, returns index in param_2 (not a descriptor copied to param_2)
+2026-10-31	vq1-verify	func	0x143bdd920	L1	partial	decomp:re/decomp/143bdd920.c;xref:0x143baf65b	V7808 Render_RenderGraph_AddPassNode: bump-alloc is only the start; also pushes node to pass list +0x90/+0x98 and applies bindings
+2026-10-31	vq1-verify	func	0x143bf2360	L1	agree	decomp:re/decomp/143bf2360.c;xref:0x143bf2323	V7809 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bfba40	L1	agree	decomp:re/decomp/143bfba40.c;xref:0x143bfb9d0	V7810 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bfc180	L1	agree	decomp:re/decomp/143bfc180.c;xref:0x143bfc094	V7811 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143bfced0	L1	agree	decomp:re/decomp/143bfced0.c;xref:0x143eba3a5	V7812 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c09ea0	L1	agree	decomp:re/decomp/143c09ea0.c;xref:0x143c6ca31	V7813 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c208d0	L1	agree	decomp:re/decomp/143c208d0.c;xref:0x140100cfc	V7814 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c20a30	L1	agree	decomp:re/decomp/143c20a30.c;xref:0x140100d59	V7815 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c211c0	L1	agree	decomp:re/decomp/143c211c0.c;xref:0x1400fde19	V7816 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c21350	L1	agree	decomp:re/decomp/143c21350.c;xref:0x1400fe126	V7817 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c243b0	L1	partial	decomp:re/decomp/143c243b0.c;xref:0x143d3f647	V7818 releases four arrays (+0x20..+0x38), claim says three
+2026-10-31	vq1-verify	func	0x143c537b0	L1	agree	decomp:re/decomp/143c537b0.c;xref:0x143b017a3	V7819 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143c66210	L1	partial	decomp:re/decomp/143c66210.c;xref:0x143c65881	V7820 releases ~10 targets +0x278..+0x2b0 not two
+2026-10-31	vq1-verify	func	0x143c66390	L1	agree	decomp:re/decomp/143c66390.c;xref:0x143c65889	V7821 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143cda2f0	L1	agree	decomp:re/decomp/143cda2f0.c;xref:0x14010589f	V7822 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143cdde20	L1	agree	decomp:re/decomp/143cdde20.c;xref:0x143c4864e	V7823 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ce5680	L1	partial	decomp:re/decomp/143ce5680.c;xref:0x143ce3030	V7824 Render_GroundCover_BuildViewParamBlock: allocs 0x810 object and ends with Render_SceneView_BuildViewParams; claimed float constants/per-vertex tables not found
+2026-10-31	vq1-verify	func	0x143d1dd20	L1	agree	decomp:re/decomp/143d1dd20.c;xref:0x143d1e645	V7825 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143d2e8b0	L1	partial	decomp:re/decomp/143d2e8b0.c;xref:0x1401c0f83	V7826 Ne_Math_TransformBlock_Alloc210: allocs 0x210 block from global allocator via vcall +0x28, copies matrix rows, SIMD shuffles; placement role unproven
+2026-10-31	vq1-verify	func	0x143d7bcb0	L1	agree	decomp:re/decomp/143d7bcb0.c;xref:0x143d84381	V7827 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143d834e0	L1	agree	decomp:re/decomp/143d834e0.c;xref:0x140176bd2	V7828 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143db1800	L1	partial	decomp:re/decomp/143db1800.c;xref:0x143c132e4	V7829 Ne_Gfx2Renderer_DeferredMapA_EraseKey: std::map-style erase by u64 key (RB tree); clear via 143ebf240 only when whole range; not an entry destructor
+2026-10-31	vq1-verify	func	0x143db1ec0	L1	agree	decomp:re/decomp/143db1ec0.c;xref:0x143c132ef	V7830 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143db29b0	L1	partial	decomp:re/decomp/143db29b0.c;xref:0x143db291a	V7831 Ne_Gfx2Renderer_DeferredMapC_EraseKey128: RB-tree erase by 128-bit key, not entry destroyer
+2026-10-31	vq1-verify	func	0x143db7700	L1	agree	decomp:re/decomp/143db7700.c;xref:0x140101078	V7832 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143dcb650	L1	agree	decomp:re/decomp/143dcb650.c;xref:0x143b5c593	V7833 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143df22c0	L1	agree	decomp:re/decomp/143df22c0.c;xref:0x14010a112	V7834 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143df3d10	L1	agree	decomp:re/decomp/143df3d10.c;xref:0x140108a6b	V7835 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143e80e90	L1	agree	decomp:re/decomp/143e80e90.c;xref:0x143bc6681	V7836 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143e81090	L1	agree	decomp:re/decomp/143e81090.c;xref:0x143bc62c2	V7837 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143e83ef0	L1	partial	decomp:re/decomp/143e83ef0.c;xref:0x143c49a43	V7838 Render_Model_ResizeInstanceSyncVector: resizes 0x10-byte entry vector, releases removed entries via Ne_Sync_ReleaseWithErrorTrace
+2026-10-31	vq1-verify	func	0x143e93910	L1	agree	decomp:re/decomp/143e93910.c;xref:0x143db297f	V7839 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ebe380	L1	agree	decomp:re/decomp/143ebe380.c;xref:0x143ebe356	V7840 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ec1aa0	L1	agree	decomp:re/decomp/143ec1aa0.c;xref:0x143b8711a	V7841 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ecb9e0	L1	agree	decomp:re/decomp/143ecb9e0.c;xref:0x143bca5b8	V7842 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ecda30	L1	agree	decomp:re/decomp/143ecda30.c;xref:0x143bdc9c0	V7843 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143ee82f0	L1	partial	decomp:re/decomp/143ee82f0.c;xref:0x143ee81dc	V7844 Ne_Sort_Elem48_AdjustHeap: sift-down with children 2i+1/2i+2 (heap adjust), not insertion/partition
+2026-10-31	vq1-verify	func	0x143ee84e0	L1	agree	decomp:re/decomp/143ee84e0.c;xref:0x143ee7a54	V7845 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143f0d610	L1	agree	decomp:re/decomp/143f0d610.c;xref:0x143b81e3d	V7846 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143f13020	L1	partial	decomp:re/decomp/143f13020.c;xref:0x1401067d3	V7847 Render_Gfx_ConfigObject_Destroy: destructor sets vtable 1458bc310 and releases many members (+0xa8,+0x93,+0x86,+0x82..) not a single +0x8c member
+2026-10-31	vq1-verify	func	0x143f3e5e0	L1	agree	decomp:re/decomp/143f3e5e0.c;xref:0x143bef9ae	V7848 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x143fdf4e0	L1	partial	decomp:re/decomp/143fdf4e0.c;xref:0x140765422	V7849 Game_Entitlement_HasActiveEaAccess: iterates entitlement list +0x168..+0x170 (0xa0 stride) needing status ACTIVE, returns bool (+0x14c flag)
+2026-10-31	vq1-verify	func	0x14400cb00	L1	agree	decomp:re/decomp/14400cb00.c;xref:0x143fdc635	V7850 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440bf620	L1	agree	decomp:re/decomp/1440bf620.c;xref:0x1409a58c9	V7851 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440c64e0	L1	agree	decomp:re/decomp/1440c64e0.c;xref:0x1440bd4b7	V7852 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440c65e0	L1	agree	decomp:re/decomp/1440c65e0.c;xref:0x1440c7a42	V7853 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440c7710	L1	agree	decomp:re/decomp/1440c7710.c;xref:0x1440c7a2c	V7854 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440df680	L1	agree	decomp:re/decomp/1440df680.c;xref:0x1440e3e9c	V7855 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440e07d0	L1	agree	decomp:re/decomp/1440e07d0.c;xref:0x1440c5090	V7856 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440e1e40	L1	agree	decomp:re/decomp/1440e1e40.c;xref:0x1440c7818	V7857 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440e27e0	L1	partial	decomp:re/decomp/1440e27e0.c;xref:0x1440c77fc	V7858 0x1440e3260 is BuildBroadphaseGrid called once at start, not per-body worker
+2026-10-31	vq1-verify	func	0x1440e3260	L1	agree	decomp:re/decomp/1440e3260.c;xref:0x1440c4ef4	V7859 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1440e3580	L1	agree	decomp:re/decomp/1440e3580.c;xref:0x1440c7830	V7860 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441011a0	L1	agree	decomp:re/decomp/1441011a0.c;xref:0x143168d8c	V7861 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144104910	L1	agree	decomp:re/decomp/144104910.c;xref:0x1440c3e37	V7862 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441054e0	L1	agree	decomp:re/decomp/1441054e0.c;xref:0x1440c7799	V7863 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441058e0	L1	agree	decomp:re/decomp/1441058e0.c;xref:0x142b06f12	V7864 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144107e60	L1	agree	decomp:re/decomp/144107e60.c;xref:0x1440c5a60	V7865 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441361b0	L1	partial	decomp:re/decomp/1441361b0.c;xref:0x144136049	V7866 Ne_PresenceNameResolverFixed_MapFindOrInsert: hashes UserId, probes with Ne_UserId_Equals, rehashes via 144136860 when needed; returns iterator
+2026-10-31	vq1-verify	func	0x144136ef0	L1	disagree	decomp:re/decomp/144136ef0.c;xref:0x144136085	V7867 Ne_PresenceName_NodePool_Grow: doubling chunk alloc (<=0x2000) of 0xc0-byte free-list nodes, not a hash map grow
+2026-10-31	vq1-verify	func	0x14416d470	L1	agree	decomp:re/decomp/14416d470.c;xref:0x1401a4421	V7868 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441982a0	L1	agree	decomp:re/decomp/1441982a0.c;xref:0x1414a2cd0	V7869 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1441eead0	L1	agree	decomp:re/decomp/1441eead0.c;xref:0x14166c647	V7870 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1442ba0b0	L1	agree	decomp:re/decomp/1442ba0b0.c;xref:0x1401a45d1	V7871 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1442bc390	L1	partial	decomp:re/decomp/1442bc390.c;xref:0x140828702	V7872 condition inverted: acts when list +0x40==+0x48 (empty), claim says pending
+2026-10-31	vq1-verify	func	0x1442bc5b0	L1	partial	decomp:re/decomp/1442bc5b0.c;xref:0x140828501	V7873 condition inverted: acts when (flags&6)!=6
+2026-10-31	vq1-verify	func	0x1442bc760	L1	partial	decomp:re/decomp/1442bc760.c;xref:0x14082874f	V7874 Ne_VmBinding_InvokeListeners: reverse-iterates 0x18-byte {fn,ctx,removed} entries with guard bit0 at +0x60 (same pattern as Ne_CallbackList_InvokeReverse)
+2026-10-31	vq1-verify	func	0x1442bd4f0	L1	agree	decomp:re/decomp/1442bd4f0.c;xref:0x1442b3d45	V7875 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144434690	L1	agree	decomp:re/decomp/144434690.c;xref:0x1441160af	V7876 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1444404b0	L1	partial	decomp:re/decomp/1444404b0.c;xref:0x1432b691d	V7877 Game_F1os_RequestEntry_Construct: constructor storing id, shared_ptr copy and SSO string; not just reserve+copy
+2026-10-31	vq1-verify	func	0x1444a56f0	L1	agree	decomp:re/decomp/1444a56f0.c;xref:0x141f108e1	V7878 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1444a7290	L1	agree	decomp:re/decomp/1444a7290.c;xref:0x141f108c3	V7879 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144665c90	L1	partial	decomp:re/decomp/144665c90.c;xref:0x144665331	V7880 contains sin/cos polynomial (-0.1666667,0.0083333); likely rotation build from angle, not only 0.5/+-1 basis
+2026-10-31	vq1-verify	func	0x1446661f0	L1	partial	decomp:re/decomp/1446661f0.c;xref:0x144665370	V7881 epsilons in code are 1.1920929e-07/2.6e-07 not 0x3638b88e/0x37cfb4c2; 0x30 transform stride ok
+2026-10-31	vq1-verify	func	0x144727d90	L1	partial	decomp:re/decomp/144727d90.c;xref:0x14465616d	V7882 not a 0x68 record: large entry struct (vector element 0x1f8 per partner)
+2026-10-31	vq1-verify	func	0x14476c110	L1	partial	decomp:re/decomp/14476c110.c;xref:0x144656178	V7883 element size is 0x1f8 (inverse of 63 >>3), not 0x68/13
+2026-10-31	vq1-verify	func	0x1447889a0	L1	agree	decomp:re/decomp/1447889a0.c;xref:0x140109cf5	V7884 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a04f0	L1	partial	decomp:re/decomp/1447a04f0.c;xref:0x142bd4bfc	V7885 Ne_Libpng_ErrorCallbackThenAbort: png_error forwarder, calls error_fn at +0x118 then 1447a0530 and traps
+2026-10-31	vq1-verify	func	0x1447a08b0	L1	agree	decomp:re/decomp/1447a08b0.c;xref:0x14390f15a	V7886 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a0cf0	L1	agree	decomp:re/decomp/1447a0cf0.c;xref:0x143915712	V7887 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a1690	L1	agree	decomp:re/decomp/1447a1690.c;xref:0x1439143e4	V7888 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a1890	L1	agree	decomp:re/decomp/1447a1890.c;xref:0x1439145a1	V7889 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a1b30	L1	agree	decomp:re/decomp/1447a1b30.c;xref:0x1439147ae	V7890 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a2700	L1	agree	decomp:re/decomp/1447a2700.c;xref:0x143914687	V7891 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a2d50	L1	agree	decomp:re/decomp/1447a2d50.c;xref:0x143914b46	V7892 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3120	L1	agree	decomp:re/decomp/1447a3120.c;xref:0x14391469f	V7893 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a31f0	L1	agree	decomp:re/decomp/1447a31f0.c;xref:0x143914859	V7894 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3380	L1	agree	decomp:re/decomp/1447a3380.c;xref:0x140d8b2ee	V7895 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a34a0	L1	agree	decomp:re/decomp/1447a34a0.c;xref:0x14391489c	V7896 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3650	L1	agree	decomp:re/decomp/1447a3650.c;xref:0x1439148bb	V7897 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3840	L1	agree	decomp:re/decomp/1447a3840.c;xref:0x143914b8a	V7898 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3b00	L1	agree	decomp:re/decomp/1447a3b00.c;xref:0x143914c1d	V7899 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a3e70	L1	agree	decomp:re/decomp/1447a3e70.c;xref:0x143914bde	V7900 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a44a0	L1	agree	decomp:re/decomp/1447a44a0.c;xref:0x143914997	V7901 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1447a9ad0	L1	agree	decomp:re/decomp/1447a9ad0.c;xref:0x143915590	V7902 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1449b7530	L1	agree	decomp:re/decomp/1449b7530.c;xref:0x143fd2d75	V7903 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1449d4e2c	L1	agree	decomp:re/decomp/1449d4e2c.c;xref:0x1449d4690	V7904 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x1449d55c8	L1	disagree	decomp:re/decomp/1449d55c8.c;xref:0x1449d3dae	V7905 Render_Jpeg_InitMemoryManager: 11 fn ptrs, 0x98 struct, 1000000000 default max mem, err 0x38 out-of-memory = jinit_memory_mgr, not main controller
+2026-10-31	vq1-verify	func	0x1449de7cc	L1	agree	decomp:re/decomp/1449de7cc.c;xref:0x1449d3fd5	V7906 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144c93ae0	L1	agree	decomp:re/decomp/144c93ae0.c;xref:0x140002062	V7907 name and concrete claims match decomp; callers checked
+2026-10-31	vq1-verify	func	0x144d53f00	L1	agree	decomp:re/decomp/144d53f00.c;xref:0x14491cf21	V7908 name and concrete claims match decomp; callers checked
+2026-10-31	vq0-verify	func	0x140002190	L1	agree	decomp:re/decomp/140002190.c;xref:0x14000223b	V7909 Sleep(100) retry loop <10x on flag byte, resolves slot via 140002090, 0xffffffff on timeout matches
+2026-10-31	vq0-verify	func	0x140002560	L1	agree	decomp:re/decomp/140002560.c;xref:0x1439c922a	V7910 lazy import thunk hash 0x78dba2, call counter, resolver 145fb8758; callers ApplyMultiGpuMode and 0x1439ca5a4 match
+2026-10-31	vq0-verify	func	0x1400027f0	L1	agree	decomp:re/decomp/1400027f0.c;xref:0x1439c931d	V7911 lazy import thunk hash 0x84f2a8df, same template; callers match
+2026-10-31	vq0-verify	func	0x140128d10	L1	agree	decomp:re/decomp/140128d10.c;xref:0x1401053c7	V7912 looks up key generator in config object (seed 0xc4ceb9fe1a85ec53) and dispatches entries via vcall; caller BuildConfigObject
+2026-10-31	vq0-verify	func	0x1401408f0	L1	disagree	decomp:re/decomp/1401408f0.c;xref:0x14014147f	V7913 not a view table: computes render/upscale scale factors (0.6667/0.8333/0.5, 0.5/scale) from quality mode globals into float[4]; better name Render_Gfx_ComputeUpscaleRenderScale
+2026-10-31	vq0-verify	func	0x140141420	L1	agree	decomp:re/decomp/140141420.c;xref:0x1401459af	V7914 declares ~90 eaid://ego_package/ names (tile_metadata, taa_*, vrs, gbuffer_*, dlss_*, video_reel*), Ne_StrBuf_Printf + Ne_Get_SettingBool called; single caller RegisterNamedResourceViews
+2026-10-31	vq0-verify	func	0x1401494b0	L1	agree	decomp:re/decomp/1401494b0.c;xref:0x14014676b	V7915 builds %s.image name, allocs 0x70 obj, 143b73940, flags byte at +0x30, pushes to vector
+2026-10-31	vq0-verify	func	0x140149ae0	L1	agree	decomp:re/decomp/140149ae0.c;xref:0x1401480ab	V7916 %s.image name, allocs 0x78 obj, 143c00360; also has a format switch mapping not mentioned
+2026-10-31	vq0-verify	func	0x14014b430	L1	agree	decomp:re/decomp/14014b430.c;xref:0x1401417e8	V7917 %s.image then allocs 0x1d8 obj with vtable 1458c11f0 and zero-init, returns bool
+2026-10-31	vq0-verify	func	0x14014b860	L1	partial	decomp:re/decomp/14014b860.c;xref:0x1401416e1	V7918 builds per-flag view set: .image, .rtv, .dsv, .dsv_ro, .dsv_roZ, .uav (flags &8,&0x10,&0x20,&0x40,&0x4000000 skip); no 0x1d8 / NeGfx2SurfaceResource here; better name Render_Gfx_CreateSurfaceViewSetByFlags
+2026-10-31	vq0-verify	func	0x14014c530	L1	agree	decomp:re/decomp/14014c530.c;xref:0x1401416ae	V7919 %s.image, param_12 optional debug name default <unknown-because-not-initialised/resource>, NeGfx2SurfaceResource class string, allocs 0x1d8
+2026-10-31	vq0-verify	func	0x140189e60	L1	agree	decomp:re/decomp/140189e60.c;xref:0x140189b20	V7920 SSO string ctor (16-byte inline, heap tag unknown, strlen 14535e010); callers incl LoadModelResources and AddSceneObjects
+2026-10-31	vq0-verify	func	0x1401c08d0	L1	agree	decomp:re/decomp/1401c08d0.c;xref:0x1401901e3	V7921 switch on +0x1f8 allocs typed component (owner allocator +400), stores slot (+0x3c0..), sets +0x1fc=+0x1f8; callers match; registration is only allocator/back-pointer
+2026-10-31	vq0-verify	func	0x1401c0fe0	L1	partial	decomp:re/decomp/1401c0fe0.c;xref:0x14018f2bb	V7922 switch on +0x1fc, calls component vtable+8 dtor then owner(+400) vtable+0x38 which is the allocator free (alloc is +0x18) not unregister; better name Game_CameraActor_DestroyTypedComponent
+2026-10-31	vq0-verify	func	0x1401d0740	L1	agree	decomp:re/decomp/1401d0740.c;xref:0x14018d9fc	V7923 recursive: stores 16 bytes at +0x568/+0x570, iterates child vector +0x550..+0x558; callers match
+2026-10-31	vq0-verify	func	0x1402474e0	L1	agree	decomp:re/decomp/1402474e0.c;xref:0x14023e6f8	V7924 logs CameraActor::enable (CAMERA_ACTOR_ENABLE), calls UpdateInstanceTransformsBatch, RegisterPartCallbackAndTrack, ProcessVisibilityRequest, SetTintColoursSrgb, ApplyDriverPartOptions (not ApplyDrive); 3 callers
+2026-10-31	vq0-verify	func	0x14029b050	L1	agree	decomp:re/decomp/14029b050.c;xref:0x14029b041	V7925 optional hook 145fb8718, exception vcall+0x10, FastFailTerminate + int3; 10 callers incl ThrowException/ThrowBadArrayNewLength
+2026-10-31	vq0-verify	func	0x14029b1a0	L1	agree	decomp:re/decomp/14029b1a0.c;xref:0x140101934	V7926 ThrowStdException vector too long then int3; callers PtrVector_AssignOwned, 0x14012f256, 0x14014026d
+2026-10-31	vq0-verify	func	0x140317790	L1	disagree	decomp:re/decomp/140317790.c;xref:0x1401b928c	V7927 not a string compare: scans 8 inline records (stride 0x70 bytes, count at +0, name at +0x30) and returns pointer to record whose name equals the C string, else 0; better name Ne_NamedSlots_FindByName
+2026-10-31	vq0-verify	func	0x140557350	L1	agree	decomp:re/decomp/140557350.c;xref:0x1404ad26c	V7928 recursive RB-tree subtree erase: node+0x19 nil flag, recurses [2], frees via 1405573b0, continues left; callers match
+2026-10-31	vq0-verify	func	0x14077a3d0	L1	partial	decomp:re/decomp/14077a3d0.c;xref:0x14077a34b	V7929 fills a large session/event record (timestamps, entitlement + config lookups, game.trial) and picks a mode string among many; not a pure id-to-string mapping; better name Game_Analytics_FillSessionInfo
+2026-10-31	vq0-verify	func	0x14077b4c0	L1	partial	decomp:re/decomp/14077b4c0.c;xref:0x14077a359	V7930 fills many event record fields via setters (UID_TAG, master, steam, build ids); not a tag-string builder; better name Game_Analytics_FillBuildInfoRecord
+2026-10-31	vq0-verify	func	0x14078e2f0	L1	agree	decomp:re/decomp/14078e2f0.c;xref:0x14077a4ad	V7931 swiss-hash membership lookup of u32 key in two tables; callers IsNonEaPlayTrial x2 and 0x14077a4ad; hypothesis consistent
+2026-10-31	vq0-verify	func	0x1407bea70	L1	agree	decomp:re/decomp/1407bea70.c;xref:0x141a1e50f	V7932 vcall+0x28 type check, vcall on sub-object param_1+0x1030 then returns !14077c790(...); caller StatEvent_InitCommon
+2026-10-31	vq0-verify	func	0x14080efb0	L1	partial	decomp:re/decomp/14080efb0.c;xref:0x14080ebf9	V7933 refcounted string assign/concat helper (recursive, atomics, Variant_FormatToString, RichText); callers incl CarSetupVm_UpdateFuelRange so not character package specific; better name Game_Text_AssignOrAppendRefString
+2026-10-31	vq0-verify	func	0x14096ccf0	L1	agree	decomp:re/decomp/14096ccf0.c;xref:0x1407a0f46	V7934 copy-constructs big record with inline string buffer (cap 0x100, vtable 145613540) and memcpy blocks
+2026-10-31	vq0-verify	func	0x14096e580	L1	agree	decomp:re/decomp/14096e580.c;xref:0x14096d8a9	V7935 copy-constructs state object with vtables 145612f60/145613070 and 0x326 field; caller UpdateEntrantsWithSubstitutes
+2026-10-31	vq0-verify	func	0x1413f8f30	L1	agree	decomp:re/decomp/1413f8f30.c;xref:0x1410f6aec	V7936 swiss-hash lookup keyed by ushort built from LookupPackedValue; callers ConstructWithTimestamp + 2 others
+2026-10-31	vq0-verify	func	0x141403b30	L1	agree	decomp:re/decomp/141403b30.c;xref:0x141a515cd	V7937 map::at style: RB-tree lookup (param_1+0x218, key +0x250), copy-constructs value to out, throws invalid map<K, T> key
+2026-10-31	vq0-verify	func	0x14142c160	L1	agree	decomp:re/decomp/14142c160.c;xref:0x14142c99d	V7938 find id in list +0x178/+0x180, record in +0x98/+0xa0 stride 0x108, vec4 at (*(rec+0x80))+0x10 normalised; caller SyncLinkedDecalNode
+2026-10-31	vq0-verify	func	0x14152c470	L1	agree	decomp:re/decomp/14152c470.c;xref:0x14152c02c	V7939 int(value*100) into property at +8, clamped 0..1 into +0x28; 4 calls from PopulateRow
+2026-10-31	vq0-verify	func	0x1416c1ac0	L1	agree	decomp:re/decomp/1416c1ac0.c;xref:0x1414885f0	V7940 builds markup {w:d},{/w},{o:mixed}{s:%s}...; 10 callers from BuildBroadcastTopCarEndOfSession
+2026-10-31	vq0-verify	func	0x141870d10	L1	agree	decomp:re/decomp/141870d10.c;xref:0x14186f899	V7941 uses Game_Vm_HolderGetCStrOrEmpty (hash 0xaddbd7ed) and Ne_Resource_Release; callers 0x14186f899, ApplyTeamTextureSet
+2026-10-31	vq0-verify	func	0x141883960	L1	agree	decomp:re/decomp/141883960.c;xref:0x14151c5ea	V7942 text builder with lng_tyre_and_compound, tokens TYRE and COMPOUND; caller PopulateRow
+2026-10-31	vq0-verify	func	0x141d7b5f0	L1	agree	decomp:re/decomp/141d7b5f0.c;xref:0x141d7d497	V7943 pushes is_valid, name, nationality, car_number, car_number_formatted, driver properties; callers PushBackResourceGroup
+2026-10-31	vq0-verify	func	0x1424ad4e0	L1	agree	decomp:re/decomp/1424ad4e0.c;xref:0x14025a6e9	V7944 %s.%s with primary_colour/secondary_colour/tertiary_colour; caller ApplyTeamTextureSet
+2026-10-31	vq0-verify	func	0x142a4fc80	L1	agree	decomp:re/decomp/142a4fc80.c;xref:0x142a4ef5d	V7945 maps penalty type to safety_rating_/penalty_/tt_ keys; callers BuildInfringementMessage, QueueMessage
+2026-10-31	vq0-verify	func	0x142e0b390	L1	partial	decomp:re/decomp/142e0b390.c;xref:0x141c00d74	V7946 not a copy: post-construct init resolving spawn params (team/livery tables via RobinHoodMap_U64_FindIndex, HashedName); called from CopyConstruct; better name Game_SceneSpawnParams_ResolveAssets
+2026-10-31	vq0-verify	func	0x142e7bd50	L1	agree	decomp:re/decomp/142e7bd50.c;xref:0x142e7c04a	V7947 upper_bound-style walk on RB tree at +0x10/size +0x18, key float node+0x20, writes node pair to param_3; callers match
+2026-10-31	vq0-verify	func	0x142e7c1c0	L1	agree	decomp:re/decomp/142e7c1c0.c;xref:0x142e7c077	V7948 same walk with container +8/size +0x10; callers SampleCurveSet2KeyLerp, SampleWearCurve2DAlt
+2026-10-31	vq0-verify	func	0x142e7c410	L1	agree	decomp:re/decomp/142e7c410.c;xref:0x142e7c089	V7949 binary search 0x28-byte keyframes then 8-byte (x,y) pairs comparing y, linear interpolation
+2026-10-31	vq0-verify	func	0x142e7c800	L1	agree	decomp:re/decomp/142e7c800.c;xref:0x142e7c6be	V7950 twin comparing x (key offset + pair x), default 1.0 initial; callers SampleWearCurve2DAlt
+2026-10-31	vq0-verify	func	0x142e8d300	L1	agree	decomp:re/decomp/142e8d300.c;xref:0x140bcea48	V7951 shifts 0x28-stride entries (+0x20 to +0x28, count +0xd8), runs clear helper 142e8a900 param_2 times; caller ValidateWarmUpSets
+2026-10-31	vq0-verify	func	0x1430cd310	L1	agree	decomp:re/decomp/1430cd310.c;xref:0x1406d63b3	V7952 string hash (c*6, xor-fold, len<<16), 0x200 buckets u16 at +0x28, chained nodes +0x10; strcmp verify
+2026-10-31	vq0-verify	func	0x1434c0fb0	L1	agree	decomp:re/decomp/1434c0fb0.c;xref:0x1434b7dec	V7953 ResolveTransform 142f62580 + memcpy x8; callers ApplyVehicleResetState, HandleEnterPitBox
+2026-10-31	vq0-verify	func	0x1434c1780	L1	agree	decomp:re/decomp/1434c1780.c;xref:0x1434b7ad0	V7954 ResolveTransform + memcpy; callers HandleEnterPitBox, ApplyVehicleResetState
+2026-10-31	vq0-verify	func	0x1434f5790	L1	agree	decomp:re/decomp/1434f5790.c;xref:0x1434f2d79	V7955 logs ~RenderToTargetTexture %p %s %s then releases refs; callers include DrainPendingBitset
+2026-10-31	vq0-verify	func	0x1435d9a50	L1	partial	decomp:re/decomp/1435d9a50.c;xref:0x1434f4ea8	V7956 body is only a fatal abort (145351784 + int3), identical to Ne_FatalFormat_Trap; length-error meaning not in code; better name Ne_HashMap_AbortTrap_U64
+2026-10-31	vq0-verify	func	0x14390e0a0	L1	partial	decomp:re/decomp/14390e0a0.c;xref:0x14390e3f4	V7957 compares user version string against 1.6.37 and builds Application built with libpng- warning = png_user_version_check, not write struct init; better name Ne_Libpng_UserVersionCheck
+2026-10-31	vq0-verify	func	0x14390e5b0	L1	disagree	decomp:re/decomp/14390e5b0.c;xref:0x14390e51b	V7958 png_free_data: frees info fields by mask (0x4000, 0x2000...) via free hook +0x410, not row filter/deflate; better name Ne_Libpng_FreeData
+2026-10-31	vq0-verify	func	0x1439106b0	L1	agree	decomp:re/decomp/1439106b0.c;xref:0x142bd46a4	V7959 png_check_IHDR messages all present; callers SetIhdr + others
+2026-10-31	vq0-verify	func	0x143914360	L1	partial	decomp:re/decomp/143914360.c;xref:0x143914722	V7960 unknown-chunk writer: single WriteChunkHeader (1447a1690) writes header+data; 1447a0590 is Ne_Libpng_Warning not a data writer
+2026-10-31	vq0-verify	func	0x143915000	L1	agree	decomp:re/decomp/143915000.c;xref:0x142bd48d7	V7961 png_write_row strings (write_info never called, transform logic error, Z_OK on Z_FINISH, Out of memory); callers include PrepareWrite
+2026-10-31	vq0-verify	func	0x143918230	L1	agree	decomp:re/decomp/143918230.c;xref:0x143918223	V7962 13-byte stub: 145351784 abort then int3
+2026-10-31	vq0-verify	func	0x143925e20	L1	agree	decomp:re/decomp/143925e20.c;xref:0x142e89ab0	V7963 bit-count from ceil(log2((max-min)/step)), bit reads from +0x10/+0x1c/+0x24, error +0x28, +0x29 flag, escape 0xF, raw path 143926090; callers ReadSetEntry
+2026-10-31	vq0-verify	func	0x143928e00	L1	partial	decomp:re/decomp/143928e00.c;xref:0x143994c14	V7964 MD5 update that lowercases A-Z (|0x20) before buffering = case-insensitive; better name Ne_Hash_Md5UpdateLowercased
+2026-10-31	vq0-verify	func	0x14395cfe0	L1	disagree	decomp:re/decomp/14395cfe0.c;xref:0x14395cd17	V7965 not a matrix inverse: builds 8 clip-space corner constants (+-1), transforms them and derives 6 planes via cross products (frustum planes); better name Ne_Math_BuildFrustumPlanesFromClipCorners
+2026-10-31	vq0-verify	func	0x14395d690	L1	agree	decomp:re/decomp/14395d690.c;xref:0x14395dc95	V7966 dpps of two plane/vec4 sets against 3 vectors with sign classification, callers TestPointAndBuildFovBasis x2
+2026-10-31	vq0-verify	func	0x14396cd50	L1	agree	decomp:re/decomp/14396cd50.c;xref:0x14396a1ac	V7967 atomic exchange spin on slot, SPAM log Performance issue: virtually releasing the same me, Sleep(0); callers ComputeBlockRange + 1
+2026-10-31	vq0-verify	func	0x1439887b0	L1	agree	decomp:re/decomp/1439887b0.c;xref:0x143590a1b	V7968 allocs 0x10 list node via allocator vcall+0x18, on fail records ENOMEM 0xc in TLS error ring 0x146107830; callers QueueInfringementEvent, Loader_RegisterRequest
+2026-10-31	vq0-verify	func	0x14398c270	L1	agree	decomp:re/decomp/14398c270.c;xref:0x1414b6ff9	V7969 drains pending list (+0x58, cs +0xd8, flag +0x68), handler via map +0x80 keyed by event vcall+8 hash, frees via allocator +0x70
+2026-10-31	vq0-verify	func	0x143990c70	L1	agree	decomp:re/decomp/143990c70.c;xref:0x143991868	V7970 vector<0x28-byte slot> resize/default-fill with placeholder name string and refcount releases; caller BindLayout_Create
+2026-10-31	vq0-verify	func	0x143992590	L1	disagree	decomp:re/decomp/143992590.c;xref:0x1430fa17c	V7971 it is a release: lock, find key in hash map, decrement refcount (+0x20), unlink on zero; better name Ne_LinkResolver_ReleaseLinkable
+2026-10-31	vq0-verify	func	0x1439933a0	L1	agree	decomp:re/decomp/1439933a0.c;xref:0x143545234	V7972 multiplicative hash, buckets +0x20/+0x28, mask +0x38, allocs 0x98 record on miss, refcount++
+2026-10-31	vq0-verify	func	0x143997960	L1	agree	decomp:re/decomp/143997960.c;xref:0x143995745	V7973 takes node from free list +8, fills 3 fields, inserts via 143997a70, switch on result; caller RegisterEntry
+2026-10-31	vq0-verify	func	0x143998930	L1	partial	decomp:re/decomp/143998930.c;xref:0x14017b68c	V7974 hash is FNV-1a over a 16-byte binary key (param_2[0..15]) seeded by +0x20 and compared as two qwords, not a C string; better name Ne_NameTable_FindByKey128_Fnv1a
+2026-10-31	vq0-verify	func	0x1439997d0	L1	agree	decomp:re/decomp/1439997d0.c;xref:0x143998eaa	V7975 GetFileAttributesA + 14532a9bc separator search (0x5c) path helper; callers OpenWrite + self
+2026-10-31	vq0-verify	func	0x1439b8450	L1	agree	decomp:re/decomp/1439b8450.c;xref:0x1439ad560	V7976 pure thunk to 1439b8510(arg1,u32,arg3); many callers listed
+2026-10-31	vq0-verify	func	0x1439b8490	L1	agree	decomp:re/decomp/1439b8490.c;xref:0x1439ad586	V7977 pure thunk to 1439b8510; sibling
+2026-10-31	vq0-verify	func	0x1439b84d0	L1	agree	decomp:re/decomp/1439b84d0.c;xref:0x1439ad573	V7978 pure thunk to 1439b8510; sibling
+2026-10-31	vq0-verify	func	0x1439b9040	L1	agree	decomp:re/decomp/1439b9040.c;xref:0x143a00322	V7979 critical section +0x28, fields +0x10/+0x18/+0x5d, ENOMEM trace; callers EndCommandContext, AllocCommandNodeA, PushProfileMarker
+2026-10-31	vq0-verify	func	0x1439bad30	L1	agree	decomp:re/decomp/1439bad30.c;xref:0x1439ba7bd	V7980 row-by-row memcpy loops with pitch strides; caller MapSurfaceViaUploadBuffer
+2026-10-31	vq0-verify	func	0x1439bbd20	L1	agree	decomp:re/decomp/1439bbd20.c;xref:0x142faf89a	V7981 strings NeGfx2ResourceBlock and CreateHeap, PlacedResourceForward calls, SetD3DObjectName
+2026-10-31	vq0-verify	func	0x1439d1b90	L1	agree	decomp:re/decomp/1439d1b90.c;xref:0x1439d5653	V7982 calls ClampBlockMinAndGetAllocInfo, CreatePlacedResourceChecked 1439bb970, CreateCommittedResource, SetD3DObjectName, <unknown/NeGfx2Surface>, memset
+2026-10-31	vq0-verify	func	0x1439d7570	L1	agree	decomp:re/decomp/1439d7570.c;xref:0x1439d3407	V7983 cs +0x2668, allocs 0xa0 via allocator +0x150, init 1439d7620, lists +0x3aa8/+0x4518, map +0x350 keyed param_2+0x20
+2026-10-31	vq0-verify	func	0x1439d8b40	L1	agree	decomp:re/decomp/1439d8b40.c;xref:0x1439c8bfb	V7984 SetD3DObjectName x4, memset, PlacedResourceForward calls; caller CreateCommandContext
+2026-10-31	vq0-verify	func	0x1439dd170	L1	partial	decomp:re/decomp/1439dd170.c;xref:0x1439c9aa8	V7985 FNV-1a hash of 64-bit key then updates cached view formats in three caches (+0x2c0,+0x310,+0x3b0) and re-creates views; three not six, not a clear; better name Render_Gfx2Device_RefreshSwapchainViewCaches
+2026-10-31	vq0-verify	func	0x1439e5970	L1	agree	decomp:re/decomp/1439e5970.c;xref:0x1439d8b02	V7986 Strstr for voxel and skyshadow on packet name; caller CreateDrawPacket
+2026-10-31	vq0-verify	func	0x1439e7fb0	L1	agree	decomp:re/decomp/1439e7fb0.c;xref:0x1439e8e46	V7987 TGA converter with width/height/bpp, ClampBlockMin..., allocator vcall, output desc; caller DecodeHeaderAndConvert
+2026-10-31	vq0-verify	func	0x1439eb550	L1	agree	decomp:re/decomp/1439eb550.c;xref:0x1439ea642	V7988 VR active check +0x164, HMD interface +0x3f0 vcall +0x10 per eye into +0x2870.., vcall +8 head pose +0x2890
+2026-10-31	vq0-verify	func	0x1439ff780	L1	agree	decomp:re/decomp/1439ff780.c;xref:0x143b5a6da	V7989 sets active +0x58, list +0x60, frame counter +0x16f4->+0x16f8, list vcall+0x40, clears +0x12d8, ResetBindState, TLS set
+2026-10-31	vq0-verify	func	0x1439ffae0	L1	agree	decomp:re/decomp/1439ffae0.c;xref:0x1439ffad1	V7990 ResetBindState, RTV count +0x70 flags +0x74, views +0x78..., depth +0x138/+0x140, Md5Transform/Finalize hash
+2026-10-31	vq0-verify	func	0x1439fffb0	L1	agree	decomp:re/decomp/1439fffb0.c;xref:0x1439ffbcc	V7991 64-slot state-cache binder, banks +0x7c0/+0x1088, view +0x180 or +0x2a8 table, FindOrInsert_Float, dirty bits +0x12a0
+2026-10-31	vq0-verify	func	0x143a00140	L1	agree	decomp:re/decomp/143a00140.c;xref:0x143b5a6f2	V7992 frame stamp +0x4c, 0xFF fill ctx+0x1724..0x1814, TlsSetValue(index,0); pair of Begin
+2026-10-31	vq0-verify	func	0x143a01670	L1	agree	decomp:re/decomp/143a01670.c;xref:0x143a00824	V7993 PSO lookup, 0x290 copy, logs DX12: PSO does not exist -> shadergroup on GFX2 / RENDER_MISC
+2026-10-31	vq0-verify	func	0x143a02430	L1	agree	decomp:re/decomp/143a02430.c;xref:0x143a00b9e	V7994 14-slot binder, caches +0x150/+0xe50, dirty bit 1288 slot+16; constant-buffer meaning is hypothesis
+2026-10-31	vq0-verify	func	0x143a02580	L1	agree	decomp:re/decomp/143a02580.c;xref:0x143a01137	V7995 128-slot binder, dirty qwords +0x1290/+0x1298, flag 0x40 at +0x128b
+2026-10-31	vq0-verify	func	0x143a02720	L1	agree	decomp:re/decomp/143a02720.c;xref:0x143a012ce	V7996 packed handle low 48 bits ptr, bits 48-52 offset, 53+ 7-bit stride; cache at +0x1324
+2026-10-31	vq0-verify	func	0x143a02900	L1	agree	decomp:re/decomp/143a02900.c;xref:0x141900447	V7997 index buffer cache +0x1418/+0x1420/+0x1424, null clears via vcall +0x110
+2026-10-31	vq0-verify	func	0x143a02a50	L1	agree	decomp:re/decomp/143a02a50.c;xref:0x143a013ff	V7998 topology table at 1458a0a48 index topo-1, cache +0x143c, vcall +0x118
+2026-10-31	vq0-verify	func	0x143a02aa0	L1	agree	decomp:re/decomp/143a02aa0.c;xref:0x143a01459	V7999 dirty-state flush, vcall +0x130 draw (+0x188 bundle)
+2026-10-31	vq0-verify	func	0x143a02bc0	L1	agree	decomp:re/decomp/143a02bc0.c;xref:0x143a0148d	V8000 dirty-state flush then vcall +0x138 indexed draw
+2026-10-31	vq0-verify	func	0x143a02d00	L1	agree	decomp:re/decomp/143a02d00.c;xref:0x143a014bd	V8001 dirty-state flush then vcall +0x130 with instance count
+2026-10-31	vq0-verify	func	0x143a02e30	L1	agree	decomp:re/decomp/143a02e30.c;xref:0x143a014f4	V8002 dirty-state flush then vcall +0x138 with instance and base
+2026-10-31	vq0-verify	func	0x143a03310	L1	agree	decomp:re/decomp/143a03310.c;xref:0x143a0157d	V8003 dirty-state flush then vcall +0x140 compute dispatch
+2026-10-31	vq0-verify	func	0x143a03620	L1	agree	decomp:re/decomp/143a03620.c;xref:0x143a015f7	V8004 FNV hash of key at +0x12e0 to signature map, vcall +0x148
+2026-10-31	vq0-verify	func	0x143a03a30	L1	agree	decomp:re/decomp/143a03a30.c;xref:0x143a01646	V8005 flush, state object vcall +0xd8 / ctx +0x1a0, shader table descs, vcall +0x1a8
+2026-10-31	vq0-verify	func	0x143a04230	L1	disagree	decomp:re/decomp/143a04230.c;xref:0x143a063de	V8006 no write of 0x200000002 to node+0x60: it is a local struct passed to a queried debug interface vcall +0x210, gated by flags +0x26f8; also called from AllocCommandNodeB; better name Render_Gfx2CmdNode_EmitDebugRangeA
+2026-10-31	vq0-verify	func	0x143a04350	L1	disagree	decomp:re/decomp/143a04350.c;xref:0x143a06606	V8007 same pattern as A with 5 entries (0x100000001/0x200000002) passed to vcall +0x210 on a queried interface, not a +0x60 header write; better name Render_Gfx2CmdNode_EmitDebugRangeB
+2026-10-31	vq0-verify	func	0x143a06ea0	L1	agree	decomp:re/decomp/143a06ea0.c;xref:0x1439d3e52	V8008 string ImmediateCommandList, SetD3DObjectName 1439b8890, creates/gets immediate list
+2026-10-31	vq0-verify	func	0x143a07500	L1	partial	decomp:re/decomp/143a07500.c;xref:0x1439d3e7f	V8009 closes immediate list (vcall +0x48) and appends it to submission vector with Immediate label; no barrier logic seen; better name Ne_Gfx2CommandQueue_CloseAndQueueImmediateList
+2026-10-31	vq0-verify	func	0x143a0dec0	L1	agree	decomp:re/decomp/143a0dec0.c;xref:0x1439ba6b1	V8010 switch format id to bytes: 1-4,0x49-0x4e,0x52-54,0x5e-0x63 =16; 5-8 =12; 8 for many; default asserts
+2026-10-31	vq0-verify	func	0x143a0e230	L1	disagree	decomp:re/decomp/143a0e230.c;xref:0x140146023	V8011 creates a view resource (CreateResourceObject 1439d6880) from descriptor fields and stores result at +0x1a0 when flag 8; does not release; better name Render_Gfx2Device_CreateViewAtOffset1A0
+2026-10-31	vq0-verify	func	0x143a0e340	L1	agree	decomp:re/decomp/143a0e340.c;xref:0x1439d69e4	V8012 AllocDescriptorSlot x2, AllocBit, QueueDeferredRelease x2; callers match
+2026-10-31	vq0-verify	func	0x143a0e5b0	L1	agree	decomp:re/decomp/143a0e5b0.c;xref:0x1439d74d6	V8013 AllocDescriptorSlot x2, AllocBit, QueueDeferredRelease x2; caller NewDeferredCommand
+2026-10-31	vq0-verify	func	0x143a2fbc0	L1	agree	decomp:re/decomp/143a2fbc0.c;xref:0x1439e6eb9	V8014 skip-list search with stack array of node ptrs, key at node+0x2c, result init {0,0xffffffff}
+2026-10-31	vq0-verify	func	0x143a2fd60	L1	agree	decomp:re/decomp/143a2fd60.c;xref:0x1439e6e90	V8015 vector insert/grow, 0x49249249 divide, max 0x7ffffff, realloc 1439e6470, calls ListInsertA/B
+2026-10-31	vq0-verify	func	0x143a30090	L1	agree	decomp:re/decomp/143a30090.c;xref:0x1439e7042	V8016 second insert variant with 1439e6470, 143a30f90; caller GfxMem_Allocate
+2026-10-31	vq0-verify	func	0x143a301e0	L1	agree	decomp:re/decomp/143a301e0.c;xref:0x1439e705a	V8017 third variant with 1439e6470; caller GfxMem_Allocate
+2026-10-31	vq0-verify	func	0x143a302f0	L1	agree	decomp:re/decomp/143a302f0.c;xref:0x1439e7337	V8018 0x49249249 divide, trace ring 0x146107830, caller BlockAllocator_Free
+2026-10-31	vq0-verify	func	0x143a30660	L1	agree	decomp:re/decomp/143a30660.c;xref:0x1439e7342	V8019 trace ring 0x146107830, callers BlockAllocator_Free and ListInsertB
+2026-10-31	vq0-verify	func	0x143a30f90	L1	agree	decomp:re/decomp/143a30f90.c;xref:0x1439e71b3	V8020 trace ring 0x146107830, 143a30ac0, callers BlockAllocator_Free and PoolInsertA
+2026-10-31	vq0-verify	func	0x143a35370	L1	agree	decomp:re/decomp/143a35370.c;xref:0x143a35e0c	V8021 allocs 0x38 refcounted object vtable 1458a16d8, vector<u16>, source channel count vcall+0x28; sole caller BuildTargets
+2026-10-31	vq0-verify	func	0x143a356e0	L1	agree	decomp:re/decomp/143a356e0.c;xref:0x143a35e8a	V8022 64-byte aligned alloca buffers, memset/index scatter; sole caller BuildTargets
+2026-10-31	vq0-verify	func	0x143a35eb0	L1	agree	decomp:re/decomp/143a35eb0.c;xref:0x143a35dc7	V8023 vector<intrusive_ptr>::resize: shrink atomic dec obj+8 and vcall+8, grow 1.5x; sole caller BuildTargets
+2026-10-31	vq0-verify	func	0x143a5b5e0	L1	agree	decomp:re/decomp/143a5b5e0.c;xref:0x143a5b09e	V8024 swiss hash lookup in global table 14628f688 then secondary registry; callers BuildDataPathById, EgoErpLoader_StartRead
+2026-10-31	vq0-verify	func	0x143a70fb0	L1	agree	decomp:re/decomp/143a70fb0.c;xref:0x143a6f05a	V8025 handler map renderer+0x120 lookup, vcall +0x18, optional +0x58, queue 0x20-byte entry under cs +0xd8 with ENOMEM trace
+2026-10-31	vq0-verify	func	0x143a71540	L1	agree	decomp:re/decomp/143a71540.c;xref:0x143a6f6db	V8026 listener lookup under shared lock +0xb0, vcall +0x20 with 16-byte key then forwards attached list
+2026-10-31	vq0-verify	func	0x143abd4d0	L1	agree	decomp:re/decomp/143abd4d0.c;xref:0x143ac0930	V8027 critical section, priority list scan, builds 64-bit sort key, returns best vs threshold +0x90; caller TryAcquireJob
