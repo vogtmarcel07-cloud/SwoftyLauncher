@@ -6790,3 +6790,116 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	lc0-verify	func	0x1429cec50	L1	agree	decomp:re/decomp/1429cec50.c;xref:0x140ba2086	V6790 name fits; finding facts hold; 78 direct calls
 2026-10-31	lc0-verify	func	0x142a1a0b0	L1	agree	decomp:re/decomp/142a1a0b0.c;xref:0x142910fe7	V6791 name fits; finding facts hold; 6 direct calls
 2026-10-31	lc0-verify	func	0x142a3b7a0	L1	agree	decomp:re/decomp/142a3b7a0.c;xref:0x142a41cc7	V6792 name fits; finding facts hold; 2 direct calls
+2026-10-31	ld0-verify	func	0x14035a180	L1	agree	decomp:re/decomp/14035a180.c;xref:0x140364b90	V6792 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035a8b0	L1	agree	decomp:re/decomp/14035a8b0.c;xref:0x140365264	V6793 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035bf90	L1	agree	decomp:re/decomp/14035bf90.c;xref:0x14036527e	V6794 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035c6c0	L1	agree	decomp:re/decomp/14035c6c0.c;xref:0x14036528b	V6795 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035d390	L1	agree	decomp:re/decomp/14035d390.c;xref:0x140367369	V6796 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035e150	L1	agree	decomp:re/decomp/14035e150.c;xref:0x14036737d	V6797 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035e9c0	L1	agree	decomp:re/decomp/14035e9c0.c;xref:0x140367387	V6798 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035f230	L1	agree	decomp:re/decomp/14035f230.c;xref:0x140367391	V6799 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14035faa0	L1	agree	decomp:re/decomp/14035faa0.c;xref:0x1403685e6	V6800 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1403606b0	L1	agree	decomp:re/decomp/1403606b0.c;xref:0x1403685f0	V6801 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140650f90	L1	agree	decomp:re/decomp/140650f90.c;xref:0x140650489	V6802 placeholder Unk name honest; 4x Ai_Resolve_GeneralSettings(0x146046c50) sites and Ai_Table_InterpolateA/B calls 14068b710/14068bb70 confirmed; callers 0x140650489 indirect-ish via 0x140650150
+2026-10-31	ld0-verify	func	0x14065dad0	L1	partial	decomp:re/decomp/14065dad0.c;xref:0x14065dc68	V6803 16 blocking.* fields stored; no safe blocking distance key (only max_blocking_distance); section name ai_vehicle_config comes from caller Ai_Parse_VehicleConfigGroups
+2026-10-31	ld0-verify	func	0x14065de80	L1	agree	decomp:re/decomp/14065de80.c;xref:0x14065de52	V6804 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14067d510	L1	partial	decomp:re/decomp/14067d510.c;xref:0x1405fed98	V6805 call sites of 0x140677ae0, 9 lanes, 512-bucket 0x1ff and list +0x140 confirmed; route count 2 not derivable here (route vector +0x60..+0x68 variable) and AISplineData-only unverified
+2026-10-31	ld0-verify	func	0x140680250	L1	agree	decomp:re/decomp/140680250.c;xref:0x142e5e110	V6806 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1406b1970	L1	agree	decomp:re/decomp/1406b1970.c;xref:0x1406b10e6	V6807 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1407b10c0	L1	agree	decomp:re/decomp/1407b10c0.c;xref:0x1407ac0d7	V6808 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140d38210	L1	partial	decomp:re/decomp/140d38210.c;xref:0x140c18e79	V6809 same template as Vm_Set_Int but node-set 0x140d2b600 is a jmp thunk into .data1 (black box) so uint32 type not verifiable; type object 0x146129da0 differs from Int 0x146129d40
+2026-10-31	ld0-verify	func	0x140d38fd0	L1	agree	decomp:re/decomp/140d38fd0.c;xref:0x140c1f905	V6810 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140d7e8d0	L1	agree	decomp:re/decomp/140d7e8d0.c;xref:0x140d7e0f7	V6811 three requirement logs confirmed (+ a 4th add-on cap log); sets flag bits in out struct; caller ContractRenewal_FindAvailableDriver
+2026-10-31	ld0-verify	func	0x140fc6000	L1	agree	decomp:re/decomp/140fc6000.c;xref:0x140d6c656	V6812 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140fc6190	L1	agree	decomp:re/decomp/140fc6190.c;xref:0x140fc69f0	V6813 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140ffa9d0	L1	agree	decomp:re/decomp/140ffa9d0.c;xref:0x1422c493d	V6814 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x140ffaa60	L1	agree	decomp:re/decomp/140ffaa60.c;xref:0x1422c3746	V6815 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x141261010	L1	agree	decomp:re/decomp/141261010.c;xref:0x14124f502	V6816 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x141261170	L1	agree	decomp:re/decomp/141261170.c;xref:0x14124f74f	V6817 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x141533570	L1	agree	decomp:re/decomp/141533570.c;xref:0x142a8eb5a	V6818 FuelAuto check +0xd7 at 0x141533598 and mix-1 step with mask bit [vm+0x604] confirmed
+2026-10-31	ld0-verify	func	0x141534290	L1	agree	decomp:re/decomp/141534290.c;xref:0x142a8ec03	V6819 assist int[0x1a] clamp via vfunc +0x268 -> return, order table {0,1,3,2,4,5} and mask [vm+0xa80], write to controls+8 confirmed
+2026-10-31	ld0-verify	func	0x141534490	L1	agree	decomp:re/decomp/141534490.c;xref:0x142a8ebba	V6820 mirror of ErsUp: same assist check, walks order table downward
+2026-10-31	ld0-verify	func	0x141f45500	L1	agree	decomp:re/decomp/141f45500.c;xref:0x141f42ff1	V6821 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1422a0990	L1	agree	decomp:re/decomp/1422a0990.c;xref:0x14229f9dd	V6822 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1422a0cb0	L1	agree	decomp:re/decomp/1422a0cb0.c;xref:0x14229fa68	V6823 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1422c53e0	L1	agree	decomp:re/decomp/1422c53e0.c;xref:0x1422c3755	V6824 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1422c5670	L1	agree	decomp:re/decomp/1422c5670.c;xref:0x1422c46e2	V6825 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1428e64b0	L1	agree	decomp:re/decomp/1428e64b0.c;xref:0x141cc09e8	V6826 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1428e6c30	L1	agree	decomp:re/decomp/1428e6c30.c;xref:0x14200ed81	V6827 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1428e7d80	L1	agree	decomp:re/decomp/1428e7d80.c;xref:0x142001321	V6828 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1428eb1b0	L1	agree	decomp:re/decomp/1428eb1b0.c;xref:0x1417e3813	V6829 log string setCustomCarDecals + FrontendSceneComponentCar::setCarDecals inlined; sole caller Game_FrontendScenePreview_Refresh
+2026-10-31	ld0-verify	func	0x1428eb310	L1	agree	decomp:re/decomp/1428eb310.c;xref:0x1417e3897	V6830 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x142cac290	L1	agree	decomp:re/decomp/142cac290.c;xref:0x142b9df2c	V6831 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x142e65740	L1	agree	decomp:re/decomp/142e65740.c;xref:0x141d1ebd1	V6832 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x142e66770	L1	agree	decomp:re/decomp/142e66770.c;xref:0x1419e3209	V6833 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x142f18a30	L1	partial	decomp:re/decomp/142f18a30.c;xref:0x14364100a	V6834 sum of sub-box AABB volumes stride 0x40 over part stride 0x60 confirmed, but names param is an array of 8 (param_3[0..7]) not names[2]
+2026-10-31	ld0-verify	func	0x142f18fa0	L1	agree	decomp:re/decomp/142f18fa0.c;xref:0x143641043	V6835 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14312a530	L1	agree	decomp:re/decomp/14312a530.c;xref:0x14312b165	V6836 log string and RemovePackedPlayerBadgeStatId callee confirmed
+2026-10-31	ld0-verify	func	0x14313bcd0	L1	agree	decomp:re/decomp/14313bcd0.c;xref:0x14313c70a	V6837 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14320c3c0	L1	agree	decomp:re/decomp/14320c3c0.c;xref:0x143076941	V6838 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1432b8730	L1	agree	decomp:re/decomp/1432b8730.c;xref:0x1432b8443	V6839 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1432bf450	L1	agree	decomp:re/decomp/1432bf450.c;xref:0x1432c33b7	V6840 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1432bf640	L1	agree	decomp:re/decomp/1432bf640.c;xref:0x1432c33e1	V6841 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143319fe0	L1	agree	decomp:re/decomp/143319fe0.c;xref:0x143277416	V6842 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1434fb4b0	L1	partial	decomp:re/decomp/1434fb4b0.c;xref:0x140d6bd07	V6843 returns pointer to per-team record+0x10 or +0x20 (hash lookup by team id, mode byte [obj+8]+0x58); 8-byte entry layout and vector shape not verifiable here; 57 callers ok
+2026-10-31	ld0-verify	func	0x1434fd730	L1	agree	decomp:re/decomp/1434fd730.c;xref:0x1434fd038	V6844 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14351df60	L1	partial	decomp:re/decomp/14351df60.c;xref:0x141241dbb	V6845 body filters enabled upgrade instances for a stat id (Career_Query_EnabledUpgrades), gets team modifiers and returns Career_Calc_UpgradeCost(option|2): an upgrade cost/value calc not a plain vehicle attribute read; better name Career_Calc_StatUpgradeCost; Car_Apply_UpgradeToVehicle name not in db
+2026-10-31	ld0-verify	func	0x1436809f0	L1	agree	decomp:re/decomp/1436809f0.c;xref:0x143615338	V6846 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1436812c0	L1	agree	decomp:re/decomp/1436812c0.c;xref:0x1436153bc	V6847 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1436815b0	L1	agree	decomp:re/decomp/1436815b0.c;xref:0x1436153e8	V6848 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143681a90	L1	agree	decomp:re/decomp/143681a90.c;xref:0x143638ae8	V6849 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143681aa0	L1	agree	decomp:re/decomp/143681aa0.c;xref:0x14363861c	V6850 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143699ef0	L1	agree	decomp:re/decomp/143699ef0.c;xref:0x14369deb4	V6851 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14371d740	L1	agree	decomp:re/decomp/14371d740.c;xref:0x140b8be9e	V6852 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14371e500	L1	agree	decomp:re/decomp/14371e500.c;xref:0x14371dc28	V6853 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14371ef00	L1	agree	decomp:re/decomp/14371ef00.c;xref:0x140b89e95	V6854 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14371f700	L1	agree	decomp:re/decomp/14371f700.c;xref:0x140b8b1d1	V6855 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14375b5b0	L1	agree	decomp:re/decomp/14375b5b0.c;xref:0x14375b583	V6856 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14375ba00	L1	agree	decomp:re/decomp/14375ba00.c;xref:0x14375b9e5	V6857 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14375d000	L1	agree	decomp:re/decomp/14375d000.c;xref:0x14375cfdb	V6858 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14375d6f0	L1	agree	decomp:re/decomp/14375d6f0.c;xref:0x14375d6c0	V6859 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14375e480	L1	agree	decomp:re/decomp/14375e480.c;xref:0x14375e45a	V6860 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437607d0	L1	agree	decomp:re/decomp/1437607d0.c;xref:0x143740911	V6861 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437616a0	L1	agree	decomp:re/decomp/1437616a0.c;xref:0x14373a741	V6862 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437618e0	L1	agree	decomp:re/decomp/1437618e0.c;xref:0x1437400c5	V6863 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143765ba0	L1	agree	decomp:re/decomp/143765ba0.c;xref:0x143792ee8	V6864 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143766160	L1	agree	decomp:re/decomp/143766160.c;xref:0x143792ca2	V6865 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437663a0	L1	agree	decomp:re/decomp/1437663a0.c;xref:0x143791b97	V6866 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143766820	L1	agree	decomp:re/decomp/143766820.c;xref:0x1437930c0	V6867 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143769220	L1	agree	decomp:re/decomp/143769220.c;xref:0x143792f15	V6868 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376cb90	L1	agree	decomp:re/decomp/14376cb90.c;xref:0x143792b6a	V6869 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376cdd0	L1	agree	decomp:re/decomp/14376cdd0.c;xref:0x143792b91	V6870 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376e210	L1	agree	decomp:re/decomp/14376e210.c;xref:0x1437924f1	V6871 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376f250	L1	agree	decomp:re/decomp/14376f250.c;xref:0x143792e6f	V6872 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376f530	L1	agree	decomp:re/decomp/14376f530.c;xref:0x1437928a3	V6873 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376f8c0	L1	agree	decomp:re/decomp/14376f8c0.c;xref:0x143792839	V6874 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376fba0	L1	agree	decomp:re/decomp/14376fba0.c;xref:0x14379285b	V6875 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x14376fe80	L1	agree	decomp:re/decomp/14376fe80.c;xref:0x143792881	V6876 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437724d0	L1	agree	decomp:re/decomp/1437724d0.c;xref:0x143787912	V6877 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143772e90	L1	agree	decomp:re/decomp/143772e90.c;xref:0x1437937d6	V6878 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437730d0	L1	agree	decomp:re/decomp/1437730d0.c;xref:0x143792cc2	V6879 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143773a60	L1	agree	decomp:re/decomp/143773a60.c;xref:0x14378abfe	V6880 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143774100	L1	agree	decomp:re/decomp/143774100.c;xref:0x14378dee5	V6881 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143774860	L1	agree	decomp:re/decomp/143774860.c;xref:0x143792d61	V6882 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143774ca0	L1	agree	decomp:re/decomp/143774ca0.c;xref:0x1437933e9	V6883 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143774f80	L1	agree	decomp:re/decomp/143774f80.c;xref:0x1437869d1	V6884 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1437751c0	L1	agree	decomp:re/decomp/1437751c0.c;xref:0x143792ad4	V6885 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143775930	L1	agree	decomp:re/decomp/143775930.c;xref:0x14379277e	V6886 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143775b70	L1	agree	decomp:re/decomp/143775b70.c;xref:0x143794878	V6887 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143776080	L1	agree	decomp:re/decomp/143776080.c;xref:0x143793738	V6888 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1438641f0	L1	agree	decomp:re/decomp/1438641f0.c;xref:0x143862e00	V6889 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143864640	L1	agree	decomp:re/decomp/143864640.c;xref:0x143862e71	V6890 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143864a20	L1	agree	decomp:re/decomp/143864a20.c;xref:0x143862ee1	V6891 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x143864fc0	L1	agree	decomp:re/decomp/143864fc0.c;xref:0x143862f08	V6892 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1438654b0	L1	agree	decomp:re/decomp/1438654b0.c;xref:0x143862f88	V6893 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1438ad3b0	L1	agree	decomp:re/decomp/1438ad3b0.c;xref:0x1438aba02	V6894 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1438ad500	L1	agree	decomp:re/decomp/1438ad500.c;xref:0x1438aba18	V6895 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1441082c0	L1	agree	decomp:re/decomp/1441082c0.c;xref:0x1440cc8a4	V6896 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1444bca80	L1	agree	decomp:re/decomp/1444bca80.c;xref:0x1402485bc	V6897 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1444bcc00	L1	agree	decomp:re/decomp/1444bcc00.c;xref:0x1402487cc	V6898 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x1445f3d70	L1	agree	decomp:re/decomp/1445f3d70.c;xref:0x1403c64ee	V6899 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x144630450	L1	agree	decomp:re/decomp/144630450.c;xref:0x14462ea68	V6900 name matches log/pretty-function string and body; sibling-consistent
+2026-10-31	ld0-verify	func	0x144651f90	L1	partial	decomp:re/decomp/144651f90.c;xref:0x142f1b5a1	V6901 jmp thunk to 0x155339950 confirmed, 9 callers incl Car_Chassis_Build; target is .data1 black box so AddListener role is call-pattern only
+2026-10-31	ld0-verify	func	0x1446ce000	L1	partial	decomp:re/decomp/1446ce000.c;xref:0x1446cdd02	V6902 grip-limited angle v^2/(grip*9.81) and block fields +0x22dc/+0x239c confirmed; no +0x54 steering_rate_scale access found; caller Car_PadAssist_DriftAssist
+2026-10-31	ld0-verify	func	0x14476efa0	L1	partial	decomp:re/decomp/14476efa0.c;xref:0x14466034f	V6903 generic thread-safe event post (0x18 node, list +0x58/+0x60, CS +0x98, SetEvent +0x90) confirmed but nothing in body is front-wing specific; only caller Car_FrontWing_OnCollision; better name Car_EventQueue_PostEvent
+2026-10-31	ld0-verify	func	0x1447949b0	L1	agree	decomp:re/decomp/1447949b0.c;xref:0x140158971	V6904 clamp +-5000, 4 samples via 0x14479ecc0, tile 0x8000 at +0xc88, cell +0x3f0a1c, default +0x3f0a34 confirmed; callers are Car_Chassis_InitialiseRuntime (listed as Car_Parse_Chassis) + 0x140157d90 + Render_Skidmarks_Update
