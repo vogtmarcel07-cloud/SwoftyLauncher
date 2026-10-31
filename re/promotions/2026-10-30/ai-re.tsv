@@ -3,10 +3,15 @@ addr	name	sig	verify
 0x1403e1a10	Ai_Write_AdaptiveAiSessionRecord	ai.write_adaptive_ai_session_record	lb01-verify V4147
 0x1405ee660	Ai_Car_CaptureVehicleState	ai.car_capture_vehicle_state	cv0-verify V2996
 0x1405f5c50	Ai_Unk_1405f5c50	ai.unk_1405f5c50	lb01-verify V4156
+0x1405f5dd0	Ai_Update_ExitThrottleError	ai.read_general_settings_3	lc0-verify V6611
 0x1405f98f0	Ai_Eval_SlowStateFlag	ai.eval_slow_state_flag	cv0-verify V2997
 0x1405f9a60	Ai_Race_ComputeLapTargets	ai.race_compute_lap_targets	cv0-verify V2998
 0x1405fbda0	Ai_Get_GeneralSettings	ai.get_general_settings	cv4-verify V2894
+0x1405fbe00	Ai_Init_TestSpeedLimits	ai.read_general_settings_4	lc0-verify V6614
+0x1405fbfd0	Ai_Calc_FollowGap	ai.read_general_settings_5	lc0-verify V6617
 0x140604280	Ai_Create_VehicleController	ai.create_vehicle_controller	cv0-verify V2999
+0x1406068a0	Ai_Eval_ClampedTestSpeed	ai.read_general_settings	lc0-verify V6621
+0x140606e60	Ai_Eval_ClampedTestSpeed_2	ai.read_general_settings_2	lc0-verify V6622
 0x140606fc0	Ai_TestLimits_GetScaledDistance	ai.test_limits_get_scaled_distance	cv0-verify V3000
 0x14060a480	Ai_Car_ComputeLateralLimitMargins	ai.car_compute_lateral_limit_margins	cv0-verify V3001
 0x14060a600	Ai_Car_UpdateLateralLimitMargins	ai.car_update_lateral_limit_margins	cv0-verify V3002
@@ -37,7 +42,9 @@ addr	name	sig	verify
 0x14065aec0	Ai_Parse_DriverParameterMap	ai.parse_driver_parameter_map	lb01-verify V4185
 0x14065d170	Ai_Build_TeamPerformanceCurves	ai.build_team_performance_curves	cv0-verify V3029
 0x14065da00	Ai_Read_AlongsideConfig	ai.read_alongside_config	lb01-verify V4188
+0x14065dc50	Ai_Parse_VehicleConfigGroups	ai.parse_cede_position_config	lc0-verify V6624
 0x14065e650	Ai_SpaceSeeking_AddBlockedInterval	ai.space_seeking_add_blocked_interval	cv0-verify V3030
+0x14065f520	Ai_Interval_AddFullSpanWeighted	ai.interval_add_if_valid	lc0-verify V6625
 0x140660140	Ai_Interval_AddWeightedRange	ai.interval_add_weighted_range	cv0-verify V3033
 0x140661b20	Ai_Interval_MergeInsert	ai.interval_merge_insert	cv0-verify V3034
 0x140662de0	Ai_Unk_140662de0	ai.unk_140662de0	lb01-verify V4197
@@ -79,5 +86,6 @@ addr	name	sig	verify
 0x14251b3e0	Ai_ErsTable_SampleStep	ai.ers_table_sample_step	cv1-verify V2866
 0x14251b710	Ai_ErsTable_SampleDelta	ai.ers_table_sample_interpolated	la1-verify V3347
 0x14251bc00	Ai_Ers_GetCurveDelta	ai.ers_get_curve_delta	cv4-verify V2932
+0x1429805c0	Ai_QualiPace_EstimateLapTime	ai.quali_pace_debug	lc0-verify V6789
 0x142f5bb50	Ai_SuggestedGear_ForGate	ai.suggested_gear_for_gate	lb11-verify V5163
 0x140642faf	site_Ai_ScFollowFlagCmp	code	verify-f V1189

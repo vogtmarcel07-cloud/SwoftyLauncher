@@ -2,15 +2,19 @@ addr	name	sig	verify
 0x140399720	Car_AnimClipTarget_SetAnimation	car.anim_clip_target_set_animation	la0-verify V3392
 0x14039f630	Car_Visual_UpdateHeatEffects	car.visual_update_heat_effects	cv0-verify V2990
 0x14039f960	Car_Visual_UpdatePartVibration	car.visual_update_part_vibration	cv0-verify V2991
+0x14039ff50	Car_Visual_SetAnimatorsTimeFraction	car.visual_update_attached_animators	lc0-verify V6609
 0x1403a03d0	Car_Anim_SetNormalisedPoses	car.anim_set_normalised_poses	cv0-verify V2993
 0x1403b77c0	Car_PitStop_ApplyTyreAndWingVisuals	car.pit_stop_apply_tyre_and_wing_visuals	cv0-verify V2994
+0x1409e3fb0	Car_Parse_UpgradeEffectDefinitions	car.aggregate_upgrade_stats	lc0-verify V6644
 0x140c04fd0	Car_Load_SetupPreset	car.load_setup_preset	lb04-verify V4032
 0x140c11160	Car_Setup_SetSliderStep	car.setup_set_slider_step	la0-verify V3482
 0x140c112b0	Car_Setup_SetCustomSliderStep	-	
 0x140c11550	Car_Setup_ApplyTuning	car.setup_apply_tuning	sp-verify V1174
 0x140c1e690	Car_Setup_OnValueChanged	car.setup_on_value_changed	lb04-verify V4055
+0x1411cb150	Car_Read_ComponentSwapConfig	car.read_wear_rates_config	lc0-verify V6674
 0x1411cf770	Car_PuComponent_SetFittedId	car.pu_component_set_fitted_id	cv1-verify V2825
 0x1411cff10	Car_PuComponent_SetPoolCount	car.pu_component_set_pool_count	cv1-verify V2826
+0x141f58a20	Car_PuComponent_FitSelected	car.component_fit	lc0-verify V6765
 0x142e7c990	Car_Tyre_LerpPredictedWear	car.tyre_lerp_predicted_wear	lb22-verify V6241
 0x142e80c80	Car_Tyre_QueryCompoundByIndex	car.tyre_query_compound_by_index	lb22-verify V6242
 0x142e83fe0	Car_FrontWing_ResolvePartNodeId	car.front_wing_resolve_part_node_id	cv2-verify V3181
@@ -31,9 +35,12 @@ addr	name	sig	verify
 0x142f13de0	Car_CarbonDamage_OnImpulse	car.carbon_damage_on_impulse	lb11-verify V5062
 0x142f146b0	Car_DamageComponent_ResetNoseCone	car.damage_component_reset_nose_cone	lb11-verify V5065
 0x142f14a60	Car_Damage_SetPartsByNames	car.damage_set_parts_by_names	cv2-verify V3235
+0x142f15ce0	Car_TyreDamageMonitor_RebuildVehicleSlots	car.tyre_damage_monitor_update	lc1-verify V6392
 0x142f19ad0	Car_CarbonDamage_PrintSetting	car.carbon_damage_print_setting	lb11-verify V5074
 0x142f1a700	Car_CarbonDamage_Init	car.carbon_damage_init	lb11-verify V5079
 0x142f1b010	Car_CarbonDamage_OnSessionRestart	car.carbon_damage_on_session_restart	lb11-verify V5083
+0x142f1b2b0	Car_CarbonDamage_OnVehicleImpact	car.carbon_damage_register_impact_callback	lc1-verify V6393
+0x142f2a0d0	Car_Component_UpdateCornerTimes	car.component_check_corner_speed	lc1-verify V6395
 0x142f41480	Car_SteeringWheelLeds_BuildGroupMask	car.steering_wheel_leds_build_group_mask	cv2-verify V3264
 0x142f478d0	Car_Surface_SampleAt	-	
 0x143517c50	Car_Upgrades_FitUpgradeState	car.upgrades_fit_upgrade_state	cv2-verify V3311
@@ -43,6 +50,7 @@ addr	name	sig	verify
 0x144109f80	Car_Deformation_BuildTyreParticles	car.deformation_build_tyre_particles	lb23-verify V6272
 0x14410c7d0	Car_Deformation_RebuildTyreConstraints	car.deformation_rebuild_tyre_constraints	lb23-verify V6273
 0x144628190	Car_Chassis_Build	car.chassis_build	lb22-verify V6192
+0x14462e6d0	Car_Chassis_InitialiseRuntime	car.parse_chassis	lc3-verify V6724
 0x144631a50	Car_Chassis_UpdateWheelVisibility	car.chassis_update_wheel_visibility	lb23-verify V6279
 0x144632350	Car_Physics_ApplyGroundedPose	car.physics_apply_grounded_pose	cv3-verify V3197
 0x144632740	Car_Physics_ComputeGroundedPose	car.physics_compute_grounded_pose	la2-verify V3545
@@ -57,12 +65,16 @@ addr	name	sig	verify
 0x1446512c0	Car_BodyDamage_OnCollision	-	
 0x1446521d0	Car_BodyDamage_ApplyToAeroAndCooling	-	cg-verify V1131
 0x1446563e0	Car_SuspDamage_UpdateJointLimits	car.susp_damage_update_joint_limits	lb22-verify V6208
+0x144656f80	Car_Tyre_SetPunctureState	car.tyre_set_puncture_active	lc3-verify V6727
 0x144657040	Car_Write_F1TyreDamage	car.parse_f1_tyre_damage	lb22-verify V6209
+0x144657290	Car_Read_F1TyreDamage	car.tyre_deformation_load_node_graph	lc3-verify V6729
 0x14465b020	Car_Assets_FindShortName	car.assets_find_short_name	lb22-verify V6211
 0x14465c950	Car_TyreDeformation_SetTyre	car.tyre_deformation_set_tyre	lb22-verify V6212
 0x14465d3a0	Car_TyreDeformation_CreateTyreBody	car.tyre_deformation_create_tyre_body	cv3-verify V3212
 0x14465e480	Car_TyreDeformation_BuildModelKey	car.tyre_deformation_build_model_key	lb23-verify V6283
 0x14465e830	Car_TyreDeformation_ComputeContactFrame	car.tyre_deformation_compute_contact_frame	lb23-verify V6284
+0x144660cd0	Car_F1WingDamage_SetNetBits	car.damage_set_component_damage	lc3-verify V6732
+0x144662060	Car_Component_CreateFitProxy	car.component_log_fit_failure	lc3-verify V6733
 0x144663930	Car_TyreDamage_TransformContactPatch	car.tyre_damage_transform_contact_patch	la2-verify V3550
 0x14466b6e0	Car_ObfSpline_Ctor	car.obf_spline_ctor	la2-verify V3551
 0x14466d150	Car_ObfSpline_SerialiseVertices	car.obf_spline_serialise_vertices	la2-verify V3553
@@ -74,11 +86,14 @@ addr	name	sig	verify
 0x144677780	Car_Failsafe_LimitVelocity	car.failsafe_limit_velocity	lb22-verify V6223
 0x144678300	Car_Chassis_UpdateMassInertia	car.chassis_update_mass_inertia	lb22-verify V6224
 0x14467ba10	Car_Failsafe_RefreshBodyShape	car.failsafe_refresh_body_shape	lb23-verify V6286
+0x14467c280	Car_Collision_OnContact	car.collision_car_to_car	lc3-verify V6735
 0x14467cfd0	Car_Write_CoreAero	car.parse_core_aero	lb22-verify V6226
 0x14467e7c0	Car_Diff_SetupDrivenWheels	car.diff_setup_driven_wheels	lb22-verify V6230
+0x144688ff0	Car_Engine_ComputeNetTorque	car.fuel_tank_compute_flow	lc3-verify V6736
 0x1446893c0	Car_Engine_UpdateWear	car.engine_update_wear	lb22-verify V6234
 0x144689710	Car_Engine_UpdateTemperature	car.engine_update_temperature	lb22-verify V6235
 0x1446a6090	Car_GearBox_GetClutchSlipping	car.gear_box_get_clutch_slipping	lb23-verify V6291
+0x1446a60d0	Car_GearBox_UpdateShiftTimersAndFaults	car.gear_box_update_shift_timers	lc3-verify V6741
 0x1446a6b60	Car_GearBox_Update	car.gearbox_update	lb23-verify V6293
 0x1446a8870	Car_Write_SuspensionSystem	car.parse_suspension_system	lb23-verify V6295
 0x1446af9c0	Car_Wheel_Construct	car.wheel_construct	lb23-verify V6296
@@ -116,6 +131,7 @@ addr	name	sig	verify
 0x144705380	Car_CollisionVfx_OnContact	-	
 0x144705fc0	Car_CollisionVfx_SpawnContactEffect	car.collision_vfx_spawn_contact_effect	cv3-verify V3263
 0x144707540	Car_Chassis_RegisterChannels	car.chassis_register_channels	lb23-verify V6351
+0x14470bd80	Car_TyreDeformation_UpdateParticles	car.tyre_deformation_check_particles	lc3-verify V6749
 0x14470d760	Car_TyreDamage_Update	car.tyre_damage_update	lb23-verify V6353
 0x1447279c0	Car_TelemetryChannel_Sample	car.telemetry_channel_sample	cv3-verify V3266
 0x144739180	Car_Vte_WriteTelemetryRow	car.vte_write_telemetry_row	lb24-verify V6105
@@ -127,6 +143,8 @@ addr	name	sig	verify
 0x144743550	Car_TyreModel_ClearBuffers	car.tyre_model_clear_buffers	lb24-verify V6113
 0x144743900	Car_Parse_TyreModel	car.parse_tyre_model	lb24-verify V6114
 0x144769c90	Car_Vte_SortReportEntries	car.vte_sort_report_entries	lb24-verify V6118
+0x14476a560	Car_Chassis_DestroyVtfBuffers	car.chassis_reset_vtf_buffers	lc3-verify V6770
+0x14476a690	Car_Chassis_DestroyComponentList	car.chassis_clear_component_list	lc3-verify V6771
 0x14476afc0	Car_HullShapeMap_EmplaceNode	car.hull_shape_map_emplace_node	cv3-verify V3280
 0x14476b150	Car_HullShapeMap_FindOrInsertByName	car.hull_shape_map_find_or_insert_by_name	lb24-verify V6121
 0x14476f310	Car_EventQueue_PostTyreDamageEvent	car.event_queue_post_tyre_damage_event	lb24-verify V6123

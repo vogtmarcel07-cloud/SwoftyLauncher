@@ -7,9 +7,9 @@ and are listed here for the owner.
 
 | owner | lane | rows | file |
 |---|---|---|---|
-| re-career-teams | game | 2013 | `re-career-teams.tsv` |
-| car-re | car | 132 | `car-re.tsv` |
-| ai-re | ai | 82 | `ai-re.tsv` |
+| re-career-teams | game | 2383 | `re-career-teams.tsv` |
+| car-re | car | 150 | `car-re.tsv` |
+| ai-re | ai | 90 | `ai-re.tsv` |
 | overlay | render | 2 | `overlay.tsv` |
 | career-re | career | done | `career-re.tsv` (54 of 57 are L2 on main now) |
 | ui-re | hud / fe_* | done | `ui-re.tsv` (7 of 10 are L2 on main now) |
