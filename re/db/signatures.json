@@ -15788,7 +15788,7 @@
    "target": "0x14065dc50",
    "kind": "func_start",
    "names": [
-    "Ai_Parse_CedePositionConfig"
+    "Ai_Parse_VehicleConfigGroups"
    ],
    "verified": [
     {
@@ -15836,7 +15836,7 @@
    "target": "0x1406068a0",
    "kind": "func_start",
    "names": [
-    "Ai_Read_GeneralSettings"
+    "Ai_Eval_ClampedTestSpeed"
    ],
    "verified": [
     {
@@ -15860,7 +15860,7 @@
    "target": "0x140606e60",
    "kind": "func_start",
    "names": [
-    "Ai_Read_GeneralSettings_2"
+    "Ai_Eval_ClampedTestSpeed_2"
    ],
    "verified": [
     {
@@ -19418,7 +19418,7 @@
    "target": "0x140c74070",
    "kind": "func_start",
    "names": [
-    "Game_CareerEventsSequencer_IsWarmingTextures"
+    "Game_CareerEventsSequencer_Update"
    ],
    "verified": [
     {
@@ -19442,7 +19442,7 @@
    "target": "0x140c7a820",
    "kind": "func_start",
    "names": [
-    "Game_CareerEventResourceManager_DeactivatePrimaryWorld"
+    "Game_CareerEventResourceManager_ActivateExtraWorld"
    ],
    "verified": [
     {
@@ -27194,7 +27194,7 @@
    "target": "0x140153d60",
    "kind": "func_start",
    "names": [
-    "Game_Pvs_MaxPVSRenderInstances"
+    "Game_Render_InitCamerasAndPVS"
    ],
    "verified": [
     {
@@ -28490,7 +28490,7 @@
    "target": "0x14099b7f0",
    "kind": "func_start",
    "names": [
-    "Game_Subtitles_M_displayText"
+    "Game_GameSubtitleSystem_Update"
    ],
    "verified": [
     {
@@ -28754,7 +28754,7 @@
    "target": "0x140cd70b0",
    "kind": "func_start",
    "names": [
-    "Game_Careereventresourcemanager_M_isWorldPostCreationComplete"
+    "Game_CareerEventResourceManager_Destructor"
    ],
    "verified": [
     {
@@ -34658,7 +34658,7 @@
    "target": "0x1406bf130",
    "kind": "func_start",
    "names": [
-    "Game_ControllerSet_SetFlag"
+    "Game_ControllerSet_SetCinematicHudFlag"
    ],
    "verified": [
     {
@@ -36122,7 +36122,7 @@
    "target": "0x140735640",
    "kind": "func_start",
    "names": [
-    "Game_Analytics_TrackListConfirmed_2"
+    "Game_Analytics_RaceSessionStartGridPenalty"
    ],
    "verified": [
     {
@@ -38042,7 +38042,7 @@
    "target": "0x1407622c0",
    "kind": "func_start",
    "names": [
-    "Game_Analytics_SerialisedATotalOfBytes"
+    "Game_ElasticSearch_SendReportBatch"
    ],
    "verified": [
     {
@@ -38066,7 +38066,7 @@
    "target": "0x1407a80d0",
    "kind": "func_start",
    "names": [
-    "Game_Analytics_ElasticSearchReporterModuleReportBenchmarkResults"
+    "Game_GameModeBenchmark_OnSessionExit"
    ],
    "verified": [
     {
@@ -38586,7 +38586,7 @@
    "target": "0x140342080",
    "kind": "func_start",
    "names": [
-    "Game_GridReveal_PlayFanSequence"
+    "Game_GridReveal_SetupFanCharacters"
    ],
    "verified": [
     {
@@ -39474,7 +39474,7 @@
    "target": "0x14116b540",
    "kind": "func_start",
    "names": [
-    "Game_DynamicObjective_CreateChargeBattery"
+    "Game_DynamicObjective_CreateByType"
    ],
    "verified": [
     {
@@ -39570,7 +39570,7 @@
    "target": "0x141250d40",
    "kind": "func_start",
    "names": [
-    "Game_Rivalry_Start_2"
+    "Game_RivalryManager_Update"
    ],
    "verified": [
     {
@@ -44346,7 +44346,7 @@
    "target": "0x140c4ab70",
    "kind": "func_start",
    "names": [
-    "Career_Auction_AiOfferChance"
+    "Career_Auction_ResolveAiOffer"
    ],
    "verified": [
     {
@@ -44514,7 +44514,7 @@
    "target": "0x140d766b0",
    "kind": "func_start",
    "names": [
-    "Career_ContractRenewal_ReplaceOldPosition"
+    "Career_ContractRenewal_ApplyDriverChanges"
    ],
    "verified": [
     {
@@ -44562,7 +44562,7 @@
    "target": "0x140d7da70",
    "kind": "func_start",
    "names": [
-    "Career_ContractRenewal_CheckDriverAvailable"
+    "Career_ContractRenewal_FindAvailableDriver"
    ],
    "verified": [
     {
@@ -44754,7 +44754,7 @@
    "target": "0x140d94f10",
    "kind": "func_start",
    "names": [
-    "Career_ContractRenewal_DriverExitAuction"
+    "Career_ContractRenewal_CanApproach"
    ],
    "verified": [
     {
@@ -44778,7 +44778,7 @@
    "target": "0x140d958b0",
    "kind": "func_start",
    "names": [
-    "Career_ContractRenewal_RetireDriver"
+    "Career_ContractRenewal_DailyUpdate"
    ],
    "verified": [
     {
@@ -44802,7 +44802,7 @@
    "target": "0x140d97750",
    "kind": "func_start",
    "names": [
-    "Career_ContractRenewal_TeamExitAuction"
+    "Career_ContractRenewal_IsTeamApproachable"
    ],
    "verified": [
     {
@@ -45018,7 +45018,7 @@
    "target": "0x14114f480",
    "kind": "func_start",
    "names": [
-    "Career_DriverMarketXml_FindDriverStatId"
+    "Career_DriverMarketXml_LoadDriverStatistics"
    ],
    "verified": [
     {
@@ -45162,7 +45162,7 @@
    "target": "0x1410f85c0",
    "kind": "func_start",
    "names": [
-    "Career_Sponsors_Remove"
+    "Career_Sponsors_SerialiseSaveData"
    ],
    "verified": [
     {
@@ -46770,7 +46770,7 @@
    "target": "0x141322d00",
    "kind": "func_start",
    "names": [
-    "Game_StoryCarPlacement_LogPlacements"
+    "Game_StoryCarPlacement_CreatePlacements"
    ],
    "verified": [
     {
@@ -49554,7 +49554,7 @@
    "target": "0x1405f5dd0",
    "kind": "func_start",
    "names": [
-    "Ai_Read_GeneralSettings_3"
+    "Ai_Update_ExitThrottleError"
    ],
    "verified": [
     {
@@ -49578,7 +49578,7 @@
    "target": "0x1405fbe00",
    "kind": "func_start",
    "names": [
-    "Ai_Read_GeneralSettings_4"
+    "Ai_Init_TestSpeedLimits"
    ],
    "verified": [
     {
@@ -49602,7 +49602,7 @@
    "target": "0x1405fbfd0",
    "kind": "func_start",
    "names": [
-    "Ai_Read_GeneralSettings_5"
+    "Ai_Calc_FollowGap"
    ],
    "verified": [
     {
@@ -49674,7 +49674,7 @@
    "target": "0x140789270",
    "kind": "func_start",
    "names": [
-    "Game_Read_LeadPlayerConfig"
+    "Game_Read_PlayerSettingsConfig"
    ],
    "verified": [
     {
@@ -50106,7 +50106,7 @@
    "target": "0x1411cb150",
    "kind": "func_start",
    "names": [
-    "Car_Read_WearRatesConfig"
+    "Car_Read_ComponentSwapConfig"
    ],
    "verified": [
     {
@@ -50130,7 +50130,7 @@
    "target": "0x141200980",
    "kind": "func_start",
    "names": [
-    "Career_Read_ScoringConfig"
+    "Career_Read_ScoringAndDifficultyConfig"
    ],
    "verified": [
     {
@@ -50154,7 +50154,7 @@
    "target": "0x14124ad20",
    "kind": "func_start",
    "names": [
-    "Game_Read_UiDataConfig"
+    "Game_Career_ReadRivalsConfig"
    ],
    "verified": [
     {
@@ -50202,7 +50202,7 @@
    "target": "0x1412d89f0",
    "kind": "func_start",
    "names": [
-    "Career_Read_RelationshipConfig"
+    "Career_Specialists_SerialiseSaveData"
    ],
    "verified": [
     {
@@ -50250,7 +50250,7 @@
    "target": "0x1412e8be0",
    "kind": "func_start",
    "names": [
-    "Career_Read_RelationshipConfig_3"
+    "Career_Specialists_SerialiseSaveData_2"
    ],
    "verified": [
     {
@@ -62442,7 +62442,7 @@
    "target": "0x140791120",
    "kind": "func_start",
    "names": [
-    "Game_DLC_F1osEntitlementAttestationRequest"
+    "Game_DLC_F1osEntitlementAttestation_OnRequestFinished"
    ],
    "verified": [
     {
@@ -62754,7 +62754,7 @@
    "target": "0x140bb49e0",
    "kind": "func_start",
    "names": [
-    "Game_Network_SessionExitNormalRemainSession"
+    "Game_Network_HandleSessionExit"
    ],
    "verified": [
     {
@@ -62898,7 +62898,7 @@
    "target": "0x140fdd630",
    "kind": "func_start",
    "names": [
-    "Game_CareerOnlineManager_ReconcilingNewListMembers"
+    "Game_CareerOnlineManagerComponent_UpdateEntrantsWithSubstitutes"
    ],
    "verified": [
     {
@@ -62922,7 +62922,7 @@
    "target": "0x140ff7cf0",
    "kind": "func_start",
    "names": [
-    "Game_TOPLevelUI_TriggerProfileSave"
+    "Game_CareerOnlineSynchroniser_Update"
    ],
    "verified": [
     {
@@ -62970,7 +62970,7 @@
    "target": "0x140ffda70",
    "kind": "func_start",
    "names": [
-    "Game_OnlineContract_FirstPlayerFinishedTeamSelection"
+    "Game_OnlineContract_ProgressNegotiations"
    ],
    "verified": [
     {
@@ -118595,7 +118595,7 @@
    "target": "0x1409e3fb0",
    "kind": "func_start",
    "names": [
-    "Car_Aggregate_UpgradeStats"
+    "Car_Parse_UpgradeEffectDefinitions"
    ],
    "verified": [
     {

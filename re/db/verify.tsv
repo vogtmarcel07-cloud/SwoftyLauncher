@@ -3665,3 +3665,663 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	la1-verify	func	0x1435b1dd0	L1	partial	decomp:re/decomp/1435b1dd0.c;xref:0x1435b1c7a	V3664 Type evt[1]==4 only: table 0x1460fc966 (index*0x2c), mode byte [mc+0x70]+0x108 1 -> 0x34, 2 -> 0x35, FUN 0x1435c16f0 with weight table 0x1460fd780: matches; but return value is inverted vs claim: returns 0 for types 0..6 except 4 and returns 1 for type 4 and for types >=7, not 'returns 1 for handled types (<7)'; caller inside Sess_Misconduct_RemoveWatchedIncident
 2026-10-31	la1-verify	func	0x1435b4640	L1	agree	decomp:re/decomp/1435b4640.c	V3665 rules.flags.ignoring_blue_flag, classes f1_cars and safety_cars, literal illegal_overtake_0 via %s.%s.%s printf, additional_wait_and_see_time, wait_and_see_duration, places_gained, level; vtable slot 0x14584d0d0 (vtable/indirect)
 2026-10-31	la1-verify	func	0x143372d60	L1	agree	decomp:re/decomp/143372d60.c;xref:0x1433728af,0x143372a1f,0x143372c70	V3666 QPC stamps into task[0x29]/[0x2a], clears task[0x27]; param_2==0 path with session user [[task[0x34]+0x140]+0x198]+0x1c0, vcall +0x40 and service vcall +0x10; else task+0x1ba=0x100, F1OS-TASKSYSTEM 'setting finished on %s : %s' / 'with error', marks +0xa1=1, spinner stop log (type,count); callers Game_EALoginTask_OnStart x2 and Update seen (not claimed)
+2026-10-31	lb02-verify	func	0x140732020	L1	agree	decomp:re/decomp/140732020.c	V3667 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407320b0	L1	agree	decomp:re/decomp/1407320b0.c	V3668 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407326c0	L1	agree	decomp:re/decomp/1407326c0.c	V3669 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407337b0	L1	agree	decomp:re/decomp/1407337b0.c	V3670 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140733d80	L1	agree	decomp:re/decomp/140733d80.c	V3671 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140734e70	L1	agree	decomp:re/decomp/140734e70.c	V3672 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140735640	L1	partial	decomp:re/decomp/140735640.c	V3673 record is race_session_start_grid_penalty_record, log text is a copy of Track List Confirmed; better Game_Analytics_RaceSessionStartGridPenalty
+2026-10-31	lb02-verify	func	0x140735e70	L1	agree	decomp:re/decomp/140735e70.c	V3674 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140736400	L1	agree	decomp:re/decomp/140736400.c	V3675 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407369e0	L1	agree	decomp:re/decomp/1407369e0.c	V3676 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140736f70	L1	agree	decomp:re/decomp/140736f70.c	V3677 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140737680	L1	agree	decomp:re/decomp/140737680.c	V3678 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140737da0	L1	agree	decomp:re/decomp/140737da0.c	V3679 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140738b10	L1	agree	decomp:re/decomp/140738b10.c	V3680 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073a280	L1	agree	decomp:re/decomp/14073a280.c	V3681 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073a9c0	L1	agree	decomp:re/decomp/14073a9c0.c	V3682 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073b110	L1	agree	decomp:re/decomp/14073b110.c	V3683 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073b700	L1	agree	decomp:re/decomp/14073b700.c	V3684 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073bd20	L1	agree	decomp:re/decomp/14073bd20.c	V3685 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073c850	L1	agree	decomp:re/decomp/14073c850.c	V3686 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073ce00	L1	agree	decomp:re/decomp/14073ce00.c	V3687 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073db80	L1	agree	decomp:re/decomp/14073db80.c	V3688 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073e140	L1	agree	decomp:re/decomp/14073e140.c	V3689 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073e700	L1	agree	decomp:re/decomp/14073e700.c	V3690 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073ec90	L1	agree	decomp:re/decomp/14073ec90.c	V3691 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073f230	L1	agree	decomp:re/decomp/14073f230.c	V3692 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14073f7c0	L1	agree	decomp:re/decomp/14073f7c0.c	V3693 log/string match decomp
+2026-10-31	lb02-verify	func	0x14073fd80	L1	agree	decomp:re/decomp/14073fd80.c	V3694 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140740350	L1	agree	decomp:re/decomp/140740350.c	V3695 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140740910	L1	agree	decomp:re/decomp/140740910.c	V3696 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140740f60	L1	agree	decomp:re/decomp/140740f60.c	V3697 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140741560	L1	agree	decomp:re/decomp/140741560.c	V3698 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407425f0	L1	agree	decomp:re/decomp/1407425f0.c	V3699 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140742b90	L1	agree	decomp:re/decomp/140742b90.c	V3700 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140743830	L1	agree	decomp:re/decomp/140743830.c	V3701 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140744920	L1	agree	decomp:re/decomp/140744920.c	V3702 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140745900	L1	agree	decomp:re/decomp/140745900.c	V3703 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140745ea0	L1	agree	decomp:re/decomp/140745ea0.c	V3704 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140746ef0	L1	agree	decomp:re/decomp/140746ef0.c	V3705 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407474b0	L1	agree	decomp:re/decomp/1407474b0.c	V3706 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140747ac0	L1	agree	decomp:re/decomp/140747ac0.c	V3707 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407480b0	L1	agree	decomp:re/decomp/1407480b0.c	V3708 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407486c0	L1	agree	decomp:re/decomp/1407486c0.c	V3709 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407491f0	L1	agree	decomp:re/decomp/1407491f0.c	V3710 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140749790	L1	agree	decomp:re/decomp/140749790.c	V3711 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140749dc0	L1	agree	decomp:re/decomp/140749dc0.c	V3712 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074a390	L1	agree	decomp:re/decomp/14074a390.c	V3713 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074a940	L1	agree	decomp:re/decomp/14074a940.c	V3714 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074af20	L1	agree	decomp:re/decomp/14074af20.c	V3715 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074b4b0	L1	agree	decomp:re/decomp/14074b4b0.c	V3716 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074bff0	L1	agree	decomp:re/decomp/14074bff0.c	V3717 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074d120	L1	agree	decomp:re/decomp/14074d120.c	V3718 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074d6e0	L1	agree	decomp:re/decomp/14074d6e0.c	V3719 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074dc90	L1	agree	decomp:re/decomp/14074dc90.c	V3720 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074e230	L1	agree	decomp:re/decomp/14074e230.c	V3721 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074e7c0	L1	agree	decomp:re/decomp/14074e7c0.c	V3722 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074ed70	L1	agree	decomp:re/decomp/14074ed70.c	V3723 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14074f320	L1	agree	decomp:re/decomp/14074f320.c	V3724 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140750580	L1	agree	decomp:re/decomp/140750580.c	V3725 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140750b40	L1	agree	decomp:re/decomp/140750b40.c	V3726 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140751660	L1	agree	decomp:re/decomp/140751660.c	V3727 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140751bf0	L1	agree	decomp:re/decomp/140751bf0.c	V3728 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407521b0	L1	agree	decomp:re/decomp/1407521b0.c	V3729 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140752740	L1	agree	decomp:re/decomp/140752740.c	V3730 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140753290	L1	agree	decomp:re/decomp/140753290.c	V3731 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140753dc0	L1	agree	decomp:re/decomp/140753dc0.c	V3732 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140754370	L1	agree	decomp:re/decomp/140754370.c	V3733 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140754920	L1	agree	decomp:re/decomp/140754920.c	V3734 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407552c0	L1	agree	decomp:re/decomp/1407552c0.c	V3735 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140755860	L1	agree	decomp:re/decomp/140755860.c	V3736 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140756150	L1	agree	decomp:re/decomp/140756150.c	V3737 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140756a60	L1	agree	decomp:re/decomp/140756a60.c	V3738 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140757680	L1	agree	decomp:re/decomp/140757680.c	V3739 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075a960	L1	agree	decomp:re/decomp/14075a960.c	V3740 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075b250	L1	agree	decomp:re/decomp/14075b250.c	V3741 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075b850	L1	agree	decomp:re/decomp/14075b850.c	V3742 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075bf30	L1	agree	decomp:re/decomp/14075bf30.c	V3743 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075d050	L1	agree	decomp:re/decomp/14075d050.c	V3744 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075d6a0	L1	agree	decomp:re/decomp/14075d6a0.c	V3745 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075dc50	L1	agree	decomp:re/decomp/14075dc50.c	V3746 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075e660	L1	agree	decomp:re/decomp/14075e660.c	V3747 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075ec60	L1	agree	decomp:re/decomp/14075ec60.c	V3748 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x14075f220	L1	agree	decomp:re/decomp/14075f220.c	V3749 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140760c50	L1	agree	decomp:re/decomp/140760c50.c	V3750 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407612b0	L1	agree	decomp:re/decomp/1407612b0.c	V3751 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140761e20	L1	agree	decomp:re/decomp/140761e20.c	V3752 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x140761f40	L1	agree	decomp:re/decomp/140761f40.c	V3753 log string and record name match; "EA analytics event:" prefix not in exe strings (added elsewhere/unverified), message text matches
+2026-10-31	lb02-verify	func	0x1407622c0	L1	partial	decomp:re/decomp/1407622c0.c	V3754 large ElasticSearch send/flush routine (url config, auth request, JSON POST, retry); two separate log lines not one event; better Game_ElasticSearch_SendReportBatch
+2026-10-31	lb02-verify	func	0x140766110	L1	agree	decomp:re/decomp/140766110.c	V3755 log/string match decomp
+2026-10-31	lb02-verify	func	0x140767160	L1	agree	decomp:re/decomp/140767160.c	V3756 log/string match decomp
+2026-10-31	lb02-verify	func	0x14076ecc0	L1	agree	decomp:re/decomp/14076ecc0.c	V3757 log/string match decomp
+2026-10-31	lb02-verify	func	0x14076ffc0	L1	agree	decomp:re/decomp/14076ffc0.c	V3758 log/string match decomp
+2026-10-31	lb02-verify	func	0x140770670	L1	agree	decomp:re/decomp/140770670.c	V3759 log/string match decomp
+2026-10-31	lb02-verify	func	0x140770de0	L1	agree	decomp:re/decomp/140770de0.c	V3760 log/string match decomp
+2026-10-31	lb02-verify	func	0x140778420	L1	agree	decomp:re/decomp/140778420.c;xref:0x1436ffb68	V3761 thunk to .data1; probes 0x146060a08, 0x14605b128, 0x146060948 (+0x14605b068) seen; caller Career_StateTeamHq_OnStateEnter 0x1436ffb68 verified; 381 count not recounted; body is black box
+2026-10-31	lb02-verify	func	0x140789270	L1	partial	decomp:re/decomp/140789270.c	V3762 reads far more than the 3 listed keys (hardware_settings_config, hud_customisation, led_display, UDP telemetry, wooting, dbox/sli); better Game_Read_PlayerSettingsConfig
+2026-10-31	lb02-verify	func	0x14078f9c0	L1	agree	decomp:re/decomp/14078f9c0.c	V3763 log/string match decomp
+2026-10-31	lb02-verify	func	0x140791120	L1	partial	decomp:re/decomp/140791120.c	V3764 this is the completion callback (param int result, token buffer), logs finished/succeeded/pending; better Game_DLC_F1osEntitlementAttestation_OnRequestFinished
+2026-10-31	lb02-verify	func	0x140791ee0	L1	agree	decomp:re/decomp/140791ee0.c	V3765 log/string match decomp
+2026-10-31	lb02-verify	func	0x140792020	L1	agree	decomp:re/decomp/140792020.c	V3766 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407931b0	L1	agree	decomp:re/decomp/1407931b0.c	V3767 log/string match decomp
+2026-10-31	lb02-verify	func	0x140794a00	L1	agree	decomp:re/decomp/140794a00.c	V3768 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407972c0	L1	agree	decomp:re/decomp/1407972c0.c	V3769 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407a1870	L1	agree	decomp:re/decomp/1407a1870.c	V3770 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407a6680	L1	agree	decomp:re/decomp/1407a6680.c	V3771 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407a73e0	L1	agree	decomp:re/decomp/1407a73e0.c	V3772 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407a7880	L1	agree	decomp:re/decomp/1407a7880.c	V3773 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407a80d0	L1	partial	decomp:re/decomp/1407a80d0.c	V3774 logs GameModeBenchmark::onSessionExit and builds the benchmark results JSON/console table then report_BenchmarkResults flush; better Game_GameModeBenchmark_OnSessionExit
+2026-10-31	lb02-verify	func	0x1407acba0	L1	agree	decomp:re/decomp/1407acba0.c	V3775 log/string match decomp
+2026-10-31	lb02-verify	func	0x1407b2c60	L1	partial	decomp:re/decomp/1407b2c60.c	V3776 all 21 flag strings present, but ModeChampionship_N prefix and 29 modes not visible in this function; flags parser OK
+2026-10-31	lb03-verify	func	0x1407b5c40	L1	agree	decomp:re/decomp/1407b5c40.c	V3777 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407ba160	L1	agree	decomp:re/decomp/1407ba160.c	V3778 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407ba860	L1	agree	decomp:re/decomp/1407ba860.c	V3779 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407bdf00	L1	agree	decomp:re/decomp/1407bdf00.c	V3780 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407c0860	L1	agree	decomp:re/decomp/1407c0860.c	V3781 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407d07a0	L1	agree	decomp:re/decomp/1407d07a0.c	V3782 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407d18b0	L1	agree	decomp:re/decomp/1407d18b0.c	V3783 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14014d230	L1	agree	decomp:re/decomp/14014d230.c	V3784 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140153d60	L1	partial	decomp:re/decomp/140153d60.c	V3785 Strings match (log maxPVSRenderInstances), but function is a 14 KB renderer/scene init (cube cams, camera%u, backbuffers, static instances, shadows); better name Render_InitCamerasAndPVS
+2026-10-31	lb00-verify	func	0x14015aa00	L1	agree	decomp:re/decomp/14015aa00.c	V3786 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1407d7f90	L1	agree	decomp:re/decomp/1407d7f90.c	V3787 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14017bbb0	L1	agree	decomp:re/decomp/14017bbb0.c	V3788 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140181720	L1	agree	decomp:re/decomp/140181720.c	V3789 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1407e2140	L1	agree	decomp:re/decomp/1407e2140.c	V3790 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407f7320	L1	agree	decomp:re/decomp/1407f7320.c	V3791 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x1407fd010	L1	agree	decomp:re/decomp/1407fd010.c	V3792 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14018e420	L1	agree	decomp:re/decomp/14018e420.c	V3793 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1407fd310	L1	agree	decomp:re/decomp/1407fd310.c	V3794 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140808890	L1	agree	decomp:re/decomp/140808890.c	V3795 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14018ef80	L1	agree	decomp:re/decomp/14018ef80.c	V3796 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x14080a720	L1	partial	decomp:re/decomp/14080a720.c	V3797 reads seasons.2019/seasons.current_season and beta.team_colours/livery_colours.override_colours; claimed key list is garbled (driver_headdriverHeadReferebeta...); name ok
+2026-10-31	lb00-verify	func	0x14018fbe0	L1	agree	decomp:re/decomp/14018fbe0.c	V3798 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x14080c300	L1	agree	decomp:re/decomp/14080c300.c	V3799 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140190110	L1	agree	decomp:re/decomp/140190110.c	V3800 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140810650	L1	agree	decomp:re/decomp/140810650.c	V3801 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140197cd0	L1	agree	decomp:re/decomp/140197cd0.c	V3802 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140810be0	L1	agree	decomp:re/decomp/140810be0.c	V3803 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401a7120	L1	agree	decomp:re/decomp/1401a7120.c	V3804 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140810f80	L1	agree	decomp:re/decomp/140810f80.c	V3805 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401a9390	L1	agree	decomp:re/decomp/1401a9390.c	V3806 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140811b90	L1	agree	decomp:re/decomp/140811b90.c	V3807 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401aa1b0	L1	agree	decomp:re/decomp/1401aa1b0.c	V3808 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140818e30	L1	agree	decomp:re/decomp/140818e30.c	V3809 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401aa7c0	L1	agree	decomp:re/decomp/1401aa7c0.c	V3810 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1408535c0	L1	agree	decomp:re/decomp/1408535c0.c	V3811 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401b0880	L1	agree	decomp:re/decomp/1401b0880.c	V3812 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140973e20	L1	agree	decomp:re/decomp/140973e20.c;xref:0x140975f67	V3813 called from Vm_Set_Bool 0x140975db0; sets bool node value
+2026-10-31	lb00-verify	func	0x1401b1860	L1	agree	decomp:re/decomp/1401b1860.c	V3814 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140989b10	L1	agree	decomp:re/decomp/140989b10.c	V3815 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401bc010	L1	agree	decomp:re/decomp/1401bc010.c	V3816 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x14098b3d0	L1	agree	decomp:re/decomp/14098b3d0.c	V3817 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401bc130	L1	agree	decomp:re/decomp/1401bc130.c	V3818 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140990640	L1	agree	decomp:re/decomp/140990640.c	V3819 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401bc730	L1	agree	decomp:re/decomp/1401bc730.c	V3820 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140996e20	L1	agree	decomp:re/decomp/140996e20.c	V3821 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c4f60	L1	agree	decomp:re/decomp/1401c4f60.c	V3822 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140997110	L1	agree	decomp:re/decomp/140997110.c	V3823 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c54e0	L1	agree	decomp:re/decomp/1401c54e0.c	V3824 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140997490	L1	agree	decomp:re/decomp/140997490.c	V3825 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c56a0	L1	agree	decomp:re/decomp/1401c56a0.c	V3826 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409976e0	L1	agree	decomp:re/decomp/1409976e0.c	V3827 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c5d80	L1	agree	decomp:re/decomp/1401c5d80.c	V3828 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409981e0	L1	agree	decomp:re/decomp/1409981e0.c	V3829 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c5fc0	L1	agree	decomp:re/decomp/1401c5fc0.c	V3830 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409985b0	L1	agree	decomp:re/decomp/1409985b0.c	V3831 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c6af0	L1	agree	decomp:re/decomp/1401c6af0.c	V3832 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140999600	L1	agree	decomp:re/decomp/140999600.c	V3833 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401c7850	L1	agree	decomp:re/decomp/1401c7850.c	V3834 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x14099b7f0	L1	partial	decomp:re/decomp/14099b7f0.c	V3835 is GameSubtitleSystem::update/updateValues (strings: m_displayText set to ... from update / updateValues, lng_subtitle_); better name Game_GameSubtitleSystem_Update
+2026-10-31	lb00-verify	func	0x1401c93c0	L1	agree	decomp:re/decomp/1401c93c0.c	V3836 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x14099e800	L1	agree	decomp:re/decomp/14099e800.c	V3837 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401cb030	L1	agree	decomp:re/decomp/1401cb030.c	V3838 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409a1a10	L1	agree	decomp:re/decomp/1409a1a10.c	V3839 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401cce60	L1	agree	decomp:re/decomp/1401cce60.c	V3840 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409a2590	L1	agree	decomp:re/decomp/1409a2590.c	V3841 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401ce3a0	L1	agree	decomp:re/decomp/1401ce3a0.c	V3842 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409a2640	L1	agree	decomp:re/decomp/1409a2640.c	V3843 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401cf780	L1	agree	decomp:re/decomp/1401cf780.c	V3844 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409af4c0	L1	agree	decomp:re/decomp/1409af4c0.c	V3845 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401cfa20	L1	agree	decomp:re/decomp/1401cfa20.c	V3846 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409b3190	L1	agree	decomp:re/decomp/1409b3190.c	V3847 9 fault types switch, offsets 0x2534/0x67c/0x658/0x2530/0x1988 confirmed
+2026-10-31	lb00-verify	func	0x1401cfb10	L1	agree	decomp:re/decomp/1401cfb10.c	V3848 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409b5fb0	L1	agree	decomp:re/decomp/1409b5fb0.c	V3849 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401cfe50	L1	agree	decomp:re/decomp/1401cfe50.c	V3850 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409bc6c0	L1	partial	decomp:re/decomp/1409bc6c0.c	V3851 only performAccident log present, no fixAccident string; large accident performer (1712 lines); name ok, claim of fixAccident wrong
+2026-10-31	lb00-verify	func	0x1401d0040	L1	agree	decomp:re/decomp/1401d0040.c	V3852 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409bf490	L1	agree	decomp:re/decomp/1409bf490.c	V3853 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401d9570	L1	agree	decomp:re/decomp/1401d9570.c	V3854 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409c1460	L1	agree	decomp:re/decomp/1409c1460.c	V3855 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401de400	L1	agree	decomp:re/decomp/1401de400.c	V3856 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409c2b10	L1	agree	decomp:re/decomp/1409c2b10.c	V3857 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401df1e0	L1	agree	decomp:re/decomp/1401df1e0.c	V3858 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409e3fb0	L1	partial	decomp:re/decomp/1409e3fb0.c	V3859 parses upgrade EffectDefinition data (available/min/max/clamp/default_effects, upgrade_type, bhp/mass_adjustment_fully_upgraded) via ne_hash_map; claim of second R&D aggregate consumer unverified; better name Car_Parse_UpgradeEffectDefinitions
+2026-10-31	lb00-verify	func	0x1401e9150	L1	agree	decomp:re/decomp/1401e9150.c	V3860 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409f1b50	L1	agree	decomp:re/decomp/1409f1b50.c	V3861 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401ee140	L1	agree	decomp:re/decomp/1401ee140.c	V3862 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x1409f4fa0	L1	agree	decomp:re/decomp/1409f4fa0.c	V3863 vtable 0x145666d20 slot +0x18 confirmed; audio.audio_car_data.%s. and bundle_name strings present; vtable/indirect
+2026-10-31	lb00-verify	func	0x1401f1c60	L1	agree	decomp:re/decomp/1401f1c60.c	V3864 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140a01bd0	L1	agree	decomp:re/decomp/140a01bd0.c	V3865 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401f22f0	L1	agree	decomp:re/decomp/1401f22f0.c	V3866 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140a01c30	L1	agree	decomp:re/decomp/140a01c30.c	V3867 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401facd0	L1	agree	decomp:re/decomp/1401facd0.c	V3868 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140a1d610	L1	agree	decomp:re/decomp/140a1d610.c	V3869 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1401fb5b0	L1	agree	decomp:re/decomp/1401fb5b0.c	V3870 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x1402027f0	L1	agree	decomp:re/decomp/1402027f0.c	V3871 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140a249f0	L1	agree	decomp:re/decomp/140a249f0.c	V3872 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402033f0	L1	agree	decomp:re/decomp/1402033f0.c	V3873 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140212740	L1	agree	decomp:re/decomp/140212740.c	V3874 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140ac15d0	L1	agree	decomp:re/decomp/140ac15d0.c	V3875 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ac60b0	L1	agree	decomp:re/decomp/140ac60b0.c	V3876 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ac67e0	L1	agree	decomp:re/decomp/140ac67e0.c	V3877 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140213e10	L1	agree	decomp:re/decomp/140213e10.c	V3878 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140ac93a0	L1	agree	decomp:re/decomp/140ac93a0.c	V3879 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ac94b0	L1	agree	decomp:re/decomp/140ac94b0.c	V3880 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402262b0	L1	agree	decomp:re/decomp/1402262b0.c	V3881 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140227510	L1	agree	decomp:re/decomp/140227510.c	V3882 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140227db0	L1	agree	decomp:re/decomp/140227db0.c	V3883 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140acb490	L1	agree	decomp:re/decomp/140acb490.c	V3884 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140acc7a0	L1	agree	decomp:re/decomp/140acc7a0.c	V3885 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ad22a0	L1	agree	decomp:re/decomp/140ad22a0.c	V3886 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140228870	L1	agree	decomp:re/decomp/140228870.c	V3887 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140adc450	L1	agree	decomp:re/decomp/140adc450.c	V3888 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140add3d0	L1	agree	decomp:re/decomp/140add3d0.c	V3889 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402289a0	L1	agree	decomp:re/decomp/1402289a0.c	V3890 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140add940	L1	agree	decomp:re/decomp/140add940.c	V3891 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ade120	L1	agree	decomp:re/decomp/140ade120.c	V3892 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140229750	L1	agree	decomp:re/decomp/140229750.c	V3893 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140229cf0	L1	agree	decomp:re/decomp/140229cf0.c	V3894 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140229ed0	L1	agree	decomp:re/decomp/140229ed0.c	V3895 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140ade4b0	L1	agree	decomp:re/decomp/140ade4b0.c	V3896 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14022a110	L1	agree	decomp:re/decomp/14022a110.c	V3897 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14022a530	L1	agree	decomp:re/decomp/14022a530.c	V3898 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140adeac0	L1	agree	decomp:re/decomp/140adeac0.c	V3899 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ae35a0	L1	agree	decomp:re/decomp/140ae35a0.c	V3900 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ae8880	L1	agree	decomp:re/decomp/140ae8880.c;xref:0x140ae8871	V3901 log strings confirmed; reached via thunk 0x140ae8850 (jmp at 0x140ae8871)
+2026-10-31	lb00-verify	func	0x14022d400	L1	agree	decomp:re/decomp/14022d400.c	V3902 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140aee2b0	L1	agree	decomp:re/decomp/140aee2b0.c	V3903 Weekend ctor: "weekend" name bytes passed to base ctor 0x14364d570, vtable store, +0x220 zeroed
+2026-10-31	lb03-verify	func	0x140b12c10	L1	agree	decomp:re/decomp/140b12c10.c;xref:0x1436a45ed	V3904 time/max(owner+0x84,0.01) eval confirmed; 32 callers incl 0x1436a4500 and 0x1436a3ab0 confirmed
+2026-10-31	lb00-verify	func	0x14022fb70	L1	agree	decomp:re/decomp/14022fb70.c	V3905 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140b77890	L1	agree	decomp:re/decomp/140b77890.c	V3906 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140b808a0	L1	agree	decomp:re/decomp/140b808a0.c	V3907 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14022fe10	L1	agree	decomp:re/decomp/14022fe10.c	V3908 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140b87770	L1	agree	decomp:re/decomp/140b87770.c	V3909 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402333d0	L1	agree	decomp:re/decomp/1402333d0.c	V3910 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140b87b40	L1	agree	decomp:re/decomp/140b87b40.c	V3911 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140234a20	L1	agree	decomp:re/decomp/140234a20.c	V3912 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140b9cd70	L1	agree	decomp:re/decomp/140b9cd70.c	V3913 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140234b80	L1	agree	decomp:re/decomp/140234b80.c	V3914 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140235f10	L1	agree	decomp:re/decomp/140235f10.c	V3915 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140235fb0	L1	agree	decomp:re/decomp/140235fb0.c	V3916 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140b9f490	L1	agree	decomp:re/decomp/140b9f490.c	V3917 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140236b80	L1	agree	decomp:re/decomp/140236b80.c	V3918 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140236ed0	L1	agree	decomp:re/decomp/140236ed0.c	V3919 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140ba1e30	L1	agree	decomp:re/decomp/140ba1e30.c	V3920 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140236f70	L1	agree	decomp:re/decomp/140236f70.c	V3921 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140237150	L1	agree	decomp:re/decomp/140237150.c	V3922 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140ba2190	L1	agree	decomp:re/decomp/140ba2190.c	V3923 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ba28d0	L1	agree	decomp:re/decomp/140ba28d0.c	V3924 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140ba7fe0	L1	agree	decomp:re/decomp/140ba7fe0.c	V3925 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402371f0	L1	agree	decomp:re/decomp/1402371f0.c	V3926 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb1380	L1	agree	decomp:re/decomp/140bb1380.c	V3927 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb1900	L1	agree	decomp:re/decomp/140bb1900.c	V3928 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402374a0	L1	agree	decomp:re/decomp/1402374a0.c	V3929 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb2130	L1	agree	decomp:re/decomp/140bb2130.c	V3930 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb3a60	L1	agree	decomp:re/decomp/140bb3a60.c	V3931 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x1402378b0	L1	agree	decomp:re/decomp/1402378b0.c	V3932 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140238500	L1	agree	decomp:re/decomp/140238500.c	V3933 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140239cf0	L1	agree	decomp:re/decomp/140239cf0.c	V3934 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14023a860	L1	agree	decomp:re/decomp/14023a860.c	V3935 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb45b0	L1	agree	decomp:re/decomp/140bb45b0.c	V3936 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb4800	L1	agree	decomp:re/decomp/140bb4800.c	V3937 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb49e0	L1	partial	decomp:re/decomp/140bb49e0.c	V3938 large (568 lines) session-exit/leaveSession+save handler; the quoted string is only one branch; better name Game_Network_HandleSessionExit
+2026-10-31	lb00-verify	func	0x14023f920	L1	agree	decomp:re/decomp/14023f920.c	V3939 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14024aa70	L1	agree	decomp:re/decomp/14024aa70.c	V3940 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14024bb60	L1	agree	decomp:re/decomp/14024bb60.c	V3941 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb4d70	L1	agree	decomp:re/decomp/140bb4d70.c	V3942 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14024d440	L1	agree	decomp:re/decomp/14024d440.c	V3943 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140251d10	L1	agree	decomp:re/decomp/140251d10.c	V3944 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb4e10	L1	agree	decomp:re/decomp/140bb4e10.c	V3945 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb4ea0	L1	agree	decomp:re/decomp/140bb4ea0.c	V3946 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bb5060	L1	agree	decomp:re/decomp/140bb5060.c	V3947 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140252260	L1	agree	decomp:re/decomp/140252260.c	V3948 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140256e40	L1	agree	decomp:re/decomp/140256e40.c	V3949 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14025cd30	L1	agree	decomp:re/decomp/14025cd30.c	V3950 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb5250	L1	agree	decomp:re/decomp/140bb5250.c	V3951 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x14025d0b0	L1	agree	decomp:re/decomp/14025d0b0.c	V3952 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14025e0e0	L1	agree	decomp:re/decomp/14025e0e0.c	V3953 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb7de0	L1	agree	decomp:re/decomp/140bb7de0.c	V3954 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140267200	L1	agree	decomp:re/decomp/140267200.c	V3955 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140274c30	L1	agree	decomp:re/decomp/140274c30.c	V3956 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bb87f0	L1	agree	decomp:re/decomp/140bb87f0.c	V3957 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140293430	L1	agree	decomp:re/decomp/140293430.c	V3958 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14029c310	L1	partial	decomp:re/decomp/14029c310.c	V3959 Mechanism matches (const vs curve sample, lock, mode, x24); caller count off: ~108 rel32 call refs not 77; vtable/indirect not checked
+2026-10-31	lb03-verify	func	0x140bca760	L1	agree	decomp:re/decomp/140bca760.c	V3960 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140342080	L1	partial	decomp:re/decomp/140342080.c	V3961 Logs 'fan position %d sequence %s' but is a 5 KB grid-reveal setup (CutsceneParams setters, grid_lineup_camera, start time offset); better Game_GridReveal_SetupFanCharacters
+2026-10-31	lb00-verify	func	0x140355360	L1	agree	decomp:re/decomp/140355360.c	V3962 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bcad00	L1	agree	decomp:re/decomp/140bcad00.c	V3963 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140356a20	L1	agree	decomp:re/decomp/140356a20.c	V3964 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140357a20	L1	agree	decomp:re/decomp/140357a20.c	V3965 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bcb9a0	L1	agree	decomp:re/decomp/140bcb9a0.c	V3966 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bcd390	L1	agree	decomp:re/decomp/140bcd390.c	V3967 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bce3b0	L1	agree	decomp:re/decomp/140bce3b0.c	V3968 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140357cb0	L1	agree	decomp:re/decomp/140357cb0.c	V3969 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bcf610	L1	agree	decomp:re/decomp/140bcf610.c	V3970 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bd1290	L1	agree	decomp:re/decomp/140bd1290.c	V3971 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140357ea0	L1	agree	decomp:re/decomp/140357ea0.c	V3972 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140357fd0	L1	agree	decomp:re/decomp/140357fd0.c	V3973 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x1403580f0	L1	agree	decomp:re/decomp/1403580f0.c	V3974 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bd16a0	L1	agree	decomp:re/decomp/140bd16a0.c	V3975 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bd1e50	L1	agree	decomp:re/decomp/140bd1e50.c	V3976 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bd4bc0	L1	agree	decomp:re/decomp/140bd4bc0.c	V3977 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140358180	L1	agree	decomp:re/decomp/140358180.c	V3978 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140be23c0	L1	agree	decomp:re/decomp/140be23c0.c	V3979 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bef050	L1	agree	decomp:re/decomp/140bef050.c	V3980 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140358270	L1	agree	decomp:re/decomp/140358270.c	V3981 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x1403582f0	L1	agree	decomp:re/decomp/1403582f0.c	V3982 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x1403583e0	L1	agree	decomp:re/decomp/1403583e0.c	V3983 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140bf6eb0	L1	agree	decomp:re/decomp/140bf6eb0.c	V3984 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bf8f50	L1	agree	decomp:re/decomp/140bf8f50.c	V3985 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140bf9080	L1	agree	decomp:re/decomp/140bf9080.c	V3986 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140358460	L1	agree	decomp:re/decomp/140358460.c	V3987 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb03-verify	func	0x140c01550	L1	agree	decomp:re/decomp/140c01550.c	V3988 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb03-verify	func	0x140c01c30	L1	agree	decomp:re/decomp/140c01c30.c	V3989 name/description match strings and code in decomp (log string verified via data read)
+2026-10-31	lb00-verify	func	0x140358cc0	L1	agree	decomp:re/decomp/140358cc0.c	V3990 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140358d40	L1	agree	decomp:re/decomp/140358d40.c	V3991 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140359de0	L1	agree	decomp:re/decomp/140359de0.c	V3992 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14035afe0	L1	agree	decomp:re/decomp/14035afe0.c	V3993 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14035cdf0	L1	agree	decomp:re/decomp/14035cdf0.c	V3994 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x14035db00	L1	agree	decomp:re/decomp/14035db00.c	V3995 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb00-verify	func	0x140361f70	L1	agree	decomp:re/decomp/140361f70.c	V3996 log strings/channel/behaviour found inside function bounds; name matches
+2026-10-31	lb05-verify	func	0x140ff7730	L1	agree	decomp:re/decomp/140ff7730.c;xref:0x140ff742b	V3997 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ff79d0	L1	agree	decomp:re/decomp/140ff79d0.c;xref:0x140ff7632	V3998 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ff7cf0	L1	partial	decomp:re/decomp/140ff7cf0.c;xref:0x142d5070b	V3999 is the CareerOnlineSynchroniser state machine (update/internalStart/setupCurrentPolicy/startClient|HostSync, Trigger Profile Save is one branch); better Game_CareerOnlineSynchroniser_Update
+2026-10-31	lb05-verify	func	0x140ff8af0	L1	agree	decomp:re/decomp/140ff8af0.c;xref:0x140ff857f	V4000 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ff8bb0	L1	agree	decomp:re/decomp/140ff8bb0.c;xref:0x142d50812	V4001 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ff8d90	L1	agree	decomp:re/decomp/140ff8d90.c	V4002 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb05-verify	func	0x140ff9720	L1	agree	decomp:re/decomp/140ff9720.c	V4003 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb05-verify	func	0x140ffa300	L1	agree	decomp:re/decomp/140ffa300.c;xref:0x140ffa00b	V4004 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffa6f0	L1	agree	decomp:re/decomp/140ffa6f0.c;xref:0x140ffa24d	V4005 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffc7b0	L1	agree	decomp:re/decomp/140ffc7b0.c;xref:0x140ffe419	V4006 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffca90	L1	agree	decomp:re/decomp/140ffca90.c;xref:0x140ffc9c6	V4007 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffcd80	L1	agree	decomp:re/decomp/140ffcd80.c;xref:0x140d7f2cd	V4008 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffd1c0	L1	agree	decomp:re/decomp/140ffd1c0.c;xref:0x140d79aaf	V4009 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffd830	L1	agree	decomp:re/decomp/140ffd830.c;xref:0x140ffe85b	V4010 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffda70	L1	partial	decomp:re/decomp/140ffda70.c;xref:0x1436c1d39	V4011 21KB negotiation flow controller (progress negotiations, team-select sequencing, holding screen); first-player log is one branch; better Game_OnlineContract_ProgressNegotiations
+2026-10-31	lb01-verify	func	0x1403621b0	L1	agree	decomp:re/decomp/1403621b0.c	V4012 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb05-verify	func	0x140ffec40	L1	agree	decomp:re/decomp/140ffec40.c;xref:0x140ffc6e9	V4013 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x140ffed70	L1	agree	decomp:re/decomp/140ffed70.c;xref:0x140ffc6f5	V4014 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403622c0	L1	agree	decomp:re/decomp/1403622c0.c;xref:0x368bf9	V4015 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x140362490	L1	agree	decomp:re/decomp/140362490.c;xref:0x362335	V4016 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x140362900	L1	agree	decomp:re/decomp/140362900.c;xref:0x305542	V4017 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x141002170	L1	agree	decomp:re/decomp/141002170.c;xref:0x140fffec6	V4018 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x141002260	L1	agree	decomp:re/decomp/141002260.c;xref:0x141000106	V4019 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x141002330	L1	agree	decomp:re/decomp/141002330.c;xref:0x141000346	V4020 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140362b20	L1	agree	decomp:re/decomp/140362b20.c;xref:0x368d45	V4021 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x140362c00	L1	agree	decomp:re/decomp/140362c00.c;xref:0x362b95	V4022 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x140362fe0	L1	agree	decomp:re/decomp/140362fe0.c;xref:0x3689a0	V4023 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x141002410	L1	agree	decomp:re/decomp/141002410.c;xref:0x141000586	V4024 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1410026e0	L1	agree	decomp:re/decomp/1410026e0.c;xref:0x1410007c6	V4025 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x141002f20	L1	agree	decomp:re/decomp/141002f20.c;xref:0x141000cf1	V4026 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14036e090	L1	agree	decomp:re/decomp/14036e090.c	V4027 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb05-verify	func	0x141003050	L1	agree	decomp:re/decomp/141003050.c;xref:0x141000d48	V4028 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x141003320	L1	agree	decomp:re/decomp/141003320.c;xref:0x141000d9f	V4029 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14036eee0	L1	agree	decomp:re/decomp/14036eee0.c	V4030 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb05-verify	func	0x141003420	L1	agree	decomp:re/decomp/141003420.c;xref:0x141000de7	V4031 name and quoted log strings/pretty-function present in body
+2026-10-31	lb04-verify	func	0x140c04fd0	L1	agree	decomp:re/decomp/140c04fd0.c	V4032 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb01-verify	func	0x14036fcb0	L1	agree	decomp:re/decomp/14036fcb0.c	V4033 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c0c0c0	L1	agree	decomp:re/decomp/140c0c0c0.c;xref:0x140cccafd,0x140cccfb2	V4034 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1410036a0	L1	agree	decomp:re/decomp/1410036a0.c;xref:0x14077a710	V4035 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403700a0	L1	agree	decomp:re/decomp/1403700a0.c	V4036 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c0e2b0	L1	agree	decomp:re/decomp/140c0e2b0.c	V4037 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x141007000	L1	agree	decomp:re/decomp/141007000.c	V4038 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140380d70	L1	agree	decomp:re/decomp/140380d70.c	V4039 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c0eb60	L1	agree	decomp:re/decomp/140c0eb60.c	V4040 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x141008bf0	L1	agree	decomp:re/decomp/141008bf0.c;xref:0x149f3292a	V4041 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140381380	L1	agree	decomp:re/decomp/140381380.c;xref:0x388ca5	V4042 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c0f4a0	L1	agree	decomp:re/decomp/140c0f4a0.c;xref:0x140c0f2a6,0x140c101a9	V4043 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141011690	L1	agree	decomp:re/decomp/141011690.c;xref:0x14100ff52	V4044 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140383360	L1	agree	decomp:re/decomp/140383360.c;xref:0x38c694	V4045 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c0f930	L1	agree	decomp:re/decomp/140c0f930.c	V4046 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x141012d70	L1	agree	decomp:re/decomp/141012d70.c	V4047 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403846b0	L1	agree	decomp:re/decomp/1403846b0.c;xref:0x2ff628	V4048 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c0fc80	L1	agree	decomp:re/decomp/140c0fc80.c	V4049 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x1410189d0	L1	agree	decomp:re/decomp/1410189d0.c	V4050 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140384f70	L1	agree	decomp:re/decomp/140384f70.c;xref:0x28ad2c	V4051 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c1bf00	L1	agree	decomp:re/decomp/140c1bf00.c;xref:0x140bf9877,0x140c1b819	V4052 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141041640	L1	agree	decomp:re/decomp/141041640.c;xref:0x141055992	V4053 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140385760	L1	agree	decomp:re/decomp/140385760.c	V4054 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c1e690	L1	agree	decomp:re/decomp/140c1e690.c;xref:0x140c1ba0b	V4055 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1410befb0	L1	agree	decomp:re/decomp/1410befb0.c	V4056 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140385b80	L1	agree	decomp:re/decomp/140385b80.c;xref:0x3959b9	V4057 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c4ab70	L1	partial	decomp:re/decomp/140c4ab70.c;xref:0x140d9c32c	V4058 better name Career_Auction_ResolveAiOffer: whole AI auction offer resolution: low/medium/high offer roll, solo auction, success/fail, over-budget fail, driver exit negotiations; not only the offer chance
+2026-10-31	lb05-verify	func	0x1410f5590	L1	agree	decomp:re/decomp/1410f5590.c;xref:0x1410f45bf	V4059 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140386320	L1	agree	decomp:re/decomp/140386320.c	V4060 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c57df0	L1	agree	decomp:re/decomp/140c57df0.c;xref:0x140c570b3,0x140c579df	V4061 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1410f85c0	L1	partial	decomp:re/decomp/1410f85c0.c	V4062 120KB sponsor save-data (de)serialise (teamSponsors, loyalty, goal progress keys); remove log is one branch; better Career_Sponsors_SerialiseSaveData
+2026-10-31	lb01-verify	func	0x140386720	L1	agree	decomp:re/decomp/140386720.c	V4063 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c63eb0	L1	agree	decomp:re/decomp/140c63eb0.c;xref:0x140c6623a,0x140c66d5d	V4064 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141106870	L1	agree	decomp:re/decomp/141106870.c;xref:0x14110a694	V4065 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140386ba0	L1	agree	decomp:re/decomp/140386ba0.c;xref:0x3836f1	V4066 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c66a00	L1	agree	decomp:re/decomp/140c66a00.c;xref:0x140c65197,0x140c651f7	V4067 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411090c0	L1	agree	decomp:re/decomp/1411090c0.c;xref:0x1401090ba	V4068 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140388cf0	L1	agree	decomp:re/decomp/140388cf0.c;xref:0x388cc6	V4069 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c679d0	L1	agree	decomp:re/decomp/140c679d0.c;xref:0x140c6379c,0x140c63888	V4070 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14111a750	L1	agree	decomp:re/decomp/14111a750.c;xref:0x1410f503a	V4071 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14038cd90	L1	agree	decomp:re/decomp/14038cd90.c	V4072 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c71b00	L1	agree	decomp:re/decomp/140c71b00.c;xref:0x1406ef5e7,0x140c740ff	V4073 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14111a960	L1	agree	decomp:re/decomp/14111a960.c;xref:0x1410f7a61	V4074 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14038dfc0	L1	agree	decomp:re/decomp/14038dfc0.c;xref:0x274eca	V4075 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c74070	L1	partial	decomp:re/decomp/140c74070.c;xref:0x140c6ace7	V4076 better name Game_CareerEventsSequencer_Update: giant per-frame update (strings update m_loadingEnabled/setWorldsToLoad/fade/isWarmingTextures inlined), not isWarmingTextures itself
+2026-10-31	lb05-verify	func	0x141127eb0	L1	agree	decomp:re/decomp/141127eb0.c;xref:0x141125f43	V4077 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14038f270	L1	agree	decomp:re/decomp/14038f270.c	V4078 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c78050	L1	agree	decomp:re/decomp/140c78050.c;xref:0x142d510db	V4079 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141129850	L1	agree	decomp:re/decomp/141129850.c;xref:0x141127869	V4080 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14038f360	L1	agree	decomp:re/decomp/14038f360.c	V4081 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c781c0	L1	agree	decomp:re/decomp/140c781c0.c;xref:0x142d516f5	V4082 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14112f600	L1	agree	decomp:re/decomp/14112f600.c	V4083 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x14039a330	L1	agree	decomp:re/decomp/14039a330.c;xref:0x3a7c74	V4084 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c7a820	L1	partial	decomp:re/decomp/140c7a820.c;xref:0x140c509de,0x140c7525a	V4085 better name Game_CareerEventResourceManager_ActivateExtraWorld: takes world name; logs activateExtraWorld %s, deactivatePrimaryWorld and preWarmTextures; deactivate is only one step
+2026-10-31	lb05-verify	func	0x14113f6b0	L1	agree	decomp:re/decomp/14113f6b0.c	V4086 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403a1790	L1	partial	decomp:re/decomp/1403a1790.c	V4087 halo node/zero-matrix logic and djb2 0x7c97c1e9 confirmed; but +0x1b0c is only set here (to 1 when ctx+0x38!=0), no Enable/DisableHaloGeoMod setter seen; name ok; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c7c890	L1	agree	decomp:re/decomp/140c7c890.c;xref:0x140c7a587,0x140c7a594	V4088 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411469e0	L1	agree	decomp:re/decomp/1411469e0.c;xref:0x14a521e5d	V4089 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403a7040	L1	agree	decomp:re/decomp/1403a7040.c;xref:0x4a6f36	V4090 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c7d310	L1	agree	decomp:re/decomp/140c7d310.c;xref:0x140c7a666	V4091 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141146d00	L1	agree	decomp:re/decomp/141146d00.c;xref:0x1416dad85	V4092 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403ad360	L1	agree	decomp:re/decomp/1403ad360.c;xref:0x3c7876	V4093 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c7d520	L1	agree	decomp:re/decomp/140c7d520.c;xref:0x140c7a66e	V4094 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14114bb60	L1	agree	decomp:re/decomp/14114bb60.c;xref:0x141133588	V4095 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403b36a0	L1	agree	decomp:re/decomp/1403b36a0.c;xref:0x3b1f01	V4096 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c808e0	L1	agree	decomp:re/decomp/140c808e0.c;xref:0x140c72eba,0x140c73114	V4097 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14114f480	L1	partial	decomp:re/decomp/14114f480.c;xref:0x141146dc7	V4098 213KB body = driver_statistics template parse (StatisticInfo/DynamicStatisticInfo/DriverStatisticsHolder) with FindDriverStatId log as one part; better Career_DriverMarketXml_LoadDriverStatistics
+2026-10-31	lb01-verify	func	0x1403b9510	L1	agree	decomp:re/decomp/1403b9510.c;xref:0x3b6cfe	V4099 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c80d00	L1	agree	decomp:re/decomp/140c80d00.c;xref:0x140c7d204	V4100 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14115d690	L1	agree	decomp:re/decomp/14115d690.c;xref:0x141191354	V4101 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403b9960	L1	agree	decomp:re/decomp/1403b9960.c;xref:0x3b9892	V4102 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140c84790	L1	agree	decomp:re/decomp/140c84790.c;xref:0x140c8bde7,0x14173c09c	V4103 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14115dad0	L1	agree	decomp:re/decomp/14115dad0.c	V4104 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403ba320	L1	agree	decomp:re/decomp/1403ba320.c	V4105 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c90f80	L1	agree	decomp:re/decomp/140c90f80.c;xref:0x14173b79d	V4106 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14115dbe0	L1	agree	decomp:re/decomp/14115dbe0.c	V4107 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403bb360	L1	agree	decomp:re/decomp/1403bb360.c	V4108 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140c99fa0	L1	agree	decomp:re/decomp/140c99fa0.c;xref:0x140a8fd8b,0x140a98e35	V4109 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14115dfc0	L1	agree	decomp:re/decomp/14115dfc0.c;xref:0x14e92825d	V4110 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403bc300	L1	agree	decomp:re/decomp/1403bc300.c;xref:0x3bc2a3	V4111 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140ca0510	L1	agree	decomp:re/decomp/140ca0510.c;xref:0x140ca0333	V4112 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141166160	L1	partial	decomp:re/decomp/141166160.c;xref:0x1411435cc	V4113 reads race_length_scaling.F1/F2 plus trigger settings (min/max_duration, trigger_laps); invalidating_assists key not found in body
+2026-10-31	lb01-verify	func	0x1403c2920	L1	agree	decomp:re/decomp/1403c2920.c;xref:0x3d3369	V4114 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cae890	L1	agree	decomp:re/decomp/140cae890.c;xref:0x140cb7736,0x14128ee0d	V4115 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141169cc0	L1	agree	decomp:re/decomp/141169cc0.c	V4116 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403c3540	L1	agree	decomp:re/decomp/1403c3540.c	V4117 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cb1370	L1	agree	decomp:re/decomp/140cb1370.c;xref:0x140cb0def,0x140cb443e	V4118 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14116b540	L1	partial	decomp:re/decomp/14116b540.c;xref:0x141167555	V4119 factory that creates ALL dynamic objective types (AchieveLapTime..ChargeBattery..); not battery-specific; better Game_DynamicObjective_CreateByType
+2026-10-31	lb01-verify	func	0x1403c35d0	L1	agree	decomp:re/decomp/1403c35d0.c	V4120 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cb1bd0	L1	agree	decomp:re/decomp/140cb1bd0.c;xref:0x140c92b45,0x140cafec0	V4121 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141191950	L1	agree	decomp:re/decomp/141191950.c	V4122 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x1403c3690	L1	agree	decomp:re/decomp/1403c3690.c	V4123 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cb3290	L1	agree	decomp:re/decomp/140cb3290.c;xref:0x140cbc307	V4124 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141193310	L1	agree	decomp:re/decomp/141193310.c;xref:0x141192f06	V4125 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403c37a0	L1	agree	decomp:re/decomp/1403c37a0.c	V4126 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cb3bd0	L1	agree	decomp:re/decomp/140cb3bd0.c;xref:0x140cb3a69,0x140cb6f4b	V4127 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411cb150	L1	disagree	decomp:re/decomp/1411cb150.c;xref:0x149d48d17	V4128 claimed wear_rates.* / engine_management keys are not in the body (claim text garbled); body has random_component_swap_chance, component_percentage, gearbox_percentage, driver, season; better Car_Read_ComponentSwapConfig
+2026-10-31	lb01-verify	func	0x1403c62f0	L1	agree	decomp:re/decomp/1403c62f0.c;xref:0x13c62cf	V4129 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cb67a0	L1	agree	decomp:re/decomp/140cb67a0.c	V4130 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x1411dfae0	L1	agree	decomp:re/decomp/1411dfae0.c;xref:0x1411dfa3d	V4131 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403cec50	L1	agree	decomp:re/decomp/1403cec50.c;xref:0x3bfd52	V4132 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cb7210	L1	agree	decomp:re/decomp/140cb7210.c;xref:0x140cb69fa	V4133 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411e0480	L1	agree	decomp:re/decomp/1411e0480.c;xref:0x14d9ac315	V4134 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403d0bd0	L1	agree	decomp:re/decomp/1403d0bd0.c;xref:0x3d054d	V4135 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cba280	L1	agree	decomp:re/decomp/140cba280.c;xref:0x140fc7ffc	V4136 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411f2610	L1	agree	decomp:re/decomp/1411f2610.c;xref:0x1411f25fd	V4137 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403d1af0	L1	partial	decomp:re/decomp/1403d1af0.c	V4138 alloc 0xb0 into sys+0x428[idx], counter 0x1460463d0 confirmed; +0x34 flag = result of string compare vs 'grid' (then 'normal' result ignored), not 'normal or not'; type hash not verified; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cbbc00	L1	agree	decomp:re/decomp/140cbbc00.c;xref:0x140cbad5a,0x140cbafa6	V4139 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1411f6d80	L1	agree	decomp:re/decomp/1411f6d80.c;xref:0x1411f6749	V4140 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403d2ed0	L1	agree	decomp:re/decomp/1403d2ed0.c;xref:0x3d1e3c	V4141 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cbc3a0	L1	agree	decomp:re/decomp/140cbc3a0.c;xref:0x140cafcb6,0x140cbb1e6	V4142 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141200980	L1	partial	decomp:re/decomp/141200980.c;xref:0x1412006b3	V4143 reads scoring.* keys but also assist/difficulty options (steering_assist, gearbox, flashbacks, ai_difficulty); better Career_Read_ScoringAndDifficultyConfig
+2026-10-31	lb01-verify	func	0x1403d6ff0	L1	agree	decomp:re/decomp/1403d6ff0.c;xref:0x3d82ca	V4144 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140cbd660	L1	agree	decomp:re/decomp/140cbd660.c	V4145 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x141207300	L1	agree	decomp:re/decomp/141207300.c;xref:0x140c84de7	V4146 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1403e1a10	L1	agree	decomp:re/decomp/1403e1a10.c;xref:0x877040	V4147 record keys +0x60/+0x61/+0x64 confirmed; DB tuning values not checkable in code
+2026-10-31	lb04-verify	func	0x140cc1c90	L1	agree	decomp:re/decomp/140cc1c90.c;xref:0x140cc1796	V4148 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412083b0	L1	agree	decomp:re/decomp/1412083b0.c	V4149 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x14043e5a0	L1	agree	decomp:re/decomp/14043e5a0.c	V4150 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140cd70b0	L1	partial	decomp:re/decomp/140cd70b0.c	V4151 better name Game_CareerEventResourceManager_Destructor: logs '~CareerEventResourceManager' with the m_is* flags, takes delete flag, vtable slot 0x1456847a0: it is the destructor, not an m_isWorldPostCreationComplete accessor
+2026-10-31	lb05-verify	func	0x14120c6e0	L1	agree	decomp:re/decomp/14120c6e0.c;xref:0x14120c6b3	V4152 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1405f11b0	L1	partial	decomp:re/decomp/1405f11b0.c;xref:0x604742	V4153 builds a long list (~29+ vtables, 0x145634fc0..0x145635260 etc), not 7; claimed 0x145635000/030/060 are wrong (code has 0x145635020/050/080); 0x145635080,b0,e0,110 right; name ok
+2026-10-31	lb04-verify	func	0x140d766b0	L1	partial	decomp:re/decomp/140d766b0.c;xref:0x140d765d6,0x140d7893e	V4154 better name Career_ContractRenewal_ApplyDriverChanges: single-arg pass over teams emitting Add new driver/Replace old RESERVE/Replace old driver/Add new contract/Assign driver position, not just 'replace old position'
+2026-10-31	lb05-verify	func	0x14120e620	L1	agree	decomp:re/decomp/14120e620.c;xref:0x141211042	V4155 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1405f5c50	L1	agree	decomp:re/decomp/1405f5c50.c;xref:0x605834	V4156 short fn then jmp 0x140614d70 at 0x1405f5dc2; role TBD ok
+2026-10-31	lb04-verify	func	0x140d7b530	L1	agree	decomp:re/decomp/140d7b530.c;xref:0x140d7b1c0,0x1436c1f9b	V4157 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14120e990	L1	agree	decomp:re/decomp/14120e990.c;xref:0x141210ee3	V4158 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1405f5dd0	L1	partial	decomp:re/decomp/1405f5dd0.c;xref:0x605e34	V4159 code reads the 5 keys but is a ~24KB per-vehicle AI function (corner-exit throttle error +0x348/+0x350 confirmed); name 'Read_GeneralSettings_3' misleading; better Ai_Update_ExitThrottleError
+2026-10-31	lb04-verify	func	0x140d7da70	L1	partial	decomp:re/decomp/140d7da70.c;xref:0x140d7c46f,0x140d7cadb	V4160 better name Career_ContractRenewal_FindAvailableDriver: returns a chosen driver via out param, logs approaching BEST available driver/no appropriate drivers plus AVAILABLE/UNAVAILABLE reasons; not a plain availability check
+2026-10-31	lb01-verify	func	0x1405fbe00	L1	partial	decomp:re/decomp/1405fbe00.c;xref:0x6447a9	V4161 not a reader: lazily inits 5 setting nodes then writes max_test_speed into struct +8/+0xc and defaults +0x10..0x24 (init/ctor of speed-limit struct); better Ai_Init_TestSpeedLimits
+2026-10-31	lb01-verify	func	0x1405fbfd0	L1	partial	decomp:re/decomp/1405fbfd0.c;xref:0x6450a0	V4162 lazy-inits the 5 nodes but is a gap/spacing calc (float math on two cars, 0xa8/0xb0/0xb8 cfg values); not a settings reader; better Ai_Calc_FollowGap
+2026-10-31	lb05-verify	func	0x141210160	L1	agree	decomp:re/decomp/141210160.c;xref:0x140b9cd89	V4163 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x141210610	L1	agree	decomp:re/decomp/141210610.c;xref:0x1412103e9	V4164 name and quoted log strings/pretty-function present in body
+2026-10-31	lb04-verify	func	0x140d8c2b0	L1	agree	decomp:re/decomp/140d8c2b0.c;xref:0x142df4779,0x1436bf9f9	V4165 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141212e70	L1	agree	decomp:re/decomp/141212e70.c;xref:0x140cd77d7	V4166 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406068a0	L1	partial	decomp:re/decomp/1406068a0.c;xref:0x5f658d	V4167 uses only max_test_speed (+8) to clamp +-value then calls FUN_140686e50; the DB default values listed are not in code; better Ai_Eval_ClampedTestSpeed
+2026-10-31	lb04-verify	func	0x140d8d620	L1	agree	decomp:re/decomp/140d8d620.c;xref:0x140d992c7,0x140d9a623	V4168 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14121c3b0	L1	agree	decomp:re/decomp/14121c3b0.c;xref:0x142d878a4	V4169 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140606e60	L1	partial	decomp:re/decomp/140606e60.c;xref:0x5f5e37	V4170 uses only max_test_speed to clamp two inputs then calls FUN_14068bb70/14068b710 (by param_4+0xc); 'second reader' wrong; better Ai_Eval_ClampedTestSpeed_2
+2026-10-31	lb04-verify	func	0x140d8df10	L1	agree	decomp:re/decomp/140d8df10.c;xref:0x140d8c169,0x140d8c239	V4171 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14123ca40	L1	partial	decomp:re/decomp/14123ca40.c;xref:0x14123fd65	V4172 0x1b10 alloc @0x14123cad4, Instantiate_UpgradeTrees @0x14123cfa1, ResetAll @0x14123d06f verified; Career_Load_UpgradeRows (0x143539bc0) has no direct call from here (only 0x143539260 is called)
+2026-10-31	lb01-verify	func	0x140614d70	L1	agree	decomp:re/decomp/140614d70.c;xref:0x5f5dc2	V4173 5 Ai_Resolve_GeneralSettings sites, size ~0x43d0 confirmed
+2026-10-31	lb04-verify	func	0x140d8e0a0	L1	agree	decomp:re/decomp/140d8e0a0.c;xref:0x140d992bf,0x140d9a61b	V4174 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412484e0	L1	partial	decomp:re/decomp/1412484e0.c;xref:0x141246d11	V4175 cmp [rcx+0x72],3 ja @0x1412486b8 only skips that instance (jumps back into the loop), does not return; dept<4 instances get Set_UpgradeFitted; rest of claim ok
+2026-10-31	lb01-verify	func	0x140647e60	L1	partial	decomp:re/decomp/140647e60.c;xref:0x6484c1	V4176 +0x168 (AI) vs +0x1b8 (human via flags&0x3000==0x1000), 22.352 and gap window confirmed; but returns bool and writes reason codes 0xa..0x16 via param_6 (not just 10..15)
+2026-10-31	lb04-verify	func	0x140d8ecd0	L1	agree	decomp:re/decomp/140d8ecd0.c;xref:0x140d77701,0x140d8f6a2	V4177 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141249ce0	L1	agree	decomp:re/decomp/141249ce0.c;xref:0x14124fc13	V4178 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406487a0	L1	agree	decomp:re/decomp/1406487a0.c	V4179 state*0x30 from +0x220, reason offsets 0x220/228/230/238/2c0.. confirmed; vtable/indirect
+2026-10-31	lb04-verify	func	0x140d8f600	L1	agree	decomp:re/decomp/140d8f600.c;xref:0x140d8eba0,0x140d93b98	V4180 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x14124ad20	L1	partial	decomp:re/decomp/14124ad20.c	V4181 112KB rivalry config reader (allowed_rivalries, rivalry_data, weights) calling ui_data sub-reader; better Career_Read_RivalsConfig
+2026-10-31	lb01-verify	func	0x1406527c0	L1	agree	decomp:re/decomp/1406527c0.c	V4182 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140d8fcb0	L1	agree	decomp:re/decomp/140d8fcb0.c;xref:0x140c49553,0x140c4a361	V4183 checked: calls 0x140d8ecd0 first, +0xc day=clock/1440, +0xe flag, +0x2c set, 0x145696e60; callers renewal/auction/online; claim text truncated
+2026-10-31	lb05-verify	func	0x141250d40	L1	partial	decomp:re/decomp/141250d40.c	V4184 114KB body is far more than start logging (rating compare, many callees incl. Career_Get_DriverOverallRating); Start log is one part; better Game_RivalryManager_Update
+2026-10-31	lb01-verify	func	0x14065aec0	L1	agree	decomp:re/decomp/14065aec0.c;xref:0x683cf1	V4185 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140d94140	L1	agree	decomp:re/decomp/140d94140.c;xref:0x140d94b36,0x140d9595a	V4186 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141254be0	L1	agree	decomp:re/decomp/141254be0.c	V4187 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x14065da00	L1	agree	decomp:re/decomp/14065da00.c;xref:0x65dc5c	V4188 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140d94f10	L1	partial	decomp:re/decomp/140d94f10.c;xref:0x140d8dec7,0x140d9815f	V4189 better name Career_ContractRenewal_CanApproach: bool predicate (returns bVar6&bVar21...) logging why driver/team cannot be (re)approached; not an exit-auction action
+2026-10-31	lb05-verify	func	0x141262be0	L1	agree	decomp:re/decomp/141262be0.c;xref:0x14124c24b	V4190 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x14065dc50	L1	partial	decomp:re/decomp/14065dc50.c;xref:0x246671e	V4191 parses cede_position.* and divebomb_defense.* but also exit_fallibility, offset_variation, space_seeking and calls Parse_RaceStartConfig (+0x1f0); better Ai_Parse_VehicleConfigGroups
+2026-10-31	lb04-verify	func	0x140d958b0	L1	partial	decomp:re/decomp/140d958b0.c	V4192 better name Career_ContractRenewal_DailyUpdate: 1957-line per-day tick (this,char) with retire pass, replace-with-reserve, add/remove renewal events, AddReserveDriver, PickDriverToApproach; Driver Retired is one small part
+2026-10-31	lb05-verify	func	0x1412631f0	L1	agree	decomp:re/decomp/1412631f0.c	V4193 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x14065e040	L1	partial	decomp:re/decomp/14065e040.c;xref:0x65de61	V4194 parses 9 race_start.* keys (correct, called only from 0x14065dc50); 'feeds Ai_RaceStart_ReactionTime' not seen: ReactionTime reads cfg +0x4e0/4e8/500/518 not +0x1f0..0x238
+2026-10-31	lb04-verify	func	0x140d97750	L1	partial	decomp:re/decomp/140d97750.c;xref:0x140d8e946,0x140d95893	V4195 better name Career_ContractRenewal_IsTeamApproachable: bool predicate (returns bVar3&bVar4&bVar11) logging team no longer available/exited auction; not an exit-auction action
+2026-10-31	lb05-verify	func	0x1412636e0	L1	agree	decomp:re/decomp/1412636e0.c	V4196 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140662de0	L1	agree	decomp:re/decomp/140662de0.c	V4197 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140d97ec0	L1	agree	decomp:re/decomp/140d97ec0.c;xref:0x140d9a96b,0x140d9a9bb	V4198 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412879d0	L1	agree	decomp:re/decomp/1412879d0.c;xref:0x1422bcc2c	V4199 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140677ae0	L1	agree	decomp:re/decomp/140677ae0.c;xref:0x67f997	V4200 0x5478 stack frame and stride-0x400/0x800 per-channel arrays confirmed, no bound check in loop
+2026-10-31	lb04-verify	func	0x140d982c0	L1	agree	decomp:re/decomp/140d982c0.c;xref:0x140d97f9d	V4201 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141289690	L1	agree	decomp:re/decomp/141289690.c;xref:0x140d8da7b	V4202 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406807b0	L1	agree	decomp:re/decomp/1406807b0.c;xref:0x680717	V4203 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140d99210	L1	agree	decomp:re/decomp/140d99210.c;xref:0x140c4ae7f,0x140d8c29d	V4204 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412d3c30	L1	agree	decomp:re/decomp/1412d3c30.c;xref:0x1402517a7	V4205 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140681140	L1	partial	decomp:re/decomp/140681140.c;xref:0x645873	V4206 piecewise 16-byte segments (up to 6) with 4 curve types, 8 float output confirmed; search is an unrolled linear scan, not binary; clamp vs max_test via Ai_Resolve_GeneralSettings (4 sites) ok
+2026-10-31	lb04-verify	func	0x140d9a7b0	L1	agree	decomp:re/decomp/140d9a7b0.c;xref:0x140d99991,0x140d9a0fd	V4207 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412d89f0	L1	partial	decomp:re/decomp/1412d89f0.c;xref:0x1412ea84b	V4208 body is specialists save-data serialise (specialistsContainer, cooldowns, history) not a config read; better Career_Specialists_SerialiseSaveData
+2026-10-31	lb01-verify	func	0x1406ab6a0	L1	agree	decomp:re/decomp/1406ab6a0.c;xref:0x6a97c5	V4209 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140d9afe0	L1	agree	decomp:re/decomp/140d9afe0.c;xref:0x140d9aa47,0x140d9ac04	V4210 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412db360	L1	agree	decomp:re/decomp/1412db360.c;xref:0x1412eb7ce	V4211 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406b7250	L1	agree	decomp:re/decomp/1406b7250.c	V4212 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb04-verify	func	0x140d9b4e0	L1	agree	decomp:re/decomp/140d9b4e0.c;xref:0x140d9a796,0x140d9b1f3	V4213 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412dee80	L1	agree	decomp:re/decomp/1412dee80.c;xref:0x14a756708	V4214 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406bf130	L1	partial	decomp:re/decomp/1406bf130.c;xref:0x6c078e	V4215 logs flag set, but function also handles HUD hide reasons and cinematic director data messages (NETWORK/HIDE_REASONS); better Game_ControllerSet_SetCinematicHudFlag
+2026-10-31	lb04-verify	func	0x140d9cbe0	L1	agree	decomp:re/decomp/140d9cbe0.c;xref:0x140c4c08a	V4216 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1412df5b0	L1	agree	decomp:re/decomp/1412df5b0.c;xref:0x14a75675e	V4217 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1412e06a0	L1	agree	decomp:re/decomp/1412e06a0.c;xref:0x14125c5d4	V4218 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1412e8be0	L1	partial	decomp:re/decomp/1412e8be0.c;xref:0x141668a93	V4219 body is specialistManagers save-data serialise (packedDriverStatId, cadenceIndex, history) not a config read; better Career_Specialists_SerialiseSaveData_2
+2026-10-31	lb04-verify	func	0x140db18e0	L1	agree	decomp:re/decomp/140db18e0.c	V4220 checked: vtable 0x145692330+0x188 slot 0x1456924b8, forced list +0x818/0x820 cleared, 0x70 stride, DRIVERMOVES strings; claim text truncated
+2026-10-31	lb01-verify	func	0x1406c2600	L1	agree	decomp:re/decomp/1406c2600.c;xref:0x708b8c2	V4221 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x1406d2470	L1	agree	decomp:re/decomp/1406d2470.c;xref:0x18528bf	V4222 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x1412eb290	L1	agree	decomp:re/decomp/1412eb290.c;xref:0x1412eb280	V4223 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x1406d2b10	L1	agree	decomp:re/decomp/1406d2b10.c;xref:0x6d294b	V4224 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140db9300	L1	agree	decomp:re/decomp/140db9300.c;xref:0x140db754b,0x140dbb87f	V4225 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x1406d3150	L1	agree	decomp:re/decomp/1406d3150.c;xref:0x6d38c0	V4226 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140dbbc40	L1	agree	decomp:re/decomp/140dbbc40.c;xref:0x1423d5ceb	V4227 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x1406d3b20	L1	agree	decomp:re/decomp/1406d3b20.c;xref:0x6d3a61	V4228 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140dccd30	L1	agree	decomp:re/decomp/140dccd30.c;xref:0x14084a817,0x140d8ddcf	V4229 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x1406d5c20	L1	agree	decomp:re/decomp/1406d5c20.c;xref:0x6d726d	V4230 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x1406d6360	L1	agree	decomp:re/decomp/1406d6360.c	V4231 string/behaviour in decomp matches name; vtable/indirect
+2026-10-31	lb05-verify	func	0x1412f1070	L1	agree	decomp:re/decomp/1412f1070.c	V4232 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb05-verify	func	0x141322d00	L1	partial	decomp:re/decomp/141322d00.c;xref:0x142e074af	V4233 82KB placement builder (creates placements, positions, target progresses, tyre status) with logging; better Game_StoryCarPlacement_CreatePlacements
+2026-10-31	lb05-verify	func	0x141349630	L1	agree	decomp:re/decomp/141349630.c;xref:0x141349383	V4234 name and quoted log strings/pretty-function present in body
+2026-10-31	lb04-verify	func	0x140dd41d0	L1	agree	decomp:re/decomp/140dd41d0.c	V4235 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb01-verify	func	0x1406d8470	L1	agree	decomp:re/decomp/1406d8470.c;xref:0x6d70ab	V4236 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x1413558e0	L1	agree	decomp:re/decomp/1413558e0.c;xref:0x141356395	V4237 name and quoted log strings/pretty-function present in body
+2026-10-31	lb04-verify	func	0x140dd4550	L1	agree	decomp:re/decomp/140dd4550.c;xref:0x140dd3491	V4238 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x141356920	L1	agree	decomp:re/decomp/141356920.c;xref:0x141f6bade	V4239 name and quoted log strings/pretty-function present in body
+2026-10-31	lb01-verify	func	0x140713050	L1	partial	decomp:re/decomp/140713050.c;xref:0x6d84b4	V4240 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb05-verify	func	0x1413bdc90	L1	agree	decomp:re/decomp/1413bdc90.c	V4241 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140717710	L1	agree	decomp:re/decomp/140717710.c;xref:0x6d8936	V4242 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140dd5210	L1	agree	decomp:re/decomp/140dd5210.c	V4243 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x1413be170	L1	agree	decomp:re/decomp/1413be170.c	V4244 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140718090	L1	agree	decomp:re/decomp/140718090.c;xref:0x6d96b6	V4245 string/behaviour in decomp matches name
+2026-10-31	lb04-verify	func	0x140dd5f10	L1	agree	decomp:re/decomp/140dd5f10.c	V4246 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb04-verify	func	0x140dd9630	L1	agree	decomp:re/decomp/140dd9630.c;xref:0x140dd64da,0x140dd95bb	V4247 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1413be750	L1	agree	decomp:re/decomp/1413be750.c	V4248 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140718290	L1	agree	decomp:re/decomp/140718290.c;xref:0x6d98f6	V4249 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x1413bef40	L1	agree	decomp:re/decomp/1413bef40.c	V4250 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb01-verify	func	0x140718ce0	L1	agree	decomp:re/decomp/140718ce0.c;xref:0x6da1f6	V4251 string/behaviour in decomp matches name
+2026-10-31	lb01-verify	func	0x140719300	L1	partial	decomp:re/decomp/140719300.c;xref:0x6da436	V4252 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb05-verify	func	0x1413cefd0	L1	agree	decomp:re/decomp/1413cefd0.c;xref:0x140ae8083	V4253 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1413ee4f0	L1	agree	decomp:re/decomp/1413ee4f0.c	V4254 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb04-verify	func	0x140dd9890	L1	agree	decomp:re/decomp/140dd9890.c;xref:0x140dd64c9,0x140dd94ba	V4255 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14071e470	L1	partial	decomp:re/decomp/14071e470.c;xref:0x6db636	V4256 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb05-verify	func	0x1413ef4b0	L1	agree	decomp:re/decomp/1413ef4b0.c	V4257 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb04-verify	func	0x140ddfb70	L1	agree	decomp:re/decomp/140ddfb70.c;xref:0x140dd4914,0x140dd4e10	V4258 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140f6a0e0	L1	agree	decomp:re/decomp/140f6a0e0.c;xref:0x140f69d1e,0x140f6a4e4	V4259 log/pretty strings and body checked in decomp
+2026-10-31	lb05-verify	func	0x1413ef8c0	L1	agree	decomp:re/decomp/1413ef8c0.c	V4260 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb04-verify	func	0x140f6c2f0	L1	agree	decomp:re/decomp/140f6c2f0.c	V4261 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb01-verify	func	0x14071e810	L1	partial	decomp:re/decomp/14071e810.c;xref:0x6db876	V4262 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14071ea80	L1	partial	decomp:re/decomp/14071ea80.c;xref:0x6dbab6	V4263 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14071ff40	L1	agree	decomp:re/decomp/14071ff40.c;xref:0x6dc176	V4264 string/behaviour in decomp matches name
+2026-10-31	lb05-verify	func	0x1413efef0	L1	agree	decomp:re/decomp/1413efef0.c	V4265 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb04-verify	func	0x140f82580	L1	agree	decomp:re/decomp/140f82580.c	V4266 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb05-verify	func	0x1413f0800	L1	agree	decomp:re/decomp/1413f0800.c	V4267 name and quoted log strings/pretty-function present in body; no direct caller (vtable/indirect)
+2026-10-31	lb04-verify	func	0x140f8a1a0	L1	agree	decomp:re/decomp/140f8a1a0.c;xref:0x140f807a3,0x140f807f4	V4268 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x140720530	L1	partial	decomp:re/decomp/140720530.c;xref:0x6dc3b6	V4269 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb05-verify	func	0x1413f1f30	L1	agree	decomp:re/decomp/1413f1f30.c;xref:0x1413f3c1e	V4270 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1413f2520	L1	agree	decomp:re/decomp/1413f2520.c;xref:0x1413f249e	V4271 name and quoted log strings/pretty-function present in body
+2026-10-31	lb04-verify	func	0x140f8d8d0	L1	agree	decomp:re/decomp/140f8d8d0.c	V4272 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb01-verify	func	0x140721310	L1	partial	decomp:re/decomp/140721310.c;xref:0x6dc836	V4273 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x140721a70	L1	partial	decomp:re/decomp/140721a70.c;xref:0x6dca76	V4274 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb05-verify	func	0x1413f3ae0	L1	agree	decomp:re/decomp/1413f3ae0.c;xref:0x1413f38d8	V4275 name and quoted log strings/pretty-function present in body
+2026-10-31	lb05-verify	func	0x1414059c0	L1	partial	decomp:re/decomp/1414059c0.c	V4276 item catalogue build, colour_%u_default printf @0x1414078cf, Gdb_Get_FieldInt @0x1414078f2 -> [rax]+8 no null check -> item+0x58 verified; no direct call from Sess_Apply_ContentAvailability found (only table ref at 0x1456e37a0), vtable/indirect
+2026-10-31	lb04-verify	func	0x140f8f690	L1	agree	decomp:re/decomp/140f8f690.c;xref:0x140f81804,0x140f82685	V4277 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x140726220	L1	partial	decomp:re/decomp/140726220.c;xref:0x6df876	V4278 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fcdad0	L1	agree	decomp:re/decomp/140fcdad0.c;xref:0x140fcd788	V4279 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fce030	L1	agree	decomp:re/decomp/140fce030.c;xref:0x140fcd7a4	V4280 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fce660	L1	agree	decomp:re/decomp/140fce660.c;xref:0x140ff7442	V4281 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x1407267a0	L1	partial	decomp:re/decomp/1407267a0.c;xref:0x243777	V4282 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fce790	L1	agree	decomp:re/decomp/140fce790.c;xref:0x140fd3c28,0x140fd3c97	V4283 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x140726d30	L1	partial	decomp:re/decomp/140726d30.c;xref:0x6dfd36	V4284 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x140728350	L1	partial	decomp:re/decomp/140728350.c;xref:0x6e0636	V4285 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fcf560	L1	agree	decomp:re/decomp/140fcf560.c;xref:0x140fd2dfa,0x140ff7a70	V4286 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14072abf0	L1	partial	decomp:re/decomp/14072abf0.c;xref:0x6e15f6	V4287 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14072b5b0	L1	partial	decomp:re/decomp/14072b5b0.c;xref:0x6e1836	V4288 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14072c110	L1	partial	decomp:re/decomp/14072c110.c;xref:0x6e1a76	V4289 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fcfe10	L1	agree	decomp:re/decomp/140fcfe10.c;xref:0x140fd2e2a,0x140ff89fd	V4290 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14072c6a0	L1	partial	decomp:re/decomp/14072c6a0.c;xref:0x6e1cb6	V4291 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14072cc60	L1	partial	decomp:re/decomp/14072cc60.c;xref:0x6e1ef6	V4292 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fd0990	L1	agree	decomp:re/decomp/140fd0990.c;xref:0x140fcdbfd,0x140fce0c2	V4293 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14072d220	L1	partial	decomp:re/decomp/14072d220.c;xref:0x6e2136	V4294 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x14072d7c0	L1	partial	decomp:re/decomp/14072d7c0.c;xref:0x6e2376	V4295 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fd3450	L1	agree	decomp:re/decomp/140fd3450.c;xref:0x140fd055a,0x140fd3e73	V4296 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fd3640	L1	agree	decomp:re/decomp/140fd3640.c;xref:0x140fd3eb8	V4297 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fd4980	L1	agree	decomp:re/decomp/140fd4980.c;xref:0x140fd4383,0x140fd5049	V4298 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14072dd60	L1	partial	decomp:re/decomp/14072dd60.c;xref:0x6e25b6	V4299 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fd4a90	L1	agree	decomp:re/decomp/140fd4a90.c;xref:0x140fd45c6,0x140fd5080	V4300 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fd4bb0	L1	agree	decomp:re/decomp/140fd4bb0.c;xref:0x140fd47fd	V4301 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x14072f8d0	L1	partial	decomp:re/decomp/14072f8d0.c;xref:0x6e2c7a	V4302 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x140730400	L1	partial	decomp:re/decomp/140730400.c;xref:0x6e3146	V4303 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb01-verify	func	0x140730990	L1	partial	decomp:re/decomp/140730990.c;xref:0x6e3386	V4304 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fd4ea0	L1	agree	decomp:re/decomp/140fd4ea0.c;xref:0x140fd4842	V4305 log/pretty strings and body checked in decomp
+2026-10-31	lb01-verify	func	0x140730f40	L1	partial	decomp:re/decomp/140730f40.c;xref:0x6e35c6	V4306 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fdb4f0	L1	agree	decomp:re/decomp/140fdb4f0.c	V4307 log/pretty strings and body checked in decomp; vtable/indirect callers
+2026-10-31	lb01-verify	func	0x1407314f0	L1	partial	decomp:re/decomp/1407314f0.c;xref:0x6e3806	V4308 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fdc5d0	L1	agree	decomp:re/decomp/140fdc5d0.c;xref:0x140fdc31b,0x1410072c7	V4309 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fdd630	L1	partial	decomp:re/decomp/140fdd630.c;xref:0x140fdd59f	V4310 better name Game_CareerOnlineManagerComponent_UpdateCurrentCareerEntrantsWithSubstitutes: 134 KB function containing the pretty-function string updateCurrentCareerEntrantsWithSubstitutes and member/substitute reconcile logs
+2026-10-31	lb01-verify	func	0x140731a90	L1	partial	decomp:re/decomp/140731a90.c;xref:0x6e3c86	V4311 name and event correct; logged text is the bare event string (no 'EA analytics event: ' prefix exists in the binary)
+2026-10-31	lb04-verify	func	0x140fe3b30	L1	agree	decomp:re/decomp/140fe3b30.c;xref:0x140fe3ab3	V4312 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fe3d20	L1	agree	decomp:re/decomp/140fe3d20.c;xref:0x140fe3c8f	V4313 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fe5900	L1	agree	decomp:re/decomp/140fe5900.c;xref:0x140fd7da9,0x14100a1e8	V4314 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fef8e0	L1	agree	decomp:re/decomp/140fef8e0.c;xref:0x140ff0ecd,0x140ff10f6	V4315 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140fefb80	L1	agree	decomp:re/decomp/140fefb80.c;xref:0x140fefafb,0x1436bf71a	V4316 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3bf0	L1	agree	decomp:re/decomp/140ff3bf0.c;xref:0x140ff14c5,0x140ff558b	V4317 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3cc0	L1	agree	decomp:re/decomp/140ff3cc0.c;xref:0x140ff1706,0x140ff55c2	V4318 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3d90	L1	agree	decomp:re/decomp/140ff3d90.c;xref:0x140ff1946,0x140ff55f9	V4319 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3e60	L1	agree	decomp:re/decomp/140ff3e60.c;xref:0x140ff1b86,0x140ff5630	V4320 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3f20	L1	agree	decomp:re/decomp/140ff3f20.c;xref:0x140ff1dc6,0x140ff5667	V4321 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff3ff0	L1	agree	decomp:re/decomp/140ff3ff0.c;xref:0x140ff2006,0x140ff569e	V4322 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff40c0	L1	agree	decomp:re/decomp/140ff40c0.c;xref:0x140ff2246,0x140ff56d5	V4323 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff4190	L1	agree	decomp:re/decomp/140ff4190.c;xref:0x140ff2486,0x140ff570c	V4324 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff43c0	L1	agree	decomp:re/decomp/140ff43c0.c;xref:0x140ff2906,0x140ff577a	V4325 log/pretty strings and body checked in decomp
+2026-10-31	lb04-verify	func	0x140ff7320	L1	agree	decomp:re/decomp/140ff7320.c;xref:0x142d50413,0x1436b05a0	V4326 log/pretty strings and body checked in decomp
