@@ -105309,7 +105309,7 @@
    "target": "0x1401f3a10",
    "kind": "func_start",
    "names": [
-    "Game_ModelProxy_SetTextureCacheHint"
+    "Ne_ModelProxyTexture_SetCacheTimeoutHint"
    ],
    "verified": [
     {
@@ -106413,7 +106413,7 @@
    "target": "0x14065f520",
    "kind": "func_start",
    "names": [
-    "Ai_Interval_AddIfValid"
+    "Ai_Interval_AddFullSpanWeighted"
    ],
    "verified": [
     {
@@ -106653,7 +106653,7 @@
    "target": "0x14068ab50",
    "kind": "func_start",
    "names": [
-    "Ai_State_SetTargetIfChanged"
+    "Ai_TableCursor_UpdateIfChanged"
    ],
    "verified": [
     {
@@ -108021,7 +108021,7 @@
    "target": "0x141328f10",
    "kind": "func_start",
    "names": [
-    "Game_Story_BuildEventString"
+    "Game_Story_GetEventText"
    ],
    "verified": [
     {
@@ -108117,7 +108117,7 @@
    "target": "0x14136b330",
    "kind": "func_start",
    "names": [
-    "Ne_OptionalVector56_CopyCtor"
+    "Ne_OptionalVector56_CopyAssign"
    ],
    "verified": [
     {
@@ -111213,7 +111213,7 @@
    "target": "0x142f46510",
    "kind": "func_start",
    "names": [
-    "Sess_RedFlag_ResetVehicleDamageModel"
+    "Sess_RedFlag_ResetVehicleTyreState"
    ],
    "verified": [
     {
@@ -113253,7 +113253,7 @@
    "target": "0x143a44090",
    "kind": "func_start",
    "names": [
-    "Ne_Config_GetValueOrDefault"
+    "Ne_Config_GetFloatOrDefault"
    ],
    "verified": [
     {
@@ -116389,7 +116389,7 @@
    "target": "0x14251b710",
    "kind": "func_start",
    "names": [
-    "Ai_ErsTable_SampleInterpolated"
+    "Ai_ErsTable_SampleDelta"
    ],
    "verified": [
     {
