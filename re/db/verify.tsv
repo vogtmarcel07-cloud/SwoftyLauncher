@@ -4765,3 +4765,443 @@ date	verifier	kind	item	claimed	verdict	evidence	notes
 2026-10-31	lb07-verify	func	0x142470be0	L1	agree	decomp:re/decomp/142470be0.c;xref:0x140fe602f	V4764 name/cxx or log string and body match; body size consistent with name
 2026-10-31	lb07-verify	func	0x1424710e0	L1	agree	decomp:re/decomp/1424710e0.c;xref:0x141fca15c	V4765 name/cxx or log string and body match; body size consistent with name
 2026-10-31	lb07-verify	func	0x1424717e0	L1	agree	decomp:re/decomp/1424717e0.c;xref:0x140fe93ce	V4766 name/cxx or log string and body match; body size consistent with name
+2026-10-31	lb13-verify	func	0x14308a620	L1	agree	decomp:re/decomp/14308a620.c	V4767 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14308a6c0	L1	agree	decomp:re/decomp/14308a6c0.c;xref:0x1430599d5	V4768 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14308c000	L1	partial	decomp:re/decomp/14308c000.c;xref:0x143090c7d	V4769 better name Game_NetworkVoting_StartVote: body is startVote (Param(endTime,optionsCount) log, state check); the wrong-state message is only an error branch
+2026-10-31	lb13-verify	func	0x14308c4f0	L1	agree	decomp:re/decomp/14308c4f0.c;xref:0x1518b40dc	V4770 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14308d9f0	L1	agree	decomp:re/decomp/14308d9f0.c;xref:0x14308d9de	V4771 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14308efa0	L1	agree	decomp:re/decomp/14308efa0.c;xref:0x14fd7497e	V4772 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14308f6c0	L1	partial	decomp:re/decomp/14308f6c0.c	V4773 better name Game_NetworkVoting_UpdateVotingState: 1194-line voting tick/state machine (startVote, sendOptions, onNewConnection callees, Adding track), not just the Local-starting-vote log line
+2026-10-31	lb13-verify	func	0x143090ca0	L1	agree	decomp:re/decomp/143090ca0.c;xref:0x143090c57	V4774 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143091c40	L1	agree	decomp:re/decomp/143091c40.c;xref:0x14305549a	V4775 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143092320	L1	agree	decomp:re/decomp/143092320.c;xref:0x1430554dc	V4776 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143092b20	L1	agree	decomp:re/decomp/143092b20.c;xref:0x142d527b5	V4777 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143092eb0	L1	partial	decomp:re/decomp/143092eb0.c;xref:0x142810a1f	V4778 better name Game_Network_ReportNetworkStats: 462-line reportNetworkStats/reportBandwidthStats/resetNetworkStats (bandwidth histogram); tracking-time line is one part
+2026-10-31	lb13-verify	func	0x1430973a0	L1	agree	decomp:re/decomp/1430973a0.c;xref:0x143095d2a	V4779 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143097740	L1	agree	decomp:re/decomp/143097740.c;xref:0x143095d81	V4780 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143097a80	L1	partial	decomp:re/decomp/143097a80.c;xref:0x143095dd8	V4781 better name Game_Network_HandleSessionDocumentMessageData: handles both receive and discard (not receiving documents) branches
+2026-10-31	lb13-verify	func	0x143097c10	L1	agree	decomp:re/decomp/143097c10.c;xref:0x143095e2f	V4782 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143097d20	L1	agree	decomp:re/decomp/143097d20.c;xref:0x143095e86	V4783 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143097ea0	L1	agree	decomp:re/decomp/143097ea0.c;xref:0x143095edd	V4784 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430982e0	L1	agree	decomp:re/decomp/1430982e0.c;xref:0x143095fec	V4785 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143099350	L1	agree	decomp:re/decomp/143099350.c;xref:0x143065568	V4786 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x143099650	L1	agree	decomp:re/decomp/143099650.c;xref:0x143091350	V4787 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14309ac00	L1	agree	decomp:re/decomp/14309ac00.c;xref:0x143039707	V4788 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14309ceb0	L1	partial	decomp:re/decomp/14309ceb0.c;xref:0x140bb4d4b	V4789 better name Game_Network_SeasonDocumentUpdate: 301-line per-frame state logic: joinedMultiplayerSession, resetTrackSet, rebuildSeason, send document; broadcast log is one branch
+2026-10-31	lb13-verify	func	0x14309d6a0	L1	agree	decomp:re/decomp/14309d6a0.c;xref:0x143067f13	V4790 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14309daf0	L1	agree	decomp:re/decomp/14309daf0.c;xref:0x1430e128d	V4791 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14309e220	L1	agree	decomp:re/decomp/14309e220.c;xref:0x1436dd586	V4792 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x14309e400	L1	agree	decomp:re/decomp/14309e400.c;xref:0x14309ac8c	V4793 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a1740	L1	agree	decomp:re/decomp/1430a1740.c;xref:0x143097e4c	V4794 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a1e90	L1	agree	decomp:re/decomp/1430a1e90.c;xref:0x143036981	V4795 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a4b60	L1	agree	decomp:re/decomp/1430a4b60.c;xref:0x1430957a1	V4796 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a5170	L1	agree	decomp:re/decomp/1430a5170.c	V4797 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a5770	L1	agree	decomp:re/decomp/1430a5770.c;xref:0x1430902e7	V4798 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a5980	L1	agree	decomp:re/decomp/1430a5980.c	V4799 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a6100	L1	agree	decomp:re/decomp/1430a6100.c;xref:0x143035159	V4800 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a8720	L1	agree	decomp:re/decomp/1430a8720.c;xref:0x142594cb8	V4801 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430a9610	L1	agree	decomp:re/decomp/1430a9610.c;xref:0x14315b818	V4802 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430aa190	L1	agree	decomp:re/decomp/1430aa190.c;xref:0x1430d1b69	V4803 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430abfc0	L1	agree	decomp:re/decomp/1430abfc0.c;xref:0x1430aaa5b	V4804 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac1b0	L1	agree	decomp:re/decomp/1430ac1b0.c;xref:0x1430aab45	V4805 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac540	L1	agree	decomp:re/decomp/1430ac540.c;xref:0x1430aac27	V4806 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac600	L1	agree	decomp:re/decomp/1430ac600.c;xref:0x1430aad09	V4807 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac6e0	L1	agree	decomp:re/decomp/1430ac6e0.c;xref:0x1430aadf4	V4808 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac780	L1	agree	decomp:re/decomp/1430ac780.c;xref:0x1430aaedf	V4809 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac850	L1	agree	decomp:re/decomp/1430ac850.c;xref:0x1430aafc5	V4810 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ac960	L1	agree	decomp:re/decomp/1430ac960.c;xref:0x1430ab18b	V4811 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430acaa0	L1	agree	decomp:re/decomp/1430acaa0.c;xref:0x1430ab28b	V4812 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430acb90	L1	agree	decomp:re/decomp/1430acb90.c;xref:0x1430ab39d	V4813 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430acca0	L1	agree	decomp:re/decomp/1430acca0.c;xref:0x1430ab493	V4814 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ad4e0	L1	agree	decomp:re/decomp/1430ad4e0.c;xref:0x1430ab757	V4815 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ad6d0	L1	agree	decomp:re/decomp/1430ad6d0.c;xref:0x1430b055c	V4816 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ade60	L1	agree	decomp:re/decomp/1430ade60.c;xref:0x1430ae672	V4817 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430adf50	L1	agree	decomp:re/decomp/1430adf50.c;xref:0x1430b2853	V4818 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ae000	L1	agree	decomp:re/decomp/1430ae000.c;xref:0x1430b2a2a	V4819 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ae0b0	L1	agree	decomp:re/decomp/1430ae0b0.c;xref:0x1430b05f9	V4820 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ae3f0	L1	agree	decomp:re/decomp/1430ae3f0.c;xref:0x1430ae2fb	V4821 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430af1a0	L1	partial	decomp:re/decomp/1430af1a0.c;xref:0x1430ad55c	V4822 better name Game_NetworkUI_CheckOnlineState: returns status after checking online state; cable unplugged and not-online errors with error popup
+2026-10-31	lb13-verify	func	0x1430af6f0	L1	partial	decomp:re/decomp/1430af6f0.c;xref:0x1430ad4d5	V4823 better name Game_NetworkUI_HandleHopperSearch: 228-line handleHopperSearch (cancel old search, busy check, safety params, track set); log line is one part
+2026-10-31	lb13-verify	func	0x1430b01f0	L1	partial	decomp:re/decomp/1430b01f0.c;xref:0x1430afd07	V4824 better name Game_NetworkUI_OnHopperSearchCompleted: 217-line onHopperSearchCompleted (match found/creating failed/unsuitable safety); claimed line is one branch
+2026-10-31	lb13-verify	func	0x1430b0910	L1	agree	decomp:re/decomp/1430b0910.c;xref:0x14220ada1	V4825 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b0cc0	L1	agree	decomp:re/decomp/1430b0cc0.c;xref:0x1430ad07d	V4826 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2190	L1	agree	decomp:re/decomp/1430b2190.c;xref:0x14258d47c	V4827 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2360	L1	agree	decomp:re/decomp/1430b2360.c;xref:0x14258d271	V4828 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2710	L1	agree	decomp:re/decomp/1430b2710.c;xref:0x1415aa044	V4829 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2890	L1	agree	decomp:re/decomp/1430b2890.c;xref:0x1430aeacf	V4830 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2a70	L1	agree	decomp:re/decomp/1430b2a70.c;xref:0x1430aeae0	V4831 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b2db0	L1	agree	decomp:re/decomp/1430b2db0.c;xref:0x1407c3501	V4832 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430b7a90	L1	agree	decomp:re/decomp/1430b7a90.c;xref:0x143065560	V4833 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430c4610	L1	agree	decomp:re/decomp/1430c4610.c;xref:0x1430d1d53	V4834 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430c5e70	L1	partial	decomp:re/decomp/1430c5e70.c;xref:0x1430c543b	V4835 better name Game_NetworkVoting_HandleBallot: 802-line handleBallot (player unknown, connection id mismatch, params mismatch, cannot be started yet); claimed line is one error branch
+2026-10-31	lb13-verify	func	0x1430c7300	L1	agree	decomp:re/decomp/1430c7300.c;xref:0x1430c5480	V4836 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430c81f0	L1	agree	decomp:re/decomp/1430c81f0.c;xref:0x1421d4693	V4837 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430c8430	L1	agree	decomp:re/decomp/1430c8430.c;xref:0x1430b1dd1	V4838 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430c91a0	L1	agree	decomp:re/decomp/1430c91a0.c;xref:0x1430c8d69	V4839 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ca1b0	L1	agree	decomp:re/decomp/1430ca1b0.c;xref:0x1430e1b13	V4840 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ca7c0	L1	agree	decomp:re/decomp/1430ca7c0.c	V4841 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142cfd6c0	L1	agree	decomp:re/decomp/142cfd6c0.c;xref:0x142cf99b1	V4842 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d033d0	L1	agree	decomp:re/decomp/142d033d0.c;xref:0x1421d5c3f	V4843 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430caa20	L1	agree	decomp:re/decomp/1430caa20.c;xref:0x1430cb203	V4844 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430cb940	L1	agree	decomp:re/decomp/1430cb940.c;xref:0x143055c45	V4845 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430cef70	L1	agree	decomp:re/decomp/1430cef70.c;xref:0x14bc34d5c	V4846 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d04790	L1	agree	decomp:re/decomp/142d04790.c;xref:0x142d05e26	V4847 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430cf160	L1	agree	decomp:re/decomp/1430cf160.c;xref:0x14fe0632b	V4848 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430cf560	L1	agree	decomp:re/decomp/1430cf560.c;xref:0x1430cfbc5	V4849 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d0a730	L1	agree	decomp:re/decomp/142d0a730.c;xref:0x142d0a44f	V4850 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430d11b0	L1	partial	decomp:re/decomp/1430d11b0.c	V4851 better name Game_NetworkSubsystem_Init: 1071-line subsystem setup (config load, calls many init funcs, trace_log, 26 DLC); neon country log is one part
+2026-10-31	lb13-verify	func	0x1430d2fd0	L1	partial	decomp:re/decomp/1430d2fd0.c;xref:0x1430d17ce	V4852 better name Game_NetworkSubsystem_LoadConfigurations: 912 lines: loads mp_activity_names.json (PSN activities/translations) plus other configs; failure log is one branch
+2026-10-31	lb10-verify	func	0x142d15520	L1	partial	decomp:re/decomp/142d15520.c	V4853 reads TimeAttack gate config (num_gates_visible, hit_cone_time_added, laps, gate transform/render_settings), calls TimeAttackGates_BuildGates; better Game_TimeAttack_ReadGateConfig
+2026-10-31	lb10-verify	func	0x142d222a0	L1	partial	decomp:re/decomp/142d222a0.c	V4854 time-attack checkpoint timing (time_between_checkpoints,max/min_time) + gate render settings + VehiclePlacement ResolveTransform/PlaceOnSlot; better Game_TimeAttack_ReadCheckpointConfigAndPlace
+2026-10-31	lb10-verify	func	0x142d278b0	L1	agree	decomp:re/decomp/142d278b0.c	V4855 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430da5d0	L1	agree	decomp:re/decomp/1430da5d0.c;xref:0x1430d2036	V4856 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d29c60	L1	agree	decomp:re/decomp/142d29c60.c	V4857 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d2ab80	L1	agree	decomp:re/decomp/142d2ab80.c	V4858 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430e0560	L1	partial	decomp:re/decomp/1430e0560.c	V4859 better name Game_NetworkSubsystem_Update: 8224-line main update (cable/online events, matching, invite manager state machine, kicks, leaderboards cache, restrictions); CrossPlay switch is one tiny part
+2026-10-31	lb13-verify	func	0x1430ed330	L1	agree	decomp:re/decomp/1430ed330.c;xref:0x14172c98a	V4860 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430ee9a0	L1	partial	decomp:re/decomp/1430ee9a0.c;xref:0x140765738	V4861 better name Game_NetworkNTP_GetNtpTime: 248-line NTP time getter comparing against first-party/OS network time with several warnings; unavailable log is one branch
+2026-10-31	lb10-verify	func	0x142d36670	L1	agree	decomp:re/decomp/142d36670.c;xref:0x142d115e7	V4862 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d3ecc0	L1	agree	decomp:re/decomp/142d3ecc0.c;xref:0x142d3ecb0	V4863 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d3f2c0	L1	agree	decomp:re/decomp/142d3f2c0.c	V4864 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430ef6c0	L1	agree	decomp:re/decomp/1430ef6c0.c;xref:0x1406a5ee3	V4865 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d4e8c0	L1	partial	decomp:re/decomp/142d4e8c0.c	V4866 large vehicle-status/garage restart handler (iterates vehicles, crowd mood, status msg), not just the send; better Game_Garage_OnVehicleStatusChangeRestart
+2026-10-31	lb10-verify	func	0x142d501e0	L1	agree	decomp:re/decomp/142d501e0.c	V4867 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f0cb0	L1	agree	decomp:re/decomp/1430f0cb0.c;xref:0x140996f4c	V4868 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f0e30	L1	agree	decomp:re/decomp/1430f0e30.c;xref:0x140bb401c	V4869 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f15f0	L1	agree	decomp:re/decomp/1430f15f0.c;xref:0x140bb4294	V4870 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d50590	L1	agree	decomp:re/decomp/142d50590.c	V4871 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f2f40	L1	agree	decomp:re/decomp/1430f2f40.c;xref:0x142d4ecef	V4872 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f3180	L1	agree	decomp:re/decomp/1430f3180.c;xref:0x142daa169	V4873 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f3940	L1	agree	decomp:re/decomp/1430f3940.c;xref:0x142d517f1	V4874 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d50800	L1	agree	decomp:re/decomp/142d50800.c	V4875 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d5c9b0	L1	agree	decomp:re/decomp/142d5c9b0.c	V4876 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d6a590	L1	agree	decomp:re/decomp/142d6a590.c	V4877 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f3a10	L1	agree	decomp:re/decomp/1430f3a10.c	V4878 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f3b60	L1	agree	decomp:re/decomp/1430f3b60.c	V4879 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f3cb0	L1	partial	decomp:re/decomp/1430f3cb0.c	V4880 better name Game_Network_OnSessionExit: 710 lines: onSessionExit/onLoadingTeamHQ handler clearing progress+mechanical vehicle managers, migration setHaveResults
+2026-10-31	lb10-verify	func	0x142d6fad0	L1	agree	decomp:re/decomp/142d6fad0.c	V4881 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f53f0	L1	agree	decomp:re/decomp/1430f53f0.c;xref:0x14288c8a3	V4882 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f5580	L1	partial	decomp:re/decomp/1430f5580.c;xref:0x1430f54ea	V4883 better name Game_NetworkSubsystem_ValidateSessionList: function is validateSessionList(NeNetSessionEnumerator*), removing own sessions
+2026-10-31	lb10-verify	func	0x142d70de0	L1	agree	decomp:re/decomp/142d70de0.c	V4884 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d766c0	L1	agree	decomp:re/decomp/142d766c0.c;xref:0x142d75c72	V4885 verified djb2 hash compares in this function: quit 0x7c9d0608 @0x142d76cb2, retire 0x19303110 @0x142d76d0a, skip_session e74ea0df, finished 38d5604f -> 142ce8d90, RetireLocalPlayer call @0x142d76e04, 142cea650, 142d78530
+2026-10-31	lb10-verify	func	0x142d7ab60	L1	partial	decomp:re/decomp/142d7ab60.c	V4886 753-line post-race flow state update (fade requests, replay, session results/driver of day transitions); log line is one branch; better Game_Network_PostRaceFlow_Update
+2026-10-31	lb13-verify	func	0x1430f5810	L1	agree	decomp:re/decomp/1430f5810.c	V4887 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d7d120	L1	partial	decomp:re/decomp/142d7d120.c	V4888 472 lines: picks frontend_transition_state string per lobby type (custom_lobby/event_mode/pro_leagues/F1World) on session exit; better Game_Network_SetFrontendTransitionOnExit
+2026-10-31	lb10-verify	func	0x142d864c0	L1	agree	decomp:re/decomp/142d864c0.c;xref:0x140afb630	V4889 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f5a10	L1	agree	decomp:re/decomp/1430f5a10.c;xref:0x1430e69aa	V4890 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f5ec0	L1	partial	decomp:re/decomp/1430f5ec0.c;xref:0x1430f5d89	V4891 better name Game_OnlineTitleConfiguration_OnTitleConfigDownloaded: 350-line handler: domain match, version compare, register new config, failure; first log is one part
+2026-10-31	lb13-verify	func	0x1430f6890	L1	agree	decomp:re/decomp/1430f6890.c;xref:0x1430f00ba	V4892 name/log strings and body consistent
+2026-10-31	lb13-verify	func	0x1430f8110	L1	agree	decomp:re/decomp/1430f8110.c;xref:0x14fe9e5dd	V4893 name/log strings and body consistent
+2026-10-31	lb10-verify	func	0x142d86f00	L1	agree	decomp:re/decomp/142d86f00.c	V4894 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d87a30	L1	agree	decomp:re/decomp/142d87a30.c	V4895 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142d8b5f0	L1	agree	decomp:re/decomp/142d8b5f0.c	V4896 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430f8dc0	L1	partial	decomp:re/decomp/1430f8dc0.c;xref:0x1430f8abe	V4897 better name Game_OnlineTitleConfiguration_EvaluateFilters: 1160-line config filter evaluation (userlist, date_range, platforms, eadp-env, changelist, AB groups); SteamID bit line is one piece
+2026-10-31	lb10-verify	func	0x142d8caa0	L1	agree	decomp:re/decomp/142d8caa0.c	V4898 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x1430384f0	L1	agree	decomp:re/decomp/1430384f0.c;xref:0x1430ec8ff	V4899 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb13-verify	func	0x1430fa9b0	L1	partial	decomp:re/decomp/1430fa9b0.c;xref:0x143099620	V4900 better name Game_Network_ResolveConfigTrackSets: 285 lines: loops config track sets, matches by name, reads track_list.%s.track_title; matched log is one branch
+2026-10-31	lb10-verify	func	0x142d8d1b0	L1	agree	decomp:re/decomp/142d8d1b0.c	V4901 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430fc4e0	L1	agree	decomp:re/decomp/1430fc4e0.c;xref:0x1430fcf0a	V4902 name/log strings and body consistent
+2026-10-31	lb12-verify	func	0x143038620	L1	agree	decomp:re/decomp/143038620.c;xref:0x140bb4cda	V4903 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142d8fcc0	L1	partial	decomp:re/decomp/142d8fcc0.c	V4904 StartLights/HUD-hide/replay-reset session state update (327 lines), skipping-lights is one branch; better Game_Flow_SessionStateStartLights_OnStateUpdate
+2026-10-31	lb13-verify	func	0x1430fc720	L1	partial	decomp:re/decomp/1430fc720.c;xref:0x143070bab	V4905 better name Game_NetworkOSSession_LeaveSession: 253-line leave-session routine (Leaving session / new name logs); new-name log is one part
+2026-10-31	lb12-verify	func	0x1430391f0	L1	partial	decomp:re/decomp/1430391f0.c;xref:0x140fe27ee	V4906 body is GameSessionSeasonDocument::setupFromSavedOnlineChampionship (599 lines; weather seed apply + populateUIData); setRandomSeed only a small part. Better: Game_GameSessionSeasonDocument_SetupFromSavedOnlineChampionship
+2026-10-31	lb10-verify	func	0x142d95990	L1	agree	decomp:re/decomp/142d95990.c	V4907 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430fcf20	L1	partial	decomp:re/decomp/1430fcf20.c;xref:0x1430744ea	V4908 better name Game_NetworkOSSession_OnSessionFetched: 203-line fetch result handler (fetched, found session version, base64 decode); invalid-delegate is one branch
+2026-10-31	lb12-verify	func	0x143039710	L1	agree	decomp:re/decomp/143039710.c;xref:0x140fea9af	V4909 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142d95b90	L1	agree	decomp:re/decomp/142d95b90.c	V4910 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430fd3c0	L1	agree	decomp:re/decomp/1430fd3c0.c;xref:0x1430fe050	V4911 name/log strings and body consistent
+2026-10-31	lb12-verify	func	0x143039ea0	L1	partial	decomp:re/decomp/143039ea0.c;xref:0x14305bb4b	V4912 role change to HOST also rebuilds content IDMAP and enables/disables ContentItems (231 lines). Better: Game_ContentDomainVerifier_OnRoleChangedToHost
+2026-10-31	lb10-verify	func	0x142d96e30	L1	agree	decomp:re/decomp/142d96e30.c;xref:0x14eb410b2	V4913 body, strings and callees match name/description
+2026-10-31	lb13-verify	func	0x1430fd620	L1	agree	decomp:re/decomp/1430fd620.c;xref:0x1430fd5b0	V4914 name/log strings and body consistent
+2026-10-31	lb12-verify	func	0x14303a520	L1	partial	decomp:re/decomp/14303a520.c;xref:0x143039464	V4915 also calls addPlayerConnectionID (mask update) in two branches; handler for connecting to host. Better: Game_ContentDomainVerifier_OnConnectedToHost
+2026-10-31	lb10-verify	func	0x142d9bf60	L1	agree	decomp:re/decomp/142d9bf60.c;xref:0x142dcabb0	V4916 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303a8d0	L1	agree	decomp:re/decomp/14303a8d0.c;xref:0x142fd983e	V4917 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142d9d480	L1	agree	decomp:re/decomp/142d9d480.c;xref:0x142d9d461	V4918 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303abb0	L1	partial	decomp:re/decomp/14303abb0.c;xref:0x143059f88	V4919 1110-line command dispatcher: cmd_Client_ReportLanguage, cmd_Host_ReportDomain, ReportVerified, Peer_ReportItemAvailability; unrecognised code is only default case. Better: Game_ContentDomainVerifier_OnReceiveCommand
+2026-10-31	lb10-verify	func	0x142d9dfe0	L1	partial	decomp:re/decomp/142d9dfe0.c	V4920 photo mode/replay state handler (SetMode, Replay SetState, fade reasons cleared, StopAndNotify), not a config reader; better Game_SessionStatePhotoMode_OnStateEnter
+2026-10-31	lb12-verify	func	0x14303c490	L1	agree	decomp:re/decomp/14303c490.c;xref:0x14303b834	V4921 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142d9f2a0	L1	agree	decomp:re/decomp/142d9f2a0.c;xref:0x142d9efed	V4922 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303c7c0	L1	agree	decomp:re/decomp/14303c7c0.c;xref:0x14303b88a	V4923 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142da0360	L1	partial	decomp:re/decomp/142da0360.c	V4924 photo mode/instant replay state handler (DisplayMessage, ListenerHandle, SubTask deactivate), not a config reader; better Game_SessionStatePhotoMode_OnStateUpdate
+2026-10-31	lb12-verify	func	0x14303cbb0	L1	agree	decomp:re/decomp/14303cbb0.c;xref:0x14303d21e	V4925 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142da21e0	L1	agree	decomp:re/decomp/142da21e0.c	V4926 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303cd40	L1	agree	decomp:re/decomp/14303cd40.c;xref:0x1430603db	V4927 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142da2de0	L1	agree	decomp:re/decomp/142da2de0.c	V4928 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303cf10	L1	agree	decomp:re/decomp/14303cf10.c;xref:0x14305f52c	V4929 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142da3e60	L1	agree	decomp:re/decomp/142da3e60.c	V4930 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14303ea80	L1	agree	decomp:re/decomp/14303ea80.c;xref:0x1430209fb	V4931 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142da44b0	L1	partial	decomp:re/decomp/142da44b0.c;xref:0x152d900ab	V4932 photo mode state handler (FadeClearAllReasons, SubTask deactivate, DisplayMessage), not a config reader; better Game_SessionStatePhotoMode_OnStateExit
+2026-10-31	lb12-verify	func	0x14303f970	L1	agree	decomp:re/decomp/14303f970.c;xref:0x14234d6ed	V4933 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x14303fb80	L1	partial	decomp:re/decomp/14303fb80.c;xref:0x143054e7f	V4934 body is duckBandwidth (32kbit hard stop, DUCK x to y of limit, decay timer reset); first log is just entry. Better: Game_NetworkBandwidth_DuckBandwidth
+2026-10-31	lb10-verify	func	0x142da5da0	L1	agree	decomp:re/decomp/142da5da0.c	V4935 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142da6d10	L1	agree	decomp:re/decomp/142da6d10.c	V4936 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142df4cf0	L1	partial	decomp:re/decomp/142df4cf0.c	V4937 207-line function: fade-out request, loading_location, Story_GetCurrentEvent, session scan; setAllowConstruction log is one part; better Game_GameSurfacePackSystem_UpdateAllowConstruction
+2026-10-31	lb12-verify	func	0x143040470	L1	agree	decomp:re/decomp/143040470.c;xref:0x1421f2aac	V4938 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x1430407e0	L1	partial	decomp:re/decomp/1430407e0.c;xref:0x1436e078c	V4939 computes max voice chat listeners from game mode switch (0x40000 scale, mode cases 4,5,7) and logs the result. Better: Game_Network_ComputeVoiceChatMaxListeners
+2026-10-31	lb10-verify	func	0x142df9cd0	L1	agree	decomp:re/decomp/142df9cd0.c	V4940 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142df9fd0	L1	agree	decomp:re/decomp/142df9fd0.c;xref:0x1425457c9	V4941 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e22c60	L1	agree	decomp:re/decomp/142e22c60.c	V4942 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e232a0	L1	partial	decomp:re/decomp/142e232a0.c;xref:0x1439a329b	V4943 963-line thumbnail task/system update (start generation, pending list cleanup, Unload RTT World, Despawn World); better Game_ThumbnailSystem_UpdateTasks
+2026-10-31	lb10-verify	func	0x142e24b20	L1	partial	decomp:re/decomp/142e24b20.c;xref:0x142e23ef4	V4944 1631-line thumbnail task state machine (Init, InitDelay, WaitingOnFrontendScene, SettingUp, PreloadingTextures, AwaitingMultiSubMaterials...); better Game_ThumbnailTask_Update
+2026-10-31	lb10-verify	func	0x142e2d880	L1	agree	decomp:re/decomp/142e2d880.c;xref:0x140361d6f	V4945 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143040cd0	L1	agree	decomp:re/decomp/143040cd0.c;xref:0x1430596e1	V4946 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143040da0	L1	agree	decomp:re/decomp/143040da0.c;xref:0x1430d182f	V4947 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e2dc20	L1	agree	decomp:re/decomp/142e2dc20.c;xref:0x142e3355c	V4948 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e2e150	L1	agree	decomp:re/decomp/142e2e150.c;xref:0x142e33df5	V4949 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e2e690	L1	agree	decomp:re/decomp/142e2e690.c;xref:0x142e368eb	V4950 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e2f010	L1	agree	decomp:re/decomp/142e2f010.c;xref:0x14d28b140	V4951 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x1430538b0	L1	agree	decomp:re/decomp/1430538b0.c;xref:0x14bfdf230	V4952 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143053a50	L1	agree	decomp:re/decomp/143053a50.c;xref:0x1414e02c7	V4953 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e30a60	L1	partial	decomp:re/decomp/142e30a60.c;xref:0x1415981ce	V4954 758-line driver thumbnail request (pose setting, customisation lookup, textures, queues pending driver thumbs); better Game_UIThumbnailSystem_RequestDriverThumbnail
+2026-10-31	lb12-verify	func	0x143053e90	L1	agree	decomp:re/decomp/143053e90.c;xref:0x143054234	V4955 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143054030	L1	agree	decomp:re/decomp/143054030.c;xref:0x143058b8a	V4956 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143056460	L1	agree	decomp:re/decomp/143056460.c;xref:0x143054964	V4957 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e31e50	L1	agree	decomp:re/decomp/142e31e50.c;xref:0x142e31863	V4958 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e36d60	L1	agree	decomp:re/decomp/142e36d60.c;xref:0x14203920f	V4959 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e37a00	L1	partial	decomp:re/decomp/142e37a00.c;xref:0x14187efc7	V4960 handles both generation and REgeneration of custom object thumbnails (573 lines); better Game_ThumbnailSystem_AddPendingCustomObjectThumbnail
+2026-10-31	lb12-verify	func	0x1430568f0	L1	agree	decomp:re/decomp/1430568f0.c;xref:0x142754458	V4961 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143056c90	L1	agree	decomp:re/decomp/143056c90.c;xref:0x143056b2e	V4962 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143057720	L1	agree	decomp:re/decomp/143057720.c;xref:0x14305697d	V4963 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e3a7f0	L1	partial	decomp:re/decomp/142e3a7f0.c;xref:0x14f346257	V4964 442-line RTT task complete handler (Single/Dynamic modes, hash map, cleanup); better Game_ThumbnailTask_OnRTTTaskComplete
+2026-10-31	lb12-verify	func	0x143058580	L1	agree	decomp:re/decomp/143058580.c;xref:0x143056ba7	V4965 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143058640	L1	agree	decomp:re/decomp/143058640.c;xref:0x143056b59	V4966 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e3dfa0	L1	agree	decomp:re/decomp/142e3dfa0.c;xref:0x142c44eb7	V4967 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e3efe0	L1	agree	decomp:re/decomp/142e3efe0.c	V4968 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e4c640	L1	partial	decomp:re/decomp/142e4c640.c;xref:0x142e5b8fe	V4969 7437-line track database loader (tracks table: fileName, gp_long_name, weather, aero_bias, crowd colours, TrackManager Adding track); ERSSettings keys are only part; better Game_Load_TrackDatabase
+2026-10-31	lb12-verify	func	0x14305a460	L1	agree	decomp:re/decomp/14305a460.c;xref:0x143056b4a	V4970 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e65060	L1	agree	decomp:re/decomp/142e65060.c;xref:0x1419fc4bd	V4971 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e65a10	L1	agree	decomp:re/decomp/142e65a10.c;xref:0x141d1eb25	V4972 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14305a660	L1	agree	decomp:re/decomp/14305a660.c;xref:0x143056b68	V4973 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e65c60	L1	agree	decomp:re/decomp/142e65c60.c;xref:0x1419e34e4	V4974 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e66380	L1	agree	decomp:re/decomp/142e66380.c;xref:0x142e65d4a	V4975 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14305af60	L1	disagree	decomp:re/decomp/14305af60.c;xref:0x143056b98	V4976 772 lines = GameSessionManager::onHostMigrationComplete (result log, leave(), privacy from attribs, openDocument, hostMigrated); session token log only a sub-step. Better: Game_GameSessionManager_OnHostMigrationComplete
+2026-10-31	lb10-verify	func	0x142e66a80	L1	agree	decomp:re/decomp/142e66a80.c;xref:0x142e662fc	V4977 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e66b50	L1	agree	decomp:re/decomp/142e66b50.c;xref:0x1419e40c7	V4978 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e67670	L1	agree	decomp:re/decomp/142e67670.c;xref:0x1419e481d	V4979 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14305c0e0	L1	agree	decomp:re/decomp/14305c0e0.c;xref:0x1430e579e	V4980 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x1430605c0	L1	agree	decomp:re/decomp/1430605c0.c;xref:0x140996fbb	V4981 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143060800	L1	agree	decomp:re/decomp/143060800.c;xref:0x1430e57c3	V4982 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e67b40	L1	agree	decomp:re/decomp/142e67b40.c;xref:0x1419e3ab6	V4983 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143060be0	L1	agree	decomp:re/decomp/143060be0.c;xref:0x140996e0e	V4984 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143060fb0	L1	agree	decomp:re/decomp/143060fb0.c;xref:0x143058458	V4985 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e67d80	L1	agree	decomp:re/decomp/142e67d80.c;xref:0x1419e48f2	V4986 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e689c0	L1	agree	decomp:re/decomp/142e689c0.c;xref:0x14199fe49	V4987 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e699f0	L1	agree	decomp:re/decomp/142e699f0.c;xref:0x142e6915b	V4988 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143061160	L1	agree	decomp:re/decomp/143061160.c;xref:0x141dbc5dc	V4989 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e6d7b0	L1	agree	decomp:re/decomp/142e6d7b0.c;xref:0x141f2f229	V4990 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e83130	L1	agree	decomp:re/decomp/142e83130.c;xref:0x140239e0f	V4991 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143061360	L1	agree	decomp:re/decomp/143061360.c;xref:0x143164807	V4992 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143061550	L1	agree	decomp:re/decomp/143061550.c;xref:0x140997b41	V4993 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143061670	L1	agree	decomp:re/decomp/143061670.c;xref:0x140bb4958	V4994 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e87ab0	L1	agree	decomp:re/decomp/142e87ab0.c;xref:0x140239ebd	V4995 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143061c20	L1	agree	decomp:re/decomp/143061c20.c;xref:0x1430568db	V4996 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143062140	L1	agree	decomp:re/decomp/143062140.c;xref:0x143056eb9	V4997 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e88290	L1	agree	decomp:re/decomp/142e88290.c;xref:0x1409fef58	V4998 verified: uniform mode (+0x90>=0, scale +0x60^+0x68, offset +0x70^+0x78, 16B samples +0x98 ^ +0xa0) and point mode (32B points, x=+0^+8,y=+0x10^+0x18) match decomp
+2026-10-31	lb12-verify	func	0x143062630	L1	partial	decomp:re/decomp/143062630.c;xref:0x1406d1d8c	V4999 412-line displayMessage UI message open/close (priority) + current_description setup. Better: Game_Network_DisplayUIMessage
+2026-10-31	lb12-verify	func	0x143062f90	L1	agree	decomp:re/decomp/143062f90.c;xref:0x14305efd8	V5000 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e88c30	L1	partial	decomp:re/decomp/142e88c30.c;xref:0x142e8dcea	V5001 full TyreSet serialiser (recommendedSession, damaged, mandatory, per-wheel wear/blistering/punctured, end), not just start; better Car_TyreSet_Serialise
+2026-10-31	lb10-verify	func	0x142e8cd70	L1	agree	decomp:re/decomp/142e8cd70.c;xref:0x140bcbd87	V5002 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e8da20	L1	agree	decomp:re/decomp/142e8da20.c;xref:0x140bd1685	V5003 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e8deb0	L1	agree	decomp:re/decomp/142e8deb0.c;xref:0x140bd196d	V5004 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e900e0	L1	agree	decomp:re/decomp/142e900e0.c;xref:0x143a100db	V5005 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e917a0	L1	agree	decomp:re/decomp/142e917a0.c	V5006 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e94040	L1	agree	decomp:re/decomp/142e94040.c;xref:0x1403c8dd3	V5007 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143064410	L1	agree	decomp:re/decomp/143064410.c;xref:0x143059847	V5008 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x1430647a0	L1	agree	decomp:re/decomp/1430647a0.c;xref:0x1430838e6	V5009 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e96390	L1	agree	decomp:re/decomp/142e96390.c;xref:0x140239de7	V5010 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143065250	L1	partial	decomp:re/decomp/143065250.c;xref:0x141a99b1d	V5011 NetworkSubsystem::setupGameSession (matching context) + setSingleWeekendSession + closeDocument, 267 lines; Single Session log only part. Better: Game_NetworkSubsystem_SetupGameSession
+2026-10-31	lb12-verify	func	0x143066600	L1	agree	decomp:re/decomp/143066600.c;xref:0x14305a3fc	V5012 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142e97060	L1	agree	decomp:re/decomp/142e97060.c;xref:0x1434ccff4	V5013 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e97670	L1	agree	decomp:re/decomp/142e97670.c;xref:0x1403b8e6a	V5014 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142e9eda0	L1	agree	decomp:re/decomp/142e9eda0.c;xref:0x142e9425a	V5015 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143066a00	L1	partial	decomp:re/decomp/143066a00.c;xref:0x143059971	V5016 receive voice data handler (player ix lookup, two log variants). Better: Game_NetworkData_OnReceiveVoiceData
+2026-10-31	lb12-verify	func	0x143066c60	L1	partial	decomp:re/decomp/143066c60.c;xref:0x143059acb	V5017 handleComponentMessage (236 lines, per-component dispatch, ok log); empty buffer is one guard. Better: Game_Network_HandleComponentMessage
+2026-10-31	lb12-verify	func	0x143067220	L1	partial	decomp:re/decomp/143067220.c;xref:0x143067208	V5018 real function is GameSessionManager::addToBanList(connectionId) per pretty string. Better: Game_GameSessionManager_AddToBanList
+2026-10-31	lb10-verify	func	0x142ea1180	L1	agree	decomp:re/decomp/142ea1180.c	V5019 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ea2300	L1	agree	decomp:re/decomp/142ea2300.c;xref:0x142e946b7	V5020 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ea3ba0	L1	agree	decomp:re/decomp/142ea3ba0.c;xref:0x142ea336b	V5021 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143067d40	L1	partial	decomp:re/decomp/143067d40.c;xref:0x140bb4d39	V5022 536 lines: GameSessionSeasonDocument::openDocument(bool) + entrants document open/close + lobby reset. Better: Game_GameSessionSeasonDocument_OpenDocument
+2026-10-31	lb10-verify	func	0x142ea3d60	L1	agree	decomp:re/decomp/142ea3d60.c;xref:0x142ea35b6	V5023 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ea3df0	L1	agree	decomp:re/decomp/142ea3df0.c;xref:0x142ea37f6	V5024 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143068ce0	L1	agree	decomp:re/decomp/143068ce0.c;xref:0x1430d190c	V5025 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142ea4410	L1	partial	decomp:re/decomp/142ea4410.c;xref:0x142ea3351	V5026 688-line EndRaceUiSequencer state update (state changes, victory VO, driver of the day); log is one branch; better Game_EndRaceUiSequencer_Update
+2026-10-31	lb10-verify	func	0x142ea5630	L1	agree	decomp:re/decomp/142ea5630.c;xref:0x142daad03	V5027 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x143069a80	L1	agree	decomp:re/decomp/143069a80.c;xref:0x143069934	V5028 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142ea5800	L1	agree	decomp:re/decomp/142ea5800.c;xref:0x142dabaa1	V5029 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ea66d0	L1	agree	decomp:re/decomp/142ea66d0.c;xref:0x142eabbcc	V5030 verified +0 type, +0xa4 statId, +0xa0 djb2 (seed 0x1505) of sprintf %s%s, type-name table 0x14565bd48 (idx0x18 eSELivery)
+2026-10-31	lb12-verify	func	0x14306dc50	L1	agree	decomp:re/decomp/14306dc50.c;xref:0x1430651bf	V5031 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142ead3f0	L1	agree	decomp:re/decomp/142ead3f0.c;xref:0x142eab33f	V5032 verified unlockable_se_livery block 0x142ebd9ea..0x142ebdb1a, 0x130 item, [1]=owner,[2]=ec8fc0, key init type 0x18; type names match table
+2026-10-31	lb10-verify	func	0x142ec2c80	L1	agree	decomp:re/decomp/142ec2c80.c;xref:0x142eab360	V5033 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x14306f4d0	L1	agree	decomp:re/decomp/14306f4d0.c;xref:0x1430ad6a2	V5034 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x14306f770	L1	partial	decomp:re/decomp/14306f770.c;xref:0x14306f5a6	V5035 body is GameSessionMatchingCareer::onCareerSearchComplete (742 lines: dev code/matchingContext/careerId filters, best session). Better: Career_GameSessionMatchingCareer_OnCareerSearchComplete
+2026-10-31	lb12-verify	func	0x143070a80	L1	agree	decomp:re/decomp/143070a80.c;xref:0x14306f727	V5036 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143070f40	L1	agree	decomp:re/decomp/143070f40.c;xref:0x14306f74c	V5037 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb10-verify	func	0x142ec6100	L1	agree	decomp:re/decomp/142ec6100.c	V5038 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ec8eb0	L1	agree	decomp:re/decomp/142ec8eb0.c;xref:0x142a7ffff	V5039 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142ec9600	L1	agree	decomp:re/decomp/142ec9600.c;xref:0x142eaab8a	V5040 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x1430717b0	L1	partial	decomp:re/decomp/1430717b0.c;xref:0x143166a27	V5041 pretty string is GameSessionMatchingCareer::createSession (96 lines). Better: Career_GameSessionMatchingCareer_CreateSession
+2026-10-31	lb10-verify	func	0x142eca1e0	L1	agree	decomp:re/decomp/142eca1e0.c;xref:0x142eca410	V5042 body, strings and callees match name/description
+2026-10-31	lb10-verify	func	0x142eca470	L1	agree	decomp:re/decomp/142eca470.c;xref:0x142ec3c3c	V5043 body, strings and callees match name/description
+2026-10-31	lb12-verify	func	0x1430727e0	L1	partial	decomp:re/decomp/1430727e0.c;xref:0x143072c88	V5044 GameSessionMatchingCareer::onJoinSessionComplete (success log, retry delay on missing career session, notifyJoinCareerSessionResult). Better: Career_GameSessionMatchingCareer_OnJoinSessionComplete
+2026-10-31	lb12-verify	func	0x143072ea0	L1	partial	decomp:re/decomp/143072ea0.c;xref:0x1430709ad	V5045 GameSessionMatchingCareer::joinOrCreateByInviteManager; no-career-data is the guard branch. Better: Career_GameSessionMatchingCareer_JoinOrCreateByInviteManager
+2026-10-31	lb12-verify	func	0x143073200	L1	agree	decomp:re/decomp/143073200.c;xref:0x14081158e	V5046 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f0c900	L1	agree	decomp:re/decomp/142f0c900.c;xref:0x142d5ec4e	V5047 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f0f2a0	L1	partial	decomp:re/decomp/142f0f2a0.c;xref:0x1413ee310	V5048 510-line per-frame loop over rolling-start vehicles (MOX/OSQ lights); out-of-range log is one branch; better Game_RollingStartSystem_UpdateLights
+2026-10-31	lb10-verify	func	0x142f07750	L1	agree	decomp:re/decomp/142f07750.c;xref:0x142ef75c7	V5049 body, strings and callees match name/description
+2026-10-31	lb11-verify	func	0x142f11ad0	L1	agree	decomp:re/decomp/142f11ad0.c;xref:0x142f0dab6	V5050 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143073ca0	L1	partial	decomp:re/decomp/143073ca0.c;xref:0x143070a00	V5051 GameSessionMatchingCareer::onGetSessionsComplete (fail/END, found valid session retry, setupRetryJoinSession). Better: Career_GameSessionMatchingCareer_OnGetSessionsComplete
+2026-10-31	lb10-verify	func	0x142f09c20	L1	partial	decomp:re/decomp/142f09c20.c	V5052 706-line vehicle progress message handler (handleVehicleProgressMessage, migrate local/remote authority, netDelta); remove-cached-sector is one log; better Game_VehicleProgressSystem_HandleVehicleProgressMessage
+2026-10-31	lb11-verify	func	0x142f11c40	L1	agree	decomp:re/decomp/142f11c40.c;xref:0x142f0dcf6	V5053 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143074e10	L1	partial	decomp:re/decomp/143074e10.c;xref:0x143051288	V5054 GameSessionMatchingCareer::onCareerMembersRetrieved (error branch + setupRetryJoinSession). Better: Career_GameSessionMatchingCareer_OnCareerMembersRetrieved
+2026-10-31	lb10-verify	func	0x142f0b5c0	L1	agree	decomp:re/decomp/142f0b5c0.c;xref:0x142f07b74	V5055 body, strings and callees match name/description
+2026-10-31	lb11-verify	func	0x142f11ed0	L1	agree	decomp:re/decomp/142f11ed0.c;xref:0x142f0df36	V5056 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x1430750b0	L1	partial	decomp:re/decomp/1430750b0.c;xref:0x1430e3f6c	V5057 GameSessionMatchingCareer::onRegisterLobby (fail no-retry / retry delay / join lobby succeed). Better: Career_GameSessionMatchingCareer_OnRegisterLobby
+2026-10-31	lb10-verify	func	0x142f0c150	L1	agree	decomp:re/decomp/142f0c150.c;xref:0x142f086b6	V5058 body, strings and callees match name/description
+2026-10-31	lb11-verify	func	0x142f12750	L1	partial	decomp:re/decomp/142f12750.c	V5059 425-line anchor-node binding (anchor node logs, replay post-deserialisation message) with blacklist as a part; better Game_ActorNodeMat_BindAnchorsOnReplayDeserialise
+2026-10-31	lb12-verify	func	0x143075440	L1	partial	decomp:re/decomp/143075440.c;xref:0x1430e3f94	V5060 664 lines: publish session to OS service (encode session, CLIENT/HOST, ip fmt); request log is only start. Better: Game_NetworkOSSession_PublishSession
+2026-10-31	lb10-verify	func	0x142f0c6a0	L1	agree	decomp:re/decomp/142f0c6a0.c;xref:0x14292a7dc	V5061 body, strings and callees match name/description
+2026-10-31	lb11-verify	func	0x142f13de0	L1	agree	decomp:re/decomp/142f13de0.c;xref:0x142f1b58d	V5062 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143076510	L1	agree	decomp:re/decomp/143076510.c;xref:0x1430623da	V5063 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f146b0	L1	agree	decomp:re/decomp/142f146b0.c;xref:0x142bf047d	V5065 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x1430766c0	L1	agree	decomp:re/decomp/1430766c0.c;xref:0x1430765db	V5066 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f15ce0	L1	partial	decomp:re/decomp/142f15ce0.c;xref:0x142f1584a	V5068 Not an Update: rebuilds per-vehicle 0x70-byte slot table (count +0xc20) then copies max punctures +0xf74 and logs; better Car_TyreDamageMonitor_RebuildVehicleSlots
+2026-10-31	lb12-verify	func	0x143076d10	L1	agree	decomp:re/decomp/143076d10.c;xref:0x1422252d9	V5069 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f17170	L1	agree	decomp:re/decomp/142f17170.c;xref:0x142694ce7	V5071 verified switch 0..10, rear wing mean of bl/br/third part; wheel/front cases not individually decoded
+2026-10-31	lb12-verify	func	0x143076eb0	L1	agree	decomp:re/decomp/143076eb0.c;xref:0x143076dba	V5072 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f19ad0	L1	agree	decomp:re/decomp/142f19ad0.c;xref:0x142f1ac74	V5074 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x14307b1f0	L1	agree	decomp:re/decomp/14307b1f0.c;xref:0x143076dd7	V5075 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f1a700	L1	agree	decomp:re/decomp/142f1a700.c	V5079 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x14307b3b0	L1	agree	decomp:re/decomp/14307b3b0.c;xref:0x143076df4	V5081 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f1b010	L1	agree	decomp:re/decomp/142f1b010.c;xref:0x14b8b8c07	V5083 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f1b2b0	L1	partial	decomp:re/decomp/142f1b2b0.c	V5084 Per-vehicle impact handler: accumulates impulse (+0x44), lazily registers callback 0x142f13de0 once, then runs damage maths (275 lines); better Car_CarbonDamage_OnVehicleImpact
+2026-10-31	lb12-verify	func	0x14307bb20	L1	agree	decomp:re/decomp/14307bb20.c;xref:0x143065371	V5085 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f1be60	L1	agree	decomp:re/decomp/142f1be60.c;xref:0x1407c38e6	V5086 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f1c000	L1	agree	decomp:re/decomp/142f1c000.c;xref:0x142afde21	V5088 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x14307c000	L1	agree	decomp:re/decomp/14307c000.c;xref:0x1430aeb17	V5089 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x14307c2c0	L1	partial	decomp:re/decomp/14307c2c0.c;xref:0x14307c2a1	V5090 879 lines = GameSessionMatchingF1WSocialGP::onSearchSessionComplete (filters devCode/eventId/players/banned, best session join). Better: Game_GameSessionMatchingF1WSocialGP_OnSearchSessionComplete
+2026-10-31	lb12-verify	func	0x14307d7b0	L1	agree	decomp:re/decomp/14307d7b0.c;xref:0x14307c288	V5092 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f1cb00	L1	partial	decomp:re/decomp/142f1cb00.c;xref:0x142f1bf5d	V5093 Computes/logs (checkCollisions pretty name) two out-flags, does not set anything; better Game_VehicleGhostComponent_CheckCollisions
+2026-10-31	lb12-verify	func	0x14307dc70	L1	partial	decomp:re/decomp/14307dc70.c;xref:0x14307e3a3	V5094 GameSessionMatchingF1WSocialGP::onJoinSessionComplete (+setupRetryJoinSession, notifyJoinDelegate); joining-failed is one branch. Better: Game_GameSessionMatchingF1WSocialGP_OnJoinSessionComplete
+2026-10-31	lb11-verify	func	0x142f1e340	L1	agree	decomp:re/decomp/142f1e340.c;xref:0x142d67a90	V5097 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x14307f900	L1	agree	decomp:re/decomp/14307f900.c;xref:0x14306130b	V5099 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f27870	L1	agree	decomp:re/decomp/142f27870.c;xref:0x143b0f15c	V5101 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f2a0d0	L1	partial	decomp:re/decomp/142f2a0d0.c;xref:0x142f2d185	V5102 Per-frame vehicle component update of corner time list (+0x9cc8..+0x9d38, posts messages); impossible-speed log is only the delta<=0 branch; better Car_Component_UpdateCornerTimes
+2026-10-31	lb12-verify	func	0x14307fbd0	L1	agree	decomp:re/decomp/14307fbd0.c;xref:0x143061328	V5103 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f2fee0	L1	agree	decomp:re/decomp/142f2fee0.c	V5104 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x14307fd70	L1	agree	decomp:re/decomp/14307fd70.c;xref:0x1430afd9d	V5107 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f327a0	L1	agree	decomp:re/decomp/142f327a0.c	V5109 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f32ee0	L1	agree	decomp:re/decomp/142f32ee0.c;xref:0x142f31cac	V5110 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f33d80	L1	agree	decomp:re/decomp/142f33d80.c;xref:0x141c318f7	V5111 verified switch cases 1,2,5,7, flag 0x20 at +0x32, remember +0x40..43, names table
+2026-10-31	lb11-verify	func	0x142f39bf0	L1	partial	decomp:re/decomp/142f39bf0.c;xref:0x1428b0e5f	V5113 Initialises/copies a spawn request object (stores fields, decals and livery info, logs) rather than handling an event; better Game_VehicleSpawnRequest_Init
+2026-10-31	lb11-verify	func	0x142f3a5d0	L1	agree	decomp:re/decomp/142f3a5d0.c	V5114 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f3aef0	L1	agree	decomp:re/decomp/142f3aef0.c;xref:0x14f7ed81e	V5115 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f3b410	L1	agree	decomp:re/decomp/142f3b410.c;xref:0x14bab8fd7	V5119 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f3d970	L1	agree	decomp:re/decomp/142f3d970.c;xref:0x142f3afd8	V5120 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f3dc90	L1	partial	decomp:re/decomp/142f3dc90.c;xref:0x142f3c1ff	V5121 Wrong channel/prefix: logs are VEHICLE_SPAWNING_SYSTEM (CUSTOMISATION_DECALS only one inner log); it is the spawning post-creation callback attaching decal generation service; better Game_VehicleSpawning_ObjectPostCreation
+2026-10-31	lb11-verify	func	0x142f3e200	L1	agree	decomp:re/decomp/142f3e200.c;xref:0x142f3c216	V5125 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f3e7c0	L1	agree	decomp:re/decomp/142f3e7c0.c;xref:0x142f3c22d	V5126 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f47480	L1	partial	decomp:re/decomp/142f47480.c;xref:0x142d9128e	V5127 Mostly right (defaults 5.0/0.5+0.0001, msg 0x1457c9270) but state 5 does not skip: it only clears flag byte +0x11, object still created and appended to list; time-scale check uses [[+0x28]+0x88]+0x260 not +0x38
+2026-10-31	lb11-verify	func	0x142f47710	L1	agree	decomp:re/decomp/142f47710.c	V5131 verified formula and 10.0 fallback, vtable slot +0x8
+2026-10-31	lb12-verify	func	0x1430833b0	L1	agree	decomp:re/decomp/1430833b0.c;xref:0x1432eaa64	V5133 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143083570	L1	partial	decomp:re/decomp/143083570.c;xref:0x14148407c	V5136 declareActivePresence (evaluateActivePresence NULL / unchanged / changed). Better: Game_NetworkSession_DeclareActivePresence
+2026-10-31	lb12-verify	func	0x1430837c0	L1	partial	decomp:re/decomp/1430837c0.c;xref:0x14308203f	V5137 HopperCommon::onSessionJoinComplete (join result, enter result, entered/failed->evaluate next game, changeState). Better: Game_GameSessionMatchingHopperCommon_OnSessionJoinComplete
+2026-10-31	lb11-verify	func	0x142f47780	L1	agree	decomp:re/decomp/142f47780.c	V5138 verified lerp/clamp/wet terms
+2026-10-31	lb12-verify	func	0x143083c40	L1	agree	decomp:re/decomp/143083c40.c;xref:0x14308149d	V5139 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143086410	L1	agree	decomp:re/decomp/143086410.c;xref:0x143083adf	V5140 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143087000	L1	agree	decomp:re/decomp/143087000.c;xref:0x142226406	V5142 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f478a0	L1	agree	decomp:re/decomp/142f478a0.c;xref:0x142f0a217	V5143 verified +0xfa0->+0x294, 1.0 default; consumer HV>=100 cmp at 0x1446dd40c and call [vt+0x20] at 0x1446b7efb seen
+2026-10-31	lb12-verify	func	0x143087650	L1	agree	decomp:re/decomp/143087650.c;xref:0x142226781	V5144 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143087780	L1	agree	decomp:re/decomp/143087780.c;xref:0x14308772d	V5145 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f49e20	L1	agree	decomp:re/decomp/142f49e20.c;xref:0x142f49972	V5146 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143088010	L1	partial	decomp:re/decomp/143088010.c;xref:0x143087778	V5147 MatchingProcessor state setter: logs already-%s or from/to, stores state byte, QPC timestamp (5 callers). Better: Game_MatchingProcessor_SetState
+2026-10-31	lb12-verify	func	0x143088100	L1	agree	decomp:re/decomp/143088100.c;xref:0x1430e4da1	V5149 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143088270	L1	agree	decomp:re/decomp/143088270.c;xref:0x143088184	V5150 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f4ba40	L1	agree	decomp:re/decomp/142f4ba40.c	V5153 verified 5 subscriptions and handler addrs, entry layout
+2026-10-31	lb12-verify	func	0x143088370	L1	agree	decomp:re/decomp/143088370.c;xref:0x1409fc5e9	V5155 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f4ec50	L1	partial	decomp:re/decomp/142f4ec50.c;xref:0x142f4bae8	V5157 +0x100 is not constant 1: +0x100/+0x109 = table145803cd0[session type] (default 1); +0x109 forced 1 at end; per-car reset sets +0x18=1 or +0x30=1 by session type 15-17; better Game_VehicleAntiStallSystem_OnRaceStarted ok but note details
+2026-10-31	lb11-verify	func	0x142f4eed0	L1	partial	decomp:re/decomp/142f4eed0.c;xref:0x142f4bf76	V5158 Not same as LeftGarage: handles ONE vehicle id (msg+0x10), sets +0x18 to obfuscated non-zero value, +0x30=1, warns on out-of-range id (onRollingStartBegin); better Game_VehicleAntiStallSystem_OnRollingStartBegin
+2026-10-31	lb12-verify	func	0x143089300	L1	agree	decomp:re/decomp/143089300.c;xref:0x14bbf8213	V5159 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb12-verify	func	0x143089620	L1	agree	decomp:re/decomp/143089620.c;xref:0x14308960c	V5160 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f5bb50	L1	agree	decomp:re/decomp/142f5bb50.c;xref:0x142f5c4bf	V5163 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143089ea0	L1	agree	decomp:re/decomp/143089ea0.c;xref:0x143089c5a	V5165 name matches own log/pretty string and body; no broader behaviour found
+2026-10-31	lb11-verify	func	0x142f61640	L1	partial	decomp:re/decomp/142f61640.c	V5168 267-line system setup: looks up ~8 systems into +0x938..+0x978, registers handlers, calls grid config readers 0x142f62120 etc; not just a config read; better Game_VehiclePlacementSystem_Connect
+2026-10-31	lb11-verify	func	0x142f61e70	L1	agree	decomp:re/decomp/142f61e70.c;xref:0x142f6190f	V5169 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f62120	L1	agree	decomp:re/decomp/142f62120.c;xref:0x142f619c2	V5170 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f651f0	L1	partial	decomp:re/decomp/142f651f0.c;xref:0x14faab7ae	V5172 Is a constructor (8 params, seeds RNG state 0x12345678 mt table, init fields) with reset log only at the end; better Game_GlobalProgressData_Construct
+2026-10-31	lb11-verify	func	0x142f69b80	L1	agree	decomp:re/decomp/142f69b80.c;xref:0x142f69047	V5173 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f6a010	L1	partial	decomp:re/decomp/142f6a010.c;xref:0x142f69482	V5174 Computes a random variance float (min/max + event variance, human_difficulty_modifier) not just one log; better Game_VirtualSession_ComputeRandomVariance
+2026-10-31	lb11-verify	func	0x142f6b170	L1	partial	decomp:re/decomp/142f6b170.c;xref:0x142f662cb	V5176 839 lines: whole virtual lap completion (mass, wear, speed trap, lap time); better Game_VirtualSessionEntrant_CompleteVirtualLap
+2026-10-31	lb11-verify	func	0x142f714d0	L1	agree	decomp:re/decomp/142f714d0.c;xref:0x1416bcc63	V5177 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f71790	L1	partial	decomp:re/decomp/142f71790.c;xref:0x14ac53f94	V5178 1322-line virtual entrant update (speed trap, progress, laps), partial laps is a small part; better Game_VirtualSessionEntrant_UpdateVirtualProgress
+2026-10-31	lb11-verify	func	0x142f748e0	L1	partial	decomp:re/decomp/142f748e0.c;xref:0x142f79668	V5179 838-line UI data-binding builder for voice commands (command_list, current_command, strategy reason), not a config read; better Game_VoiceCommands_UpdateUiData
+2026-10-31	lb11-verify	func	0x142f75d00	L1	agree	decomp:re/decomp/142f75d00.c;xref:0x142f7d5f8	V5180 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f781e0	L1	agree	decomp:re/decomp/142f781e0.c;xref:0x142f7dd01	V5181 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f79fe0	L1	agree	decomp:re/decomp/142f79fe0.c;xref:0x142077b47	V5182 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f7a6b0	L1	agree	decomp:re/decomp/142f7a6b0.c;xref:0x142f7993f	V5183 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143040b70	L1	agree	decomp:re/decomp/143040b70.c	V5184 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb12-verify	func	0x143040c20	L1	agree	decomp:re/decomp/143040c20.c	V5185 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f7b940	L1	agree	decomp:re/decomp/142f7b940.c	V5186 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143053710	L1	agree	decomp:re/decomp/143053710.c	V5187 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f7eab0	L1	agree	decomp:re/decomp/142f7eab0.c;xref:0x142f79f54	V5188 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f7f3c0	L1	agree	decomp:re/decomp/142f7f3c0.c;xref:0x142f79f5c	V5189 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x1430637a0	L1	agree	decomp:re/decomp/1430637a0.c	V5190 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb12-verify	func	0x143063ef0	L1	agree	decomp:re/decomp/143063ef0.c	V5191 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb12-verify	func	0x14307ff90	L1	agree	decomp:re/decomp/14307ff90.c	V5192 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f7f7b0	L1	agree	decomp:re/decomp/142f7f7b0.c	V5193 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143080f10	L1	agree	decomp:re/decomp/143080f10.c	V5194 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb12-verify	func	0x143081060	L1	agree	decomp:re/decomp/143081060.c	V5195 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f814d0	L1	agree	decomp:re/decomp/142f814d0.c;xref:0x14fae4ca0	V5196 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f84fe0	L1	agree	decomp:re/decomp/142f84fe0.c;xref:0x142f9959d	V5197 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f85a30	L1	agree	decomp:re/decomp/142f85a30.c;xref:0x142f995b4	V5198 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143081160	L1	partial	decomp:re/decomp/143081160.c	V5199 951 lines HopperCommon state machine: findGame/quickfindGame/joinGame/createGame/updateSearch/updateJoin + changeState; quick-search log is one branch. Better: Game_GameSessionMatchingHopperCommon_Update [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f860d0	L1	agree	decomp:re/decomp/142f860d0.c;xref:0x142f9960c	V5200 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f86210	L1	agree	decomp:re/decomp/142f86210.c;xref:0x142f8614b	V5201 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143082ae0	L1	partial	decomp:re/decomp/143082ae0.c	V5202 359 lines: HopperCommon::cancel of previous op + changeState to SearchRequested + platformSearch log (no direct callers, vtable). Better: Game_GameSessionMatchingHopperCommon_StartSearch [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f868f0	L1	agree	decomp:re/decomp/142f868f0.c;xref:0x142f9967b	V5203 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f869f0	L1	agree	decomp:re/decomp/142f869f0.c;xref:0x142f99692	V5204 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f86eb0	L1	agree	decomp:re/decomp/142f86eb0.c;xref:0x142f996f1	V5205 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f86fc0	L1	agree	decomp:re/decomp/142f86fc0.c;xref:0x142f99708	V5206 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f87530	L1	agree	decomp:re/decomp/142f87530.c;xref:0x142f5b331	V5207 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f88450	L1	agree	decomp:re/decomp/142f88450.c;xref:0x142f9c324	V5208 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f89530	L1	agree	decomp:re/decomp/142f89530.c;xref:0x142f9c4d5	V5209 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f89c70	L1	agree	decomp:re/decomp/142f89c70.c;xref:0x142f86d14	V5210 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f89ef0	L1	partial	decomp:re/decomp/142f89ef0.c;xref:0x142f86d2a	V5211 Function-name string is evaluateRivalEnumerator; better Game_Ghostlaps_EvaluateRivalEnumerator
+2026-10-31	lb11-verify	func	0x142f8a730	L1	agree	decomp:re/decomp/142f8a730.c;xref:0x142f8ad2b	V5212 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f8ac70	L1	partial	decomp:re/decomp/142f8ac70.c;xref:0x1407e2ab9	V5213 Own function-name string is readTelemetryHeader (reads header, validates, applies); better Game_GhostLap_ReadTelemetryHeader
+2026-10-31	lb11-verify	func	0x142f8afc0	L1	agree	decomp:re/decomp/142f8afc0.c;xref:0x1414b52f6	V5214 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f8bbc0	L1	agree	decomp:re/decomp/142f8bbc0.c;xref:0x142f97fca	V5215 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f8bd90	L1	agree	decomp:re/decomp/142f8bd90.c;xref:0x142f97f5b	V5216 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f8d030	L1	agree	decomp:re/decomp/142f8d030.c;xref:0x142f9cd35	V5217 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f8f3c0	L1	agree	decomp:re/decomp/142f8f3c0.c;xref:0x142f8dc8b	V5218 name/log strings and body scale match
+2026-10-31	lb12-verify	func	0x143089810	L1	partial	decomp:re/decomp/143089810.c	V5219 GameSessionMigrationManager::onHostMigrated + setPeerStatus; election time log is one part. Better: Game_GameSessionMigrationManager_OnHostMigrated [vtable/indirect]
+2026-10-31	lb12-verify	func	0x14308a590	L1	agree	decomp:re/decomp/14308a590.c	V5220 name matches own log/pretty string and body; no broader behaviour found [vtable/indirect]
+2026-10-31	lb11-verify	func	0x142f8fd40	L1	agree	decomp:re/decomp/142f8fd40.c;xref:0x1407f1096	V5221 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f940b0	L1	agree	decomp:re/decomp/142f940b0.c;xref:0x142f96232	V5222 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f9eef0	L1	agree	decomp:re/decomp/142f9eef0.c;xref:0x142f9edf9	V5223 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f9efb0	L1	agree	decomp:re/decomp/142f9efb0.c;xref:0x142f9c00a	V5224 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fa31e0	L1	agree	decomp:re/decomp/142fa31e0.c;xref:0x142f98c89	V5225 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fa53c0	L1	agree	decomp:re/decomp/142fa53c0.c;xref:0x142f9ae66	V5226 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fa65f0	L1	partial	decomp:re/decomp/142fa65f0.c;xref:0x142fa4481	V5227 Completion handler (success/failure, fn name onRemoteStorageUpload), not the upload; better Game_GhostLaps_OnRemoteStorageUpload
+2026-10-31	lb11-verify	func	0x142fa7190	L1	partial	decomp:re/decomp/142fa7190.c;xref:0x142fa1488	V5228 Completion handler (fn name onLeaderboardEntryWrite); better Game_GhostLaps_OnLeaderboardEntryWrite
+2026-10-31	lb11-verify	func	0x142fa8010	L1	partial	decomp:re/decomp/142fa8010.c;xref:0x142fa09cc	V5229 Completion handler (fn name onRemoteStorageDownload); better Game_GhostLaps_OnRemoteStorageDownload
+2026-10-31	lb11-verify	func	0x142fba5b0	L1	agree	decomp:re/decomp/142fba5b0.c	V5230 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fba740	L1	agree	decomp:re/decomp/142fba740.c;xref:0x142fba72a	V5231 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbb570	L1	agree	decomp:re/decomp/142fbb570.c	V5232 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbb670	L1	agree	decomp:re/decomp/142fbb670.c	V5233 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbb880	L1	agree	decomp:re/decomp/142fbb880.c;xref:0x142fbb2e2	V5234 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbbc80	L1	agree	decomp:re/decomp/142fbbc80.c;xref:0x142fbab09	V5235 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbd450	L1	agree	decomp:re/decomp/142fbd450.c;xref:0x140adc41c	V5236 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbd590	L1	agree	decomp:re/decomp/142fbd590.c;xref:0x142fed5c3	V5237 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbd7e0	L1	agree	decomp:re/decomp/142fbd7e0.c	V5238 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fbf540	L1	agree	decomp:re/decomp/142fbf540.c	V5239 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fc06e0	L1	agree	decomp:re/decomp/142fc06e0.c;xref:0x142fbecde	V5240 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fc0920	L1	agree	decomp:re/decomp/142fc0920.c	V5241 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fc41b0	L1	agree	decomp:re/decomp/142fc41b0.c;xref:0x142fb8060	V5242 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fd95e0	L1	partial	decomp:re/decomp/142fd95e0.c	V5243 2568-line LCD display update (K%03d/P%02u, overtake text, flags, sectors); sectors only one part; better Game_ThrustmasterLcd_Update
+2026-10-31	lb11-verify	func	0x142fdcf40	L1	agree	decomp:re/decomp/142fdcf40.c;xref:0x142fd86f6	V5244 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142fe06e0	L1	partial	decomp:re/decomp/142fe06e0.c;xref:0x14111eafd	V5245 Serialises (save) replay full/key buffers, jump_in_time, session_guid into container; callers Game_ReplaySystem_SaveMidSessionData; better Game_MidSessionSave_SerialiseReplayBuffers
+2026-10-31	lb11-verify	func	0x142fe10a0	L1	partial	decomp:re/decomp/142fe10a0.c;xref:0x14111ec38	V5246 Deserialise + checksum validation of mid-session container (file_size/data/position); callers LoadMidSessionData; better Game_MidSessionSave_LoadAndValidate
+2026-10-31	lb11-verify	func	0x1430350d0	L1	agree	decomp:re/decomp/1430350d0.c;xref:0x143034fb1	V5247 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x143036200	L1	agree	decomp:re/decomp/143036200.c;xref:0x141de4246	V5248 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x143037b80	L1	agree	decomp:re/decomp/143037b80.c;xref:0x143036f85	V5249 name/log strings and body scale match
+2026-10-31	lb11-verify	func	0x142f89920	L1	agree	decomp:re/decomp/142f89920.c;xref:0x142f86cf0	V5250 name/log strings and body scale match
