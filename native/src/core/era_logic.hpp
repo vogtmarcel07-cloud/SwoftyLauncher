@@ -41,7 +41,9 @@ constexpr const char *HOST = "swofty_f1";
 constexpr const char *SELECTED_ADDON_TILE = "selected_addon_tile";
 constexpr const char *ADDON_TILES_VISIBLE = "addon_tiles_visible";
 constexpr const char *IMAGE_ARRAY = "#overrides.home_screen.tiles_solo_6x6";
-constexpr size_t MAX_BOXES = 64;
+// FeTile_Add_EraTile takes the tile index as a byte (the count of tiles added so far; the tiles themselves go into
+// a growing vector and VM list), so the addon row holds up to 255 boxes, index 0..254.
+constexpr size_t MAX_BOXES = 255;
 constexpr uint32_t ONLY_ANY = 0, ONLY_GRAND_PRIX = 1, ONLY_TIME_TRIAL = 2;
 constexpr size_t LIST_NAME_MAX = 63;
 constexpr size_t TEXT_MAX = 255;
@@ -115,7 +117,7 @@ inline std::string check(Box &box, const std::vector<Box> &have)
         if (h.entrant_list == box.entrant_list)
             return "a box for this entrant list is already registered by " + h.owner;
     if (have.size() >= MAX_BOXES)
-        return "the core holds at most 64 boxes";
+        return "the core holds at most 255 boxes";
     return {};
 }
 
@@ -1090,6 +1092,67 @@ private:
         void *original;
     };
     std::map<std::string, std::unique_ptr<Entry>> holders_;
+    std::vector<Swap> swaps_;
+};
+
+// A box's tyre warmer rule (content.package rules.tyre_warmers) applies through the host setup mode's
+// has_tyre_warmers byte (+0x1c8, re/db structs/GameSetupMode.h, written by the mode loader 0x142a14f20). The swap
+// writes the box's value and remembers the game's; put_back restores it wherever the byte still holds the swap's value.
+constexpr size_t MODE_TYRE_WARMERS = 0x1c8;
+
+class WarmerSwaps {
+public:
+    void swap(uint8_t *mode, bool warmers)
+    {
+        if (!mode)
+            return;
+        uint8_t &field = mode[MODE_TYRE_WARMERS];
+        uint8_t want = warmers ? 1 : 0;
+        Swap *s = find(mode);
+        if (!s) {
+            swaps_.push_back({mode, field, want});
+            s = &swaps_.back();
+        }
+        s->written = want;
+        field = want;
+    }
+
+    size_t put_back()
+    {
+        size_t n = 0;
+        for (auto &s : swaps_) {
+            uint8_t &field = s.mode[MODE_TYRE_WARMERS];
+            if (field != s.written)
+                continue;
+            field = s.original;
+            n++;
+        }
+        swaps_.clear();
+        return n;
+    }
+
+    // Drops the swaps without reading or writing the modes, which the game may have freed.
+    size_t forget()
+    {
+        size_t n = swaps_.size();
+        swaps_.clear();
+        return n;
+    }
+
+    size_t active() const { return swaps_.size(); }
+
+private:
+    struct Swap {
+        uint8_t *mode;
+        uint8_t original, written;
+    };
+    Swap *find(const uint8_t *mode)
+    {
+        for (auto &s : swaps_)
+            if (s.mode == mode)
+                return &s;
+        return nullptr;
+    }
     std::vector<Swap> swaps_;
 };
 

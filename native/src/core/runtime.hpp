@@ -339,6 +339,8 @@ std::vector<CoreMixins> garage_setup_mixins();
 void garage_setup_commit();
 std::vector<CoreMixins> theatre_list_mixins();
 void theatre_list_commit();
+std::vector<CoreMixins> tile_list_select_mixins();
+void tile_list_select_commit();
 std::vector<CoreMixins> session_enter_mixins();
 std::vector<CoreMixins> ai_line_set_mixins();
 void ai_line_set_commit();
@@ -411,6 +413,8 @@ void netplay_home_vm(void *vm);
 void netplay_tick();
 void net_trace_setup();
 void udp_ids_setup();
+// Notes an added track's statId for the Swofty Track telemetry packet (udp_ids.cpp).
+void udp_track(int64_t stat_id, const std::string &addon, const std::string &code);
 // The test agent (native/src/core/testagent/agent.cpp): armed only by `swofty test`'s run token.
 void testagent_setup();
 void direct_start_setup();

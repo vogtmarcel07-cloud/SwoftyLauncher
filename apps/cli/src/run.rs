@@ -439,13 +439,7 @@ fn wrapper(store: &Store, profile: &str, args: &RunArgs, g: &Game) -> Result<Exi
         .ok()
         .and_then(|d| serde_json::from_slice(&d).ok())
         .unwrap_or_default();
-    // A wrapper Steam starts later on its own must not inherit an earlier launch's arming.
-    if request.netplay.is_some() && !written_within(&launch_path, NETPLAY_REQUEST_LIFE) {
-        request.netplay = None;
-    }
-    if request.row_ids.is_some() && !written_within(&launch_path, NETPLAY_REQUEST_LIFE) {
-        request.row_ids = None;
-    }
+    age_out(&mut request, written_within(&launch_path, NETPLAY_REQUEST_LIFE));
     if let Some(file) = &request.row_ids {
         match swofty_core::row_ids::Overrides::read(file) {
             Ok(ids) => {
@@ -739,6 +733,16 @@ fn rebuild_if_needed(store: &Store, profile: &str, game: &Path) {
 
 const NETPLAY_REQUEST_LIFE: Duration = Duration::from_secs(600);
 
+/// A wrapper Steam starts later on its own must not inherit an earlier launch's one-session asks: its
+/// arming, the host's row ids or Steam's saves. `fresh` is whether the request was written just now.
+fn age_out(request: &mut LaunchRequest, fresh: bool) {
+    if !fresh {
+        request.netplay = None;
+        request.row_ids = None;
+        request.steam_saves_once = false;
+    }
+}
+
 fn written_within(path: &Path, max: Duration) -> bool {
     std::fs::metadata(path)
         .and_then(|m| m.modified())
@@ -990,12 +994,22 @@ fn play(
                 ),
             );
         }
+        let running = found.attached_text();
         say(
             "loader",
-            "version.dll did not attach to F1 25; what the session found:",
+            match running {
+                Some(_) => {
+                    "version.dll attached to F1 25, which the session's watch missed; what the session found:"
+                }
+                None => "version.dll did not attach to F1 25; what the session found:",
+            },
         );
         for line in found.lines(game) {
             say("loader", &format!("  {line}"));
+        }
+        if let Some(text) = running {
+            say("info", text);
+            return;
         }
         // The antivirus explanation is a Windows one; under Proton a loader
         // that does not attach is a prefix or override problem instead.
@@ -2214,6 +2228,24 @@ mod tests {
             NETPLAY_REQUEST_LIFE
         ));
         std::fs::remove_file(&path).ok();
+    }
+
+    #[test]
+    fn an_old_launch_request_plays_on_launcher_saves_again() {
+        let asked = || LaunchRequest {
+            netplay: Some("armed".into()),
+            row_ids: Some(PathBuf::from("row_ids.json")),
+            steam_saves_once: true,
+            ..LaunchRequest::default()
+        };
+        let mut fresh = asked();
+        age_out(&mut fresh, true);
+        assert_eq!(fresh, asked());
+        let mut old = asked();
+        age_out(&mut old, false);
+        assert!(!old.steam_saves_once);
+        assert_eq!(old.netplay, None);
+        assert_eq!(old.row_ids, None);
     }
 
     fn temp_log(name: &str) -> PathBuf {
