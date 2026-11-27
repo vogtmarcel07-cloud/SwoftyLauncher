@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Career_Schedule_AddTodayEntry_Kind1B_ForId",
+ "name": "Career_Schedule_InsertEntryAtDay_Kind0x1B_ForId",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Career_Schedule_AddTodayEntry_Kind1B_ForId: the entry is made for the day passed in param_3 (not today) and inserted sorted by day; only the 0x80-byte record is the current one. Picks the current record (array sched+0x410, index +0x428), finds the 0xd8-byte object with key +0xc0 == id in its list +0x60..+0x68, looks up the definition with type byte +0x10 == 0x1b in the map at sched+0x378, checks the definition mode mask +0x60 against Career_Is_MyTeamGameMode, builds an entry with object vfunc +8 (def, day) and inserts it before the first entry whose day (+0x0a) >= day in vector +0x50..+0x58, then sorts. Context from caller: Game_DriverContractsMyTeamComponent_OpenContractWindow passes calendar comp+0x298, the driver key and the first non-blocked meeting day it also stores at comp+0x468. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "career.schedule_add_today_entry_kind1_b_for_id",
+  "id": "career.schedule_insert_entry_at_day_kind0x1_b_for_id",
   "section": ".xtls",
   "pattern": "41 89 D8 E8 ?? ?? ?? ?? 4C 8B BE 78 02 00 00",
   "match": "0x140dae698",
@@ -24,7 +24,7 @@
   "target": "0x1412692d0",
   "kind": "call",
   "names": [
-   "Career_Schedule_AddTodayEntry_Kind1B_ForId"
+   "Career_Schedule_InsertEntryAtDay_Kind0x1B_ForId"
   ],
   "verified": [
    {

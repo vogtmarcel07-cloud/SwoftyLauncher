@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Ui_Get_UnitLabel_ByKind12",
+ "name": "Ui_Get_LabelKeyString_ByKind12",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Ui_Get_UnitLabel_ByKind12: only case 10 depends on a unit, and both callers pass the result as a lookup key string, not as a unit label. Switch on kind 0..11 returns a fixed string pointer (0x1456eadad, 0x1456f9627, ... 0x1456eae88; default 0x14568fd06); case 10 finds option \"speed_unit\" in the options store at options+0x270 (entries +0x288..+0x290), reads its current value index (vfunc +0x10, with Game_Option_ClampValueIndex fallback to field +0xc0) and returns 0x1456eae24 when the index is 1, else 0x1456eae55. Callers Career_RenownFormVM_Init and 0x14209ce50 (loops kinds 0..11, resolves the string through a vfunc +0x18 lookup and pairs it with a formatted amount via vfunc +0x98) use it to fill the renown and form view model rows. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "ui.get_unit_label_by_kind12",
+  "id": "ui.get_label_key_string_by_kind12",
   "section": ".xtls",
   "pattern": "89 E9 E8 ?? ?? ?? ?? 48 C7 44 24 38 00 00 00 00",
   "match": "0x14209b33a",
@@ -24,7 +24,7 @@
   "target": "0x1414b9140",
   "kind": "call",
   "names": [
-   "Ui_Get_UnitLabel_ByKind12"
+   "Ui_Get_LabelKeyString_ByKind12"
   ],
   "verified": [
    {

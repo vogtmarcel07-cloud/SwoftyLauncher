@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Career_Schedule_AddTodayEntry_Kind10_ForId",
+ "name": "Career_Schedule_InsertEntryAtDay_Kind0x10_ForId",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Career_Schedule_AddTodayEntry_Kind10_ForId: the entry is made for the day in param_3 (not today), and the kind is 0x10 hex, which the old name mixed up with decimal 10 used by GetNthKind10EntryValue. Same body shape as 0x141269910 but uses the object list +0x40..+0x48 (stride 0xc8, key +0xc0) of the current 0x80-byte record (sched+0x410, index +0x428) and the definition with type byte 0x10 from the map sched+0x378; checks mode mask +0x60, builds the entry with vfunc +8 (def, day) and inserts it sorted by day (+0x0a) into vector +0x50..+0x58. Context from caller: Game_DriverContracts_OfferSecretMeeting passes contracts+0x370, the driver key and meeting day; caller 0x140d811b0 (replaces a driver's secret meeting) has the same body inlined at its tail. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "career.schedule_add_today_entry_kind10_for_id",
+  "id": "career.schedule_insert_entry_at_day_kind0x10_for_id",
   "section": ".xtls",
   "pattern": "56 4C 8B 89 10 04 00 00 4D 85 C9 0F 84 ?? ?? ?? ?? 48 89 C8 44 8B 91 28 04 00 00 48 8B 89 18 04 00 00 4C 29 C9 48 C1 F9 07 4C 39 D1 0F 86 ?? ?? ?? ?? 49 C1 E2 07 4B 8B 4C 11 40",
   "match": "0x141269180",
@@ -23,7 +23,7 @@
   "target": "0x141269180",
   "kind": "func_start",
   "names": [
-   "Career_Schedule_AddTodayEntry_Kind10_ForId"
+   "Career_Schedule_InsertEntryAtDay_Kind0x10_ForId"
   ],
   "verified": [
    {

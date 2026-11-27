@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "name": "Career_Sponsors_CountSlotsForItemId",
+ "name": "Game_CustomisationDecals_GetCompatibleAreaCount",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14142a460",
   "level": "L2",
-  "subsystem": "career",
+  "subsystem": "game",
   "proto": "int64_t Game_CustomisationDecals_GetCompatibleAreaCount(void *decals, const uint32_t *packed_id)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14142ac40 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141104bd0,0x141107e60,0x14110b3b0",
   "notes": "Renamed from Career_Sponsors_CountSlotsForItemId: the object is the one at sponsors+0x370 that callers also pass to Game_CustomisationDecals_GetCompatibleAreaByIndex, and the result is the loop bound for that index. Read in full. Walks the 0x60-byte records at [[decals+0x250]+0x230..+0x238]; each holds a hash set (FNV-1a over two bytes of the packed id, u16 key at node+0x10); for the first record that holds the id it looks up the record id (u32 at +0) in the open-addressing map at decals+0xc0..+0xf4 (0x28-byte entries) and returns the u32 count of the entry's vector (+0x18 minus +0x10, / 4). Returns 0 when nothing matches; traps (0x145672c78) if the map lookup fails on the second pass. Callers Career_Sponsors_CountPaidDecals 0x141104bd0 and 0x14110b3b0 (periodic sponsor update that sums decal slots and loyalty) use it with packed_id = customisation+0x11c. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "career.sponsors_count_slots_for_item_id",
+  "id": "game.customisation_decals_get_compatible_area_count",
   "section": ".xtls",
   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC 28 49 89 C8 48 8B 81 50 02 00 00",
   "match": "0x14142a460",
@@ -23,7 +23,7 @@
   "target": "0x14142a460",
   "kind": "func_start",
   "names": [
-   "Career_Sponsors_CountSlotsForItemId"
+   "Game_CustomisationDecals_GetCompatibleAreaCount"
   ],
   "verified": [
    {
