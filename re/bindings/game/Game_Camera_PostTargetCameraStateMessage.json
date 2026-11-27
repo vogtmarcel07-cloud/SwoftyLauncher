@@ -8,8 +8,8 @@
   "level": "L1",
   "subsystem": "game",
   "proto": "void Game_Camera_PostTargetCameraStateMessage(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1406c1770 (RacingPC lab re_groups/_decomp);xref:0x1406c1350",
-  "notes": "Finds record in (+0x118)->+0xa0 list matching id at current entry +0x2a, resolves per-vehicle object via (+0xd0)->+0xa0[idx] (lazy cached by +0x18->+0x58->+0xe8) and requires its +0x32 sign bit clear; depending on record +0x21 sets flag 8 or 0x10 in +0x58 and posts bus message type 0x104 or 0x105 (vehicle idx, plus record value<<8) via Ne_Post_BusMessage. Context from caller: CinematicSafetyCar_FadeOut. Better context needed: meaning of record +0x21."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1406c1770 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1406c1350",
+  "notes": "Takes the first entry of [+0x118]+0x60 (id at +0x2a), finds the matching record in [+0x118]+0xa0..+0xa8 (16-byte items, record +0x18 id), picks vehicle index byte +0x60 (or entry +0x28 when 0xff), resolves the vehicle through the cache [+0xd0]+0xa0[idx] (fallback scan +0x88..+0x90 by [veh+0x18]+0x58 +0xe8) and returns if veh+0x32 has bit 7. Then by record +0x21: 0 -> flags +0x58 set bit 3 clear bit 4 and post bus message 0x14564bdd8 (type 0x104, payload vehicle index); non-zero -> set bit 4 clear bit 3 and post 0x14564bde8 (type 0x105, payload index | record +0x20 << 8). Posting needs global 0x145f98ce0 == 0 and byte +0x68 != 0; uses Ne_Post_BusMessage on g_Game_MessageBus+8. The listed caller Game_CinematicSafetyCar_FadeOut (0x1406c1350) has no explicit call in its decompile; it holds an inlined or tail-merged copy of this body after 0x1406c1650 (its KB note: picks the SC camera target, flags +0x58). Better context needed: a caller with a visible call. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.camera_post_target_camera_state_message",

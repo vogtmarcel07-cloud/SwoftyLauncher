@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141c13a40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
-  "proto": "void *Ui_Construct_SteppedValueOptionVm(void *self, void *parent, void *a3, float value, uint8_t flag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c15640 (RacingPC lab re_groups/_decomp);xref:0x141c10250",
-  "notes": "View-model constructor: base ctor 0x144241240 on parent node, then creates and links child node handles: bool can_move_left (+0x20), bool can_move_right (+0x40), three token nodes with unreadable names at +0x60 (init value), +0x80 (init flag byte) and +0xa0 (init 100.0f), and string value_formatted (+0xc0, empty). Returns self. Context from caller: HUD customisation screen option row."
+  "proto": "void *Ui_Construct_SteppedValueOptionVm(void *self, void *parent_vm, const char *name, float value_a, float value_b)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c15640 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c10250",
+  "notes": "Inits the base node via 0x144241240(self, parent node handle from parent_vm+8) and binds child nodes: bool can_move_left (+0x20), bool can_move_right (+0x40), three token nodes (+0x60 from arg4, +0x80 from arg5, +0xa0 default 100.0; names at 0x145661089/0x14563b1f4/0x145614ae4 not readable here) and string value_formatted (+0xc0, empty). Returns self. The decompile types arg4/arg5 as int/byte but the caller passes float bit patterns. Context from caller: Game_HudCustomisationViewModel_OnScreenActivated builds two of these at vm+0x7d0 with (0, 100.0) and vm+0x8b0 with (50.0, 200.0), which fits the opacity and scale sliders (min, max). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.construct_stepped_value_option_vm",

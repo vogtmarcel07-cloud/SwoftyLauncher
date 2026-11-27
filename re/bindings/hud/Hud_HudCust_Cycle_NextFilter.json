@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141c11530",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "uint64_t Hud_HudCust_Cycle_NextFilter(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c13130 (RacingPC lab re_groups/_decomp);xref:0x141c12410",
-  "notes": "Reads current layout (int node +0x678) and filter (int node +0x658), computes (filter + 1) mod filter count of that layout (0x28-byte entries at layout +0x28..+0x30), then falls into the shared tail of 0x141c13e60: writes the new index to int node +0x658 and sets the FILTER label string node +0x5d8. Body range overlaps 0x141c13e60 (tail merge), hence L1."
+  "proto": "uint64_t Hud_HudCust_Cycle_NextFilter(void *hud_cust_vm)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c13130 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c13270",
+  "notes": "Reads the layout index from int node vm+0x678 and the filter index from int node vm+0x658, computes (filter+1) % filter_count of the layout at [[vm+0x290]+0x2e0][layout] (0x28-byte entries at +0x28..+0x30), writes it back with Ne_Property_SetS32IfChanged, localises the format string 0x14573e1d9 and the filter name (entry+0) via the localiser at vm+0x298, fills token FILTER and sets the result on string node vm+0x5d8. Caller 0x141c13270: sets the layout label string node vm+0x5f8, then keeps the current filter (0x141c13e60) when its index is valid for the layout, else calls this to step to a valid filter. Context from caller 0x141c12410 (Game_HudCustomisation_LeaveScreen event handler): body appears merged there, no call seen. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.hud_cust_cycle_next_filter",

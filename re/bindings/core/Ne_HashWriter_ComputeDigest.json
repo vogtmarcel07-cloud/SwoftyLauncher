@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1439338e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "int32_t Ne_HashWriter_ComputeDigest(void *self, void *source)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143935e70 (RacingPC lab re_groups/_decomp);xref:0x142fe2c70,0x142fe3630",
-  "notes": "Allocates a 0x100 scratch buffer (+0x18, size +0x20) from allocator +0x10, creates a crypto hash object (0x14395c120; errno 0x50 on failure), feeds the source through 0x143936070, finalises into digest buffer +8 with 0x14395c8f0, frees the scratch buffer and calls CryptDestroyHash. Context from caller: mid-session save replay buffer validation."
+  "proto": "int32_t Ne_HashWriter_ComputeDigest(void *hasher, void *source)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143935e70 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142fe2c70,0x142fe3630",
+  "notes": "Sets buffer size +0x20 = 0x100 and allocates the work buffer +0x18 from allocator +0x10 (vt+0x18, size 0x100, align 0x10). Creates a Windows crypto hash (0x14395c120 -> handle and status); on status 0 feeds source through 0x143936070(hasher, source, &hash) and, if that returns 0, writes the digest to the output pointer +0x08 with 0x14395c8f0. On creation failure sets errno 0x50 (with errno trace ring entry) and returns 0x50. Always frees the buffer (allocator vt+0x38) and calls CryptDestroyHash. Returns 0 or the error code. Callers build the hasher on the stack {vtable 0x145804fc8, out ptr, allocator [container+0x208], 0, 0}: Game_MidSessionSave_GetReplayBuffers stores the 32-byte result at [container+0x210]+0x4b0..+0x4cf and sets +0x4d0 = 1; Game_MidSessionSave_Validate compares the 32 bytes against the same field and fails with 'Failed to validate checksum'. 32 bytes suggests SHA-256. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.hash_writer_compute_digest",

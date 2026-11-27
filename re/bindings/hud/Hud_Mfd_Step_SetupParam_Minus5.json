@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141533fc0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Minus5(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1415355b0 (RacingPC lab re_groups/_decomp);xref:0x142a90430",
-  "notes": "Mirror of 0x1415352e0 with -5.0: gates on bool nodes +0x7c8/+0x7e8, publishes UNK_1456f8760, target = int node +0x888 - 5.0 clamped to the same two global limits, Car_Setup_ResetParamToZeroStep(param, 2) on the param matching +0xb40/+0xb42, sets bool node +0xb68 true and state +0xb80 = 3."
+  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Minus5(void *mfd_vm)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1415355b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142a90430",
+  "notes": "Returns 0 unless the bool nodes at +0x7c8 and +0x7e8 are both true. Posts a message (vtable 0x1456f8760, param id from +0xb40) on g_Game_MessageBus, reads the int node +0x888 and computes value-5.0 (default -5.0), finds the setup param whose id matches +0xb40/+0xb42 in the list at [+0x298]+0x290 or [+0x2a0]+0x260 (+0x40..+0x48), clamps to the global min/max (0x14605c588/0x14605c438) and calls Car_Setup_ResetParamToZeroStep(param,2); then sets bool node +0xb68 true and +0xb80=3. Context from caller: Game_GameMfdSystem_Update calls it with the per-player MFD car-settings VM (sys+0x100+p*8) when action handle 0x14607acf0 or 0x14607ad20 is pressed (Differential Down / Down Exit per the caller KB note); sibling 0x1415352e0 is the Up step. Good hook for the on-track diff-down shortcut. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.mfd_step_setup_param_minus5",

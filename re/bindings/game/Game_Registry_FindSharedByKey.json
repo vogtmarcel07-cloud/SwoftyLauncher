@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14101a450",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_Registry_FindSharedByKey(void *self, void *out_shared, void *key)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14101b110 (RacingPC lab re_groups/_decomp);xref:0x140264b90,0x1420656d0",
-  "notes": "Resolves key through index 0x1410d18c0(+0x348) into pointer vector +0x370, reads the entry u16 id at +0x50, probes the open-addressing hash map (+0x3c0 seed, +0x3c8 slots, +0x3d0 control bytes, +0x3e0 mask) for that id and returns a ref-counted pointer pair (object +8, control block +0x10 with refcount incremented) or null pair. Context from caller: MyTeam cinematic assets."
+  "proto": "void *Game_Registry_FindSharedByKey(void *registry, void *outSharedPtr, void *key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14101b110 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140242eb0,0x140264b90,0x14100f050",
+  "notes": "Looks key up with 0x1410d18c0(registry+0x348, key) to get an index into the pointer vector +0x370 (end +0x378); takes the u16 id at entry+0x50 and finds it in the robin-hood map at +0x3c0 (multiplier), +0x3c8 slots, +0x3d0 info bytes, +0x3e0 mask, +0x3f0/+0x3f4 info params. On a hit copies the shared pointer {object +0x08, control block +0x10} from the mapped record into outSharedPtr with an atomic increment of control+0x08; otherwise writes {0, 0}. Returns outSharedPtr. Callers pass a 0x50-byte key record with vtable 0x145614e20 and trailing 0x10000000: Game_MyTeamIntro_RegisterCinematicAssets looks up each cinematic asset name; 0x140242eb0 (lazy static asset descriptor init) and 0x14100f050 (find-or-create: when the result is null it goes on to build the entry) do the same. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.registry_find_shared_by_key",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c4c710",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "int Game_FullReplay_DecryptReadHeaderBag(void *self, const void *blob, uint64_t size, void *arg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c4eca0 (RacingPC lab re_groups/_decomp);xref:0x142c4d370",
-  "notes": "Needs size>0x30 and size%16==0: blob = 0x20 MAC + 0x10 IV + ciphertext. Verifies MAC (func 0x143958650) with fixed 32-byte key 0d877cbe0c077809.., decrypts (FUN_143957e30), strips PKCS7-style padding, wraps plaintext in Ne MemWriteStream + Ne_BagCodec_ReadBag, then passes the bag to func 0x14364f2e0 on +0x30. Returns 0 or error (0xe default); records error in TLS errno chain and frees bag entries. Crypto primitive identities inferred."
+  "proto": "int32_t Game_FullReplay_DecryptReadHeaderBag(void *self, void *data, uint64_t size, void *outContainer)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c4eca0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c4d370",
+  "notes": "Whole body read: needs size > 0x30; computes a keyed 32-byte digest (fixed key 0x0d877cbe0c077809.., 0x143958650) over data+0x20.. and compares it with data[0..0x1f]; then decrypts size-0x30 bytes at data+0x30 with IV data+0x20 (0x14395daf0 / 0x143957e30), requires 16-byte block alignment and valid PKCS7-style padding (1..16), wraps the plain bytes in a memory stream, Ne_BagCodec_ReadBag into a temp bag (allocator self+0x10) and loads it into outContainer through 0x14364f2e0 on self+0x30; frees the bag children; returns 0 or an error (0xe on any integrity failure). Game_Replay_LoadFullReplay calls it on the block just read and on success uses the container's slot id to name the save slot. Hook here to dump the decrypted replay header. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.full_replay_decrypt_read_header_bag",

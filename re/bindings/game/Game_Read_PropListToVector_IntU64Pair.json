@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1445d0740",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint32_t Game_Read_PropListToVector_IntU64Pair(void *self, void *bag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d2fb0 (RacingPC lab re_groups/_decomp);xref:0x1429232c0",
-  "notes": "Finds a list property in bag (type 0x14612bcf0), clears vector +0x160..+0x170 (allocator +0x158, 0x20-byte elements) and for each list bag reads one int field (type 0x14612bbe0) and two 8-byte fields (type 0x14612bf18), pushing {int, u64, u64, 0}. Returns 0 or 0x57/0x58 (and clears the vector when the list itself is missing). Context from caller: replay header read. Better context needed: field name strings at 0x145bf286a/0x145bf287c/0x145bf2893."
+  "proto": "uint64_t Game_Read_PropListToVector_IntU64Pair(void *self, void *bag)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d2fb0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1429232c0",
+  "notes": "Whole body read: looks up list property 0x145bf286a in the bag (type check vs 0x14612bcf0, else error 0x57/0x58), clears vector self+0x160/+0x168/+0x170 (allocator +0x158), then for each child bag reads int key 0x14562c320 and two u64 keys 0x145bf287c and 0x145bf2893 and pushes a 0x20-byte element {int +0, u64 +8, u64 +0x10, u64 0 at +0x18}; returns 0 or the error code and resets the vector on outer failure. Game_Read_ReplayHeader calls it on the 'main' module object (+0x38 of the module entry) with the sub-bag found under key 0x1457b2a2b. Context from caller: this is the read side of the table written by 0x1445d2c60. Batch-listed caller 0x1445d2a70 has no call; it only shares tail code with this body (same loop inlined), so it is not cited. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.read_prop_list_to_vector_int_u64_pair",

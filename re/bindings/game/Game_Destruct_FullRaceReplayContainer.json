@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c4cb70",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_Destruct_FullRaceReplayContainer(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c4f100 (RacingPC lab re_groups/_decomp);xref:0x142c4d370",
-  "notes": "Sets vtable 0x1457d3060 (same as ctor 0x142c44a50), frees vector of 0x28-byte entries at [0x6e], map at [0x67], vector [0x60]; then base vtable 0x145857cd0 teardown: logs SaveGame SaveDataContainer '%s' still contains '%s' for leftover items, frees remaining tables and node lists. Non-deleting destructor."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c4f100 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c4d370",
+  "notes": "Whole body read: destructor; sets vtable 0x1457d3060, frees the 0x28-byte element vector at +0x370/+0x378 (each element's inner buffer first), the small buffer at +0x338 and the vector at +0x300, then switches to base vtable 0x145857cd0 and runs the base teardown: logs SaveGame \"SaveDataContainer '%s' still contains '%s'\" for every item left in the hash set at +0x160, frees vector +0x1f0, the bag map at +0x1b8 (destroying each bag's children) and the node lists at +0x1a0 and +0x148. Game_Replay_LoadFullReplay calls it on the stack container that 0x142c4eca0 filled, at the end of the header-read path. The FullRaceReplay qualifier is not proven by this body; only the SaveDataContainer base is. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.destruct_full_race_replay_container",

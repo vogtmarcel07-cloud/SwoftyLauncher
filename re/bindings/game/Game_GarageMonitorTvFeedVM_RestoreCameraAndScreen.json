@@ -7,9 +7,9 @@
   "addr": "0x141fa5500",
   "level": "L1",
   "subsystem": "game",
-  "proto": "void Game_GarageMonitorTvFeedVM_RestoreCameraAndScreen(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141fa7100 (RacingPC lab re_groups/_decomp);xref:0x141fa6f20",
-  "notes": "If active flag +0x6170: clears it and (+0x6f8)->+0x222, undoes override block +0x644..+0x660 (0x144541e90 call and clears a bit in (+0x668)->+0x54), restores the saved camera (+0x61b8 entity, +0x61c0, viewport +0x61c8) through Game_RacingCameraArbitrator_RequiresCrossfade(arbitrator +0x61b0, mode 2, blend 2) using components 0x146cc40a8/0x146cc59d8, then resets the screen object ((+0x6e8)->+0xa0): clears +399, restores default values, and calls vfunc +0x68 on sub-items 1 and 3."
+  "proto": "void Game_GarageMonitorTvFeedVM_RestoreCameraAndScreen(void *vm)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141fa7100 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141fa6f20",
+  "notes": "Runs only when byte +0x6170 is set: clears it and [+0x6f8]+0x222; if +0x660 is set restores a saved state (0x144541e90([+0x680], +0x64c, +0x644) when +0x645, clears bit +0x646 in [+0x668]+0x54 when +0x647) and clears +0x660. Then finds components 0x146cc40a8 and 0x146cc59d8 on the entity at [+0x61b8]+8, builds a camera transform from the first one (+0x70, +0x78, +0xd8, +0xe0) and calls Game_RacingCameraArbitrator_RequiresCrossfade([+0x61b0], xf, [+0x61c0], +0x61c8, 2, 0, 2). If screen object [+0x6e8]+0xa0 has byte +399 set it clears it, restores default values from globals 0x146055f68.. and 0x1460510d8.., and calls its vt+0x1b0(0); then vt+0x180(1) and vt+0x180(3) children get vt+0x68(0x146055b80, 0). Neither listed caller (0x141fa6f20 Game_GarageMonitorTvFeedVM_OnDeactivate, 0x141fa7980) shows a call to this address in its decompile; the class prefix comes from the first KB name pass. Better context needed: a caller with a visible call (probably inlined or tail-merged copies). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.garage_monitor_tv_feed_vm_restore_camera_and_screen",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144165f20",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_Collect_UniqueNamedChildren_ForKeys(void *self, void *outVec, void *keys)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441684f0 (RacingPC lab re_groups/_decomp);xref:0x1414c84b0",
-  "notes": "Initialises outVec {allocator=self+8, begin, end, cap}. For each of keys+0x30 interned-string keys at keys+0x10 it fetches a table (func_0x144167970), finds the item whose name matches (20-bit hash at +6 then pointer/strcmp), and appends pointers to that item's 0x60-byte children (+0x10..+0x18) whose name is not already present in outVec. Finally erases entries whose +0x10 string equals the constant at 145a634d2. Better context needed: the table type and the excluded name."
+  "proto": "void *Game_Collect_UniqueNamedChildren_ForKeys(void *registry, void *out_vec, void *key_list)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441684f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1414c84b0,0x143891a20,0x144281390",
+  "notes": "Inits out_vec = {allocator [registry+8], begin, end, cap}. For each of the key_list+0x30 keys at key_list+0x10 it gets a container via 0x144167970, finds the child (+8..+0x10) whose name equals the key (20-bit hash at name+6 then strcmp) and appends pointers to that child's 0x60-byte items (+0x10..+0x18) to out_vec, skipping any item whose name (first field) is already present; growth is 1.5x. Finally removes items whose string at +0x10 equals 0x145a634d2. Returns out_vec. Callers: Game_Read_MfdConfig iterates the result to create one HUD view model per layout node; 0x143891a20 (builds the HUD layout list, lng_hud_layout_ names) and 0x144281390 (rebuilds a UI container's child list from registry [ui+0x8168]) iterate it the same way. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.collect_unique_named_children_for_keys",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14388d2c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "bool Hud_Load_ElementLayoutFile(void *self, void *allocator, const char *fileName, void *outData)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14388f850 (RacingPC lab re_groups/_decomp);xref:0x1437d66c0,0x143810790",
-  "notes": "Opens path L\"%s/%s\" (self+0x18 dir, fileName) and parses nested sections with a schema reader: header fields go to outData+0x48 (u32), +0x4c (u32), +0x50 (bool); then for each element record it reads id, two u32/float values, a bool and two floats, inserts by id (func_0x1438137e0) and writes +4, +8, +0xc, +0x10 clamped to [0,1] and +0x14 clamped to [0.5,2.0]. Returns true if the file opened. Context from caller: Game_HudCustomisation_CopyUiData, likely HUD element position, opacity and scale; good hook for custom HUD layouts."
+  "proto": "bool Hud_Load_ElementLayoutFile(void *file_ctx, void *allocator, const char *file_name, void *element_map)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14388f850 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1437d66c0,0x143810790",
+  "notes": "Builds the wide path '%s/%s' from file_ctx+0x18 and file_name, opens it (0x14399b6b0) and parses XML: root tags 0x145883dd0 / 0x145883dde, header fields 0x145883deb and 0x145883df7 (two ints) plus a bool into element_map+0x48, +0x4c, +0x50, then section 0x145883e1b with one child 0x145883e27 per element: id, two ints (attrs 0x14561393e, 0x145613940), bool, and two floats; the entry from 0x1438137e0(map,id) gets +4, +8, +0xc, +0x10 = clamp(f,0,1) and +0x14 = clamp(f,0.5,2). Returns true when the file was opened. Callers: Game_Read_GameVersionNumberConfig (UI system init, right after creating the HudCustomisationSystem; result -> sys+0x698) and Game_HudCustomisation_CopyUiData on the loadHudConfigSet signal with (ctx+0x300, ctx+0x210, path global 0x145f98d18/0x145f98d20, ctx+0x640), result -> ctx+0x698. Context from caller: this is loadHudConfigSet. Hook point for custom HUD layouts. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.load_element_layout_file",

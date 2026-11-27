@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1443fde80",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint64_t Game_DebugCam_UpdateFrame(void *self, float dt)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144400450 (RacingPC lab re_groups/_decomp);xref:0x140ad2ec0",
-  "notes": "Per-frame update: calls three helpers, if state +0x3a8==4 tries 0x14440ace0, else dispatches on input mode +400 (2 = Game_DebugCam_UpdateKeyboardMode, 1 = Game_DebugCam_UpdatePadMode) and Game_DebugCam_ToggleInputControlMode; then when +0x2a8 is set raycasts 300 units along -forward (+0x130) from position +0x140 with Ne_PhysWorld_RaycastClosest (mask 0x1f) and stores ray start +0x2b0, end +0x2c0, hit point +0x2d0, normal +0x2e0, fraction +0x2f0, hit body +0x300, hit flag +0x2aa."
+  "proto": "uint64_t Game_DebugCam_UpdateFrame(void *cam, float dt)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144400450 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140ad2ec0",
+  "notes": "Per-frame debug camera update: calls 0x144405960, 0x14440a900(cam), 0x14440ab80(cam); if mode int +0x3a8 == 4 tries 0x14440ace0(cam, dt) and skips input when it returns true; else by input control mode byte +0x190 runs Game_DebugCam_UpdateKeyboardMode (2) or Game_DebugCam_UpdatePadMode (1) followed by Game_DebugCam_ToggleInputControlMode; then 0x144400be0(cam, dt). If byte +0x2a8 is set it raycasts 300 units from position +0x140 along minus forward +0x130 with Ne_PhysWorld_RaycastClosest(world +0x2a0, mask 0x1f) and stores start +0x2b0, end +0x2c0, hit point +0x2d0, normal +0x2e0, fraction +0x2f0, hit body +0x300 and hit flag +0x2aa. Returns 0. Caller Game_DebugCam_BuildInputBindings calls it (arguments not recovered) right after clamping the speed value [+0xf0]+0x1a4 to 5..40000 and copying [+0xf0]+0x198 to +0x358, so cam is most likely the object at caller +0xf0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.debug_cam_update_frame",

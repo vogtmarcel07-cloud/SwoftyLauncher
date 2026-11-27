@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c89ab0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_ThreadedWorker_DestroyAndFree(void *allocator, void *worker)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c8c040 (RacingPC lab re_groups/_decomp);xref:0x142c47600",
-  "notes": "Tears down a worker object: CloseHandle(+0x228), Ne_Thread_Destroy(+0x150) and (+0x78), DeleteCriticalSection(+0x30), destroys container +0x10 (frees buffer +0x18, zeroes +0x18..+0x28) and tail-calls allocator vfunc +0x38 to free the object. Context from caller: FullRaceReplaySystem_Init (failure/cleanup path)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c8c040 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c47600",
+  "notes": "Deleter: CloseHandle(worker+0x228), Ne_Thread_Destroy on +0x150 and +0x78, DeleteCriticalSection([+0x30]), 0x142cc0db0 on the container at +0x10 and frees its buffer +0x18 through the allocator at +0x10 (vt+0x38), zeroes +0x18..+0x28, then tail-calls allocator vt+0x38(allocator, worker) to free the object. Context from caller: Game_FullRaceReplaySystem_Init creates the object with 0x142c47cd0, moves it into self+0x6d0 with 0x142c47df0 and calls this (arguments not recovered) on the temp owner pair when both allocator and object are still non-null; only on the Replay.FullRaceReplay.Enabled path. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.threaded_worker_destroy_and_free",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14078da40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint8_t Game_Check_NamedEntryFlagBitForEntity(void *self, uint32_t entity_handle, uint32_t bit)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14078da80 (RacingPC lab re_groups/_decomp);xref:0x143241550",
-  "notes": "Resolves the handle with Sess_ResolveEntityHandle(+0x58) and takes its name string +0x68; scans object list (+0x5d8)->+0x88..+0x90 comparing each object's name (u16 id +0x44 resolved through chunked name table 0x1460c0900, 0x78 per chunk) and returns bit `bit` of the matching object's flags +0x28. Returns 1 when the entity or list is missing or no name matches. Context from caller: ForceDropInSpectator."
+  "proto": "uint8_t Game_Check_NamedEntryFlagBitForEntity(void *self, uint32_t entityHandle, uint32_t bitIndex)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14078da80 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143241550",
+  "notes": "Resolves entityHandle with Sess_ResolveEntityHandle([self+0x58], &handle) and takes its name pointer at +0x68. Iterates the pointer vector [self+0x5d8]+0x88..+0x90; for each item the u16 name id at +0x44 is resolved through the chunked string table 0x1460c0900 (0x78 names per chunk) and compared with Ne_Crt_Strcmp. On a match returns bit (bitIndex & 0x1f) of the item's u32 at +0x28. Returns 1 when the entity, the list or a match is missing. Context from caller: Game_Network_ForceDropInSpectator passes [self+0x20], the entrant handle at +0x5c and the player index byte +99 as the bit, and only builds the drop-in request when it returns true (per-player entitlement check for that vehicle). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.check_named_entry_flag_bit_for_entity",

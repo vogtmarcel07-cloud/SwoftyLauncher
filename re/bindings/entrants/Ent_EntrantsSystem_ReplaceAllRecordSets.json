@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142479ea0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "entrants",
-  "proto": "void Ent_EntrantsSystem_ReplaceAllRecordSets(void *self, void *drivers, void *team_cust, void *vehicles, void *driver_cust, void *vehicle_cust, void *badges)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14247baa0 (RacingPC lab re_groups/_decomp);xref:0x1429232c0",
-  "notes": "Calls Ent_EntrantsSystem_ReplaceDriverRecords(drivers, +0x288), Wear_Insert_TeamCustomisationMapEntries(team_cust, +0x2e8), Ent_EntrantsSystem_ReplaceVehicleRecords(vehicles, +0x348), each followed by a message-bus post (payload type 2 with the container pointer), then Wear_EntrantsSystem_ReplaceDriverCustomisations(+0x2b8), ReplaceVehicleCustomisations(+0x3a8) and Ent_EntrantsSystem_ReplaceBadgeRecords(+0x3d8). Context from caller: applied after reading a replay header."
+  "proto": "void Ent_EntrantsSystem_ReplaceAllRecordSets(void *sys, void *drivers, void *teamCustom, void *vehicles, void *driverCustom, void *vehicleCustom, void *badges)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14247baa0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140bc38e0,0x142578490,0x1429232c0",
+  "notes": "Whole body read: forwards six source vectors to the per-set replace helpers with targets sys+0x288 drivers, +0x2e8 team customisation map, +0x348 vehicles, +0x2b8 driver customisations, +0x3a8 vehicle customisations, +0x3d8 badges; after each of the first three it posts a message (vtables 0x14578f718/740/760, kind 2, payload = the target container) on g_Game_MessageBus+8. Game_Read_ReplayHeader calls it with this+0x2e0..+0x380 after parsing the entrant bags, so a replay restores the entrant set; caller 0x142578490: deserialises six prop bags into local vectors then applies them; caller 0x140bc38e0: applies staged vectors at this+0x2c8..+0x368 when flag +0x2c0 is set and +0x2c1 is clear. Good single hook to see or alter every entrant record set being swapped. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "entrants.entrants_system_replace_all_record_sets",

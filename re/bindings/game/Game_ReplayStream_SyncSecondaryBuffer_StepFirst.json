@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1445d3ea0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_ReplayStream_SyncSecondaryBuffer_StepFirst(void *stream)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d6710 (RacingPC lab re_groups/_decomp);xref:0x1445d88b0",
-  "notes": "If secondary buffer +0xd0 exists: vtbl+0x38, one vtbl+0xd0 step, then peeks timestamps (vtbl+0xa8) and steps via vtbl+0xd0/+0xd8 until the frame time matches m_time +0xd8; ends with func 0x1445d54a0(stream,0). Variant of 0x1445d6870 with an extra initial and final step."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d6710 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1445d88b0",
+  "notes": "Whole body read: returns if stream+0xd0 is null; on the cursor object at [stream+0xd0]+0x2d8 calls vt+0x38 (rewind) then vt+0xd0 (step forward once), reads the cursor time with vt+0xa8 (double out, direction flag) and steps forward (vt+0xd0) or backward (vt+0xd8) until it brackets the float target time at stream+0xd8, with one extra forward step in the equal and behind cases; ends with 0x1445d54a0(stream,0). Game_ReplaySystem_UpdateFromModule calls it per stream in list +0x98/+0xa0 when its mode value is 1 and the stream's +0xc0 flags (+0x2d0 set, +0x2c0/+0x2c1 clear) and [+0x98] vt+0x70 allow; sibling 0x1445d6870 is used in the other mode. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.replay_stream_sync_secondary_buffer_step_first",

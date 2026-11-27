@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14274a600",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "void *Ne_MsgDispatcher_Submit_DeferredTask(void *self, void *outHandle, void *msgSharedPtr, void *callbackPair)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14274c980 (RacingPC lab re_groups/_decomp);xref:0x141f6e200",
-  "notes": "Polls three predicate lists on the message object (+0x00, +0x10, +0x30; each entry vtable +0x18) to see if all are ready. If not ready it heap-allocates a 0x40 closure (fn 0x14274e170) and queues it through 0x14274e790 on the scheduler at self+0x90; if ready it allocates a 0x38 closure (fn 0x14274d6c0) and either creates a job directly (0x142743f00 or 0x1428540b0, job counter at scheduler +0xf0) or queues via 0x14274e790. Returns a 16-byte refcounted handle in outHandle. Role of the two paths is inferred, not proven."
+  "proto": "void *Ne_MsgDispatcher_Submit_DeferredTask(void *self, void *outHandleSharedPtr, void *targetSharedPtr, void *callbackPair)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14274c980 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141d1fdd0,0x141f6e200",
+  "notes": "Zeroes the out shared_ptr, then walks three dependency lists of the target (target+0x00, +0x10, +0x30; each a vector at +0x10..+0x18 of 16-byte entries) calling vfunc +0x18 as a ready test. If any is not ready it heap-allocs a 0x40 continuation {callback pair, target shared_ptr, self} and hands it to FUN_14274e790 on the scheduler at self+0x90; if all are ready it allocs a 0x38 task functor (FUN_14274d6c0) plus a 0x18 helper and either queues a 0x60/0x120 job via FUN_1427419a0 (scheduler mode byte (+0x68)->+0x39 ==2 and fewer than 3 busy workers, job id counter +0xf0) or falls back to FUN_14274e790. The resulting handle shared_ptr is moved into outHandle and returned. Context from caller: 0x141f6e200 Ne_MsgDispatcher_BroadcastDeferred passes its scheduler at closure+0x50 and keeps the handle at closure+0xa0; caller 0x141d1fdd0: locks a weak ptr, submits callback FUN_141d1f810 and stores the handle at this+0x1ab8. self is the scheduler object the dispatcher holds, not the dispatcher itself. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.msg_dispatcher_submit_deferred_task",

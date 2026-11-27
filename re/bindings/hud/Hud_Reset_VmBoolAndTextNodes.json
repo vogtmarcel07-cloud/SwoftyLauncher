@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141522030",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "void Hud_Reset_VmBoolAndTextNodes(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141523620 (RacingPC lab re_groups/_decomp);xref:0x1415212b0",
-  "notes": "Sets bool VM node at self+8 to false and node at self+0x28 to true (Vm_NodeSet_Bool after type check), sets string holders +0x40 and +0x60 to constants 14568fd06 and 145614b56 via Vm_Holder_SetCStr, and writes 1 to self+0xa0. Better context needed: caller Game_Read_OverridesOsdConfig_2 would say which OSD widget this resets."
+  "proto": "void Hud_Reset_VmBoolAndTextNodes(void *bindingGroup)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141523620 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1415212b0",
+  "notes": "Resets one binding group: bool node at +0x08 set false and bool node at +0x28 set true (each only if the node is live and of g_Vm_BoolTypeDesc type, via Vm_NodeSet_Bool), string holders +0x40 and +0x60 set to constant strings 0x14568fd06 and 0x145614b56 (Vm_Holder_SetCStr), then int +0xa0 = 1. Returns nothing. Context from caller: Game_Read_OverridesOsdConfig_2 (practice target VM update) calls it for this+0x308 and this+0x3b0 in cases 1..6 whenever the practice program type changed or is dirty, before refilling icon, label and target of the two target rows. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.reset_vm_bool_and_text_nodes",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c14c40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_Flashback_UpdateTutorialKeySet(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c171d0 (RacingPC lab re_groups/_decomp);xref:0x142c06fc0",
-  "notes": "For keys \"flashbacks_onboarding_tutorial_1\", \"flashbacks_onboarding_tutorial_2\", \"flashbacks_vo_tutorial\" and \"flashbacks_terminal_damage_tutorial\": if present in the string set at ((+0x40)->+0x148)+0x228 (0x14096b100 find) calls 0x14096c240 on it; then calls 0x14096c240 unconditionally on (+0x48)+0x228 for \"flashbacks_parent_onboarding_tutorial\" and \"flashback_message_shown\". Better context needed: whether 0x14096c240 erases or marks the key."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c171d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c06fc0,0x142c070a0",
+  "notes": "For each of the keys 'flashbacks_onboarding_tutorial_1', 'flashbacks_onboarding_tutorial_2', 'flashbacks_vo_tutorial' and 'flashbacks_terminal_damage_tutorial': copies it into a 128-char inline string, looks it up with 0x14096b100 in the key set at [[self+0x40]+0x148]+0x228 (vector +0x250..+0x258) and, when present, calls 0x14096c240 on that set with the key. Then calls 0x14096c240 without a lookup on [self+0x48]+0x228 for 'flashbacks_parent_onboarding_tutorial' and 'flashback_message_shown'. Context from caller: Game_Read_ReplayConfig calls it with replay+0x570 when setting Replay.reset_onboarding_flags is true, so 0x14096c240 most likely removes the key (resets the seen flags); 0x142c070a0 (replay state reset: clears +0x578, +0x5c1, string +0x590) calls it when 0x142c17b20(replay+0x558) is true, right before Game_Read_ReplayConfig. No call was visible in listed caller 0x142c07200. Hook point to force the flashback tutorials to show again. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.flashback_update_tutorial_key_set",

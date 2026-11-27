@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142bf5870",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_Init_IdBlockStr128Record(void *rec)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142bf7e00 (RacingPC lab re_groups/_decomp);xref:0x142c4d370",
-  "notes": "Default-constructs a 0x12a-byte record: -1/0xff sentinels at +8/+0xc, 0x3fff0000 at +0x22, vtable 0x145614e20 at +0x40 with Ne_Make_RandomIdBlock 64-byte id at +0x48 and flags +0x88 (bit 0x20000000), inline Str128 at +0x90. Same layout is embedded at the tail of the full_race_replay container (0x142c44a50). Better context needed: real type name."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142bf7e00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c4d370",
+  "notes": "Whole body read: default constructor; zeroes +0, sets +8 = -1, +0xc = 0xff, +0x1c = 0x00ff, +0x1f = 0x0100, +0x22 = 0x3fff0000, +0x34 = 1, +0x38 = -1, vtable 0x145614e20 at +0x40, fills a random 64-byte id block at +0x48 (Ne_Make_RandomIdBlock, flag bits at +0x88 set to 0x20000000) and an empty inline Str128 at +0x90 (vtable g_Ne_InlineStr128Vtable, cap 0x80, data +0xa8), word +0x128 = 0; returns rec. Game_Replay_LoadFullReplay builds a temporary with it and copies it field by field into its output param_5 when the loaded-info flag is clear, i.e. it supplies the default record. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.init_id_block_str128_record",

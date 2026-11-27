@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141786e40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "void *Hud_Ctor_Vm_1456f86a0(void *self, void **playerInfo)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1417885c0 (RacingPC lab re_groups/_decomp);xref:0x1414c84b0",
-  "notes": "Constructor: base vtable 1456f8680 then derived 1456f86a0; reads (*playerInfo)+0xe flag and +8 index into self+0xa8 and selects one of two constant strings into +0xb0 (index 0 or flag clear picks 14570a2ad, else 14570a2d0); default-initialises about 20 typed VM node holders, Ne_ResourceHandle_Init at +0x238, and stores delegate {FUN_141788f20, self} at +0x308/+0x310. Context from caller: Game_Read_MfdConfig, so an MFD-related view-model, probably per player/split-screen index."
+  "proto": "void *Hud_Ctor_Vm_1456f86a0(void *self, void **cfg)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1417885c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1414c84b0",
+  "notes": "Constructor: base vtable 0x1456f8680 with five node handles (+0x8..+0xa0), +0xa8 = *(u32)(*cfg+8) when the byte *cfg+0xe is set (else -1) and +0xb0 = string 0x14570a2d0 or 0x14570a2ad; then final vtable 0x1456f86a0, node handles at +0x100..+0x230 reset by move-assigning empty temporaries, Ne_ResourceHandle_Init at +0x238, +0x320=0xff00, node handles +0x330..+0x3a8, and a callback pair +0x308 = 0x141788f20, +0x310 = self. Returns self. Caller Game_Read_MfdConfig (creates HUD child view models) constructs it in place at vm+0x2e0 inside the VM it registers as mfd.attacher.car_settings_panel, passing its third argument as cfg. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.ctor_vm_1456f86a0",

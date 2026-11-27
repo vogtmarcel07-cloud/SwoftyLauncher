@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1445d4000",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_ReplayStream_SyncSecondaryBuffer(void *stream)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d6870 (RacingPC lab re_groups/_decomp);xref:0x1445d88b0",
-  "notes": "If secondary buffer +0xd0 exists: vtbl+0x38 then walks frames using peek vtbl+0xa8 (flag 0 forward, 1 backward) and steps vtbl+0xd0/+0xd8 until frame timestamp brackets m_time +0xd8; then func 0x1445d54a0(stream,0)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445d6870 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1445d88b0",
+  "notes": "Whole body read: returns if stream+0xd0 is null; on the cursor object at [stream+0xd0]+0x2d8 calls vt+0x38 (rewind), reads cursor time via vt+0xa8 (double) and steps forward with vt+0xd0 while the time is above the float target at stream+0xd8 (then one vt+0xd8 step back), or steps with vt+0xd8 while it is below; ends with 0x1445d54a0(stream,0). Game_ReplaySystem_UpdateFromModule calls it for each stream in list +0x98/+0xa0 under the same per-stream flag checks as 0x1445d6710, then sets state +0x38 = 2. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.replay_stream_sync_secondary_buffer",

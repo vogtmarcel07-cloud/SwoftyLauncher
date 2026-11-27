@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1441fc940",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
   "proto": "uint64_t Ui_Node_HandleSignal_Base(void *node, void *signal, void *a3, void *a4, void *a5)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441fef10 (RacingPC lab re_groups/_decomp);xref:0x143804420,0x143810790,0x143825190,0x143832480,0x143845630,0x144230cd0,0x1442514f0,0x144259df0",
-  "notes": "Base signal dispatcher: first offers the signal to each behaviour in +0x30..+0x38 (vfunc 0x78, stop if handled), then compares pin hash signal+8 against a table of global hashes (146ca47b4..146ca4848) and calls own vfuncs 0x98/0xa0/0xa8/0xc0/0xc8/0xd0/0xd8/0xe0 with 0/1, sets or clears flag bits at +8 (0x20) and +9 (0x40), reads string/int args to set properties (+0x48, +0x4c on a sub-object), and forwards g_Vm_RaiseCommandPinHash to parent +0x20 vfunc 400. Derived HandleSignal functions fall back to this. Decompile has a merged tail, so details are partial."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441fef10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1437fed50,0x143804420,0x1438093f0",
+  "notes": "First offers the signal to each handler in the pointer array node+0x30..+0x38 (vcall +0x78) and returns if one consumes it. Then compares the signal id at signal+8 with a table of global id hashes (0x146ca47b4.., 0x146ca4690, 0x146ca4394/98, 0x146ca4800..0x146ca4848, g_Vm_RaiseCommandPinHash) and dispatches: node vcalls +0xa0, +0xa8, +0x98(0/1), +0xc0 and +0xd0 (flag plus a bool read from the signal args, key 0x145a6a418), +0xc8, +0xd8, +0xe0 (skipped when byte node+9 bit 2 is set); sets or clears flag bits 0x20 at node+8 and 0x40 at node+9; posts messages through g_Vm_UiSystem vcall +0x68; resolves and links a registry node named by a string arg (Vm_Resolve_RegistryNode, Vm_Link_RegistryNode); forwards the command-pin signal to the object at node+0x20 (vcall +0x190). Callers are derived node handlers that call it first and then test their own signal ids: 0x1437fed50 (raises one of two node events 0x146104e2c/0x146104e30), Game_Fade_UINodeGraphFadeOutRequestNode, and 0x1438093f0 (looks up node factory 0x50483146). Good hook point to trace UI node signals. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.node_handle_signal_base",

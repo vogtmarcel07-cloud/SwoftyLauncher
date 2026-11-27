@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1418d0aa0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
-  "proto": "void Vm_Unsubscribe_NodeChangedByPath(const char *path, void *delegate)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1418d2280 (RacingPC lab re_groups/_decomp);xref:0x1414b4670,0x141c25640",
-  "notes": "Mirror of the subscribe-by-path helper at 0x1418d1fe0: resolves the VM node for path via Game_UiBinding_ResolveA and, if found and the delegate is non-null, calls func_0x1442323b0(delegate target, &node, delegate), then releases the temporary handles. Unsubscribe role inferred from the callers (session exit, screen deactivated) and from the unnamed callee replacing Ne_BusMessage_SubscribeHandlerUnique."
+  "proto": "void Vm_Unsubscribe_NodeChangedByPath(const char *path, uint64_t *delegate)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1418d2280 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1414a5340,0x1414b4670,0x141c25640",
+  "notes": "If path is non-empty: resolves it from the registry root with Game_UiBinding_ResolveA(g_Vm_Registry, root, path, tmp, 0), takes a tracked ref on the node (+0x24 refcount, +0x28 handle list), releases the temp handle, then if delegate {fn, ctx} is non-zero calls 0x1442323b0(fn|ctx, &node, delegate) and finally Vm_Release_Node. Returns nothing. Callers pass a 16-byte {callback, this} pair: Game_SessionHud_OnSessionExit and 0x1414a5340 (session HUD listener teardown, called from OnSessionExit) pass callback 0x1414bbb30 with the path stored at binding +0x720 / +0x898 and then clear the bound flag +0x6ff / +0x877; Hud_SpectatorScreenVM_OnScreenDeactivated passes 0x141c25310 with constant path 0x14565d47c. Unsubscribe meaning of 0x1442323b0 comes from these teardown callers. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.unsubscribe_node_changed_by_path",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144407010",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_Rotate_Mat44_ByAngleVec(float *mat44, const float *angles)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1444095e0 (RacingPC lab re_groups/_decomp);xref:0x144407050,0x144407f70",
-  "notes": "Pure SSE math: wraps -angles[0], -angles[1], -angles[2] to +-pi, evaluates sin/cos polynomials, builds a rotation about world Y (0,1,0) from angle 0, a rotation about the normalised row 0 of the matrix from angle 1 and a third rotation from angle 2, with translate to/from row 3, and writes all four rows of mat44 back in place. Context from caller: debug camera orientation update. Exact axis order not fully traced."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1444095e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144407050,0x144407f70",
+  "notes": "Negates the three angles, wraps each into -pi..pi (1/2pi = 0.15915494 and round), evaluates sin/cos by polynomial, and builds axis-angle rotations: angles[0] about the fixed axis (0,1,0), angles[1] about the normalised xyz of matrix row 0 (rsqrt with zero guard), angles[2] as a third rotation; the product is multiplied into the 4x4 in place and all four rows (+0x00..+0x3c) are written back. Context from caller: Game_DebugCam_UpdateKeyboardMode and Game_DebugCam_ApplyMoveDelta fill the angle vector with 0x144409cc0(cam, &vec) and apply it to the camera matrix at cam+0x110 (and cam+0x210 in the second keyboard-mode path), then copy the matrix to cam+0x1c0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.rotate_mat44_by_angle_vec",

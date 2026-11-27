@@ -7,9 +7,9 @@
   "addr": "0x141533770",
   "level": "L1",
   "subsystem": "hud",
-  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Arg18_A(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141534d60 (RacingPC lab re_groups/_decomp);xref:0x142a90430",
-  "notes": "Requires bool nodes +0x6c0 and +0x6e0 true; reads int node +0x780; finds the setup param whose id matches +0xb40 (byte) and +0xb42 (short) in the list at (+0x298)+0x290 or (+0x2a0)+0x260 (begin +0x40, end +0x48) and calls Car_Setup_ResetParamToZeroStep(param, 0x12); publishes message UNK_1456f8760 with id +0xb40 on g_Game_MessageBus; sets bool node +0xb68 true and state +0xb80 = 2. Byte-identical to 0x141535020; the direction or operand that distinguishes them is not visible in the decompile. Context from caller: MFD system update."
+  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Arg18_A(void *mfd)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141534d60 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142a90430",
+  "notes": "Returns 0 early unless the bool VM nodes at mfd+0x6c0 and mfd+0x6e0 are both valid and true; reads the int node at +0x780 (value unused in the decompile); finds the setup entry whose id (+0x20) equals mfd+0xb40 in the list at [+0x298]+0x290 or [+0x2a0]+0x260 (+0x40..+0x48), calls Car_Setup_ResetParamToZeroStep(entry, 0x12), posts message 0x1456f8760 with that id on g_Game_MessageBus, sets the bool node at +0xb68 to true and writes 2 to +0xb80. The decompile is identical to 0x141535020, so the difference (probably the step direction or value passed in a register) is not visible. Context from caller: Game_GameMfdSystem_Update calls it for the per-player MFD at +0x100 when input action 0x14607acd8 is pressed, right after the ERS up/down actions, then calls 0x142a914b0. Better context needed: disassembly of the call to Car_Setup_ResetParamToZeroStep to see the hidden argument. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.mfd_step_setup_param_arg18_a",

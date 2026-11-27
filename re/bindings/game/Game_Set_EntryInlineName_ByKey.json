@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1429d26c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint64_t Game_Set_EntryInlineName_ByKey(void *owner, void *key, const char *name)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429d4a80 (RacingPC lab re_groups/_decomp);xref:0x142c4d370",
-  "notes": "Scans pointer vector +0x268..+0x270 for entry whose first qword == key; copies name (max 127 chars) into the entry inline 128-byte string at +0x28 (ptr +0x20, capacity +0x18=0x80). Returns 0, or 0x22 if key not found. Context from caller: used while loading a full replay."
+  "proto": "uint64_t Game_Set_EntryInlineName_ByKey(void *self, int64_t key, const char *name)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429d4a80 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c4d370",
+  "notes": "Whole body read: linear search of the pointer vector self+0x268/+0x270 for an entry whose first qword equals key; copies name (null gives empty, truncated at 127 chars) into the entry's inline 128-byte string at +0x28 and sets +0x20 = pointer to it, +0x18 = 0x80; returns 0, or 0x22 when the key is not found. Game_Replay_LoadFullReplay calls it after the header bag decrypts OK to store the replay name on the save-slot entry identified by the id read from the header (skipped when the id is -1). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.set_entry_inline_name_by_key",

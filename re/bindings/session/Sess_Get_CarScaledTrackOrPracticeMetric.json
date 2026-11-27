@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1436ae650",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "float Sess_Get_CarScaledTrackOrPracticeMetric(void *self, uint8_t carIdx, void *trackKey)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1436b0be0 (RacingPC lab re_groups/_decomp);xref:0x14176d820,0x141d6af00,0x142fdbb70",
-  "notes": "Gets track data via Game_TrackData_GetTrack(self+0x118,...) and multiplies its float +0xf0 by a per-car scale read XOR-decoded from car[carIdx] (+0x158 table +0xb0, ->+0x58->+0x548, +0x38 ^ +0x40; default 1.0). If the car has a strategy object of type 0x1461035c8 in vector self+0x38, uses scale * Sess_Strategy_GetLowestAvgPracticeMetric_ByTyreClass when that is > 0. Context from caller: Mfd fuel laps and race strategy VM, so probably fuel used per lap."
+  "proto": "float Sess_Get_CarScaledTrackOrPracticeMetric(void *session_data, uint8_t car_index, void *track_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1436b0be0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1414e34e0,0x14176d820,0x141d6af00",
+  "notes": "Gets the track record with Game_TrackData_GetTrack([this+0x118], track_id, layout bytes from the vcall +200 on [[this+0xd0]+0x88]+0x260). scale = 1.0 or the XOR-obfuscated float at [[[this+0x158]+0xb0+car*8]+0x58]+0x548 (+0x38 ^ +0x40). Result = scale * track+0xf0; if this+0x70 is set and the per-car entry at [this+0x38][car] has type 0x1461035c8 and Sess_Strategy_GetLowestAvgPracticeMetric_ByTyreClass(entry[2]) is > 0, the result is scale * that metric instead. Returned in xmm0. Context from caller: Game_Mfd_FuelLaps_UpdateText divides remaining fuel by it (laps of fuel), Game_RaceStrategyVm_Populate stores it at vm+0x2148 before the fuel_mass_string field, 0x1414e34e0 (large HUD VM populate that binds pit_normal etc.) stores it at +0x380; so it is the per-lap fuel use. Callers show only two args; track_id comes in r8. Good hook to change displayed fuel-per-lap. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.get_car_scaled_track_or_practice_metric",

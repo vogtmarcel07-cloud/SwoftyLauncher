@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1445ccaf0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Replay_SetBufferPair_Locked(void *replay, void *first, void *second)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445cf360 (RacingPC lab re_groups/_decomp);xref:0x142c482a0,0x142c48670",
-  "notes": "Under critical section +0x128: FUN_1445ce590(replay), move-assigns first into +0x90/+0x98 and second into +0xa0/+0xa8 (destroying the previous objects), then FUN_1445ce940(replay). Context from caller: restores the main module buffers taken by 0x1445cf2c0."
+  "proto": "void Game_Replay_SetBufferPair_Locked(void *self, void *pairA, void *pairB)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1445cf360 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c482a0,0x142c48670",
+  "notes": "Whole body read: under the critical section at self+0x128 runs 0x1445ce590(self), moves pairA[1] into self+0x98 and pairB[1] into self+0xa8 (destroying and freeing the previous objects through the old allocators at +0x90/+0xa0, source pointers nulled), copies the allocators pairA[0]/pairB[0] to +0x90/+0xa0, then 0x1445ce940(self). Game_Replay_RestoreMainModuleBuffers and Game_Replay_LoadSavedReplayJob (two call sites) both pass manager +0x6b0/+0x6c0 to hand the saved buffers back to the 'main' module before logging ReplaySystem reset; inverse of 0x1445cf2c0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.replay_set_buffer_pair_locked",

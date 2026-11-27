@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1418431e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint64_t Game_Resolve_GameModeEntrantsSessionRefs(void *self, void *services, void *systemMap)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1418449c0 (RacingPC lab re_groups/_decomp);xref:0x14159b7b0,0x1419fe850",
-  "notes": "Looks up systems in the map (GameModeSystem -> +0x380, EntrantsSystem -> +0x388, SessionSystem -> +0x390, keys 0x146102c68 -> +0x398, 0x1460c0d80 -> +0x3a0, 0x14607bb70 -> +0x3c8), queries a component of type 2 from +0x3c8 into +0x3b8, a game-mode sub object into +0x3b0 and service 0x146cba218 into +0x3a8. Returns 0 on success else 0x16 with errno trace. Context from caller: broadcast vehicle view."
+  "proto": "uint64_t Game_Resolve_GameModeEntrantsSessionRefs(void *self, void *provider, void *systemMap)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1418449c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14159b7b0,0x1415acf20,0x1419fe850",
+  "notes": "Whole body read: looks up six keys in the robin-hood system map (k_Live_GameModeSystemKey, k_Live_EntrantsSystemKey, k_Live_SessionSystemKey, 0x146102c68, 0x1460c0d80, 0x14607bb70) and caches the pointers at self+0x380, +0x388, +0x390, +0x398, +0x3a0, +0x3c8; from the last one fetches a ref-counted object and, when its byte +0x39 == 2, copies +0x40 into self+0x3b8; resolves an interface from the game mode (+0x1030, id 0x1460629c8) into self+0x3b0 and provider vt+0x28(0x146cba218) into self+0x3a8; returns 0, or 0x16 (with errno trace) if any lookup is null. Hud_BroadcastIntro_GpTitle and Game_BroadcastViewVehicleVM_OnActivate call it on a freshly allocated helper with their own provider/map members; caller 0x1415acf20: builds the broadcast grid rundown items and does the same per item. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.resolve_game_mode_entrants_session_refs",

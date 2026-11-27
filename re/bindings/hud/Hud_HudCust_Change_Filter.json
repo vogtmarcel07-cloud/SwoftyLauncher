@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14380f420",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "hud",
-  "proto": "void Hud_HudCust_Change_Filter(void *self, int32_t filter_index)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1438119b0 (RacingPC lab re_groups/_decomp);xref:0x143810790",
-  "notes": "Stores filter_index at +0x90, looks up old and new filter entries (0x28 stride) of layout +0x94 in data (+0x68)+0x2e0. For every element (0xf0 stride) of the layout that belongs to it, looks up its saved entry in the map at data+0x640 and re-sends events 0x1d (float +0x10), 0x21 (position +4) and 0x24 (u32 +0x14), or the element callback +0xa8 with the new filter, depending on visibility byte +0xc and FUN_14380fa60. Then picks the first selectable element index into +0x8c, signals behaviour hash 0xe867d70b, calls 0x143811410(data, data+0x590) and FUN_14380fbf0, and sets dirty byte +0x9c = 1."
+  "proto": "void Hud_HudCust_Change_Filter(void *hud_cust, int filter_index)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1438119b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143810790",
+  "notes": "Resolves the old filter entry (index this+0x90) and the new one in the current layout ([ctx this+0x68]+0x2e0[this+0x94], entries of 0x28 bytes at +0x28..+0x30), then stores this+0x90=filter_index. For every HUD element (0xf0 stride from ctx vcall +8) that belongs to the layout id list (+0x10/+0x18) it looks the element up in the hash map at ctx+0x650 and posts UI events to g_Vm_UiSystem: type 0x1d (opacity from map+0x10 or default), 0x21 (position map+4), 0x24 (scale map+0x14), and calls the element callback (+0x150) with the new filter entry when it was in the old filter list. Then resets the selected element index this+0x8c to the first element not rejected by 0x14380fa60, notifies the listener (0x1438f3d20, hash 0xe867d70b), rebuilds ctx+0x590 and sets this+0x9c=1. Caller Game_HudCustomisation_CopyUiData (handleSignal, applyCurrentCustomisationDataToUIData path) calls it with the current index when editor mode this+0x8a is set, to re-push all element transforms to the UI. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.hud_cust_change_filter",

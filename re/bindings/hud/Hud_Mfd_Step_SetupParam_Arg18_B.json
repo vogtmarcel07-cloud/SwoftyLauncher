@@ -7,9 +7,9 @@
   "addr": "0x141533a30",
   "level": "L1",
   "subsystem": "hud",
-  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Arg18_B(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141535020 (RacingPC lab re_groups/_decomp);xref:0x142a90430",
-  "notes": "Same body as 0x141534d60: gates on bool nodes +0x6c0/+0x6e0, reads int node +0x780, finds setup param by id +0xb40/+0xb42, calls Car_Setup_ResetParamToZeroStep(param, 0x12), publishes UNK_1456f8760, sets bool node +0xb68 true and state +0xb80 = 2. Better context needed: the call site in Game_GameMfdSystem_Update would say which input (up/down) maps to A vs B."
+  "proto": "uint64_t Hud_Mfd_Step_SetupParam_Arg18_B(void *mfd)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141535020 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142a90430",
+  "notes": "Decompile is identical to 0x141534d60: gated by the bool VM nodes at mfd+0x6c0 and +0x6e0, finds the setup entry with id mfd+0xb40, calls Car_Setup_ResetParamToZeroStep(entry, 0x12), posts message 0x1456f8760, sets the bool node +0xb68 and writes 2 to +0xb80. The difference from the A variant is not visible (probably a register argument such as the step direction). Context from caller: Game_GameMfdSystem_Update calls it when input action 0x14607ace0 is pressed, the action directly after the one for the A variant, so the two are likely a down/up pair. Better context needed: disassembly of both bodies. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "hud.mfd_step_setup_param_arg18_b",

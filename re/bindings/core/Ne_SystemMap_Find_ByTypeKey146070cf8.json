@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1406d73b0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
   "proto": "void *Ne_SystemMap_Find_ByTypeKey146070cf8(void *map)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1406d73f0 (RacingPC lab re_groups/_decomp);xref:0x1406d63a0,0x14148ab00,0x141d5f510",
-  "notes": "Looks up the fixed key &DAT_146070cf8 in a robin-hood u64 map (Ne_RobinHoodMap_U64_FindIndex), entries 0x10 bytes at +0x18, end at +0x20; returns entry value (+8) or 0. Typed service-locator getter for one system type. Better context needed: which system type DAT_146070cf8 identifies."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1406d73f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1406d63a0,0x14148ab00,0x141d5f510",
+  "notes": "Looks up the constant key 0x146070cf8 (address of a type tag) with Ne_RobinHoodMap_U64_FindIndex in the map whose 0x10-byte slots start at map+0x18 and end at map+0x20, and returns the slot value at +8, or 0 when not found. All three callers use it in a long chain of per-type getters that stops at the first null: Game_Elastic_ElasticSearchDisabledViaConfig stores the result at self+0x20a08, Game_Register_DriverSuitScreens at self+0xb8 and Game_HudVM_ResolveSystems at self+0x90. Which system the key stands for is not visible here. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.system_map_find_by_type_key146070cf8",

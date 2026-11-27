@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143093f00",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "uint8_t Game_Check_AllActivePeersStateInSet(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143096490 (RacingPC lab re_groups/_decomp);xref:0x1436ec990",
-  "notes": "Iterates participants ((+0x20)->+0x100)->+0x58..+0x60; for each with id byte +99 != 0 found in hash map (+0x40 seed, +0x48 12-byte slots, +0x50 control, +0x60 mask) and with flags +0x5b&0x10, +0x65 != 0, +0x66 == 0, +0x91 != 2, requires the map value state (+4) to be one of {1,2,4,5,12,13} (mask 0x3036); returns 0 otherwise, 1 if all pass. Context from caller: NetworkReady spectator skip."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143096490 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1436ec990",
+  "notes": "Iterates the pointer vector [[+0x20]+0x100]+0x58..+0x60 (only while [+0x20]+0xd8 != 0). For each item with id byte +99 != 0 it looks the id up in the robin-hood map at +0x40 (multiplier), +0x48 12-byte slots, +0x50 info bytes, +0x60 mask, +0x70/+0x74 info params. If found and the item passes (+0x5b bit 0x10 set, +0x65 != 0, +0x66 == 0, +0x91 != 2) the mapped state int at slot+4 must be one of {1,2,4,5,12,13} (mask 0x3036), else returns 0. Returns 1 when all pass. Context from caller: Game_NetworkReady_UpdateSpectatorSkip calls it when 0x143227560 returned false and takes the skip branch (log id 0x5e) only when it returns true. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.check_all_active_peers_state_in_set",

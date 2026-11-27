@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142a129f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "gamedb",
-  "proto": "const char *Gdb_Resolve_TextureOverride_Recursive(void *self, const char *texture_name)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a14db0 (RacingPC lab re_groups/_decomp);xref:0x141fa26e0",
-  "notes": "Builds \"<str +0x160>.<str +0x260>\" then appends \".textures\", calls Gdb_Find_RowByLabel with column \"texture_override\" and the input name; if a row is found returns its decoded \"texture\" string field, otherwise recurses into parent object +0x368 or returns the input unchanged (null input returns empty string). Good hook for texture swaps."
+  "proto": "const char *Gdb_Resolve_TextureOverride_Recursive(void *node, const char *label)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a14db0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141fa26e0",
+  "notes": "Null label returns the empty string 0x145614762. Builds a 255-char path from the inline strings at node+0x160 and node+0x260 joined by '.', appends '.textures', and uses table name 'texture_override' with Gdb_Find_RowByLabel(path, cursor, label, &found). Found: reads field 'texture' with Gdb_Get_FieldInt (returns the field cell), XOR-decodes the string with k_Gdb_StringXorKey into its +0x48 buffer when not yet decoded (+0x40 != 1) and returns the decoded char pointer (fallback 0x146cc62e8 record when the cell is null). Not found: recurses into parent node +0x368 if set, else returns label unchanged. Context from caller: Game_GarageMonitorTvFeedVM_OnActivate calls it with the object from 0x140ac1420([vm+0x6188]) and label 0x14576430f and writes the result to the string holder at vm+0x5700 (Vm_Holder_SetCStr). Hook point for per-team texture overrides. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "gamedb.resolve_texture_override_recursive",
