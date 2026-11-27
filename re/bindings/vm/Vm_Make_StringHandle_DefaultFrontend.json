@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Vm_Make_StringHandle_FrontendPath",
+ "name": "Vm_Make_StringHandle_DefaultFrontend",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Vm_Make_StringHandle_FrontendPath: the node path is *path (arg 3), while \"frontend\" is passed in the value slot of Game_VmBinding_ResolveStringNode (same position as the value in Vm_Set_String), so it is the default string and not a path. Resolves the string node *path under the g_Vm_Registry root (+8), links out_handle+8..+0x18 into the node's handle list (+0x28) with a refcount bump at +0x24, sets vtable 0x1456616e0 and returns out_handle. Context from caller: Game_SessionResultsContainerViewModel_SetupNextState builds the handle for path 0x14565ff30 and at once overwrites it with Vm_Holder_SetCStr(0x1456140ab) when a feature flag and *(sys+0x291) are set. Better context needed: the exact meaning of arg 4 of Game_VmBinding_ResolveStringNode. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "vm.make_string_handle_frontend_path",
+  "id": "vm.make_string_handle_default_frontend",
   "section": ".xtls",
   "pattern": "48 8D 54 24 20 48 89 F9 E8 ?? ?? ?? ?? 48 8D 15",
   "match": "0x141d92dfc",
@@ -24,7 +24,7 @@
   "target": "0x141d92eb0",
   "kind": "call",
   "names": [
-   "Vm_Make_StringHandle_FrontendPath"
+   "Vm_Make_StringHandle_DefaultFrontend"
   ],
   "verified": [
    {

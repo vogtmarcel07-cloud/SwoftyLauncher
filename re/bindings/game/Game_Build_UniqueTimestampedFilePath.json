@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Game_SessionResults_BuildUniqueExportPath",
+ "name": "Game_Build_UniqueTimestampedFilePath",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Game_SessionResults_BuildUniqueExportPath: the body shows only a file path builder, \"SessionResults\" and \"Export\" come from the callers. Gets the directory from the provider at self+0x20 (vfunc +8) and CreateDirectoryW's it, builds a wide name \"<g_Game_Manager+0x1a8 -> +0x30 -> +0x78 string>_<entrant team/vehicle name>_<string at mode+0xe80 or +0x220>_<day month year hour minute from localtime>\" (mode object = *(*(self+0x28)+0x88)+0x260), replaces characters via FUN_142c4e6e0 and maps each char, then joins dir + name + extension (vfunc +0x10); if GetFileAttributesW shows the file exists it appends a counter 1..99999 until free. Result is an inline wide string (vtable 0x1457d90b8, cap 0x100, buffer at out+0x18), empty on failure. Callers (0x141d2f6d0 on event hash 0x74b6c0c, 0x141d30220 same hash, SetupNextState on 0x505aa8b2) check self+0x6e1 and pass the path to Game_Unk_142c48e10, which stores it at self+0x498 and queues an async job. Context from caller: triggered from session results container view models. Hook point to change the output file name. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "game.session_results_build_unique_export_path",
+  "id": "game.build_unique_timestamped_file_path",
   "section": ".xtls",
   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 81 EC D8 05 00 00 48 89 D6",
   "match": "0x142c48860",
@@ -23,7 +23,7 @@
   "target": "0x142c48860",
   "kind": "func_start",
   "names": [
-   "Game_SessionResults_BuildUniqueExportPath"
+   "Game_Build_UniqueTimestampedFilePath"
   ],
   "verified": [
    {

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Ne_Config_Get_ValueOrDefault_Locked",
+ "name": "Ne_Config_Get_U64SizeOrDefault_Locked",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Ne_Config_Get_ValueOrDefault_Locked: the value is parsed by FUN_14391c260 into a uint64 (0x hex and K/G size suffixes), so the type is known. Locks cfg+0x10, looks name up in the FNV-1a name table at cfg+8 (Ne_NameTable_FindByFnv1a_B, 16-byte entries from +0x18, end +0x20), parses entry+8 into *out and returns 0; if the table or key is missing writes def and returns 2, on parse failure writes def and returns 0x21; error codes also go to the TLS errno chain and g_Ne_ErrnoTraceRing; unlocks. Callers: Game_Read_GameConfig_5 reads the u64 at +0xf0 (key 0x1457fa13f), Game_Read_NetworkConfig uses it for var type 6, 0x141c359a0 (a constructor) reads two 0x80-default limits into +0x1430/+0x1438. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "core.config_get_value_or_default_locked",
+  "id": "core.config_get_u64_size_or_default_locked",
   "section": ".xtls",
   "pattern": "41 56 56 57 53 48 83 EC 38 4C 89 CF 4C 89 C3 49 89 CE 48 89 54 24 30 48 8D 71 10 48 89 F1 E8 ?? ?? ?? ?? 4D 8B 76 08 4D 85 F6 0F 84",
   "match": "0x143a43880",
@@ -23,7 +23,7 @@
   "target": "0x143a43880",
   "kind": "func_start",
   "names": [
-   "Ne_Config_Get_ValueOrDefault_Locked"
+   "Ne_Config_Get_U64SizeOrDefault_Locked"
   ],
   "verified": [
    {

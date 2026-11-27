@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Game_SettingsVM_ResolveSettingByNameHash",
+ "name": "Game_SettingsVM_Resolve_StringByNameHash",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Game_SettingsVM_ResolveSettingByNameHash: the input is an entry/category name (e.g. \"cat_driver_icons\") and the result is used as a string value, not a setting. Computes the djb2 hash (5381, x33) of the NeStr *name, maps about 35 known hashes to constant key strings (default 0x145638190), then returns func_0x1441e5bd0(*(*(sys+0x8e0)+8), NeStr(*(sys+0x8e8)), NeStr(key)) with sys=*(self+0x620). Callers (Game_SettingsEditScreenViewModel_WorkoutEntriesAction with \"cat_driver_icons\", 0x141da6270 and 0x141da92d0 with the name from an entry's node, both settings row builders) write the result with Vm_NodeSet_String into the entry's string node +0x198, mostly when DAT_14606c9dc == 1. Hook point to remap per-category strings. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "game.settings_vm_resolve_setting_by_name_hash",
+  "id": "game.settings_vm_resolve_string_by_name_hash",
   "section": ".xtls",
   "pattern": "56 57 53 48 83 EC 30 48 8B B9 20 06 00 00",
   "match": "0x141dbccb0",
@@ -23,7 +23,7 @@
   "target": "0x141dbccb0",
   "kind": "func_start",
   "names": [
-   "Game_SettingsVM_ResolveSettingByNameHash"
+   "Game_SettingsVM_Resolve_StringByNameHash"
   ],
   "verified": [
    {

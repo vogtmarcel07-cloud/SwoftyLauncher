@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "name": "Render_SkinnedActor_DestroyEntryArray_A",
+ "name": "Ne_OwnedPtrArray_DestroyElems_TwoVec_A",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1443b75d0",
   "level": "L2",
-  "subsystem": "render",
+  "subsystem": "core",
   "proto": "void Ne_OwnedPtrArray_DestroyElems_TwoVec_A(void *arr)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1443b9ba0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1401c93c0,0x140292080,0x140393c10",
   "notes": "Renamed from Render_SkinnedActor_DestroyEntryArray_A: the body is a generic owning pointer-array teardown and callers are three different classes, not only SkinnedActor. arr = {elems** +0x0, u32 count +0x8, owner +0x18}. For each element: calls owner vtable+0x20(elem), frees the element's two inner vectors (allocator +0x0/begin +0x8 and allocator +0x20/begin +0x28 via vtable+0x38), frees the 0x40-byte element with the global allocator at 0x14627eea8, nulls the slot; then frees the array and zeroes ptr and count. Byte-identical to 0x1443bbe00. Callers Game_SkinnedActor_Destroy_2, dtor 0x140292080 (vtable 0x1455e8590) and dtor 0x140393c10 (vtable 0x14561e040) call it second on the same member (after _B has already emptied it, with the owner slot reset to 0x145a88d18), so here it is the base-class cleanup and normally a no-op. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "render.skinned_actor_destroy_entry_array_a",
+  "id": "core.owned_ptr_array_destroy_elems_two_vec_a",
   "section": ".xtls",
   "pattern": "E8 ?? ?? ?? ?? 48 8D BE A0 03 00 00",
   "match": "0x1401c9622",
@@ -24,7 +24,7 @@
   "target": "0x1443b75d0",
   "kind": "call",
   "names": [
-   "Render_SkinnedActor_DestroyEntryArray_A"
+   "Ne_OwnedPtrArray_DestroyElems_TwoVec_A"
   ],
   "verified": [
    {

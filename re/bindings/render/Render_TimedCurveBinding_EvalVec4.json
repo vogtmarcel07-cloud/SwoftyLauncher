@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Render_SkyState_GetTimedValue",
+ "name": "Render_TimedCurveBinding_EvalVec4",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Render_SkyState_GetTimedValue: self is a 0x50-byte curve binding member, not the sky state, and the body evaluates and caches a 16-byte value. Whole body read: when binding[0] (curve) is 0 it copies the default 16 bytes at +0x10; otherwise it locks clock (+8) +0x268, checks 0x142ee2190, takes time = clock+0x90 when +0x40 == 1, else clamp01((f64 +0x68 + f64 +0x70) * f32 +0x80 / max(f32 +0x84, 0.01)), times 24.0 when clock+0x22 is set; when the clock override object (+0x60, flag +0xb4) and binding+0x35 are set it returns the override at +0x20, else re-evaluates the curve (0x142ee2300) into +0x10 only when time differs from the cached +0x30, and returns +0x10. Context from caller: Render_SkyState_Update calls it on bindings at sky+0x50, +0xa0, +0xf0, +0x140, +0x190, +0x4e0, +0x530, +0x670, +0x840, +0x890 (next to scalar Game_TodCurveBinding_EvalNow) and writes xyz into the per-view sky constants at +0x42a30... Good hook to override time-of-day sky colours. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "render.sky_state_get_timed_value",
+  "id": "render.timed_curve_binding_eval_vec4",
   "section": ".xtls",
   "pattern": "48 89 F9 E8 ?? ?? ?? ?? C4 41 38 57 C0",
   "match": "0x142e1402a",
@@ -24,7 +24,7 @@
   "target": "0x142e15710",
   "kind": "call",
   "names": [
-   "Render_SkyState_GetTimedValue"
+   "Render_TimedCurveBinding_EvalVec4"
   ],
   "verified": [
    {
