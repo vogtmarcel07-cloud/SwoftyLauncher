@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c2e460",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_F1DataFeed_Record_MoveAssign_142c309f0(void *self, void *src)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c309f0 (RacingPC lab re_groups/_decomp);xref:0x142c2b720",
-  "notes": "Assigns the 0x16a8-byte data feed record field by field (same layout as ctor 0x142c199a0: inline strings, scalars, 24 entries of 200 bytes), appends src vector of 12-byte elems (+0x1668) into self and pushes each 0xa8-byte elem of src +0x1688 via FUN_142cb7b90 into self+0x1680, then frees and zeroes both src vectors. Returns self."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c309f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c2b720",
+  "notes": "Whole body read. Assigns the 0x16a8-byte record: copies all inline string buffers and re-points their data pointers/capacities, copies scalars (+0x208, +0x210, +0x288..+0x294, +0x398, +0x39c) and the 24 x 200-byte entries from +0x3a0; appends src vector +0x1668 (12-byte elems) to self with grow x1.5 and src vector +0x1688 (0xa8-byte elems) via 0x142cb7b90, then frees and zeroes both src vectors (src is left empty). Returns self. Note: the vectors are appended, not replaced. Caller Game_F1DataFeed_SkipStreamLine uses it to move copy-constructed temporaries into sys+0x19c8 and sys+0x3078 after the replay header is parsed. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1_data_feed_record_move_assign_142c309f0",

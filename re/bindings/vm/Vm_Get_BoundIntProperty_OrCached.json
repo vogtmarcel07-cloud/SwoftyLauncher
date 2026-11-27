@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141782e10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "int64_t Vm_Get_BoundIntProperty_OrCached(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141784590 (RacingPC lab re_groups/_decomp);xref:0x141c355a0",
-  "notes": "If flag +0x88 is clear returns the cached value at +0x90. Otherwise follows the node handle at +0x30 through up to 0x62 redirect links (vcall +0x30 / +0x38), takes a temporary intrusive node ref, resolves a property binding by name (string at 0x1456603b6, not readable here), checks the value type id equals the int type descriptor 0x14612bd40 and returns the int value, else 0; releases the node. Context from caller: used by invitational event setup to read the difficulty value."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141784590 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c355a0",
+  "notes": "Whole body read. If flag +0x88 is clear returns cached +0x90. Otherwise takes node handle [+0x30]+8, follows up to 0x62 forwarding nodes (vcall +0x30 test, [+0x58] vcall +0x38), holds it with Ne_IntrusiveNode_Reassign; if no node returns +0x90. Else Ne_Property_ResolveBindingChain(node+8, name 0x1456603b6); if the property is valid and its type id equals the int type 0x14612bd40 returns the sign-extended int value, else 0; releases the node (Vm_Release_Node). Caller Game_InvitationalEventSetup_EnterDifficulty uses the result as the selected row index into the 16-byte item vector at self+0x70..+0x78. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.get_bound_int_property_or_cached",

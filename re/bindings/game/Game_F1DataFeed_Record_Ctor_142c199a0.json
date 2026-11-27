@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c17410",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_F1DataFeed_Record_Ctor_142c199a0(void *self, void *allocator)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c199a0 (RacingPC lab re_groups/_decomp);xref:0x142c2b720",
-  "notes": "Default-constructs the same 0x16a8-byte record as the copy ctor at 0x141ca4f10: sets inline string vtables and empty contents, +0x208 = 1, +0x288 = 0x100, 24 entries of 200 bytes with int +0x448 = 0xffffffff, and three allocator-bound members at +0x1660, +0x1680 (empty vectors) and +0x16a0."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c199a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c18870,0x142c28950,0x142c2b720",
+  "notes": "Whole body read. Default-constructs the 0x16a8-byte record: sets inline-string headers and vtables (0x145615548, 0x145615538, g_Ne_InlineStr128Vtable, g_Ne_InlineStrVtable, 0x145615688) and empty contents, +0x208 = 1, +0x288 = 0x0100, 24 x 200-byte entries from +0x3a0 with +0x448 = 0xffffffff, and two empty vectors at +0x1660/+0x1680 using the allocator argument (also stored at +0x16a0). Returns self. Callers: 0x142c18870 is the owning system constructor that builds the two member records at +0x19c8 and +0x3078; Game_F1DataFeed_SkipStreamLine and 0x142c28950 (record list builder) construct a stack temporary before parsing into it. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1_data_feed_record_ctor_142c199a0",

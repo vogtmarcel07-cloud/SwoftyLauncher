@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143692190",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "void Sess_PitDecision_Update_GarageReleaseQueue(void *self, void *car_ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143694720 (RacingPC lab re_groups/_decomp);xref:0x143692a80",
-  "notes": "Per-car garage release logic. Resolves the entrant row (table +0x2e0, elem 0x88, car index at car_ctx+0xc4), checks session type at (+0x58)+0x1a8 +4 and flag byte +0x4b bit 0x10 to early-out, computes session time and a normalised session progress, evaluates a curve (Career_Eval_Curve) to get max cars allowed on track and counts cars in states DAT_14604a4a0/a4. Under critical section DAT_146103328 inspects the global queue DAT_1461032e8 of {u8 car, f32 time}: if this car is at the front and its time and global next-release time DAT_146103358 have passed, removes it, re-sorts, calls Sess_PitDecision_ChooseTyreAndFuel and Game_PitLane_VehicleWantsToLeaveGarage_Thunk, sets car_ctx+0x130 flag 0x20 and bit 1, and sets DAT_146103358 = now + random in [min,max] (defaults 6..18 s, or 1.5..3.5 s when DAT_14610335c is set; overridable from tuning at (+0xb8)+0x10..+0x48). Otherwise upserts {car, time} into the queue (shared tail Sess_PitDecision_UpsertPitCommitList). Modders: DAT_146103358 and the 6/18 and 1.5/3.5 constants control spacing of AI cars leaving the garage."
+  "proto": "void Sess_PitDecision_Update_GarageReleaseQueue(void *self, void *car_decision)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143694720 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143692a80",
+  "notes": "Whole body read. For car id +0xc4: early out by session type ([ctx+0x58]+0x1a8 +4) and participant flag +0x4b bit 0x10; reads session time ([ctx+0x80]), counts cars on track (type ids 0x14604a4a0/4a4) against Career_Eval_Curve(time fraction) limit; under critical section 0x146103328 checks that the car is head of global queue 0x1461032e8 (8-byte {u8 id, f32 time}). If allowed and time >= its entry and >= next-release time 0x146103358: erases entry, calls Sess_PitDecision_ChooseTyreAndFuel and Game_PitLane_VehicleWantsToLeaveGarage_Thunk, sets flags +0x130 (|0x20, |1) and a new random release time (18..6 s or 3.5..1.5 s by 0x14610335c); otherwise falls into the shared upsert tail (set entry time, sort). Caller Game_AiPitDecision_UpdateDroppedPlayerCar calls it when +0x130 bit 4 is set (car in garage), else it upserts the commit list. Hook point for AI garage release timing. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.pit_decision_update_garage_release_queue",

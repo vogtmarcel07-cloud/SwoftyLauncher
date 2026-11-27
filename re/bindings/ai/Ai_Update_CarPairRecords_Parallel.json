@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1405effa0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ai",
-  "proto": "void Ai_Update_CarPairRecords_Parallel(void *cars)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1405effe0 (RacingPC lab re_groups/_decomp);xref:0x140605410",
-  "notes": "For each car i < count (+8): for every entry in the two lists of car object (+0x48)[i] at +0x38..+0x40 and +0x58..+0x60 (elem 0x28, first byte = other car index) copies field +0xc of pair record (+0x160)[(+0x150)*i + other] into entry+0x20. If count > 1 rebuilds bitmask +0x140 (bit per car, set when flag byte +0x19 bit 0x80 is set, +0x185 is 0 and state id is neither DAT_14604a418 nor DAT_14604a41c; car stride 0x508 from +0xa8), then runs two job batches on the job system at +0x198: Ai_Job_ForEachCarCall_140680610 and Ai_Job_UpdatePairSpeedRecords, and waits. Hook point for per-pair AI data refresh."
+  "proto": "void Ai_Update_CarPairRecords_Parallel(void *ai_system)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1405effe0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140605410",
+  "notes": "Whole body read. For each car i < +0x8: walks two 0x28-byte record lists of [+0x48][i] (+0x38..+0x40 and +0x58..+0x60) and sets rec+0x20 = [pair_table(+0x160)[i*(+0x150)+rec.other_u8]]+0xc. If more than one car: rebuilds car bit mask +0x140 from per-car records at +0xa8 (stride 0x508; flag byte +0x19 bit 0x80, byte +0x185, type id vs 0x14604a418/41c), then dispatches two parallel jobs (Ai_Job_ForEachCarCall_140680610, Ai_Job_UpdatePairSpeedRecords) capped by [+0x198]+0x24 workers and waits on job object +0x198. Caller Ai_Manager_Update runs it on [mgr+0x38] between the controller update and the behaviour jobs, once per AI tick. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ai.update_car_pair_records_parallel",

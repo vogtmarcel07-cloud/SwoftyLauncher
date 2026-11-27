@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c1c090",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_F1DataFeed_Load_CarStreamFile(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c1e620 (RacingPC lab re_groups/_decomp);xref:0x142c2b720",
-  "notes": "Returns when car index self+0x19bc is negative. Builds a directory string with snprintf, stores a timestamp (QueryPerformanceCounter) at +0x1698, formats a per-car file path using the entry (+0x88)+0x28[idx] field +0x78, opens it (wide path), reads the whole file (seek end, tell, alloc via self+0x10, read, close; errno 2 trace when open fails). Splits by newline and sscanf-parses each line into a 0x60-byte record {line index, 8 floats, 2 more values, default 1.0} appended to the vector at +0x1758, then builds an index object at +0x1770 over pointers to all records (FUN_142c3dc30). Hook point to inspect or replace recorded real-car stream data."
+  "proto": "void Game_F1DataFeed_Load_CarStreamFile(void *sys)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c1e620 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c1b8a0,0x142c2b720",
+  "notes": "Whole body read. No-op if index +0x19bc < 0. Looks up entry [+0x88]+0x28[idx] (16-byte elems), formats a path from a base directory (format 0x1457d1bd6) and entry+0x78 (format 0x1457d236a), stores a stamp from 0x142c1e490 in +0x1684 and QPC time in +0x1698, opens the file (wide path, mode 0x1457d90e6), reads it whole into a buffer from allocator +0x10, splits on newline and parses each line with format 0x1457d2374 (12 values) into 0x60-byte rows {line index, 8 floats, 2 more} appended to vector +0x1758..+0x1768; then rebuilds the lookup at +0x1748/+0x1770 from row pointers via 0x142c3dc30 and frees the buffer. On open failure only records an errno trace. Callers: Game_F1DataFeed_SkipStreamLine calls it after opening the real-world replay (mode 1); 0x142c1b8a0: per-frame feed update that reloads when the stamp in +0x1684 is older, then calls Game_F1DataFeed_FetchCarDataFrame. Format strings not visible, so the row field meaning is open. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1_data_feed_load_car_stream_file",

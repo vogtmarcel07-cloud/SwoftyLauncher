@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142c3bac0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_F1DataFeed_Release_StreamCache(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c3e050 (RacingPC lab re_groups/_decomp);xref:0x142c1f0e0,0x142c2b720",
-  "notes": "Teardown of a cache object: frees buffer +0x80 via allocator +0xb8, clears the robin-hood map (+0x50 info, +0x58 count, +0x60 mask, +0x70 = 0x20), resets vector end +0x20 = begin +0x18, closes the handle at +200 with the same CRT routine used after fread in the loader (0x145357838), frees the map storage via allocator +0x38 when not inline and frees the vector +0x18 via allocator +0x10. Better context needed: exact owner type."
+  "proto": "void Game_F1DataFeed_Release_StreamCache(void *cache)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142c3e050 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c1f0e0,0x142c2b720",
+  "notes": "Whole body read. Frees buffer +0x80 via allocator +0xb8, clears hash map (+0x50 ctrl bytes memset, count +0x58 = 0, +0x70 = 0x20) and frees its storage via +0x38 if not inline, closes FILE +0xc8 (0x145357838) and frees vector +0x18..+0x28 via allocator +0x10. Does not free the object itself. Callers: Game_F1DataFeedSystem_Terminate calls it on sys+0x178 then frees it; Game_F1DataFeed_SkipStreamLine (requestLoadReplay) calls it on sys+0x178 and sys+0x180 before allocating a fresh 0x2f0-byte cache for the newly opened replay file. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1_data_feed_release_stream_cache",

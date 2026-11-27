@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1409c3b90",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "float Career_Calc_UpgradeCategoryCompletionLerp(void *self, const char *category_list, void *entrant, void *career)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1409c3be0 (RacingPC lab re_groups/_decomp);xref:0x1409b9af0",
-  "notes": "If career (param_4) is null: looks up an option in the options store at (*(self+8)+0x60)+0x270 and returns 1.0 when its value index is 0. Otherwise maps entrant+0x50 id to a team via career+0x278 table (elem 0x88, +0x50/+0x52 id, +0x58 team), finds the team object in career+0x298..+0x2a0, calls Career_Query_EnabledUpgrades, and for each category byte in the list (count at list+0x20) counts upgrades with +0x70 == category and those whose state byte *(+200)-8 == 3. Returns lerp(min, max, completed/total) using two stack float args. Context from caller: Ai_CannedEvents_ScheduleRace."
+  "proto": "float Career_Calc_UpgradeCategoryCompletionLerp(void *self, char *category_list, void *team_ref, void *career_ctx, float lo, float hi)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1409c3be0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1409b9af0",
+  "notes": "Whole body read; lo/hi are stack args 5 and 6 (decompiler shows only 4). If career_ctx==0: looks up an option (key at 0x145666dc4) in the options store at [[self+8]+0x60]+0x270 and returns 1.0 when the store/option is missing or its value index is 0, else returns lo. Otherwise: takes the id at team_ref+0x50 (byte + u16), maps it through the 0x88-stride vector at [career_ctx+0x278]+0x2e0..0x2e8 (match +0x50/+0x52, take +0x58), finds the matching entry (id at +0xc) in the pointer vector career_ctx+0x298..0x2a0 (returns 1.0 if none), calls Career_Query_EnabledUpgrades on it, then for each category byte in category_list (inline bytes, count at +0x20) counts enabled upgrades with upgrade+0x70 == category (total) and those whose byte at [upgrade+0xc8]-8 == 3 (done); returns lo + (hi-lo)*done/total, or lo when total is 0. Caller Ai_CannedEvents_ScheduleRace (0x1409b9af0) calls it at three sites with category sets per fault type (e.g. 0x12; 0,1,2; 3,4,5,6; 0xb..0x11) and uses the result as a per-car weight, fed directly into a sum or through Career_Eval_Curve to scale the failure / fault probability threshold. Hook point to make upgrade progress irrelevant to AI/player failure odds. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.calc_upgrade_category_completion_lerp",

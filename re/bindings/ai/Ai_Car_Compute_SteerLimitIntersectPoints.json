@@ -7,9 +7,9 @@
   "addr": "0x140607ca0",
   "level": "L1",
   "subsystem": "ai",
-  "proto": "void Ai_Car_Compute_SteerLimitIntersectPoints(void *state, void *car)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140607ce0 (RacingPC lab re_groups/_decomp);xref:0x1405ee6a0",
-  "notes": "Reads speed at state+0x3c, normalises with table from **(car+0x4c8) (+0x14 offset, +0x10 scale), samples a 64-entry byte curve at +0x2c (scale +0x18, bias +0x24, fallback +0x1c) and multiplies by min(abs(+0x328),abs(+0x32c)) to get an angle. Rotates the XZ direction between points +0x2c0/+0x2d0 by +angle and -angle (inline sin/cos polynomials), intersects the resulting lines with the line through +0x2a0/+0x2b0 (2D line-line, 1e7 fallback when parallel) and stores the two points at +0x170 and +0x180 plus their distances to +0x100 and +0xf0 in +0xc4 and +0xc8. Looks like left/right turning-circle centres and radii at the speed-limited steer angle. Context from caller: Ai_Car_CaptureVehicleState."
+  "proto": "void Ai_Car_Compute_SteerLimitIntersectPoints(void *ai_input, void *handling_config)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140607ce0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1405ee6a0",
+  "notes": "Whole body read. Angle = 64-entry u8 LUT at [[cfg+0x4c8]]+0x2c (scale +0x18, bias +0x24, clamp value +0x1c) indexed by (ai_input+0x3c - lut+0x14)*lut+0x10, times min(abs(+0x328),abs(+0x32c)); rotates the XZ directions of segments +0x2c0->+0x2d0 and +0x2a0->+0x2b0 by +angle/-angle (inline sin/cos polynomials), intersects the line pairs (parallel fallback 1e7 from 0x146048ce0) and writes points +0x170/+0x180 plus distances to +0x100/+0xf0 into +0xc4/+0xc8. Context from caller: last call of Ai_Car_CaptureVehicleState(ai_input, car, handling_config) after Ai_Vehicle_RebuildOpponentLists; +0x3c is forward speed per its KB note. Better context needed: meaning of +0x328/+0x32c (steer limits is an inference), so stays L1. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ai.car_compute_steer_limit_intersect_points",
