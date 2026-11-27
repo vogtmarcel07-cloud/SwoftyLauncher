@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Game_SlowMoController_ActivateEntry",
+ "name": "Game_ScenarioCtrl_ActivateEntry",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Game_SlowMoController_ActivateEntry: the body selects a named scenario and calls Game_TodData_SetScenario_Thunk, and the callers use it for instant replay as well as slow-mo, so SlowMo was caller context only. Under the SRW lock at [ctrl+0x98]+0x270 it takes entry ctrl+0xa8[index], djb2-hashes its name (+0x18) and looks the hash up in the 0x28-stride table [owner+0x60] (count +0x24); on a hit it clears +0x45 of the current entry (ctrl+0xa0), makes this entry current (+0x45=1, +0x46=flag, +0x44=0, blend +0x34=0 or 1.0 when rate +0x3c is below 0.001, +0x38=+0x3c, +0x48=arg), pushes it on the stack ctrl+0xe0 (count +0x100, max 4) and calls Game_TodData_SetScenario_Thunk(owner+8, hash). Context from caller: index 0 flag 1 from Game_SessionStateViewInstantReplay_OnStateEnter, index 1 from Game_Create_TerminalDamageSlowMo (arg passed through) and from Game_ControllerSet_Update (ctrl at self+0x4a0). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "game.slow_mo_controller_activate_entry",
+  "id": "game.scenario_ctrl_activate_entry",
   "section": ".xtls",
   "pattern": "41 57 41 56 56 57 55 53 48 83 EC 28 44 89 CD 45 89 C6 48 89 CB",
   "match": "0x142f50e70",
@@ -23,7 +23,7 @@
   "target": "0x142f50e70",
   "kind": "func_start",
   "names": [
-   "Game_SlowMoController_ActivateEntry"
+   "Game_ScenarioCtrl_ActivateEntry"
   ],
   "verified": [
    {

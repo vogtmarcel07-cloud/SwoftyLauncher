@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Ne_PropertySet_Read_Matrix64_FixedKey",
+ "name": "Ne_PropertySet_Read_Value64_FixedKey",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Ne_PropertySet_Read_Matrix64_FixedKey: the body only shows a 64-byte typed copy, the matrix meaning comes from the callers. Layered lookup (sources +0xf0, +0xe8, +0xe0) of the fixed key at 0x145a91f60, type id checked against descriptor 0x14612b9f8, copies 64 bytes to out64; returns 0, 0x57 (missing) or 0x16 (type mismatch). Context from caller: Ne_StaticPhysicsComponent_ReadProperties and 0x14445fd10 (sibling component property loader) pre-fill the target (+0x80 / +0x70) with a 4x4 identity and read it right after the has_local_xform bool, so the value is a local transform matrix. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "core.property_set_read_matrix64_fixed_key",
+  "id": "core.property_set_read_value64_fixed_key",
   "section": ".xtls",
   "pattern": "41 56 56 57 53 48 83 EC 28 48 89 D7 48 89 CE 48 8B 89 F0 00 00 00",
   "match": "0x14445dcb0",
@@ -23,7 +23,7 @@
   "target": "0x14445dcb0",
   "kind": "func_start",
   "names": [
-   "Ne_PropertySet_Read_Matrix64_FixedKey"
+   "Ne_PropertySet_Read_Value64_FixedKey"
   ],
   "verified": [
    {

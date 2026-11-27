@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Game_Mfd_Downforce_BindChildNodes",
+ "name": "Game_Mfd_Entry_BindBaseNodes",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Game_Mfd_Downforce_BindChildNodes: the same function is the first call of the brake bias and fuel mix binders too, so it is the shared base bind, not a downforce one. Resolves the child of node (+8 handle) named by name (djb2 hash, Vm_GetOrCreate_ChildNode; skipped when name is null or holds # . [ ]), has 0x141787080 build three node handles from it and move-assigns them to entry+0x10/+0x30/+0x50, releases the temporaries and calls 0x141787200(entry+0x68, handle of entry+0x10). Caller 0x141787670: then Game_Mfd_BrakeBias_BindNodes into +0xf0; caller 0x1417894d0: then Game_Mfd_FuelMix_BindNodes into +0x338..+0x398; caller 0x14178bc50: another entry type that then reads the game mode; also called by Game_Mfd_Downforce_BindNodes (0x14178c4c0). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "game.mfd_downforce_bind_child_nodes",
+  "id": "game.mfd_entry_bind_base_nodes",
   "section": ".xtls",
   "pattern": "41 57 41 56 41 54 56 57 53 48 81 EC A8 00 00 00 48 89 CE 48 8B 42 08",
   "match": "0x1417855e0",
@@ -23,7 +23,7 @@
   "target": "0x1417855e0",
   "kind": "func_start",
   "names": [
-   "Game_Mfd_Downforce_BindChildNodes"
+   "Game_Mfd_Entry_BindBaseNodes"
   ],
   "verified": [
    {
