@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14122b5c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "float Career_ResourcePoints_CalcTeamAndOptionMultiplier(void *self, char use_player_team, uint32_t team_key)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14122bc00 (RacingPC lab re_groups/_decomp);xref:0x14122b840,0x1419c3680",
-  "notes": "Returns team factor times option factor. Team factor: when (self+0x620)+0x380 is set, looks the packed team key up in the hash map at (self+0x620)+0x2e0..+0x314 (float at entry+4; default 1.0); with use_player_team the key is replaced by the player's EntrantRecord team_stat_id found through g_Game_Manager and the entrant list at (self+0x278)+0x2e0. Option factor: reads a 3-state option bound at self+0x640 (or +0x660 for the player path) and picks self+0x630/+0x634 (or +0x638/+0x63c) for states 0/2, else 1.0."
+  "proto": "float Career_ResourcePoints_CalcTeamAndOptionMultiplier(void *rp, char is_player, uint32_t team_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14122bc00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140d6d510,0x14122b840,0x141293240",
+  "notes": "Whole body read. Team factor: 1.0 unless [rp+0x620]+0x380 is set; when is_player is set the team key is replaced by the team_stat_id of the player entrant (identity from the game manager, list [rp+0x278]+0x2e0); the packed key is looked up in the hash map at [rp+0x620]+0x2e0..+0x314 and the float at entry+4 is taken (default from [+0x2c0]-4). Option factor: reads the option listener at rp+0x640 (is_player 0) or rp+0x660 (is_player 1) via 0x1412b91d0; value 0 gives rp+0x630 / +0x638, value 2 gives rp+0x634 / +0x63c, else 1.0. Returns team factor * option factor. Callers: Career_ResourcePoints_GetGainMultiplier (per driver key); 0x140d6d510 and 0x141293240 scale a positive point amount for the player (key 0x3fff0000). Good hook point for resource point gain rate. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resource_points_calc_team_and_option_multiplier",

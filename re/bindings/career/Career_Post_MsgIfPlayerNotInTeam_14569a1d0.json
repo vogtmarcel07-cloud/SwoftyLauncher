@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d8d490",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Post_MsgIfPlayerNotInTeam_14569a1d0(void *self, uint8_t flag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d8e010 (RacingPC lab re_groups/_decomp);xref:0x140d8f160,0x1422dc1e0",
-  "notes": "Finds the local player's EntrantRecord in self+0x278 (+0x2e0..+0x2e8); if its team id (u16 at +0x52 vs low 14 bits, byte +0x50 vs top 2 bits) differs from the packed team id at self+0x3a2 it posts a bus message with vtable 0x14569a1d0 carrying flag. Better context needed: the message type name."
+  "proto": "void Career_Post_MsgIfPlayerNotInTeam_14569a1d0(void *comp, uint8_t reason)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d8e010 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140d8f160,0x1422dc1e0",
+  "notes": "Whole body read. Builds the local player identity (mask 0x10000000), finds the matching EntrantRecord in [comp+0x278]+0x2e0..+0x2e8 and compares its team_stat_id with the packed u16 at comp+0x3a2 (low 14 bits vs hi word, top 2 bits vs low byte); if they differ posts bus message vtable 0x14569a1d0 with the reason byte at +0x10. Both callers reach it by tail jump with reason 2: Career_Unk_140d8e5e0 (contract renewal update, after Career_ContractRenewal_ForceListedDriversToLowestTeam succeeds) and Career_Fill_UpgradeCostAndName (on action hash 0x37ad1e4b, with the component fetched by k_Career_CareerDriverContractRenewalComponentDesc). Context from caller: comp is the CareerDriverContractRenewalComponent. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.post_msg_if_player_not_in_team_14569a1d0",

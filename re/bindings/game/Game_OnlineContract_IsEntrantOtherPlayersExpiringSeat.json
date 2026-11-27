@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ffcc70",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint32_t Game_OnlineContract_IsEntrantOtherPlayersExpiringSeat(void *self, uint32_t entrant_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ffd930 (RacingPC lab re_groups/_decomp);xref:0x141a69860,0x141a6a660",
-  "notes": "Returns 1 when only one player participates or the player list (+0x2d0..+0x2d8) is empty; returns 0 if the lead player is not in co-op. Otherwise gets the entrant list (vfunc +0x1c8 on self+0x270), finds the record matching entrant_id (id_hi/id_lo), requires Game_OnlineContractNegotiationsV_IsOtherPlayersContractEndingThi for it and then returns whether it matches the player record chosen by mode self+0x290 (1 = first, 2 = second) via Sess_Match_EntrantIdentity_Thunk. Name is a best reading of the predicate."
+  "proto": "uint32_t Game_OnlineContract_IsEntrantCurrentParticipant(void *self, uint32_t entrant_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ffd930 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141a69860,0x141a6a660",
+  "notes": "Renamed from Game_OnlineContract_IsEntrantOtherPlayersExpiringSeat: the old name misses the result; the function returns 1 when only one player takes part or the list at +0x2d0..+0x2d8 is empty, 0 when the lead player is not in co-op, and otherwise the identity match below. Data flow: gets the EntrantRecord list from (+0x270)->vtbl+0x1c8, finds the record with the given id (0x3fff = invalid), requires IsOtherPlayersContractEndingThis(self, rec), then picks a record from the +0x2d0 array by mode +0x290 (1 = element 0, 2 = element 1) and returns Sess_Match_EntrantIdentity(picked, rec). Context from caller: both callers pass the local player entrant id and show the wait-for-other-player message when it returns 0, so it acts as an is-it-my-turn gate; good hook to force 1. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.online_contract_is_entrant_other_players_expiring_seat",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140dc9f20",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_DriverMarket_BuildCandidateSet_ByTeamAndAge(void *self, void *outMap, uint32_t *teamId)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dcaaa0 (RacingPC lab re_groups/_decomp);xref:0x140d993d0,0x140dca020",
-  "notes": "Initialises a robin-hood hash map at outMap (allocator self+0x210, seed 0xc4ceb9fe1a85ec53), fetches records via ((self+0x278)+0x1030) virtual +0x1c8, keeps those whose id at +0x58 equals *teamId, then for each one passing virtual +0x268 gets an age limit from virtual +0x2b8 (arg ((self+0x4e0)->+0x2b0 >> 5)/45) and tests Career_DriverContracts_IsDriverInAgeRange; accepted driver ids (+0x50) are inserted keyed by packed u16 id and the value dword gets bit 0 set. Returns outMap."
+  "proto": "void *Career_DriverMarket_BuildCandidateSet_ByTeamAndAge(void *comp, void *out_set, uint32_t *team_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dcaaa0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140d993d0,0x140dca020",
+  "notes": "Initialises out_set as an empty robin-hood hash set (allocator comp+0x210 at +8, seed 0xc4ceb9fe1a85ec53 at +0x10, count +0x28, mask +0x30). Gets the entrant list from (comp[0x4f]+0x1030)->vtbl+0x1c8, keeps records whose team id (+0x58/+0x5a) equals *team_id, and for each one with comp vtbl+0x268 true computes an age limit via vtbl+0x2b8 (arg (*(comp[0x9c]+0x2b0) >> 5) / 0x2d) and tests Career_DriverContracts_IsDriverInAgeRange on the driver id at +0x50. Passing driver ids are inserted keyed by (id_lo << 14 | id_hi) with value flag |= 1; returns out_set. Callers: Career_ContractRenewal_ScoreDriverCandidates (one team) and Career_DriverMarket_BuildCandidateMap_B (loop over all teams). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.driver_market_build_candidate_set_by_team_and_age",

@@ -7,9 +7,9 @@
   "addr": "0x1416c8280",
   "level": "L1",
   "subsystem": "game",
-  "proto": "void Game_SponsorLoadout_ApplyCustomisationPreview(void *self, uint32_t key, void *arg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1416c9870 (RacingPC lab re_groups/_decomp);xref:0x141ff3ba0",
-  "notes": "Builds a temporary list of vehicle customisations (0x68a0 bytes each) with FUN_1416c8ce0(key, arg); if the list is non-empty takes a name string (0x1416c8700), copies the first customisation with Game_VehicleCustomisation_Copy and passes the bundle to the object at self +0x18 via 0x1428e8730, then destroys all temporaries."
+  "proto": "void Game_SponsorLoadout_ApplyCustomisationPreview(void *self, uint32_t has_selection, void *selection)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1416c9870 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141ff3ba0",
+  "notes": "Chkstk frame (>0x13000). FUN_1416c8ce0 fills an array of 0x68a0-byte VehicleCustomisation records (count at frame+0x13a58); if non-empty, 0x1416c8700 fetches a refcounted header, the first record is copied twice (Game_VehicleCustomisation_Copy) and handed to 0x1428e8730 with [self+0x18]; then all records are destroyed. Callers pass (vm+0x398 or vm+0xc10, DAT_146068be8 != -1, DAT_146068be8): Game_SponsorLoadout_BuildList calls it before rebuilding its list nodes; 0x142004480 calls it first, then picks an entry name from the vector at +0xca8. 0x142082700 only tail-merges into this body (label, no call). Better context needed: what 0x1428e8730 does with the customisation (\"Preview\" is not proven by the code). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.sponsor_loadout_apply_customisation_preview",

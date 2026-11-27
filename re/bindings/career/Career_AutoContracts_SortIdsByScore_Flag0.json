@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d41780",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_AutoContracts_SortIdsByScore_Flag0(uint32_t *first, uint32_t *last, uint64_t depth_budget, void *ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d42300 (RacingPC lab re_groups/_decomp);xref:0x140c588b0",
-  "notes": "Twin of 0x140d41aa0: same introsort over a uint32 id array but the comparator calls FUN_140c5db10(ctx, id, 0) and the median helper is FUN_140d42aa0. Orders by descending float score."
+  "proto": "void Career_AutoContracts_SortIdsByScore_Flag0(uint32_t *first, uint32_t *last, int64_t depth_budget, void *ctx)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d42300 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c588b0",
+  "notes": "Same introsort template as 0x140d41aa0 (insertion sort below 33 elements, median helper 0x140d42aa0, heapsort fallback) over uint32 ids, comparing 0x140c5db10(ctx, id, 0) floats, highest first. Caller Career_AutoContracts_RankTeam sorts the second id vector at ctx+0xa8..+0xb0 right after the Flag1 sort, so the two lists differ only in the scorer flag. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.auto_contracts_sort_ids_by_score_flag0",

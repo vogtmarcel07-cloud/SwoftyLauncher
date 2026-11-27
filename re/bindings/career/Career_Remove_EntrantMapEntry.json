@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140bf0eb0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Remove_EntrantMapEntry(void *self, uint32_t entrant_id, uint32_t value)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140bf1960 (RacingPC lab re_groups/_decomp);xref:0x14100eb10,0x141019760",
-  "notes": "Hash map at self+0x2a0 (0x28-byte slots, key = 16-bit packed entrant id (id<<14 | id>>16), vector of 4-byte entries at slot +0x10/+0x18): erases every entry whose 16-bit value equals value (remove-if + shrink). Then, through *(self+0x2d8)+0x410 indexed by +0x428, finds the 0xd8-byte record matching the entrant id and removes the owned child whose data +8 short equals value, calling its vtable +0x40 and the record's vtable +0x18(value); the tail shares code with a neighbouring function (introsort of 16-byte owned-ptr elements). Inverse of 0x140bf1670; called when applying or claiming owner perks."
+  "proto": "void Career_Remove_EntrantMapEntry(void *map, uint32_t key, uint32_t id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140bf1960 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140bf5070,0x140f9d700,0x14100eb10",
+  "notes": "Hashes the packed 16-bit form of key with the seed at map+0x2a0 into the open-addressing table (0x28-byte buckets at +0x2a8, control bytes at +0x2b0, mask +0x2c0) and erase-removes every 4-byte entry whose low 16 bits equal id from the bucket vector +0x10..+0x18. Then in [map+0x2d8]+0x410 (0x80-stride array, index +0x428) it walks the 0xd8-byte elements at +0x60..+0x68 whose key at +0xc0 matches, finds in the element's owned-pointer list (+0x50..+0x58) the item whose [item+0x10]+8 short equals id, resets its state byte +0xc from 1 to 0 with vslot +0x40, removes it from the list and calls element vslot +0x18(id). The sort code after that is a shared tail merged in by the decompiler. Context from caller: Career_OwnerPerks_ApplyOwnedPerkList calls it after Career_Has_EntrantMapEntry; 0x140bf5070 (message handler, key at msg+0x10 and id at msg+0x14) and 0x140f9d700 (releases a node whose id is at +0x60) do the same; counterpart of Career_Add_EntrantMapEntry. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.remove_entrant_map_entry",

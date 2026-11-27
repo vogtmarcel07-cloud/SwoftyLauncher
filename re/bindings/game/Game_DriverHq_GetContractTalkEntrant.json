@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140261150",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_DriverHq_GetContractTalkEntrant(void *transition)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140261150 (RacingPC lab re_groups/_decomp);xref:0x140260dc0,0x140261b90,0x140267200",
-  "notes": "Gets the career object (g_Game_Manager+0xc0 -> +0x88 -> +0x260), type-checks it, fetches the entrant pointer list (vfunc +0x1c8 on +0x1030), finds the local player entrant by identity, requires k_Career_DriverCareerContractsManagerComponentDesc and FUN_140d83980 to be true, then collects linked entrants with Ui_Copy_MyTeamNodeArray. Returns the first collected entrant if any, else the player entrant; NULL when the career or player is missing. Better context needed: what FUN_140d83980 tests."
+  "proto": "void *Game_DriverHq_GetContractTalkEntrant(void *script)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140261150 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140260dc0,0x140261b90,0x140267200",
+  "notes": "Takes the game mode from [[g_Game_Manager+0xc0]+0x88]+0x260 (returns 0 if missing or not a career type), gets the entrant pointer list (vfunc +0x1c8 of mode+0x1030) and finds the local player's entrant by identity. If the DriverCareerContractsManager component exists and FUN_140d83980(comp) is true it returns the first entrant linked to the player (Ui_Copy_MyTeamNodeArray with flag 1, allocator script+0x30), else the player's own entrant; 0 when the player is not found. Context from caller: Game_DriverHqAgentIntroTransition_Initialise and Game_DriverHqContractsTransition_Initialise feed the result to Game_CutSceneParams_SetupDataFromEntrant; Game_SecretMeetings_SetStateLoading uses its key +0x50 to find the driver's secret meeting record. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.driver_hq_get_contract_talk_entrant",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140da53b0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Save_DriverContracts_WriteContractRecord(uint8_t *rec, void *writer)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da5f30 (RacingPC lab re_groups/_decomp);xref:0x140da4d50",
-  "notes": "Save writer for a 5-field record: packed key A (rec[0] << 14 | u16 +2), packed key B (rec[4] << 14 | u16 +6), u16 at +8, u16 at +0xa (all type 0x14612be38) and the byte at +0xc widened to u32 (type 0x14612b7c8). Likely driver key, team key, two numeric terms and a status byte; field names not visible."
+  "proto": "uint32_t Career_Save_DriverContracts_WriteContractRecord(uint8_t *rec, void *save_node)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da5f30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140da4d50",
+  "notes": "Whole body read. Writes five fields with Gdb_Write_ReflectedFieldA: 0x145614b10 = packed key ((byte +0 << 14) | u16 +2), 0x145614ac8 = second packed key ((byte +4 << 14) | u16 +6), 0x145694f1f = value at +8, 0x145694f30 = value at +0xa (type 0x14612be38), and 0x145690630 = byte +0xc widened to u32 (type 0x14612b7c8); each field object is appended to the node child list. Stops at the first error and returns the code. Context from caller: Career_Save_DriverContractsComponent calls it for the object at comp+0x478 under the element that the KB note lists as secretDriverApproach. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.save_driver_contracts_write_contract_record",

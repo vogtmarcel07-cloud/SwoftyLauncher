@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1411183a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Sponsors_SelectGoalVariantBySign(void *goal_def, void **weak_goal)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1411189e0 (RacingPC lab re_groups/_decomp);xref:0x141101bb0,0x141109700,0x14110cb90,0x141864d50",
-  "notes": "Locks the weak pointer, scans the 8-byte {u8 type, float value} list at obj +0x8..+0x10 for type 6 and returns goal_def+0x50 if value > 0.1 and the vector at +0x58..+0x60 is non-empty, goal_def+0x70 if value < -0.1 and +0x78..+0x80 non-empty, else goal_def+0x30. Consumes one weak reference on the argument. Better context needed: meaning of parameter type 6."
+  "proto": "void *Career_Sponsors_SelectGoalVariantBySign(void *rec, void **weak_ref)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1411189e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141101bb0,0x1411091a0,0x141109700",
+  "notes": "Read in full. Takes a weak reference pair by value (object, control block), locks it, scans the 8-byte entries at [obj+8..+0x10] for tag byte 6 and reads the float at entry+4, then drops both counts. Returns rec+0x50 when the value is > 0.1 and the vector at rec+0x58..+0x60 is not empty, rec+0x70 when it is < -0.1 and the vector at rec+0x78..+0x80 is not empty, otherwise rec+0x30. Callers pass the 0x160-byte sponsor record with its reference at +0x130/+0x138 and iterate the returned vector (+8..+0x10, 0x160-byte goals): Career_Sponsors_CarryOverGoalValues 0x141101bb0 copies +0x128 to +0x130 and +0x148 to +0x150, Game_SponsorGoal_CheckSponsorGoal 0x141109700 evaluates the goals, 0x1411091a0 resets goal progress for active records. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.sponsors_select_goal_variant_by_sign",

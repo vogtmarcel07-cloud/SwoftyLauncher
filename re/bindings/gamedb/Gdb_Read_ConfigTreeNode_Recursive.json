@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142ea5ae0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "gamedb",
-  "proto": "void Gdb_Read_ConfigTreeNode_Recursive(void *node, const char *path_0x208, void *key_str)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142ea8070 (RacingPC lab re_groups/_decomp);xref:0x140f7db60",
-  "notes": "Recursive hierarchical config loader: calls node vfunc +0x10 with the 0x208-byte path struct (name[0x100] + child table name at +0x100), builds the table name \"name.child\", opens a GdbTableCursor filtered by key_str (+0x10 chars), and for each row (Gdb_Get_RowByIndex) calls node vfunc +8 to create a child (shared ptr), copies the key string, recurses into the child and appends it to the child list at node+0x18. Destroys key_str at the end. Used to load the facility perk tree."
+  "proto": "void Gdb_Read_ConfigTreeNode_Recursive(void *node, char *row_path, void *child_table_name)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142ea8070 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f7db60,0x141010c60",
+  "notes": "Copies the 0x208-byte row path and passes it to node vslot +0x10 (node reads its own fields). It then builds the table path '<row_path>.<row_path+0x100>' with the child table name from child_table_name+0x10, opens a GdbTableCursor, and for each row: node vslot +8 creates a child (shared pointer) from the row, the function calls itself for the child with a copy of the name buffer, and the child is added to the list at node+0x18 (through the helper the KB calls Ui_Compare_ListPairLessThanC, which acts here as an append). Frees the child_table_name buffer at the end. Context from caller: Career_Read_FacilityPerkTreeConfig uses it to load the facility perk tree nodes; 0x141010c60 (reads another node tree per row, with a 'statId' field) uses it the same way. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "gamedb.read_config_tree_node_recursive",

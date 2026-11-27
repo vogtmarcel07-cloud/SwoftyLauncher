@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140dbae10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_DriverContractsMyTeam_StampDay58AndRollRivals(void *comp, void *contract_entry)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dbb990 (RacingPC lab re_groups/_decomp);xref:0x140dbc7c0",
-  "notes": "Like the +0x56 variant but writes the career day to entry+0x58 and posts message 0x145698fe0 {driver id, local team id}; then seeds an MT19937 from mode vfn+0x90(2) + packed driver id + 0x539 and, if the roll (0..1) is below the float at comp+0x418, sets entry+0x66 = 1 and posts message 0x145698ff0 for every other entrant in mode +0x2e0..+0x2e8 whose byte +0x80 is < 2 or unset. comp+0x418 is the probability to tune; outcome meaning needs caller context."
+  "proto": "void Game_DriverContractsMyTeam_StampDay58AndRollRivals(void *comp, void *offer)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dbb990 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140dbc7c0",
+  "notes": "Calls Career_Unk_140db6920(comp, driver key), writes the day index ([comp+0x2a8]+0x2b0 / 1440) to offer+0x58 and posts bus message 0x145698fe0 {driver key, player team_stat_id}. Then seeds a Mersenne-Twister style state with [comp+0x278] vfunc +0x90 (arg 2) + packed driver id + 0x539 and, when the 0..1 roll is below float comp+0x418, sets offer+0x66 = 1 and posts message 0x145698ff0 {entrant key +0x50, player team} for every other entrant row (stride 0x88, +0x81 == 0 or +0x80 < 2). Context from caller: Game_DriverContractsMyTeamComponent_OnMeetingComplete runs it as the bracket 1 action. comp+0x418 is the chance to tune. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.driver_contracts_my_team_stamp_day58_and_roll_rivals",

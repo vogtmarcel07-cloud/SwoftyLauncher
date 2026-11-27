@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1422dcf30",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "-",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1422deb30 (RacingPC lab re_groups/_decomp);xref:0x1422dd270",
-  "notes": "Builds one driver row for the contract perks screen: creates the row with Vm_Build_AcclaimBadgeRow using a name string, applies row data, sets Bool node team_mate_human, looks the driver id up in the entrant list (stride 0x88, id at +0x50) to fetch customisation info, requests a driver thumbnail via Game_UIThumbnailSystem_FindDriverCustomisationWill and pushes the returned handle into the u32 vector at +0x6d8..+0x6e8. Early-outs if career data (+0x6c0)->+0x88->+0x260 is missing or of an excluded type. Stack-probe frame makes arg mapping unreliable."
+  "proto": "void Career_ContractPerksVM_BuildDriverRow(void *vm, uint32_t driver_id, uint32_t arg3, uint32_t team_id, const char *node_name, uint8_t flag)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1422deb30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422dd270",
+  "notes": "Needs (*(vm+0x6c0)+0x88)->+0x260 (type-checked object); builds a row under the VM node (+0x10) with Vm_Build_AcclaimBadgeRow using node_name and +0x270/+0x6b0, applies row data and sets bool team_mate_human. Finds the driver in the array at obj+0x2e0..+0x2e8 (stride 0x88, id at +0x50/+0x52), reads its customisation info (id at +0x5c) from g_Game_PlayerCustomisationInfoSystem when feature flag byte2 & 0x40 is set, fills a thumbnail request (driver_id, arg3, optional team_id) and calls Game_UIThumbnailSystem_FindDriverCustomisation...(+0x6c8, req, node, 9); the returned handle is pushed to the uint32 vector at +0x6d8/+0x6e0/+0x6e8. Caller Career_ContractPerksVM_OnActivate calls it twice (two drivers, node names UNK_145672a4e and UNK_1456faff1). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.contract_perks_vm_build_driver_row",

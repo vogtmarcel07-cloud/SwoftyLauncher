@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d45150",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
   "proto": "uint64_t Ne_PropList_GetIntAtIndex(void *list, uint64_t index, uint32_t *out)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d45cd0 (RacingPC lab re_groups/_decomp);xref:0x141072f10,0x142a6bee0",
-  "notes": "Reads element index from a property list (count uint16 at +0x10, pointer array at +0x08), checks the element type descriptor equals 0x14612bf38 (32-bit int) and copies the value to out. Returns 0, or error 0x22 (index out of range), 0x57 (null entry), 0x58 (type mismatch), each logged to the TLS errno trace ring."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d45cd0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c6f6e0,0x141072f10,0x1413ae520",
+  "notes": "Bounds-checks index against the uint16 count at list+0x10 (error 0x22), takes the element pointer from the array at list+8 (null gives 0x57), checks its type against the int descriptor DAT_14612bf38 (mismatch gives 0x58) and copies the 4-byte value to *out; returns 0. Errors go to the errno trace ring. Callers: 0x140c6f6e0 reads parallel save lists per index and clamps the low byte to 0x1e; Career_Load_RndHeads reads an id per index and matches it against +0x60 of the entries at career+0xd30; 0x1413ae520 loops over a list of ints while loading save data. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.prop_list_get_int_at_index",

@@ -7,9 +7,9 @@
   "addr": "0x141ac0ad0",
   "level": "L1",
   "subsystem": "career",
-  "proto": "void Career_ContractCraft_FillHeaderEntry(void *src, void *entry)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141ac22b0 (RacingPC lab re_groups/_decomp);xref:0x141ad45a0",
-  "notes": "Copies src+0xe8 into the entry property node +0x28, sets string holders entry+0xc0 (src+0x20), +0xe0 (src+0x48) and +0x120 (constant at 0x14573513f), sets bool node entry+0x148 true, then locks the weak pointer src+0xd8/+0xe0, copies its 16-byte weak-ptr list (+0x10..+0x18) and for the first live item with type byte +8 == 0x0c writes its ints at +0x14 and +0x18 to the s32 nodes entry+0x308 and entry+0x328. Better context needed: what item type 0x0c and the two ints are."
+  "proto": "void Career_ContractCraft_FillHeaderEntry(void *item, void *entry)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141ac22b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141ad45a0",
+  "notes": "Writes item+0xe8 (8 bytes) to the property node entry+0x28, strings item+0x20 and item+0x48 to the holders entry+0xc0 and entry+0xe0, a constant string (0x14573513f) to entry+0x120 and true to the bool node entry+0x148. Then locks the weak pointer item+0xd8/+0xe0, copies its weak-pointer vector (+0x10..+0x18), and for the first live element with kind byte +8 == 0x0c and type 0x14607dbd0 writes its ints +0x14 and +0x18 to the s32 nodes entry+0x308 and entry+0x328. Callers 0x141ac9640, 0x141acaa60, 0x141acf280: each fills one list entry at [row]-0x3a0 and then calls Ui_F1WorldCrafting_UpdateCostPills on the same entry. Context from caller: the screen is F1 World crafting, so 'ContractCraft' and 'Header' in the name are not confirmed. Better context needed: the class of item and the names of the bound nodes. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.contract_craft_fill_header_entry",

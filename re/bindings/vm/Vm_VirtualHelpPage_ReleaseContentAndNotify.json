@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141c5f110",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "uint64_t Vm_VirtualHelpPage_ReleaseContentAndNotify(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c60d10 (RacingPC lab re_groups/_decomp);xref:0x141c60b00,0x141c60e70",
-  "notes": "Destroys owned object at self+0x338 (dtor then free via allocator +0x330), if flag +0x3F8 is set tears down sub-object +0x368 and releases node handle +0x350, zeroes +0x308, then dispatches a named UI event (string 0x1457413e2) with an empty type-4 argument through Ne_UiEvent_DispatchByName. Better context needed: event name string."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c60d10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c60b00,0x141c64230",
+  "notes": "Whole body read. Takes the owned object at self+0x338 (deleting dtor, then free via allocator self+0x330), and if flag self+0x3f8 is set tears down the sub-object at +0x368 (0x141857b10), unlinks and releases the Vm node handle at +0x348..+0x360 (Vm_Release_Node) and clears the flag; zeroes self+0x308 and dispatches the UI event named at 0x1457413e2 (Ne_UiEvent_DispatchByName, arg type 4). Callers: Game_VirtualHelpPageVM_OnDeactivate calls it during deactivation before freeing +0x2e8; 0x141c64230 handles a 3-way mode switch, sets self+0x340=1 and then calls it to drop the current content. 0x141c60e70 from the batch line shows no call. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.virtual_help_page_release_content_and_notify",

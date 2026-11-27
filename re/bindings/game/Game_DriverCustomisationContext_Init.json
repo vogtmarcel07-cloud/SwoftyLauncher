@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14166db30",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_DriverCustomisationContext_Init(void *ctx, void *a2, void *entrants, void *game_mode, void *pair16)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14166f120 (RacingPC lab re_groups/_decomp);xref:0x141a13c10,0x1420543d0,0x142262b10",
-  "notes": "Fills ctx: +0x30 entrants, +0x00/+0x08 from pair16, +0x38 a2, +0x40 game_mode; resolves the player driver packed id into +0x48 (global 0x146068bd8 or entrants +0x238 -> +0x260/+0x1b0, overridden by the local EntrantRecord id when the mode has a CareerComponent), stores Wear_Get_DriverCustomisation in +0x10, and for non-MyTeam modes sets bool +0x18 = driver is the first entry in the latest season team list (via mode +0x1030 vfns 0xf8/0xd8); calls FUN_14166f5a0(ctx,0) if customisation +0x180 is set. Meaning of bool +0x18 is inferred."
+  "proto": "void Game_DriverCustomisationContext_Init(void *ctx, void *arg1, void *entrants, void *game_mode, void *callback_pair)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14166f120 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141a13c10,0x141a57430,0x1420543d0",
+  "notes": "Fills a context struct: +0x00/+0x08 copy of the 16-byte callback pair, +0x30 entrants, +0x38 arg1, +0x40 game mode. Resolves the driver (global key 0x146068bd8 or fallback [entrants+0x238]+0x260/+0x1b0) via Ent_Get_Driver and stores its packed id at +0x48 (replaced by the local player's entrant key +0x50 in career modes), stores Wear_Get_DriverCustomisation result at +0x10, and outside My Team sets +0x18 = driver is first in the last season's driver list, else calls FUN_14166f5a0(ctx,0) when customisation +0x180 is set. Caller 0x141a13c10: VM init that passes handler FUN_141a19150 and vm+0x22e0 as ctx; caller 0x141a57430 passes Ui_Rnd_OpenChallengers as callback; caller 0x1420543d0 passes Career_MyTeamSetup_AdvanceFadeOut. Good hook to see which driver a customisation screen edits. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.driver_customisation_context_init",

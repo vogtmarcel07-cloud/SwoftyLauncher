@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1413d16a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t *Career_DriverStats_CalcAvgPosAndFirsts_Kind1(uint32_t *out, void *career, uint32_t driverId)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1413d1ce0 (RacingPC lab re_groups/_decomp);xref:0x141c580a0,0x14209bd20",
-  "notes": "Loops seasons 0..current (career+0x1030 vfunc +0xf8 / +0xd8) and each completed weekend (+0x288 list, +0x23c != 0 and FUN_140af8900). In the weekend session map +0x488 it takes the node with key 1 and calls Sess_Find_GroupRowPosition for the driver. out[0] = average position (0xffffffff if none), out[1] = number of position-0 results. Session kind 1 is not named in the code."
+  "proto": "uint32_t *Career_DriverStats_CalcAvgPosAndFirsts_Kind1(uint32_t *out, void *game_mode, uint32_t driver_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1413d1ce0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1415cc540,0x141c580a0,0x14209bd20",
+  "notes": "out[0] = -1, out[1] = 0. For every season 0..count (vfuncs +0xf8 / +0xd8 of game_mode+0x1030) it walks weekend pointers +0x288..+0x290 until the first weekend with +0x23c == 0 or FUN_140af8900 false; in each it finds the node with key byte 1 in the tree at weekend+0x488 and reads the driver's row position with Sess_Find_GroupRowPosition. Sums positions, counts rows, counts position 0 into out[1]; out[0] = sum / rows. Context from caller: Game_DriverProfileTabVM_OnTabActivated and Career_RenownFormVM_Init store out[0]/out[1] in the driver stats block right after AccumulateSeasonTotals; caller 0x1415cc540 builds the same stats block for a VM. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.driver_stats_calc_avg_pos_and_firsts_kind1",

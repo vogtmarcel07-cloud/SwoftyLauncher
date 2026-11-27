@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141995490",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_MyTeamHq_SpawnTeamOwner(void *self, uint32_t ownerKey)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141996c70 (RacingPC lab re_groups/_decomp);xref:0x14199a560",
-  "notes": "Builds a frontend character spawn request using spawn point \"TeamOwnerSpawn\" and animation \"TeamHQExteriorIdle\", optional appearance blocks from FUN_141996870 and a flag from Ui_Get_CustomisationContext()==2 or g_Game_MyTeamSetupData byte 0x14606f37c, then calls Ui_Setup_DriverFrontendForPerkAcclaim on the scene manager at self[0]. If ownerKey is invalid (0x3fff) it first calls FUN_1419964d0."
+  "proto": "void Game_MyTeamHq_SpawnTeamOwner(void *hq, uint32_t driver_ref)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141996c70 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14199a560,0x142061710,0x143713ad0",
+  "notes": "Builds a frontend driver spawn setup with spawn point string 'TeamOwnerSpawn' and animation string 'TeamHQExteriorIdle', kind byte 3, and a flag = (Ui_Get_CustomisationContext()==2 or byte 0x14606f37c of the static g_Game_MyTeamSetupData); when driver_ref is the none value 0x3fff0000 it first calls 0x1419964d0(hq,..) to resolve a default; copies up to six optional customisation parts from 0x141996870(hq,..) and calls Ui_Setup_DriverFrontendForPerkAcclaim(*hq, &setup). Callers: MyTeamHq_SetupSceneForState case 3 after switching to scene Setup/SetupOffice (driver_ref 0x3fff0000); 0x143713ad0 switches the frontend scene then calls it on member +0x88 when byte +0x170 is set and +0x171 clear; 0x142061710 reads a u16 Vm node and falls through into this body. Hook point to change the owner spawn point or idle animation. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.my_team_hq_spawn_team_owner",

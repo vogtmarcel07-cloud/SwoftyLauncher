@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1423878c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint64_t Career_Set_PopupAmountText_Slot640(void *ctx, int32_t amount)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423894c0 (RacingPC lab re_groups/_decomp);xref:0x1422e9250",
-  "notes": "Zeroes formatter+0xc, sets the bool node at view+0x640 to true, formats amount with Ui_Format_ResourcePointsAmountText (flags 1,1, style 1) and writes the string node at view+0x660."
+  "proto": "uint64_t Career_Set_PopupAmountText_Slot640(void **ctx, int32_t amount)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423894c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422e9250",
+  "notes": "ctx[0] = popup view, ctx[1] = formatter object. Zeroes formatter+0xc, sets the bool node at view+0x640 to true, formats amount with Ui_Format_ResourcePointsAmountText (flags 1,1, mode 1) and writes the string to the node at view+0x660. Context from caller: Career_Bind_TeamHqPopupIcons calls it with a rounded float amount for reward sub-kinds 2..4 of a child record; the icon key for this slot was not seen in the excerpt. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.set_popup_amount_text_slot640",

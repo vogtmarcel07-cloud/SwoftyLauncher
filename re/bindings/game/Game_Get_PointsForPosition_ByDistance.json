@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142a23a40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "int32_t Game_Get_PointsForPosition_ByDistance(void *table, int32_t *result, float fraction)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a25e00 (RacingPC lab re_groups/_decomp);xref:0x140c3c450,0x1415ba7b0,0x1415bd1b0",
-  "notes": "Walks the 0x18-byte tier vector at table+8..+0x10 backwards to the first tier whose float threshold at +0x10 is >= fraction. For result[2] (session kind) < 2 returns the tier's int array (tier+8 -> +8) indexed by result[0] (position); for kinds 0, 1, 5 adds the tier bonus int at +4 when the tier type byte is 1 or 2, result[1]==0 and position < 10. Looks like championship points scaled by completed race distance plus a top-10 bonus; hook to change points awarded."
+  "proto": "int32_t Game_Get_PointsForPosition_ByDistance(void *table, int32_t *query, float distance_fraction)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a25e00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140aa5ef0,0x140c3c450,0x1415ba7b0",
+  "notes": "Whole body read. table+8..+0x10 is a vector of 0x18-byte rows (type byte +0, bonus int +4, points vector ptr +8, threshold float +0x10); it scans from the back for the first row whose threshold is >= distance_fraction. query = {position index, flag, session kind}. For kind < 2 it returns row points[position] when position is inside the points vector; for kind 0, 1 or 5 it adds the row bonus (+4) when the row type is 1 or 2, query[1] == 0 and position < 10. Returns the sum. Callers: 0x140aa5ef0 sums the winner points (query 0,0,0 at fraction 1.0) over the remaining events; Career_Renown_WouldCompleteAccolade reads the points for a win; Hud_BroadcastIntro_TeamDriverB sums points per result. Good hook point for the points table. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.get_points_for_position_by_distance",

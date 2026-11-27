@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1412b8a10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ResourcePoints_BindOptionListener(void **binding, void *option, void **delegate)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1412b9050 (RacingPC lab re_groups/_decomp);xref:0x141226aa0",
-  "notes": "Rebinds an option watcher: unsubscribes callback FUN_1412b9170 from the previous option, stores option at +0, sets the valid byte +8 (always when +9 is 0, else only if the option has value kind 2 at +0xbc and its three value names match three expected strings), copies the 16-byte delegate to +0x10 and subscribes the callback on option+0xe0. Feeds the 3-state option read by 0x14122bc00."
+  "proto": "void Career_ResourcePoints_BindOptionListener(void **listener, void *option, void **callback)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1412b9050 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141226aa0",
+  "notes": "Whole body read. If the listener already has an option (+0) and a callback (+0x10/+0x18) it removes trampoline 0x1412b9170 from the old option (0x142ac01a0). Then it clears the callback, stores option at +0 and sets valid byte +8: 1 when byte +9 is 0, otherwise 1 only when option+0xbc == 2 and three value names (list option+0x80) match strings 0x14568e1d5, 0x145615668 and 0x14568e1dd. When callback is non-null it copies the 16-byte callback to +0x10 and registers trampoline 0x1412b9170 on option+0xe0 (0x142ac0070). Context from caller: Career_ResourcePoints_SubscribeMessages binds rp+0x640 to option \"ai_resource_gain_rate\" and rp+0x660 to \"player_resource_gain_rate\" with callback Career_ResourcePoints_OnGainRateStatChanged; the function itself is a generic option listener helper. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resource_points_bind_option_listener",

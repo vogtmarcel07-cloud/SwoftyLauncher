@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140db6d60",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Resolve_PendingRequest_140db78e0(void *self, char accept)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140db78e0 (RacingPC lab re_groups/_decomp);xref:0x142330180",
-  "notes": "Operates on the pending record at self+0x478: on reject sets its state byte +0xc = 3; on accept sets +0xc = 2, calls FUN_140db7950(self, rec+4 id, rec+0xa u16) and posts a bus message (vtable 0x145698ed0) carrying the id and flag 1. Better context needed: what the pending record represents (the caller is the My Team HQ command handler)."
+  "proto": "void Career_Resolve_PendingRequest_140db78e0(void *comp, char accept)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140db78e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142330180",
+  "notes": "Whole body read. Reads the pending record pointer at comp+0x478; if null does nothing. accept == 0: writes state byte +0xc = 3. accept != 0: writes +0xc = 2, calls 0x140db7950(comp, u32 at +4, u16 at +10) and posts bus message vtable 0x145698ed0 with {u32 id from +4, byte 1}. Caller Career_TeamHqMyTeamVM_OnCommandRaised calls it with vm[0x6f] and accept=1 right after posting message 0x145784b48 and before queuing the goto_meeting route. Context from caller: the request is tied to the meeting flow. Better context needed: what 0x140db7950 applies. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resolve_pending_request_140db78e0",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1423052a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_MyTeamDriverMarket_UpdateSelectedDriverBool(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142306ea0 (RacingPC lab re_groups/_decomp);xref:0x142301ef0,0x142308150",
-  "notes": "For the focused driver card (key +0xe98) computes a bool: false when the pending record at manager (+0x2d90) +0x478 targets this driver with state byte +0xc == 3 or when Career_Unk_140dbdeb0 returns <= 0; otherwise true only if the driver key is not in the manager's key list (+0x4dc, 0x68-byte stride, count +0x6f0). Writes it to bool node +0x6d0 base +0x2370. Better context needed: likely an approach/offer-available flag."
+  "proto": "void Game_MyTeamDriverMarket_UpdateSelectedDriverBool(void *vm)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142306ea0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142301ef0",
+  "notes": "Resolves the selected list entry (list node vm+0x6d8, entries stride 0xf20 from [vm+0x6d0]+0x1e88, driver ref u32 at entry+0xe98). With comp=vm+0x2d90: result is false when the record comp+0x478 has the same driver ref (+4) and state byte +0xc == 3; otherwise, when Career_Unk_140dbdeb0(comp) > 0, it copies the refs comp+0x4dc (stride 0x68, count comp+0x6f0) to a temp array and the result is true only if the selected ref is not among them; else false. Writes the result to the Vm bool node [vm+0x6d0]+0x2370. Caller MyTeamDriverMarket_Open calls it at the end of screen init when byte vm+0x2dc0 is set. Better context needed: the node name behind +0x2370 would say which button or state this bool drives. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.my_team_driver_market_update_selected_driver_bool",

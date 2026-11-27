@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140c3ff80",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Renown_BuildAccoladeTierEntries(void *self, void *out_vec, uint32_t key)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140c40a40 (RacingPC lab re_groups/_decomp);xref:0x140c3b190",
-  "notes": "Finds the group in the 0x28-byte vector at self+0x2a0 whose key matches (type byte plus id in high word; types 1/2 match a group of type 1), then for each 0x18-byte item (name ptr, int, three tier ids at +0xc/+0x10/+0x14) finds the accolade definition by strcmp in the 0x50-byte vector at self+0x2e0, resolves its handle through the hash at (self+0x290)+800, and for each 0x20-byte tier of the definition whose id equals one of the three tier ids appends a record (64-char name copy, running index, tier values, flag = not the first tier id) via FUN_140c41050. Output vector allocator from self+0x210."
+  "proto": "void *Career_Renown_BuildAccoladeTierEntries(void *self, void *out_vec, uint32_t team_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140c40a40 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c3b190,0x14169a750",
+  "notes": "Whole body read. Inits out_vec (allocator self+0x210, empty), finds the team entry in list +0x2a0..+0x2a8 (0x28-byte entries; key byte and high word equal, or key type 1/2 matching an entry of type 1), then for each 0x18-byte row (name ptr +0, int +8, three tier values +0xc/+0x10/+0x14) finds the accolade definition by name (Ne_Crt_Strcmp) in list +0x2e0..+0x2e8 (0x50-byte entries), resolves def+0x10 in the map at [self+0x290]+800 and, for each 0x20-byte level of the definition whose value equals one of the three tier values, pushes a 0xb8-byte record (0x40-char name copy, running index, status byte = value != first tier) with 0x140c41050. Returns out_vec. Callers: Career_Renown_MergeAccoladeList copies the records into the per-team accolade lists; 0x14169a750 builds a UI list from the records whose byte +0x88 is 0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.renown_build_accolade_tier_entries",

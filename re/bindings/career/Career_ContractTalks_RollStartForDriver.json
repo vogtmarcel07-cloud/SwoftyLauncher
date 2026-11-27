@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14106bf60",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ContractTalks_RollStartForDriver(void *comp, uint32_t driverId, uint8_t tier, uint16_t day)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14106cc20 (RacingPC lab re_groups/_decomp);xref:0x140d80a00",
-  "notes": "Finds the per-driver record (vector +0x460, stride 0x5c), seeds MT19937 from comp+0x280 and rolls 1..100; threshold is float table comp+0x2f0 indexed by tier 0..2. If threshold > roll it sets stage 0 flag +0x38=1 with day +0x3a, clears stages +0x3c/+0x40/+0x44, calls FUN_14106ae70 and copies message key comp+0x3b8 to string +0x478; otherwise copies key comp+0x3b0. Sets dirty flag +0x4a0. The three floats at +0x2f0 are percent chances and a good tuning point. Better context needed: owning component."
+  "proto": "void Career_ContractTalks_RollStartForDriver(void *talks, uint32_t driver_key, uint8_t kind, uint16_t period)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14106cc20 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140d80a00",
+  "notes": "Finds the driver's 0x5c-byte entry in talks+0x460..+0x468, seeds a random state from talks+0x280 and draws 1..100. Threshold is float [talks+0x2f0] + kind*4 (kind 0..2, else 0). If threshold <= roll it only copies text talks+0x3b0 into string talks+0x478; otherwise sets entry +0x38 = 1, +0x3a = period, clears stage words +0x3c..+0x44 to 0xffff0000, calls FUN_14106ae70 and copies text talks+0x3b8. Always sets dirty +0x4a0 = 1. Context from caller: Game_DriverContracts_NextSecretMeeting tail-jumps here for reason 1 (decomp merged into the caller body). The three floats at [talks+0x2f0] are the success percents to tune. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.contract_talks_roll_start_for_driver",

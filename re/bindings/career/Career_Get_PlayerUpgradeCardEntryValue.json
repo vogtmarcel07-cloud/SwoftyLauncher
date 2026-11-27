@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1429bd5d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint16_t *Career_Get_PlayerUpgradeCardEntryValue(void *self, uint16_t *out_opt)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429bf990 (RacingPC lab re_groups/_decomp);xref:0x1417f9870",
-  "notes": "Same player entrant lookup as 0x1429bf800, then func 0x1429bd780(self, id). If an entry exists copies the u16 at entry+2 into out_opt, otherwise clears the has-value byte out_opt+1. Returns out_opt."
+  "proto": "uint16_t *Career_Get_PlayerUpgradeCardEntryValue(void *card, uint16_t *out_opt)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429bf990 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1417f9870,0x1420bebb0",
+  "notes": "Same player lookup as 0x1429bf800 (player EntrantRecord id from [[[card+0x28]+0x1e0]+0x88]+0x260 list, default 0x3fff0000, then 0x1429bd780(card, id)). Copies the 2 bytes at entry+2 to out (byte 0 = value, byte 1 = has-value) or clears out byte 1 when there is no entry. Callers: Career_Bind_UpgradeCard maps value 0..2 (else 3) to a text; 0x1420bebb0 builds a large view and switches on the value after checking has-value (throws bad optional access otherwise). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.get_player_upgrade_card_entry_value",

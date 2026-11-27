@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1435078e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ResourcePoints_ApplyShuffledGains_Capped(void *ctx, uint64_t *gain_list)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143509e70 (RacingPC lab re_groups/_decomp);xref:0x143509280",
-  "notes": "Shuffles the (type byte, int value) pairs in gain_list (count at [0x20]) with a seeded MT19937, then applies each: types 0..0xb go through Career_ResourcePoints_CollectForTypePair with their even/odd partner type, types >= 0xc add the value to the matching 0x30-byte entry (+0x20 count, +0x24 dirty) of the session record from Career_ResourcePoints_FindSessionRecord. After each one it recomputes the record total (round(count*scale+0x10 + offset+0x14) clamped to +0x18..+0x1c, types < 0xe) and if it exceeds the cap at ctx+0x30 it reverts or zeroes that entry; types 0xc/0xd under the cap queue bus message 0x1458504f0."
+  "proto": "void Career_ResourcePoints_ApplyShuffledGains_Capped(void *rec, uint64_t *gain_list)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143509e70 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143509280",
+  "notes": "Whole body read. Seeds an MT19937 from rec vfunc +0x90(3) + u16 rec+0x2a, shuffles the gain_list items (count at +0x100; item = type byte, amount in the high 32 bits) and applies each one: types 0..11 call Career_ResourcePoints_CollectForTypePair(rec+0x18, key rec+0x28, weekend 2 or 3, type, paired type); types 12+ add the amount to the matching 0x30-byte entry of the session record (int +0x20, flag +0x24). After each item it sums the session record (entries with type < 0xe: round(count * +0x10 + +0x14), clamped to +0x18..+0x1c) and, when the sum exceeds the cap rec+0x30, undoes the item (zero the entry or subtract the amount); otherwise types 12 and 13 post a bus message (vtable 0x1458504f0). Caller Career_ResourcePoints_RecalcSessionTotal calls it last, after computing rec+0x2c and the cap rec+0x30. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resource_points_apply_shuffled_gains_capped",

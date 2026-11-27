@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d6f0b0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "gamedb",
-  "proto": "uint32_t Gdb_Write_ReflectedChild_Type2b7c8(void *node, const uint8_t *field_name, void *value, void **out_inner)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d6fc30 (RacingPC lab re_groups/_decomp);xref:0x140da6190",
-  "notes": "Creates a reflected field of type descriptor DAT_14612b7c8 under node via Gdb_Write_ReflectedFieldA, inits it (vt+0x50), assigns value (vt+0x40), appends to node child array (+0x8 ptr, +0x10 u16 count) and optionally returns the child inner object (vt+0x38). Generic save-tree helper used by the driver contract list serialiser."
+  "proto": "uint32_t Gdb_Write_ReflectedChild_Type2b7c8(void *node, const uint8_t *name, void *value, void **out_data)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d6fc30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140da6190,0x1429d4f80",
+  "notes": "Read in full. Creates a child via Gdb_Write_ReflectedFieldA(node, name, type global [0x14612b7c8]); on 0 calls type vf+0x50(type, child, node[0]), child vf+0x40(child, value) to store the value, appends child to node array [node+8][u16 node+0x10 ++], and if out_data is set stores child vf+0x38(). Returns the error code. Caller 0x140da6190 Career_Serialise_DriverContractList writes record+0x30 under name 0x145628e26; caller 0x1429d4f80 (reflected save-tree writer) passes a byte widened to uint32 from obj+0x170, so the type is a 32-bit scalar. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "gamedb.write_reflected_child_type2b7c8",

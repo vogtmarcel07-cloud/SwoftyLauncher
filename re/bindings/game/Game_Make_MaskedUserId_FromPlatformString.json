@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143282d40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint8_t *Game_Make_MaskedUserId_FromPlatformString(uint8_t *out_id, uint32_t platform, const char *id_str, uint64_t extra)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1432852d0 (RacingPC lab re_groups/_decomp);xref:0x140fcf200,0x140fd13e0,0x140fdbd10,0x140fde2f0,0x141007cc0,0x1410098b0,0x1410bfc70,0x1423eb2e0",
-  "notes": "Maps a platform enum to an id type (1->1; 2-4,9-11,0x12-0x14->3; 5-7,0xc-0xe,0x15-0x17->4; 0xf-0x11->5; 0x1d-0x1f->6; default 8), converts id_str to a 64-bit number with 0x145350968 (strtoull-like, args 0,0) and calls Game_XorMaskedId3_Ctor(out, type, value, extra, c, 0) where c repeats the value only for type 6. Platform 0x19 instead fills out_id with Ne_Make_RandomIdBlock. Used by the online career manager to build player/career ids."
+  "proto": "uint8_t *Game_Make_MaskedUserId_FromPlatformString(uint8_t *out, uint32_t platform, const char *id_str, uint64_t extra)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1432852d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140adc150,0x140adf050,0x140fcf200",
+  "notes": "Maps the platform enum to an id type (1 -> 1; 2-4,9-11,0x12-0x14 -> 3; 5-7,0xc-0xe,0x15-0x17 -> 4; 0xf-0x11 -> 5; 0x1d-0x1f -> 6; else 8), converts id_str to a 64-bit number with 0x145350968(str,0,0) and builds the id with Game_XorMaskedId3_Ctor(out, type, value, extra, c, 0), where c repeats the value only for type 6; platform 0x19 returns Ne_Make_RandomIdBlock(out) instead. Context from caller: 0x140adc150 (builds a player entry object from a record with platform at +0x68, string at +0x18) and 0x140adf050 (logs 'setting up the player entry request' on LEADERBOARD/V) use it for leaderboard requests; Career_OnlineManager_FindStatusOneEntry uses it for the id of a 0xc0-byte entry. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.make_masked_user_id_from_platform_string",

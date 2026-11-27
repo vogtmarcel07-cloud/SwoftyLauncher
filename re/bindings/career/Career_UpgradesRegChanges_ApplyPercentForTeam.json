@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143515360",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_UpgradesRegChanges_ApplyPercentForTeam(void *mgr, char team, void *upgrade_list, int percent)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1435178f0 (RacingPC lab re_groups/_decomp);xref:0x1412468b0",
-  "notes": "Finds the robin-hood map entry (mgr +0x38/+0x40) whose byte list +0x140..+0x148 contains team, then for each sub-key in its map at +0x180 filters the fixed list (count at +0xc00) by upg+0x7c and upg+0x72, sorts, and for the first count*percent/100 upgrades whose def (ptr +200) has byte -7 ==1 and type byte -8 in {3,8} calls Career_Set_UpgradeFitted(upg,0x3fff0000,2). Meaning of state 2 is inferred from the caller name (regulation change reset)."
+  "proto": "void Career_UpgradesRegChanges_ApplyPercentForTeam(void *model, char team, void *upgrade_list, int32_t percent)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1435178f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1412468b0",
+  "notes": "Whole body read. Scans the hash set at model+0x38/+0x40 for the group whose byte list +0x140..+0x148 contains team (default record 0x145790b64), then for each sub entry of that group (set +0x180/+0x188) filters upgrade_list (pointer array, count at +0xc00) by upgrade +0x7c == group key and +0x72 == sub key, sorts it (Ne_Std_IntroSortLoop), takes the first count*percent/100 and calls Career_Set_UpgradeFitted(upg, 0x3fff0000, 2) on those whose state bytes at [upg+200]-7 == 1 and -8 is 3 or 8. Caller Career_UpgradesRegChanges_ApplyForLocalTeam passes the percent from the matching {id, percent} pair and then runs 0x143516310 on the same list. Hook point to change how many upgrades a regulation change resets. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.upgrades_reg_changes_apply_percent_for_team",

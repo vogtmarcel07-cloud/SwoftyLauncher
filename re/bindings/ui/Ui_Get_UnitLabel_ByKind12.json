@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1414b9140",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
-  "proto": "const char *Ui_Get_UnitLabel_ByKind12(uint32_t kind, void *options_owner)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1414b9920 (RacingPC lab re_groups/_decomp);xref:0x14209bd20",
-  "notes": "Switch on kind 0..11 returning a constant string pointer (strings not visible in decompile); kind 10 reads option \"speed_unit\" from the options store at owner+0x270 and returns one of two strings depending on value index 1 (metric vs imperial). Default returns a fallback string. Better context needed: the string contents at 0x1456eadad etc. decide whether these are loc keys or format names."
+  "proto": "const char *Ui_Get_LabelKeyString_ByKind12(uint32_t kind, void *options)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1414b9920 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14209bd20,0x14209ce50",
+  "notes": "Renamed from Ui_Get_UnitLabel_ByKind12: only case 10 depends on a unit, and both callers pass the result as a lookup key string, not as a unit label. Switch on kind 0..11 returns a fixed string pointer (0x1456eadad, 0x1456f9627, ... 0x1456eae88; default 0x14568fd06); case 10 finds option \"speed_unit\" in the options store at options+0x270 (entries +0x288..+0x290), reads its current value index (vfunc +0x10, with Game_Option_ClampValueIndex fallback to field +0xc0) and returns 0x1456eae24 when the index is 1, else 0x1456eae55. Callers Career_RenownFormVM_Init and 0x14209ce50 (loops kinds 0..11, resolves the string through a vfunc +0x18 lookup and pairs it with a formatted amount via vfunc +0x98) use it to fill the renown and form view model rows. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.get_unit_label_by_kind12",

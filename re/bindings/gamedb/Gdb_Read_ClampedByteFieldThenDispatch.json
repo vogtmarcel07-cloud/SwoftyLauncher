@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142ea6340",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "gamedb",
-  "proto": "uint32_t Gdb_Read_ClampedByteFieldThenDispatch(void *self, void *node, void *arg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142ea88d0 (RacingPC lab re_groups/_decomp);xref:0x140f85aa0",
-  "notes": "Finds a child field by name (string at 0x1456381c2) in the save node; if missing returns error 0x57, if its type differs from the type desc at 0x14612bd40 returns 0x58 (both recorded in the TLS errno chain and the errno trace ring). Otherwise reads the value, clamps it to a maximum of 2, stores the byte at self+0x08 and tail-calls virtual slot +0x50(self, node, arg). Likely a save version field; Better context needed: the field name string."
+  "proto": "uint64_t Gdb_Read_ClampedByteFieldThenDispatch(void *obj, void *save_node, void *arg)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142ea88d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f85aa0,0x141017d60",
+  "notes": "Looks up the field named by UNK_1456381c2 in save_node (Ne_StringPool_FindObjectByCStr), checks its type against DAT_14612bd40, reads the byte value, clamps it to max 2 and stores it at obj+8, then tail-calls obj vtbl+0x50(obj, save_node, arg). On a missing field returns 0x57, on a type mismatch 0x58 (both recorded in the errno trace ring). Context from caller: Career_Facilities_ReadSaveData calls it on the facility node found by id (Career_Find_FacilityNodeById); caller 0x141017d60: a second save-data reader that does the same on a node found by FUN_1410cfb20. The clamped byte is a 0..2 state or level; hook point to edit a loaded facility state. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "gamedb.read_clamped_byte_field_then_dispatch",

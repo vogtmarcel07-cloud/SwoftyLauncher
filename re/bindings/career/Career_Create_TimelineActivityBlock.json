@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14231ec30",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Create_TimelineActivityBlock(void *self, void *out_shared, uint32_t arg, uint32_t index, void *parent_shared)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142320830 (RacingPC lab re_groups/_decomp);xref:0x142317600",
-  "notes": "Formats \"timeline_activity_block_%d\" with index, forwards to FUN_142320c20 (0x142320c20) with a copy of parent_shared, then sets the colour-type node at created view+0x170 to 0xff000000 and releases parent_shared. Returns out_shared."
+  "proto": "void **Career_Create_TimelineActivityBlock(void *self, void **out_block, uint32_t day, uint32_t index, void *shared_ref)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142320830 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142317600",
+  "notes": "Formats the node name \"timeline_activity_block_%d\" from index, copies the shared reference (refcount at +8) and calls 0x142320c20(self, out_block, day, &name, &ref) to create the block, then writes the u32 0xff000000 to the node at [out_block]+0x170 (type desc 0x14612bd80, set via 0x14160eb10) and releases the temporaries. Returns out_block. Caller: Career_Build_ActivityCalendarFacilityColumn creates one block per scheduled activity and then fills its icon and text nodes. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.create_timeline_activity_block",

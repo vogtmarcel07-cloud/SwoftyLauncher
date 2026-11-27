@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14431fb80",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "bool Career_TeamHqLaptopVM_IsItemActionAllowed(void *vm, void *item_key)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144322150 (RacingPC lab re_groups/_decomp);xref:0x141c464b0",
-  "notes": "Searches the 16-byte entry list at vm+0x270..+0x278 for the entry whose object has +0x20 == item_key, resolves the child node whose name pointer is stored at 0x145f9aa58 under that object's node (+8) and reads a byte flag value; returns false when item_key is null, the entry is missing or (flags & 3) != 0, else true. Better context needed: the node name and the meaning of the two flag bits."
+  "proto": "bool Vm_ItemList_IsItemActionAllowed(void *list, void *item_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144322150 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c464b0,0x141f786c0",
+  "notes": "Renamed from Career_TeamHqLaptopVM_IsItemActionAllowed: the second caller is a non-laptop panel handler, so the class prefix was wrong; the object is a generic item list. Whole body read. Returns 0 for a null key; searches the 0x10-byte entries at list+0x270..+0x278 for one whose object +0x20 == item_key, takes its node handle (+8), resolves a child node by key global 0x145f9aa58 (Vm_Resolve_RegistryNode) and returns 0 if that node has type desc 0x14612bda0 and its value byte has bit 0 or 1 set, 0 if no handle, else 1. Caller Career_TeamHqLaptopVM_OnAction gates setting menu item 0x5b810a5c to 0x2062deb7 on it; caller 0x141f786c0: panel event handler that on hash 0x41bdb6f5 walks panels +0x408..+0x410 and takes the first allowed one. Context from caller: the same list object is passed to Vm_Set_TabEnabled. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.team_hq_laptop_vm_is_item_action_allowed",

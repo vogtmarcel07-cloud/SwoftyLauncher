@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1429bd440",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "bool Career_Is_PlayerUpgradeCardEntryFlagged(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429bf800 (RacingPC lab re_groups/_decomp);xref:0x1417f9870",
-  "notes": "Resolves the player entrant id (id_lo/id_hi, default 0x3fff0000) from the entrant list at (((self+0x28)+0x1e0)+0x88)+0x260 -> +0x2e0..+0x2e8, looks up an entry with func 0x1429bd780(self, id) and returns entry byte +1 != 0 (false when no entry). Better context needed: what table 0x1429bd780 indexes."
+  "proto": "bool Career_Is_PlayerUpgradeCardEntryFlagged(void *card)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429bf800 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141564b50,0x1417f9870,0x141f97b40",
+  "notes": "Builds the local player's identity (g_Game_Manager+0x140 -> +0x198 -> +0x1c0 vcall 0x38), finds the matching EntrantRecord in the list +0x2e0..+0x2e8 of [[[card+0x28]+0x1e0]+0x88]+0x260 and takes its packed id (default 0x3fff0000), then calls 0x1429bd780(card, id) for the per-entrant entry and returns entry+1 != 0 (false when no entry). The entry lookup callee was not read. Callers: Career_Bind_UpgradeCard switches the card icon and a bool node when true; 0x141564b50 writes the result to a bool node of a row list; 0x141f97b40 counts the flagged ones among three cards. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.is_player_upgrade_card_entry_flagged",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1434f7a90",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Deserialise_SharedTeamModifiers(void *self, void *propBag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434fa020 (RacingPC lab re_groups/_decomp);xref:0x14123ff70",
-  "notes": "Reads a list property from propBag; per entry reads two u16 fields (map key and a packed id stored at node+0x10), parses the modifier body with FUN_1434fab70, erases any existing node with that key from the u16 hash map at self+0x18.., allocates a node from free-list self+0x20 and inserts it (FUN_1435dc820). Afterwards enumerates teams (vcall +0x1C8 on *(self[1]+0x1058)+0x208) and calls Career_Init_SharedTeamModifiers for any id (from +0x50) missing from the map. Returns errno-style code (0x57 missing, 0x58 wrong type)."
+  "proto": "uint64_t Career_Deserialise_SharedTeamModifiers(void *self, void *reader)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434fa020 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14123ff70",
+  "notes": "Whole body read. Finds list property (key 0x1456becd0, type desc 0x14612bcf0), and per bag reads two u16 props (0x145628700 = map key, 0x14568fe5d packed into a team id as (v&0x3fff)<<16|v>>14), parses the body with FUN_1434fab70, erases any old node for the key and inserts a pooled node (free list self+0x20; key +0, team id +0x10, vector +0x28..+0x38, four small arrays) into the hash map at self+0x18 (seed +0x38, buckets +0x40, dist +0x48, count +0x50). Afterwards enumerates teams via [[self+8]+0x1058]+0x208 vcall +0x1c8 and calls Career_Init_SharedTeamModifiers when a team (+0x50 id) has no entry. Returns 0 or errno 0x57 (missing) / 0x58 (wrong type). Caller Game_UpgradesComponent_Deserialise uses it on component+0xca0 when mode byte [component+0xc98]+0x58 == 0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.deserialise_shared_team_modifiers",

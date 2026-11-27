@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142326000",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_TeamHqFlowScreen_Construct_145785b90(void *screen, void *arg2, void *owner, const char *screen_name, void *arg5, uint32_t mode)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142327c00 (RacingPC lab re_groups/_decomp);xref:0x141663570",
-  "notes": "Screen object constructor registered by the Team HQ My Team screen table: base ctor 0x14431f310, name strings screen_name and \"team_hq_flow\", vtables 0x145785b90/0x145785c20/0x145785c48, owner stored at +0x2a0, two empty VM property handles at +0x2c8 (string) and +0x2e8 (bool), mode value at +0x338. Better context needed: which Team HQ screen uses vtable 0x145785b90."
+  "proto": "void *Career_TeamHqFlowScreen_Construct_145785b90(void *self, void *arg2, void *ctx, const char *screen_id, void *arg5, uint32_t mode)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142327c00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141663570",
+  "notes": "Whole body read. Runs base ctor 0x14431f310, builds temp strings from screen_id (param_4) and \"team_hq_flow\", sets vtables 0x145785b90 / +0x260 0x145785c20 / +0x268 0x145785c48, stores ctx (param_3) at +0x2a0, sub-object vtables 0x1456616e0 at +0x2c8 and 0x145661670 at +0x2e8, mode (param_6) at +0x338, zeroes the rest; param_5 is not used in the body; returns self. Caller Career_Register_TeamHqMyTeamScreens allocates 0xb20 bytes, calls it with \"team_hq_my_team_personnel\" and mode 4, then installs derived vtable 0x145788020, so this is the base ctor for that personnel screen. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.team_hq_flow_screen_construct_145785b90",

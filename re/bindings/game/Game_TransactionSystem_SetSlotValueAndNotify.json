@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142bb2160",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_TransactionSystem_SetSlotValueAndNotify(void *self, uint8_t key, uint64_t value)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142bb46f0 (RacingPC lab re_groups/_decomp);xref:0x142e69950",
-  "notes": "Looks up byte key in robin-hood hash map at self+0xE0 (0x18-byte entries at +0xE8, metadata +0xF0, mask +0x100); if present writes value to entry+0x10 and posts an empty message object (vtable 0x1457d5e58) to g_Game_MessageBus via FUN_142cb58c0. Traps if the second lookup fails. Better context needed: what the key enumerates (purchase type or currency)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142bb46f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142e69950",
+  "notes": "Whole body read. Robin-hood hash map at self+0xe0 (seed), +0xe8 entries (0x18 stride, key byte at +0), +0xf0 distance bytes, +0x100 mask, +0x110/+0x114 probe params: finds entry for key, writes value at entry+0x10, then posts bus message vtable 0x1457d5e58 on g_Game_MessageBus+8 via FUN_142cb58c0; no-op if key absent. Caller Game_TransactionSystem_OnRequestPurchaseComplete_A: for a purchased item of type byte 0x16 it sets key 0 to the u64 at data+0xa0 (context from caller: likely a currency balance). 0x142c60130 shares this body by tail-merge with key 0 and value [obj+0xc8] (no call seen). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.transaction_system_set_slot_value_and_notify",

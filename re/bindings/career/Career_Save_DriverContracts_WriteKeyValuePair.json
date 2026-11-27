@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d9f790",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Save_DriverContracts_WriteKeyValuePair(uint8_t *rec, void *writer)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da0310 (RacingPC lab re_groups/_decomp);xref:0x140da4d50",
-  "notes": "Save writer for a small record: writes a u16 field holding the packed key (rec[0] << 14 | u16 at rec+2) and a second u16 field from rec+4, both with reflected type 0x14612be38, appending each field object to the writer child list. Returns 0 or an error code. Field names not visible in the decompile."
+  "proto": "uint32_t Career_Save_DriverContracts_WriteKeyValuePair(uint8_t *rec, void *save_node)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da0310 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140da4d50",
+  "notes": "Whole body read. Writes two fields with Gdb_Write_ReflectedFieldA (type 0x14612be38): field 0x145614b10 = packed key ((byte rec+0 << 14) | u16 rec+2) and field 0x14569435e = value at rec+4; each new field object is appended to the node child list (count +0x10, array +8). Returns the error code (0 = ok). Context from caller: Career_Save_DriverContractsComponent calls it for the object at comp+0x468 under the element that the KB note lists as contractWindowOpening. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.save_driver_contracts_write_key_value_pair",

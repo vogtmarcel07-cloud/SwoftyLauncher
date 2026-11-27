@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140dbb120",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void Career_DriverContractsMyTeam_ApplyMeetingOutcome(void *comp, void *offer)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dbbca0 (RacingPC lab re_groups/_decomp);xref:0x140dbc7c0",
-  "notes": "Resolves player team id from entrant list (owner +0x278 -> +0x2e0..+0x2e8), stamps offer+0x5a with current day (minutes at +0x2a8->+0x2b0 /1440), posts bus msg vtable 0x145699000 with driver id offer+0x5c and team. Seeds MT19937 from vfunc+0x90(2)+packed driver id+0x1ca3; if roll < float comp+0x41c sets offer+0x67=1 and posts msg 0x145699010 for every other non-departing driver. Then binds team record (list +0x2c8, stride 0x30) into attribute set offer+0x10 (+0xa78/+0xa80), flags attribute kinds 10 and 11 (+0x70=1) and calls Career_AttributeSet_RollRandomEffects. comp+0x41c is a tunable chance."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140dbbca0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140dbc7c0",
+  "notes": "Writes the day index to offer+0x5a, posts bus message 0x145699000 {driver key offer+0x5c, player team}, rolls a seeded random (seed [comp+0x278] vfunc +0x90 (2) + packed driver id + 0x1ca3) against float comp+0x41c and on success sets offer+0x67 = 1 and posts 0x145699010 for every other entrant row. Then copies the player's team entry (shared ptr at +0x20/+0x28 of the 0x30-byte rows in [comp+0x2c8]+0x2c8) into the attribute set offer+0x10 at +0xa78/+0xa80, marks its entries of type 10 and 11 (stride 0x78, flag +0x70 = 1) and calls Career_AttributeSet_RollRandomEffects. Context from caller: Game_DriverContractsMyTeamComponent_OnMeetingComplete runs it as the bracket 2 (last) action. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.driver_contracts_my_team_apply_meeting_outcome",

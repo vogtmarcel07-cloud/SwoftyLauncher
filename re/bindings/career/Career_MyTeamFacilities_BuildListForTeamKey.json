@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14101b830",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void *Career_MyTeamFacilities_BuildListForTeamKey(void *self, void *out_vec, uint64_t team_key)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14101c4f0 (RacingPC lab re_groups/_decomp);xref:0x140c3b3d0,0x140f81210,0x140f8ad20",
-  "notes": "If self+0x380 is null it copies the default id array from the lazily built g_Game_MyTeamSetupData static (count at 0x14606f5a0) and forwards to FUN_14101bd90(self, out, ids). Otherwise looks the packed 16-bit team key up in the hash map at self+0x3c0..+0x3f4, takes a ref on the entry's shared object, copies its id array at obj+0x140 (count +0x160) and calls the same builder; on a miss returns an empty vector with allocator self+0x210. Better context needed: FUN_14101bd90 decides what the output elements are."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14101c4f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140ab49a0,0x140c3b3d0,0x140f81210",
+  "notes": "Whole body read. If self+0x380 is 0 it copies the static default list of g_Game_MyTeamSetupData (0x14606f580, count 0x14606f5a0, lazy init) and calls 0x14101bd90(self,out_vec,list). Otherwise it packs team_key to 16 bits, looks it up in the hash map at self+0x3c0..+0x3f4, takes a shared ref on the entry, copies the 8-byte item list at entry+0x140 (count +0x160) and calls 0x14101bd90; when no entry or object is found out_vec is returned empty (allocator self+0x210). The out_vec items are 4-byte ids. Callers: 0x140ab49a0 tests whether the id from Career_Get_BackgroundOutcomeField is in the list for the entrant's team; Career_Renown_MergePointsList tests required ids against the list; Career_MyTeamFacilitiesComponent_Slot0e0 walks the list per team. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.my_team_facilities_build_list_for_team_key",

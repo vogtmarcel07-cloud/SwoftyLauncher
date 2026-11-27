@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1401b71c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_Spawn_DriverFromResolvedSetup(void *spawner, uint32_t *driver_id, void *a3, void *a4, void *a5)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1401b71c0 (RacingPC lab re_groups/_decomp);xref:0x1402474e0,0x140253870,0x1403a7080,0x140c7bef0",
-  "notes": "Returns 0 for a null id; otherwise builds a large stack setup struct with Wear_Spawner_ResolveDriverSetup(setup, driver_id, a3, a4), passes it to FUN_1401b73e0(spawner, setup, a5) and returns that result, then destroys the optional 0x28-byte element arrays in the setup. Spawn semantics inferred from callee and caller names."
+  "proto": "void *Game_Spawn_DriverFromResolvedSetup(void *scene_spec, uint32_t *driver_id, void *a3, void *a4, void *transform)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1401b71c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1402474e0,0x140253870,0x1403a7080",
+  "notes": "Whole body read. Returns 0 if driver_id is null; otherwise builds a local setup struct (0x530 bytes, index byte 0xff, three optional blocks), fills it with Wear_Spawner_ResolveDriverSetup(setup, driver_id, a3, a4), passes it with scene_spec and transform to 0x1401b73e0 and returns that result, then destroys the setup optional arrays (0x28-byte items via their vtable slot 0). Callers Game_CameraActor_Enable (cinematic/careerhub scene), Game_CareerHubRndAreaScript_Initialise (driver idle scene) and Game_InCarDriverComponent_Spawn (incar scene, stored at +0x18) all pass an identity transform and use the returned scene (+0xa0 node). Good hook point to swap the driver setup before the scene spawns. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.spawn_driver_from_resolved_setup",

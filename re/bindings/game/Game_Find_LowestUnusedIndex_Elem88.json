@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142457f60",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "uint64_t Game_Find_LowestUnusedIndex_Elem88(void *vec)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142459b60 (RacingPC lab re_groups/_decomp);xref:0x1411284f0,0x14276e330,0x142c2b720",
-  "notes": "Collects the int at +0x48 of every 0x88-byte element in vector +0x8..+0x10 into a temporary array, sorts it (FUN_1424e3ed0) and returns the first position i where sorted[i] != i (the element count if all indices 0..n-1 are used). Used to allocate the next free slot index."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142459b60 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1411284f0,0x14276e330,0x142c2b720",
+  "notes": "Copies the int32 at +0x48 of every 0x88-byte element of the vector vec+8..+0x10 into a temporary array (stack allocator 0x145897160 named 'unknown'), passes it to 0x1424e3ed0(begin,end,count) (sort helper, not read), then returns the first position i where array[i] != i, or the element count when all match; the temp array is freed. Callers (Read_DevSessionDataContractEntrantsConfig, Trk_Unk_14276bfb0, F1 data feed replay loader) store the result as the int index at +0x48 of a new 0x88-byte entry next to a fresh Ne_Make_RandomIdBlock id before pushing it to the same vector. Context from caller: the entries are entrant records, so this yields the next free entrant slot index. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.find_lowest_unused_index_elem88",

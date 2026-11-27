@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143507380",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "float Career_ResourcePoints_GetDriverExperienceScalar(void **ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143509910 (RacingPC lab re_groups/_decomp);xref:0x143509280",
-  "notes": "Finds a named stat in the DriverStatistics component (16-byte list +0x2d0..+0x2d8, strcmp against 0x14570eb42), evaluates it through vfunc +0x280 with career progress fraction (days elapsed / career length, clamped to 1) and returns (stat/100) * (gamedb \"resource_points.practice_programme_overrides.per_team_mode.driver_experience_scalar\" / 100), or per_driver_mode when component byte +0x4a0 is 0. Returns 0 if the stat is missing."
+  "proto": "float Career_ResourcePoints_GetDriverExperienceScalar(void *rec)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143509910 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143509280",
+  "notes": "Whole body read. Gets the DriverStatistics component, finds the stat whose name equals string 0x14570eb42 in list +0x2d0..+0x2d8, evaluates it for the driver key rec+0x28 with vfunc +0x280 (career progress = days / Career_Get_CareerLengthDays, capped at 1.0, unless vfunc +0x278 is true) and divides by 100. Then reads gamedb key \"resource_points.practice_programme_overrides.per_team_mode.driver_experience_scalar\" (or \"per_driver_mode\", chosen by ResourcePoints byte +0x4a0) and divides by 100. Returns stat * scalar; 0.0 when the component or stat is missing. Caller Career_ResourcePoints_RecalcSessionTotal sets rec+0x30 = (int)(result * rec+0x2c), the cap used by the apply step. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resource_points_get_driver_experience_scalar",

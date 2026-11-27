@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14100b860",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_OwnerPerks_FindPerkByCategoryAndId(void *self, void *out_shared_ptr, uint8_t category, uint32_t perk_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14100c520 (RacingPC lab re_groups/_decomp);xref:0x14100c3f0",
-  "notes": "Looks up the byte key category in the hash map at self+0x2b0 (pointer slots +0x2b8, info +0x2c0, mask +0x2d0), holds the found entry's shared ref (+0x10), then queries the entry's sub-container (+8) with 0x1410cfb20(container, &tmp, perk_id) and promotes the resulting weak pointer to a shared pointer written to out_shared_ptr; out is zeroed when the category or perk is missing or expired. Better context needed: the key is assumed to be the perk category/tree byte."
+  "proto": "void *Career_OwnerPerks_FindPerkByCategoryAndId(void *comp, void *out_shared_ptr, uint8_t category, uint32_t perk_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14100c520 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14100c3f0,0x14100e960",
+  "notes": "Hash lookup of the category byte in the pointer table at comp+0x2b8 (seed +0x2b0, control bytes +0x2c0, mask +0x2d0); the hit entry holds a tree at +8 with its ref block at +0x10. 0x1410cfb20(tree, &tmp, perk_id) finds the node, the weak result is locked, and out receives the {node, ref block} pair; out is zeroed when the category or node is missing. Returns out. Context from caller: Career_OwnerPerks_TryPurchasePerk reads node+0x54 cost and node+0x58 purchased flag from the result; 0x14100e960 (refund path: requires node state 2, adds Career_OwnerPerks_SumPurchasedCostRecursive back to comp+0x3cc and posts a bus message) uses the same lookup. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.owner_perks_find_perk_by_category_and_id",

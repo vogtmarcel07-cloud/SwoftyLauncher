@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1416737a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Forward_Str128Message_ToBus(void *self, const void *msg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141674d90 (RacingPC lab re_groups/_decomp);xref:0x1416752d0",
-  "notes": "Copies a message object (vtable 0x14565c070, two qwords at +8/+0x10, an inline 128-char string at +0x30..+0xc4, and an optional vector of shared pointers at +0xd0..+0xe0 guarded by flag +0xe8) to the stack and posts it with Ne_Post_BusMessage on the bus at self+8, then releases the copied shared pointers."
+  "proto": "void Career_Forward_Str128Message_ToBus(void *sender, void *msg)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141674d90 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1416752d0",
+  "notes": "Copy-constructs the message on the stack (vtable 0x14565c070, fields +8 and +0x10, inline 128-byte string body +0x30..+0xc3 with g_Ne_InlineStr128Vtable, and when msg+0xe8 is set a copy of the vector +0xd0..+0xd8 of 16-byte ref-counted pointers using allocator +0xc8), posts the copy with Ne_Post_BusMessage on the bus at sender+8, then releases the copied refs and buffer. Caller Career_Bind_FacilityUpgradeNameStrings builds the message with Ne_String_CtorInline128_CopyCStr and sends it through this, then destroys its own copy. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.forward_str128_message_to_bus",

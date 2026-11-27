@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d40f20",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_AutoContracts_SortIdsByScore_Flag1(uint32_t *first, uint32_t *last, uint64_t depth_budget, void *ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d41aa0 (RacingPC lab re_groups/_decomp);xref:0x140c588b0",
-  "notes": "std::sort style introsort (insertion sort under 33 elems, heapsort when budget exhausted, median via FUN_140d42240) over a uint32 id array. Comparator calls FUN_140c5db10(ctx, id, 1) which returns a float score; result is ordered by descending score. Better context needed: what FUN_140c5db10 scores (team or driver rating)."
+  "proto": "void Career_AutoContracts_SortIdsByScore_Flag1(uint32_t *first, uint32_t *last, int64_t depth_budget, void *ctx)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d41aa0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c588b0",
+  "notes": "Introsort over a uint32 id range: insertion sort below 33 elements, median-of-3 / ninther via 0x140d42240, three-way partition, heapsort when depth_budget reaches 0, recursion on the smaller half. The comparator calls 0x140c5db10(ctx, id, 1) for both ids and orders by the returned float, highest first. Caller Career_AutoContracts_RankTeam sorts the id vector at ctx+0x88..+0x90 with count as budget and ctx = the ranking object; 0x140c5db10 looks the id up in the hash map at ctx+0x48 and the entrant rows at [ctx+0x10]+0x2e0, so hooking that scorer changes the ranking. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.auto_contracts_sort_ids_by_score_flag1",

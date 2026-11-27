@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1441f0ec0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
-  "proto": "void Vm_ViewModel_ReleaseBindings(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441f3490 (RacingPC lab re_groups/_decomp);xref:0x14178a340,0x141ce7680,0x141d5a400,0x141e6a260,0x141fd6980,0x142084ab0,0x1437f46a0",
-  "notes": "Runs only if bit 0x10 of +0xe0 is set and clears it. Unsubscribes each 24-byte binding in vector +0xb8..+0xc0 (callback 0x1442be540), releases the nodes with Vm_Release_Node, empties the vector, then detaches the root node ref at +0x98 and re-points it at k_Vm_EmptyNodeHandle."
+  "proto": "void Vm_ViewModel_ReleaseBindings(void *self)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441f3490 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140982530,0x1415140a0,0x141541bc0",
+  "notes": "Only acts when flag bit 0x10 of byte self+0xe0 is set, and clears it. For each 0x18-byte node handle in the vector self+0xb8..+0xc0 it removes the change callback {0x1442be540,self} (0x1442323b0), unlinks the handle from the node's listener list (node+0x28) and calls Vm_Release_Node; the vector is then emptied. The main handle at self+0x98 gets its callback 0x1442be5e0 removed when the node is live and is reset to k_Vm_EmptyNodeHandle (relinked, refcount +0x24 incremented). Callers pass embedded 0xe8-byte sub-objects, not the screen itself: 0x1415140a0 is a screen teardown that unsubscribes a message-bus handler and releases 13 such members (+0x390 step 0xe8); 0x141541bc0 removes node callbacks then calls this and Vm_Node_Clear on member +0x668; 0x140982530 is a large reset routine calling it on [+0x180]+8. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.view_model_release_bindings",

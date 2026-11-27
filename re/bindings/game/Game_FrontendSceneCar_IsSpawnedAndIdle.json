@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1428c6130",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "bool Game_FrontendSceneCar_IsSpawnedAndIdle(void *sceneCar)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428c84f0 (RacingPC lab re_groups/_decomp);xref:0x1417e8520,0x141998fc0,0x14254b890,0x1427b4430,0x1428cb420,0x142ab0d00",
-  "notes": "Returns 0 if byte +0x6981 is clear. Otherwise looks up u16 id +0xc0 in the owner (+0x98) hash map at +0xf78..+0xfac; returns 1 if the id is absent, else 1 only when the entry object bytes +0x94 and +0x95 are both 0. Meaning of the two busy bytes is inferred (pending load/change). Useful poll to know a frontend car is safe to respawn."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428c84f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1417e8520,0x141998fc0,0x14254b890",
+  "notes": "Returns false when byte car+0x6981 is 0. Otherwise looks up the u16 key car+0xc0 in the hash map of the owner car+0x98 (multiplier +0xf78, 0x18-byte slots +0xf80, control bytes +0xf88, mask +0xf98); not found returns true, found returns (entry+0x10 object bytes +0x94 and +0x95 both 0). Callers find the car by id (+0xb8) in the manager array +0x6fd8 (stride 0x6990) and use the result as the ready gate: FrontendScenePreview_UpdateTick clears its pending car id when true, MyTeamHq_SpawnFoyerCar and SpawnFromLiveryData re-apply the setup while it is false. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.frontend_scene_car_is_spawned_and_idle",

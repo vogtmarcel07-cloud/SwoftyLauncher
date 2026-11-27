@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140c943f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "int32_t Career_Load_SaveNode_ValueAndBagList(void *self, void *save_node)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140c94eb0 (RacingPC lab re_groups/_decomp);xref:0x140c9a490,0x1410fe030",
-  "notes": "Reads one field (name 0x145614a62) from the save node into self+0x20 via FUN_140d30990, clears the vector at self+0x08..+0x18, then finds a list field (name 0x145690492) and for each bag in it appends a zeroed 8-byte element and deserialises it with FUN_140c95030. Returns the last error code. Better context needed: field name strings would tell which record this is (shared by driver contract and sponsor record loaders)."
+  "proto": "int Career_Load_SaveNode_ValueAndBagList(void *obj, void *save_node)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140c94eb0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c9a490,0x1410fe030",
+  "notes": "Reads one value named UNK_145614a62 from save_node into obj+0x20 (FUN_140d30990), clears the pointer vector at obj+8/+0x10/+0x18 (allocator at obj+0), then finds the list field UNK_145690492 (Gdb_Find_ReflectedFieldB) and for each index gets the bag (Ne_PropList_GetBagAtIndex), pushes a null 8-byte slot and loads it with FUN_140c95030(slot, bag). Returns the last error code, 0 on success. Callers: Career_Load_DriverContractField_FromSaveNode uses it for the objects at comp+0x20, comp+0x50 and each new entry of the comp+0x30 list; Career_Sponsors_ReadRecordSaveData uses it for the objects at +0x130 and +0x140. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.load_save_node_value_and_bag_list",

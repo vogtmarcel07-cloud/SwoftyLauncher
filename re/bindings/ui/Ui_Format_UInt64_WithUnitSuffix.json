@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1441ed830",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
-  "proto": "void *Ui_Format_UInt64_WithUnitSuffix(void *fmt_cfg, void *out_str, uint64_t value, char flag_a, char flag_b, uint8_t unit_kind, uint32_t *compact_cfg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441efe00 (RacingPC lab re_groups/_decomp);xref:0x1420caf30,0x1442bc680",
-  "notes": "Number-to-text formatter: plain path uses \"%0*I64u\" with width cfg+0x10, optional thousands grouping (cfg+8, value>=1000) and cfg+0xc padding chars; compact path (compact_cfg[2] byte set) scales by a power of 10 chosen from compact_cfg bytes +4/+5 and builds \"%s%s%.*s\" with the decimal separator global 0x146ca3bb8, trimming trailing zeros. Then wraps with a unit template from table 0x145a871c0 (unit_kind 1..31, mask 0xffbfffbe) via Ui_Format_NumberText_Compact, or special case kind 6. Sign/prefix string chosen from flags."
+  "proto": "void *Ui_Format_UInt64_WithUnitSuffix(void *fmt, void *out_str, uint64_t value, char show_sign, char show_sign_zero, uint8_t unit_kind, uint32_t *compact_opts)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1441efe00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14189c2f0,0x1420caf30,0x142fbac80",
+  "notes": "Whole body read. If compact_opts byte +8 is 0: formats value with \"%0*I64u\" (min width fmt+0x10), adds thousands grouping via 0x144381600 when value >= 1000 and fmt+8 is set, then appends the separator string 0x146ca3bb8 and fmt+0xc padding chars. Otherwise picks a power-of-ten magnitude (bounds bytes +4/+5 of compact_opts, table 0x145a871a4 or 0x145a87188 when 0x145f9aa50 == 6), formats quotient plus up to compact_opts[0] decimals (\"%s%s%.*s\", trailing zeros trimmed) and wraps it with the magnitude text from 0x1441ecc10. Then unit_kind (< 0x21): 6 replaces the text with 0x1441e94b0(value); kinds in mask 0xffbfffbe wrap it with the template from table 0x145a871c0 (Ui_Format_NumberText_Compact). Finally joins the sign prefix (0x1456d26fe or empty) and the text into out_str (0x144199ec0) and returns out_str. Callers: Career_RenownFormVM_Refresh formats renown amounts (kind 0) and a 1-based position (kind 6); 0x142fbac80 fills view model text holders the same way; 0x14189c2f0 formats a uint64 argument with kind 0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.format_u_int64_with_unit_suffix",

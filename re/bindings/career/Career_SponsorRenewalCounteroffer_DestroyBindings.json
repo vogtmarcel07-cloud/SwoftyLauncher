@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141e63fa0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void Career_SponsorRenewalCounteroffer_DestroyBindings(void *bindings)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141e65ba0 (RacingPC lab re_groups/_decomp);xref:0x141cc3be0",
-  "notes": "Destructor of the counteroffer view binding block: releases node holders at qword idx 0x67,0x63,0x5f,0x5b,0x53,0x4f,0, destroys owned-pointer vector at +0x2c0..+0x2c8 (allocator +0x2b8), frees the owned object at +0x270 (allocator +0x268) and calls Vm_SponsorsList_DestroyBindings on +0x28."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141e65ba0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141cc3be0,0x141cc4ac0,0x141e290a0",
+  "notes": "Read in full. Destructor of one 0x360-byte binding element: releases node handles at +0x338, +0x318, +0x2f8, +0x2d8, +0x298, +0x278 and +0x00, destroys the owned-pair vector at +0x2c0..+0x2c8 (allocator +0x2b8), frees the object at +0x270 (allocator +0x268, 0x1441e3c60 first) and calls Vm_SponsorsList_DestroyBindings on +0x28. Callers loop over the array at vm+0x280 with count vm+0x5e0 and then zero the count: Career_SponsorRenewalCounterofferVM_OnActivate 0x141cc3be0 before rebinding, 0x141cc4ac0 on screen clear, 0x141e290a0 in the view-model destructor. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.sponsor_renewal_counteroffer_destroy_bindings",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14352b3f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Subscribe_DriverMoveMsgs_And_UpgradeHooks(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14352d980 (RacingPC lab re_groups/_decomp);xref:0x14123d080",
-  "notes": "Subscribes handler Career_Unk_14352e370 (delegate {fn,self}) on g_Game_MessageBus to MessageDriverMoveConfirmed, MessageDriversMovedTeams, MessageDriverMovesFinalised and DriverRetired. Then finds the entry for team id self+0xc in (self+0x1ab0)+0x2c8 (stride 0x30), and for keys 0..3 looks up a name in the byte-key map at self+0x1ac0, strcmp-matches it against the team object list (+0x28..+0x30) and pushes callback FUN_143539840 {key,self} into the matched object vector at +0x88. Good hook point for driver transfer events."
+  "proto": "void Career_Subscribe_DriverMoveMsgs_And_UpgradeHooks(void *upgrades)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14352d980 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14123d080",
+  "notes": "Allocates four 0x10-byte delegates {Career_Unk_14352e370, upgrades} and subscribes them on g_Game_MessageBus+8 to MessageDriverMoveConfirmed, MessageDriversMovedTeams, MessageDriverMovesFinalised and DriverRetired (errno 0x58 / 0xc trace paths when the bus is closed or alloc fails). Then finds the 0x30-byte entry in [upgrades+0x1ab0]+0x2c8..+0x2d0 whose key equals upgrades+0xc, locks its weak pointer (+0x20/+0x28), and for ids 0..3 looks the id up in the hash map at upgrades+0x1ac0 to get a name, finds the object with that name (strcmp) in the locked object's vector +0x28..+0x30 and appends callback {0x143539840, id, upgrades} to that object's vector at +0x88. Caller Career_Add_TeamUpgrades runs it once right after Career_Upgrades_ReassignTeam on the new 0x1b10-byte per-team model (+0xc is the team key). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.subscribe_driver_move_msgs_and_upgrade_hooks",

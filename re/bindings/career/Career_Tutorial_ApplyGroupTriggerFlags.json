@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142e6f8c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Tutorial_ApplyGroupTriggerFlags(void *self, void **group_name_str, char set)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142e71e50 (RacingPC lab re_groups/_decomp);xref:0x141023620",
-  "notes": "Walks gamedb table tutorial_steps.triggers (tutorialTrigger), decodes each row's tutorial_grouping string and compares it to the NeStr in *group_name_str; for matching rows takes the row label and, on the container at *(self+0x148)+0x228, either find-or-inserts it with flag 1 (set!=0) or calls 0x14096c240 with an inline 128-char copy (set==0, looks like erase). Used when reading My Team save sections to restore seen tutorial triggers. Better context needed: exact meaning of the +0x228 container and of 0x14096c240."
+  "proto": "void Career_Tutorial_ApplyGroupTriggerFlags(void *tutorial_mgr, void **group_name, char enable)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142e71e50 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141023620",
+  "notes": "Opens a GdbTableCursor on table 'tutorial_steps.triggers' (row type 'tutorialTrigger') and for every row whose XOR-decoded 'tutorial_grouping' string equals *group_name takes the row name from Gdb_FindMetadata and applies it to the name container at [tutorial_mgr+0x148]+0x228: with enable != 0 it inserts the name with value 1 (through the helper the KB calls Ui_Get_ListItemWidgetByIndex, which acts here as a keyed insert), with enable == 0 it calls 0x14096c240 with the name as an inline 128-char string (exact operation of that helper not read). Context from caller: Career_MyTeam_ReadSaveSections calls it with enable=0 for the groups My_Team_Seasonal, My_Team, My_Team_Setup and My_Team_Stop_Time on [ctx+0x400]. Better context needed: body of 0x14096c240 to say whether enable=0 erases or adds a cleared entry. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.tutorial_apply_group_trigger_flags",

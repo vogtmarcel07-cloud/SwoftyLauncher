@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1424da440",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void Career_SponsorsVM_DestroySponsorBindings(void *bindings)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1424dc040 (RacingPC lab re_groups/_decomp);xref:0x1423f9390",
-  "notes": "Destructor for a sponsor detail binding block: releases holder +0x2d8, destroys the vector of 0x180-byte loyalty level items at +0x2c0..+0x2c8 (FUN_1424dc280, allocator +0x2b8), frees owned object +0x250 (allocator +0x248) and releases 21 node holders from +0x298 down to +0x8 at 0x20 spacing."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1424dc040 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1423f8b30,0x1423f9390,0x1424c99e0",
+  "notes": "Read in full. Destructor of one 0x2f8-byte binding element: releases the node handle at +0x2d8, destroys the vector at +0x2c0..+0x2c8 through 0x1424dc280 and frees it (allocator +0x2b8), releases handles at +0x298, +0x278, +0x258, frees the object at +0x250 (allocator +0x248), then releases the 0x20-stride handles from +0x228 down to +0x08. Callers loop over the array at vm+0x330 with count vm+0x628 and zero the count: Career_SponsorsVM_Refresh 0x1423f9390 before rebuilding the per-slot sponsor_info, 0x1423f8b30 on screen clear, 0x1424c99e0 in the view-model destructor. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.sponsors_vm_destroy_sponsor_bindings",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1412583c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint8_t *Career_Rivalry_EvaluateResult_ByKind(void *ctx, uint8_t *outResult, void *rivalObj, uint8_t kind)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141258a00 (RacingPC lab re_groups/_decomp);xref:0x1422b0fa0",
-  "notes": "Dispatch by kind: kind<3 requires rivalObj type derived from type node 0x146064e50 and calls Career_Unk_1412551e0; kind==3 requires type 0x146064e70 and calls FUN_141255f00; otherwise writes *outResult=3 (not applicable). Result byte 0/1 is consumed by the rivalry row builder. Better context needed: exact meaning of result codes."
+  "proto": "uint8_t *Career_Rivalry_EvaluateResult_ByKind(void *self, uint8_t *out_result, void *rival_obj, uint8_t kind)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141258a00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f4b000,0x1412507b0,0x141261230",
+  "notes": "Whole body read. Dispatcher: kind<3 -> RTTI chain check of rival_obj (vcall 0) against type 0x146064e50, then Career_Unk_1412551e0; kind==3 -> type 0x146064e70, then FUN_141255f00; if the type check hits the root or kind>3, *out_result=3. Returns out_result. Callers: 0x1412507b0 loops the rival list at self+0xbd8..0xbe0 for kinds 0,1,2 and stores the byte at rival+0x60+kind*3; 0x141261230 recomputes it and compares with the stored byte to detect a change; 0x140f4b000 finds the rival for a driver id and compares the result with an expected byte at +0x39 (condition check). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.rivalry_evaluate_result_by_kind",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140f88060",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_FacilityPerkTree_BindTeamResources(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140f88be0 (RacingPC lab re_groups/_decomp);xref:0x140f7db60",
-  "notes": "Finds the team entry (stride 0x30 at (self+0x20)+0x2c8, id match against self+0x18), locks its weak pointer (+0x20/+0x28), looks up a named entry (name self+0x78) in the list at (self+0x38)+0x48 and creates a handle via 0x1409ecad0 stored at self+0x68/+0x70 with a change callback. Then finds the entry named self+0xb8 in the hash set at (self+0x40)+0xb8, creates an object via 0x142aa5710 stored at self+0xd8/+0xe0 and subscribes Career_Calc_FacilityWorkforceShortfall on every child (+0x18..+0x20, slot child+0x30). Better context needed: the types behind 0x1409ecad0 and 0x142aa5710."
+  "proto": "void Career_FacilityPerkTree_BindTeamResources(void *facility)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140f88be0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f7db60,0x140f88350",
+  "notes": "Finds the team entry (0x30 stride in [facility+0x20]+0x2c8..+0x2d0) for the id at facility+0x18 and locks its resource set; searches the definitions at [facility+0x38]+0x48..+0x50 for the name at facility+0x78 and gets a resource handle from 0x1409ecad0, stored in facility+0x68/+0x70, with a callback object (vtable 0x1456b2cb0) attached at handle+0x20. Then it searches the bitmap-indexed node map at [facility+0x40]+0xb8..+0xc8 for the name at facility+0xb8, builds an attribute object with 0x142aa5710 (team entry +8 as argument) stored in facility+0xd8/+0xe0, and attaches a callback bound to Career_Calc_FacilityWorkforceShortfall (vtable 0x1456b2ce0, this = facility) to item+0x30 of every entry in [attr+0x18..+0x20]. Context from caller: Career_Read_FacilityPerkTreeConfig calls it after building each facility; 0x140f88350 (message handler that first checks the message team id at +0x10 against facility+0x18) calls it to rebind. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.facility_perk_tree_bind_team_resources",

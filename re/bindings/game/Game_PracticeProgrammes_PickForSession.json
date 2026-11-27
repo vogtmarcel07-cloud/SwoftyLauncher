@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140bb9100",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_PracticeProgrammes_PickForSession(void *self, void *outList, uint64_t optOverride)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140bb90e0 (RacingPC lab re_groups/_decomp);xref:0x141d31c70,0x141f98af0,0x143509320,0x1437928a0",
-  "notes": "Fills outList (8 ptr slots, count at +0x38) with practice programme objects: iterates the session programme names (+0x278 -> +0x2b0 -> +0x218 list, 0x28 stride), maps them with Game_Get_PracticeProgrammeIndexByName into table (+0x310)+0x298, always takes index 4 first, skips index 6, then shuffles the rest with an RNG seeded by vfunc(+0x100)*100 + vfunc(+0xf8)*10 + int(+0x278)+0x1414 and appends until 3 entries. Deterministic per weekend/session."
+  "proto": "void *Game_PracticeProgrammes_PickForSession(void *self, void *out_list, uint64_t opt_seed_override)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140bb90e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141800ff0,0x14180a570,0x141c654f0",
+  "notes": "Whole body read. Walks the name list at [[self+0x278]+0x2b0]+0x218 (stride 0x28, name at +0x10), maps each name with Game_Get_PracticeProgrammeIndexByName to the object array at [self+0x310]+0x298; index 6 is skipped, index 4 is written first, the rest are shuffled with an MT-style RNG seeded by a*100+b*10+c (vcalls +0x100/+0xf8 on [self+0x270], int [self+0x278]+0x1414; param_3 high dword flag overrides a) until out holds 3. out = 7 pointers + count at +0x38; returns out. Callers: 0x141c654f0 builds the practice-flow VM and binds 3 programme cards when count>2; 0x14180a570 and 0x141800ff0 read entry 0 (+0x1b0 entrant) to query team upgrades / sum resource points. Good hook to force the offered programmes. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.practice_programmes_pick_for_session",

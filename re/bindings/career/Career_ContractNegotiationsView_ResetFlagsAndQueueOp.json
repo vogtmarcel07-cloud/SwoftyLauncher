@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141a06c70",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ContractNegotiationsView_ResetFlagsAndQueueOp(void *view, uint8_t notify)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141a08450 (RacingPC lab re_groups/_decomp);xref:0x141a0d820",
-  "notes": "Sets five Bool VM nodes at +0x1718,+0x1738,+0x1758,+0x1778,+0x1798 to false; if notify sets +0x136a=1 and dispatches a UI event by name with arg 4; then allocates a 0x18 delegate bound to 0x141a08b90 and this, submits it through +0x1370 and stores the returned operation handle at +0x1398/+0x13a0 (unregistering the old one). Better context needed: the dispatched event name and what 0x141a08b90 does."
+  "proto": "void Career_View_ResetCanFlagsAndQueueOp(void *view, char notify)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141a08450 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141a07de0,0x141a08b00",
+  "notes": "Renamed from Career_ContractNegotiationsView_ResetFlagsAndQueueOp: caller 0x141a07de0 creates the five bool nodes as can_kick/can_invite/can_delete/can_quit/can_continue, so nothing shows a contract negotiations class. Writes false to the bool VM nodes at +0x1718,+0x1738,+0x1758,+0x1778,+0x1798 (+0x1798 is can_continue in the caller); if notify != 0 sets +0x136a = 1 and dispatches a UI event by name (UNK_1456f94f8) with int arg 4. Then allocates a 0x18 delegate {vtbl UNK_14570c670, FUN_141a08b90, view}, calls func_0x140fd7380(+0x1370, &handle, delegate) and stores the returned OS operation handle at +0x1398/+0x13a0, unregistering and freeing the previous one. Caller 0x141a07de0: resets the screen (game mode null, wizard at +0x1378, creates the can_* flags) then calls with notify 0; caller 0x141a08b00: event handler that calls it with notify 0 for codes 0, 3 and 4. 0x141a0b9f0 holds an inlined copy of the same delegate code and registers 0x141a08b00, no direct call seen. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.contract_negotiations_view_reset_flags_and_queue_op",

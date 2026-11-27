@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14144abe0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_MyTeam_ApplyLiveryDriverCustomisations(void *self, uint32_t packed_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14144b3c0 (RacingPC lab re_groups/_decomp);xref:0x143702070",
-  "notes": "packed_id is byte id + u16 at bits 16..31 (0x3fff = none). With an active career (self+0x2a8 -> +0x88 -> +0x260) it resolves the team record (0x88-byte elems at career+0x2e0, +0x50/+0x52 id), checks flag +0x4b bit 0x10 or FUN_14144bbb0/FUN_14144bc50, gets the vehicle customisation (+0xe0) and rewrites up to 5 driver customisation records twice (two FUN_1413fac80 queries) via Ent_EntrantsSystem_ReplaceDriverCustomisation, padding missing slots with 0xffff0009. Without a career it falls back to Career_MyTeam_SyncDriverCustomisationsFromLivery."
+  "proto": "void Career_MyTeam_ApplyLiveryDriverCustomisations(void *self, uint32_t vehicle_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14144b3c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1410f6790,0x141108c40,0x142048480",
+  "notes": "Read in full. Returns for the null key (index 0, id 0x3fff). Without a career object ([[self+0x2a8]+0x88]+0x260) it checks Ent_Get_VehicleCustomisation(self+0x280, key), looks the key up in the bitmap set at self+0x1d8..+0x1e8 and calls Career_MyTeam_SyncDriverCustomisationsFromLivery([self+0x278], &key, &[self+0x1b4]). With one, it resolves the player team entry (0x88-byte records at career+0x2e0), requires a CareerComponent and that the vehicle resolved by 0x141401e00 equals vehicle_key, reads up to 5 items twice from vehicle customisation +0xe0 (0x1413fac80, selector [self+0x2b8]), copies the driver customisation (Wear_Get_DriverCustomisation, Wear_Copy_DriverCustomisationRecord), fills two arrays of five 0x28-byte slots (item id, 0xffffffff, index; unused slots get 0xffff0009 / 0xff000000) and stores it with Ent_EntrantsSystem_ReplaceDriverCustomisation. Caller 0x141108c40: after setting the frontend car decals it calls this, then Career_OwnerSetup_ApplySuit and the driver decal update; caller 0x142048480 calls it per loadout before updating driver decals. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.my_team_apply_livery_driver_customisations",

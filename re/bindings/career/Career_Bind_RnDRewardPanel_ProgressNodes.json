@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14191ff90",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Bind_RnDRewardPanel_ProgressNodes(void *self, void *parent_vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141921770 (RacingPC lab re_groups/_decomp);xref:0x141800d50",
-  "notes": "VM sub-panel constructor: attaches to a child of parent_vm (name string 0x1456f8917), creates int nodes \"current\" (+0x20) and \"max\" (+0x40), builds a nested panel at +0x60 via FUN_141806b50 (name 0x14571a890) and resolves three token nodes at +0x120/+0x140/+0x160 (names 0x14571a8a5/0x14571a8ba/0x14571a8ce). Better context needed: the unnamed node strings would give the exact widget name."
+  "proto": "void *Career_Bind_RnDRewardPanel_ProgressNodes(void *sub_vm, void *parent_vm)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141921770 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141800d50",
+  "notes": "Sub-VM constructor: creates its node as a named child (UNK_1456f8917) of the parent node (parent+8), then binds int node \"current\" at +0x20/+0x28 and int node \"max\" at +0x40/+0x48 (both init 0), builds a nested object at +0x60 with FUN_141806b50 (name UNK_14571a890) and binds three token nodes at +0x120, +0x140 and +0x160 (names UNK_14571a8a5, UNK_14571a8ba, UNK_14571a8ce). Returns sub_vm. Caller Career_Init_RnDUpgradeRewardPanel calls it with (panel+0x20, panel) before Ui_Rnd_SetUpgradeRewards; the \"current\"/\"max\" pair is the progress value shown on the panel. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.bind_rn_d_reward_panel_progress_nodes",

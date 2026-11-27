@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141269420",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Activity_ScheduleTeamEntryByType(void *activity_mgr, uint32_t team_id, uint32_t day, char type)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269a60 (RacingPC lab re_groups/_decomp);xref:0x1411050f0",
-  "notes": "In the current activity record (array +0x410 stride 0x80, index +0x428) finds the 0xd8-byte team block at +0x60..+0x68 matching team_id, finds the entry definition in the hash map +0x378/+0x380 whose byte +0x10 == type, checks def flags +0x60 against (isMyTeam+1), creates an entry (team vt+0x8 / vt+0x10 with def id +0x8 and day) and inserts it into the team list at +0x50..+0x58 before the first entry whose day (u16 +0xa) >= day, then re-sorts the list."
+  "proto": "void Career_Activity_ScheduleTeamEntryByType(void *timeline, uint32_t team_key, uint32_t day, char type)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269a60 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1411050f0",
+  "notes": "Read in full. In row [timeline+0x410][u32 +0x428] (0x80 stride) finds the 0xd8-byte record at row+0x60..+0x68 whose packed key at +0xc0 equals team_key; finds in the bitmap hash at +0x378/+0x380/+0x388 the definition whose byte +0x10 equals type; returns unless def+0x60 has the bit (Career_Is_MyTeamGameMode + 1). Then record vf+8 creates the entry (out owned pair), vf+0x10(rec, u16 def+8, day), and the entry is inserted into the 16-byte vector at rec+0x50..+0x58 before the first element whose u16 day (+0xa) is >= day (0x1412c8960) or appended (0x14128a390), followed by Ne_Sort_Introsort_Elem16_OwnedPtr. Caller Career_Sponsors_FindContractSlotFromDay 0x1411050f0 passes [sponsors+0x3d0], team key, the chosen day and its type argument. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.activity_schedule_team_entry_by_type",

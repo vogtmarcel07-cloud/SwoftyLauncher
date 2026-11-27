@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142456690",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "entrants",
-  "proto": "void **Ent_Collect_LinkedEntrantsByStatId(void **out, void *entVec, uint32_t statId, uint8_t flag, void **alloc)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142458290 (RacingPC lab re_groups/_decomp);xref:0x140d84020,0x140d84110,0x1412eb8d0,0x1412f38a0,0x1415949e0,0x141a5f750",
-  "notes": "Finds the entrant pointer in entVec (+8..+0x10) whose id at +0x50/+0x52 equals statId (0x3fff0000 = none), rebuilds its identity record (+8..+0x48), re-finds it with Sess_Match_EntrantIdentity_Thunk and calls Ui_Copy_MyTeamNodeArray with a closure {flag, entrant} to fill out. Otherwise returns an empty vector with the given allocator. Callers use it to get the teammate list of a driver. Better context needed: exact filter predicate inside Ui_Copy_MyTeamNodeArray."
+  "proto": "void **Ent_Collect_LinkedEntrantsByStatId(void **out_vec, void *entrant_list, uint32_t packed_id, uint8_t flag, void **allocator)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142458290 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140b8a690,0x140d84020,0x140d84110",
+  "notes": "Returns an empty vector {allocator,0,0,0} when packed_id is 0x3fff or not found. Else finds the entrant pointer in entrant_list+8..+0x10 whose key +0x50 matches, copies its identity block (+8..+0x48) into a temp record, finds the first list entry matching it with Sess_Match_EntrantIdentity and calls Ui_Copy_MyTeamNodeArray(out, list, predicate {flag, found entrant, source entrant}, allocator). Context from caller: Game_DriverContracts_IsTeammateNewlyInTalkState1/2 pass flag 1 and read key +0x50 of the first result as the other driver of the team. Caller 0x140b8a690: counts result rows whose phase record value is higher than the reference driver (flag 0). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "entrants.collect_linked_entrants_by_stat_id",

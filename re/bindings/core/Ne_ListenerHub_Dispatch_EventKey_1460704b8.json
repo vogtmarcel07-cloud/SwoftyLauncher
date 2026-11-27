@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1424032a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "void Ne_ListenerHub_Dispatch_EventKey_1460704b8(void *hub, void *event)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142404ea0 (RacingPC lab re_groups/_decomp);xref:0x142348d70,0x1423fda20",
-  "notes": "Looks up the listener list for event type key 0x1460704b8 in the hub map at +0xc0 (entries stride 0x28 at +0xd8), bumps the dispatch depth +0x1c, calls vfunc +0x08 of each listener with event unless its id is in the pending-removal list +0x110..+0x118, then when depth returns to 0 flushes pending removals with Ne_ListenerHub_RemoveListenerEntry."
+  "proto": "void Ne_ListenerHub_Dispatch_EventKey_1460704b8(void *hub, void *payload)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142404ea0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1423039a0,0x142348d70,0x1423fda20",
+  "notes": "Looks up the fixed event key &DAT_1460704b8 in the hash map at hub+0xc0 (0x28-byte buckets at +0xd8, end +0xe0), raises the dispatch depth at hub+0x1c, and calls vslot +8 of every listener in the bucket list (+0x10..+0x18, 16-byte entries) with payload, skipping listeners whose id is in the pending-removal list hub+0x110..+0x118; when the depth returns to 0 it flushes that list through Ne_ListenerHub_RemoveListenerEntry. Context from caller: Career_MyTeamDriverDetails_BuildScreen and Career_YoungDriversRenewContractVM_OnActivate write a driver value to obj+0x28 and then dispatch with hub=[obj+0x10], payload=obj+0x20; caller 0x1423039a0 (matches a VM node against a 0xf20-stride list, then notifies) holds an inlined copy of the same body. Good hook for observing this one event type. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.listener_hub_dispatch_event_key_1460704b8",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1434fc330",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Deserialise_TeamModifiers(void *self, void *propBag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434fe8c0 (RacingPC lab re_groups/_decomp);xref:0x14123ff70",
-  "notes": "Sibling of 0x1434fa020 for the per-team modifier map: reads list property, per entry one u16 key, parses body with FUN_1434fab70, replaces node in u16 hash map (node 8 bytes smaller, insert via FUN_1435e1540), then enumerates teams and calls Career_Init_TeamModifiers for ids missing from the map. Returns errno-style code (0x57 missing, 0x58 wrong type)."
+  "proto": "uint64_t Career_Deserialise_TeamModifiers(void *self, void *reader)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434fe8c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14123ff70",
+  "notes": "Whole body read. Same shape as 0x1434fa020 but list key 0x1456bece1 and one u16 key per bag (0x14568fe5d); body parsed by FUN_1434fab70; node layout is 0x10 shorter (allocator +0x10, vector +0x18..+0x28), pool alloc FUN_1435e1b20, insert FUN_1435e1540 into the map at self+0x18. Afterwards gets the team list ([[self+8]+0x1058]+0x208 vcall +0x1c8, filtered by 0x142459390) and calls Career_Init_TeamModifiers for every team id without an entry. Returns 0 or errno 0x57/0x58. Caller Game_UpgradesComponent_Deserialise uses it on component+0xd10 when mode byte [component+0xc98]+0x58 is 1 or 2. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.deserialise_team_modifiers",

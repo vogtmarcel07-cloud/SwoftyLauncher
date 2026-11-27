@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1422ffb40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Refresh_ContractHubDepartmentRow(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142301740 (RacingPC lab re_groups/_decomp);xref:0x1422fc6c0,0x1422fe600",
-  "notes": "Gets the career manager via (vm+0x288)->+0x88->+0x260 with a type-chain check, reads department key vm+0x2a8 and a bool node (view+0x28) to build a packed key, calls Career_Find_ContractRowByKey using manager fields [0x28d]/[0x28e], then scans records at row+0x460..+0x468 (stride 0x5c) for matching id and writes (int)float field[9] to view+0x670, then calls Ui_Update_ContractHubDepartmentRow, Ui_Update_ContractHubSecretUpgrades or Ui_Rnd_SetSecretSimultaneousUpgradesShort (flag view+0x2cc), FUN_1416e2ad0 and Ui_Bind_ContractHubDriverRow. View is vm+0x2c0 when vm+0x988 is set. Better context needed: exact meaning of the float at record+0x24."
+  "proto": "void Career_Refresh_ContractHubDepartmentRow(void *self)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142301740 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422fc6c0,0x1422fe600",
+  "notes": "Runs only when the object at [[self+0x288]+0x88]+0x260 has type 0x146050c60. Uses the sub view self+0x2c0 (when self+0x988 is set): reads its bool node +0x28, calls Career_Find_ContractRowByKey on sub+0x2a0 with that object's fields [0x28d]/[0x28e], stores key = driver id (self+0x2a8) | 0x2000100000000 or 0x3000100000000 at sub+0x2c8, copies the float at +0x24 of the matching 0x5c-byte entry (list +0x460..+0x468) as int to sub+0x670, then calls Ui_Update_ContractHubDepartmentRow, Ui_Update_ContractHubSecretUpgrades or Ui_Rnd_SetSecretSimultaneousUpgradesShort (sub+0x2cc), and Ui_Bind_ContractHubDriverRow. Callers: Career_Build_DepartmentSummaryList (secret meeting screen build) and Game_SecretMeetingsVm_HandleCommand call it last after the standings preview and upgrade counts. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.refresh_contract_hub_department_row",

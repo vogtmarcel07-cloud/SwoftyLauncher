@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d7d070",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Post_PlayerDriverMsg_145698d40(void *self, uint32_t driver_id, uint32_t value)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d7dbf0 (RacingPC lab re_groups/_decomp);xref:0x1422ed950",
-  "notes": "Finds the local player's EntrantRecord in the component at self+0x278 (+0x2e0..+0x2e8) by identity match; if its id (id_lo byte, id_hi u16) equals driver_id it posts a bus message with vtable 0x145698d40 and payload {driver_id, value} on g_Game_MessageBus. Better context needed: the message type name."
+  "proto": "void Career_Post_PlayerDriverMsg_145698d40(void *comp, uint32_t driver_id, uint32_t other_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d7dbf0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422ed950",
+  "notes": "Whole body read. Builds the local player identity block (g_Game_Manager +0x140 +0x198 +0x1c0 vcall +0x38, mask 0x10000000), finds the matching EntrantRecord in [comp+0x278]+0x2e0..+0x2e8, and only if that record id (id_hi/id_lo) equals driver_id posts bus message vtable 0x145698d40 with payload {driver_id, other_id} at +0x10. Caller Career_TeamHqContractsVM_RebuildRows calls it with component vm+0x288, id vm+0x2b2 and the default id global 0x146068bc4 when state byte vm+0x2b1 == 0x0c. Hook point to see contract events for the player driver. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.post_player_driver_msg_145698d40",

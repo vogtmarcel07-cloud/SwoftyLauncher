@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141864950",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_SponsorVM_BuildFourIndexedItems(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141866130 (RacingPC lab re_groups/_decomp);xref:0x1423f7e30",
-  "notes": "Loops index 0..3; when byte +0x38 is set, formats the index as a child name (djb2 hash, rejects path chars), gets or creates that child under the list node at +0x2c0 and calls FUN_141866580(vm+0x2d8, vm+0x8 value, child holder, &index) to build the item. Better context needed: FUN_141866580 to tell what the four items are."
+  "proto": "void Career_SponsorVM_BuildFourIndexedItems(void *self)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141866130 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141865f90,0x1423f7e30",
+  "notes": "Read in full. For i = 0..3, when flag self+0x38 is set: snprintf of an 8-byte name with format 0x145614aab, rejects names holding path characters, DJB2-hashes it (seed 0x1505, x33) and resolves that child under node [self+0x2c0]+8 with Vm_GetOrCreate_ChildNode; then calls 0x141866580(self+0x2d8, [self+8], &handle, &i) and releases the temporary handle. Caller 0x141865f90 (constructor of this panel object) runs it once the CareerSponsorsComponent lookup at +0x28 succeeds; Career_SponsorVM_HandleOkCommand 0x1423f7e30 runs it again on panel vm+0x690 after activating or discovering a sponsor, followed by the two amount-text resets. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.sponsor_vm_build_four_indexed_items",

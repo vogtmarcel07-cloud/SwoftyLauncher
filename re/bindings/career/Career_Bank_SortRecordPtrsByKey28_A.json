@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d42ed0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Bank_SortRecordPtrsByKey28_A(void **first, void **last, uint64_t depth_budget)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d43a50 (RacingPC lab re_groups/_decomp);xref:0x140c5f830",
-  "notes": "Introsort (insertion sort under 33 elems, heapsort fallback, ninther pivot) over an array of record pointers. Ascending key is a 16-bit value built from the int at record+0x28: (v << 14) | (v >> 16) truncated to u16. Better context needed: the record type whose +0x28 packed field is the sort key."
+  "proto": "void Career_Bank_SortRecordPtrsByKey28_A(void **first, void **last, int64_t depth_budget)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d43a50 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c5f830",
+  "notes": "Introsort over an array of record pointers (insertion sort below 33 elements, inline median-of-3 / ninther, three-way partition, heapsort when depth_budget is 0). Key is the 16-bit value (uint16)((k << 14) | (k >> 16)) of the int32 at record+0x28, ascending. Caller Career_Bank_WriteSaveData collects pointers to the 0x30-stride bank entries (statId at +0x28) into a temp vector and sorts them before writing the first of its two arrays, which makes the save output order stable. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.bank_sort_record_ptrs_by_key28_a",

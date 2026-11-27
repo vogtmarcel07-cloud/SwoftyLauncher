@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14122d670",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void Career_Post_RnDFilteredListMessage(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14122dcb0 (RacingPC lab re_groups/_decomp);xref:0x141f4c360",
-  "notes": "Filters the 8-byte entry vector at +0x2d8..+0x2e0 keeping entries whose low u32 is >= the value returned by (+0x270)->vt+0xf8, copies the result and posts a bus message (vtable 0x1456d1800) carrying that u32 value, allocator +0x210 and the filtered vector via Ne_Post_BusMessage on g_Game_MessageBus. Better context needed: what vt+0xf8 returns (current day/season index) and the message type name."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14122dcb0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14122dc60,0x141a65830,0x141f4c360",
+  "notes": "Read in full. Copies the u64 vector at +0x2d8..+0x2e0, keeping entries whose low u32 is >= the value from [self+0x270] vf+0xf8, using allocator +0x210; then posts a bus message (vtable 0x1456d1800: u32 current value at +0x10, allocator, vector copy, count, owns flag) with Ne_Post_BusMessage(g_Game_MessageBus+8) and frees the temporaries. Context from caller: Career_Set_RnDFocusedDepartment 0x141f4c360 calls it on [self+0x660] after repopulating the R&D pie; caller 0x141a65830 calls it on [vm+0x288] before releasing its view-model bindings; 0x14122dc60 is an entry that first sets flag +8 = ([+4] <= value+1) on the 0x38-byte records at +0x2b8..+0x2c0 and then runs this body. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.post_rn_d_filtered_list_message",

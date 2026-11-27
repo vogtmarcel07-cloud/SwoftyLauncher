@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1434ff240",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ResourcePoints_SetUnlockFlag_ActiveTeams(void **self, uint8_t flag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1435017d0 (RacingPC lab re_groups/_decomp);xref:0x14122a660",
-  "notes": "Iterates every entry of the hash map at self+0x38..+0x50, writes flag to entry+8, and for entries whose packed team key matches an 0x88-byte entrant record (owner+0x2e0, id +0x52, type +0x50) that has +0x81 == 0 or +0x80 < 2 posts bus message 0x1458504c0 with the unpacked key. Entry+8 is the same lock byte tested by 0x14350b9e0."
+  "proto": "void Career_ResourcePoints_SetUnlockFlag_AllDrivers(void **wallets, uint8_t flag)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1435017d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14122a660",
+  "notes": "Renamed from Career_ResourcePoints_SetUnlockFlag_ActiveTeams: the entries are keyed by a packed driver key and matched against driver records, not teams. Whole body read. Walks every used slot of the hash set (slots [+0x40], control words [+0x48], count [+0x50]); for each entry writes flag to byte +8, unpacks the u16 key (id low 14 bits, type top 2 bits) and, unless the id is 0x3fff, finds the driver record in list [*wallets+0x2e0..+0x2e8] (0x88 stride, short +0x52, byte +0x50); when the record has byte +0x81 == 0 or byte +0x80 < 2 it posts a bus message (vtable 0x1458504c0, packed key) with Ne_Post_BusMessage. Caller Career_ResourcePoints_OnUnlockFlagMessage calls it on rp+0x4b8 in per-driver mode (rp+0x4b0 == 0) with flag = (msg byte +0x10 == 5). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.resource_points_set_unlock_flag_active_teams",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140fc6a10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_TeamRenownAndForm_SerialiseField28(void *self, void *writer)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140fc7590 (RacingPC lab re_groups/_decomp);xref:0x140f95c70",
-  "notes": "Calls Gdb_Write_ReflectedFieldA(writer, name at 0x1456be690, type desc *0x14612be08, &field); on success binds the field object to the writer, calls field vfunc +0x40 with self+0x28 as the data pointer and appends the field to writer's array (+8, count u16 +0x10). Returns the error code (0 ok)."
+  "proto": "uint32_t Career_TeamRenownAndForm_SerialiseField28(void *entry, void *writer)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140fc7590 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f95c70",
+  "notes": "Whole body read. Calls Gdb_Write_ReflectedFieldA(writer, name 0x1456be690, type desc global 0x14612be08, &field); on result 0 binds the field (desc vcall +0x50 with writer[0]), writes entry+0x28 through field vcall +0x40 and pushes the field on the writer stack (u16 count at writer+0x10, array at writer+8); returns the error code. Caller Career_TeamRenownAndForm_Serialise calls it twice, once per list loop, for each refcounted list entry (+8 of the element) after opening a child writer with 0x143933e10 and key 0x14568f43a. Better context needed: the string at 0x1456be690 would give the field name. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.team_renown_and_form_serialise_field28",

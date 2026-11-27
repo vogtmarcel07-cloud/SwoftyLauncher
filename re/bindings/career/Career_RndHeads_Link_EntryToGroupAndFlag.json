@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14106d870",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_RndHeads_Link_EntryToGroupAndFlag(void *mgr, uint32_t *entry_id, uint8_t *group_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14106e530 (RacingPC lab re_groups/_decomp);xref:0x141072f10",
-  "notes": "Looks up group_id (packed type<<14|index) in the robin-hood map at mgr+0x2a8 (24-byte elems, value object with uint32 id vector at +0x18..+0x28) and appends entry_id if not already present (found flag 1 if present, else 0). Then queries the entity list via vfunc +0x1c8 of mgr+0x270 for entry_id; if its flags byte +0x4b has bit 0x10, stores the found flag in the per-entry object of the map at mgr+0x2e8 (creating a 0x10-byte object, vtable 0x1456bff30, via FUN_1410e7d30). Id index 0x3fff means invalid. Better context needed: exact meaning of the flag object."
+  "proto": "void Career_Link_EntrantToGroupAndFlag(void *self, uint32_t *entrant_id, uint8_t *group_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14106e530 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14106dbf0,0x1410702b0,0x141072f10",
+  "notes": "Renamed from Career_RndHeads_Link_EntryToGroupAndFlag: RndHeads came only from the caller name; the body looks the id up in the EntrantRecord list from (self+0x270)->vtbl+0x1c8 (id at +0x50/+0x52). Data flow: if both ids are valid (hi != 0x3fff), finds the group in the hash map at self+0x2b0 (key group lo << 14 | hi) and scans its id vector (value+0x18..+0x20); already present gives flag 1, otherwise logs errno 2, appends *entrant_id and flag stays 0. Then, if the entrant record has bit 0x10 in +0x4b, stores the flag per entrant in the map at self+0x2f8 (existing value+8, or a new 0x10 object with vtbl UNK_1456bff30 inserted by FUN_1410e7d30 at self+0x2e8). Context from caller: all three pass (record+0x50, record+0x58), i.e. the record's own id and its group/team id; Career_Load_RndHeads calls it during load, 0x14106dbf0 after moving a record between groups, 0x1410702b0 at the end of a set-group operation. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.rnd_heads_link_entry_to_group_and_flag",

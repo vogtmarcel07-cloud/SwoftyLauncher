@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1416a1040",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "void Vm_DriverCard_RefreshKeyListedBool(void *card)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1416a2630 (RacingPC lab re_groups/_decomp);xref:0x142308150",
-  "notes": "If key short +0xd94 is valid (not 0x3fff) and source ptr +0xdb8 is set, finds the 0x30-byte entry in source +0x4b8..+0x4c0 whose key (+0x8) matches +0xd92/+0xd94, then checks whether key +0xd78/+0xd7a is in that entry's u32 list +0x18..+0x20 and writes the result to bool node +0x1b8 via Vm_NodeSet_Bool. Better context needed: what the list represents (shortlist/approached drivers)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1416a2630 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14167de40,0x142308150,0x14230b560",
+  "notes": "Returns when u16 card+0xd94 is 0x3fff or card+0xdb8 is null. Scans the 0x30-byte records at [card+0xdb8]+0x4b8..+0x4c0 for the one whose packed id +8 matches (u16 card+0xd94, u8 card+0xd92), then searches that record's 4-byte id array +0x18..+0x20 for (u16 card+0xd7a, u8 card+0xd78) and writes found/not-found to the Vm bool node card+0x1b8 (Vm_NodeSet_Bool). Callers: 0x14167de40 is the big card refresh that calls it when +0xd94 is valid, just before Ui_TeamHq_Leverage_Refresh; MyTeamContract_ShowDriverComparison calls it on member +0x120 right after toggling the same id list (0x140dd2ab0); 0x14230b560 calls it on a stack card after Vm_Apply_SponsorRowData. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.driver_card_refresh_key_listed_bool",

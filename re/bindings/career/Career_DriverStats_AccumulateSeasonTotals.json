@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1413d2010",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_DriverStats_AccumulateSeasonTotals(void *out, void *career, uint32_t driverId)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1413d2650 (RacingPC lab re_groups/_decomp);xref:0x141c580a0,0x14209bd20",
-  "notes": "Zeroes a 0x1c-byte result (+0x10 = 0xffffffff). For each season 0..current: out+0 ++ if func 0x1413d2390(season+0x2a8, driver), out+4 ++ if Career_Unk_1413d1e60 is true, then for every round index (count from +0x2e8 list plus a per-format bonus table 0x1456e92a4) calls func 0x1413d20b0 to add into out and a running sum. out+0x10 = sum / rounds. Better context needed: meaning of the two per-season flags (likely titles)."
+  "proto": "void *Career_DriverStats_AccumulateSeasonTotals(void *out, void *game_mode, uint32_t driver_key)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1413d2650 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1415cc540,0x141c580a0,0x14209bd20",
+  "notes": "Zeroes a 0x1c-byte result (+0x10 = -1). For every season 0..count (game_mode+0x1030 vfuncs +0xf8 / +0xd8): out+0 += 1 when 0x1413d2390(season+0x2a8, driver) is true, out+4 += 1 when Career_Unk_1413d1e60 is true, then for each event index up to the season's event count (list +0x2e8..+0x2f0 plus table 0x1456e92a4 by vfunc +0x18 of +0x2b0) calls 0x1413d20b0(table, index, driver, out, &sum). out+0x10 = sum / events visited. Context from caller: Game_DriverProfileTabVM_OnTabActivated and Career_RenownFormVM_Init copy the result into the per-driver stats block shown on the profile; caller 0x1415cc540 builds the same block for a VM. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.driver_stats_accumulate_season_totals",

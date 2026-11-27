@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1414019c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Apply_DriverCustomisationToEntrantTeam(void *self, char *entrant_key, uint8_t *custom_key, uint8_t flag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141402000 (RacingPC lab re_groups/_decomp);xref:0x141401750,0x141402410",
-  "notes": "Runs only when entrant_key[0]==1 and custom_key[0]==1 and Wear_Get_DriverCustomisation_Thunk(*(self+0x28), custom_key) returns a record. Resolves a team slot id via 0x14246f660; if the id is 0x3fff it builds a fresh team customisation and calls Ent_EntrantsSystem_AddTeamCustomisation, otherwise it finds the existing team record (id at +0x100/+0x102), copies its 128-char name block (+0x78..+0xf0) and calls Ent_EntrantsSystem_ReplaceTeam_2. In both paths the two colour/decal blocks come from the customisation record at +0x48..+0x64 and +0x78..+0x94."
+  "proto": "void Career_Apply_DriverCustomisationToEntrantTeam(void *self, char *team_key, uint8_t *cust_id, uint8_t level)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141402000 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141401750,0x141402410",
+  "notes": "Runs only when team_key[0]==1 and cust_id[0]==1 and Wear_Get_DriverCustomisation_Thunk([self+0x28], cust_id) returns a record. 0x14246f660 maps team_key to a packed team id; if its index is 0x3fff a new team customisation record is built (vtables 0x145615380/0x1456153c0/0x145615400/0x145615440, key = team_key, flag 1) and added with Ent_EntrantsSystem_AddTeamCustomisation; otherwise the existing record in the domain list [entrants+0x2f8+domain*0x10] is found by id, its fields +0x78..+0xf0 and +0xfa are copied, and it is written back with Ent_EntrantsSystem_ReplaceTeam_2. In both paths the two blocks cust+0x48..+0x64 and cust+0x78..+0x94 replace the record's own and level is stored in the record. Context from caller: Career_MyTeam_SyncDriverCustomisationsFromLivery and Career_OwnerSetup_ApplySuit pass the owner-setup map key and a level byte (0xff when unknown). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.apply_driver_customisation_to_entrant_team",

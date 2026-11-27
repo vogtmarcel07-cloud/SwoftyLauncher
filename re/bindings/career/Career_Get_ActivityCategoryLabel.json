@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14231fcf0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Get_ActivityCategoryLabel(void *self, void *out_str, uint8_t kind)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423218f0 (RacingPC lab re_groups/_decomp);xref:0x142317600",
-  "notes": "Initialises out_str empty. Kind 0 copies the ref-counted string at self+0x928; kinds 1..3 call the localiser at self+0x290 (vtable +0x18) with keys 0x145780e42, 0x145780e17, 0x145780e2e. Other kinds return the empty string."
+  "proto": "void **Career_Get_ActivityCategoryLabel(void *self, void **out_str, uint8_t category)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423218f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142317600,0x14231f500",
+  "notes": "Initialises out_str to \"\". Category 0: returns a refcounted copy of the string at self+0x928. Categories 1..3: asks the object at self+0x290 (vcall +0x18) to resolve one of three fixed keys (0x145780e42, 0x145780e17, 0x145780e2e) into out_str. Other values keep \"\". Callers: Career_Build_ActivityCalendarFacilityColumn passes the byte from Career_Find_LastWeekEntryForId and writes the label to the block node +0x170; 0x14231f500 builds one calendar entry and uses the same label. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.get_activity_category_label",

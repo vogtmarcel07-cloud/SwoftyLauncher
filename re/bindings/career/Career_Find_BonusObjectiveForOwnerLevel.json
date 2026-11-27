@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140cc86d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void *Career_Find_BonusObjectiveForOwnerLevel(void *self, void *out_desc, void *owner, uint32_t level_index)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140cc9190 (RacingPC lab re_groups/_decomp);xref:0x1422e9250",
-  "notes": "If owner+0x94 is set and level_index is inside owner+0xc0..+0xc8, loads bonus objectives (Game_BonusObjectives_LoadFromGdbA, gdb at (self+0x388)+0x2e0), and for each condition group looks up its name in the map at (self+0x380)+0x320, then requires a strcmp match of owner+0x20 and of the level entry +0x18 against the group lists. On match copies name/description/value fields into out_desc and sets out_desc[0x18] = 1, else 0."
+  "proto": "void *Career_Find_BonusObjectiveForOwnerLevel(void *self, void *out_opt_objective, void *owner, uint32_t level_idx)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140cc9190 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422e9250",
+  "notes": "Needs owner+0x94 flag set and level_idx inside the pointer vector owner+0xc0..+0xc8; loads all bonus objectives (Game_BonusObjectives_LoadFromGdbA with [self+0x388]+0x2e0), resolves each one's condition group by name in the hash at [self+0x380]+800, and accepts the first objective whose group entry lists both the string owner+0x20 (0x28-byte items at child+0x40) and the string [level entry]+0x18 (items at child+0x60). Copies that 0xC0-byte objective record to out and sets out+0xc0 = 1 (has-value), else 0. Context from caller: Career_Bind_TeamHqPopupIcons passes the object at [view+0x10] and binds the popup only when out+0xc0 is nonzero; 'owner' and 'level' are inferred labels for the two key strings. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.find_bonus_objective_for_owner_level",

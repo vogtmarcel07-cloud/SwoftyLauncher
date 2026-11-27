@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14111b490",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void Career_Reset_AndSubscribeContractMessages_14111bad0(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14111bad0 (RacingPC lab re_groups/_decomp);xref:0x143702070",
-  "notes": "Clears byte +0x294, calls Career_Unk_14111b550, then once only (guard byte +0x2a8) subscribes three bus handlers on g_Game_MessageBus: FUN_1411b8f80 with 0x14111b540, DriverContractChanged with FUN_14111b560, CareerSelectConfirmed with 0x14111b710. Better context needed: the owning class of self is not shown."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14111bad0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143702070",
+  "notes": "Read in full. Clears byte +0x294, calls Career_Unk_14111b550(self); if flag +0x2a8 is 0 it registers three handlers on g_Game_MessageBus+8 with self as owner: 0x14111b540 via 0x1411b8f80, 0x14111b560 via Game_MessageBus_SubscribeDriverContractChanged and 0x14111b710 via Game_MessageBus_SubscribeCareerSelectConfirmed, then sets +0x2a8 = 1. Context from caller: Career_StateTeamHq_OnStateEnter 0x143702070 fetches the object with k_Career_TeamHQControllerComponentDesc, stores it at state+0xd78 and calls this once, so self is the TeamHQ controller component. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.reset_and_subscribe_contract_messages_14111bad0",

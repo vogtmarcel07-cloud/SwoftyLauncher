@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140d43820",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Bank_SortRecordPtrsByKey28_B(void **first, void **last, uint64_t depth_budget)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d443a0 (RacingPC lab re_groups/_decomp);xref:0x140c5f830",
-  "notes": "Byte-identical twin of 0x140d43a50 (second template instantiation): introsort over record pointers, ascending by the u16 key derived from the int at record+0x28."
+  "proto": "void Career_Bank_SortRecordPtrsByKey28_B(void **first, void **last, int64_t depth_budget)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140d443a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140c5f830",
+  "notes": "Byte-for-byte duplicate instantiation of 0x140d43a50: introsort of record pointers by the 16-bit key (uint16)((k << 14) | (k >> 16)) of the int32 at record+0x28, ascending. Caller Career_Bank_WriteSaveData uses it for the second pointer vector it builds (line after the first array is written), before serialising that array. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.bank_sort_record_ptrs_by_key28_b",

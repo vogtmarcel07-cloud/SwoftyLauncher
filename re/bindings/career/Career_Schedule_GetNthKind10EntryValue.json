@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141269000",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Schedule_GetNthKind10EntryValue(void *sched, uint32_t n, uint32_t dayIndex)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269640 (RacingPC lab re_groups/_decomp);xref:0x140d800b0,0x140d83290,0x140dae9f0,0x140e38b70,0x1411014c0,0x14126a7e0",
-  "notes": "For the given day record (dayIndex 0xffffffff = current, from owner +0x278 vfunc +0xf8) walks the collected entries, and for the n-th entry with definition kind byte 10 returns entry vfunc +0x10. If none, returns the current day number (calendar +0x2d8 -> +0x2b0 minutes /1440). Better context needed: unit of the vfunc +0x10 result (likely a day or time stamp)."
+  "proto": "uint32_t Career_Schedule_GetNthKind10EntryValue(void *sched, uint32_t n, uint32_t record_index)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269640 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140d800b0,0x140d811b0,0x140d83290",
+  "notes": "record_index -1 means current (vfunc +0xf8 of [sched+0x278]+0x1030). Gets the record with Career_Get_ActivityRecordByIndex, collects its entries (Career_Schedule_CollectDayRecordEntries, allocator sched+0x210), keeps those whose definition (entry+0x10) passes the type check 0x146064ec8 and has type byte +0x10 == 10 decimal (0x0A), and returns vfunc +0x10 of the n-th one. Fallback when not found: [sched+0x2d8]+0x2b0 / 1440 (current day index). Context from caller: Game_DriverContracts_OfferSecretMeeting, StartSecretTalks and caller 0x140d811b0 (replaces a driver's current secret meeting) pass n = percent of Career_Schedule_CountTodayEntries_Kind10 and use result+1 as the meeting day. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.schedule_get_nth_kind10_entry_value",

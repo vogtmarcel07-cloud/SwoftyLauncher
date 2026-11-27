@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1428cde10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "bool Game_FrontendSceneDriver_IsSpawnedAndIdle(void *sceneDriver)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428d01d0 (RacingPC lab re_groups/_decomp);xref:0x1417e8520,0x1418689b0,0x141997450,0x1428cb420",
-  "notes": "Twin of 0x1428c84f0 for the driver actor: flag +0x44c, u16 id +0x44a, owner (+0x98) hash map at +0x958..+0x98c, entry object busy bytes +0xf0 and +0xf1. Returns 1 when the id is absent or both bytes are 0."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428d01d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1417e8520,0x1418689b0,0x141997450",
+  "notes": "Driver twin of 0x1428c84f0: returns false when byte drv+0x44c is 0; otherwise looks up the u16 key drv+0x44a in the owner (drv+0x98) hash map at +0x958..+0x98c (0x18-byte slots); not found returns true, found returns (entry+0x10 object bytes +0xf0 and +0xf1 both 0). Callers find the driver by id (+0xb8) in the manager array +0x6fb8 (stride 0x450): FrontendScenePreview_UpdateTick clears its two pending driver ids when true, DriverCareer_SpawnDriverPair and MyTeamHq_SpawnFoyerDrivers branch on it after issuing a spawn. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.frontend_scene_driver_is_spawned_and_idle",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ccbe10",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Read_DepartmentEventTriggerLink(void *cfg, void *event_name_str, void *row)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ccc8d0 (RacingPC lab re_groups/_decomp);xref:0x140ca0fd0",
-  "notes": "Reads the XOR-obfuscated string field trigger_event from the row, looks the name up in the event map at cfg+0x110 (slots +0x138), takes its def (+0x60) and requires a department entry (vector cfg+0xf8, stride 0xe8, id +0x68) matching def+0x5c. Then looks up the event named by event_name_str (+0x10), computes a value with 0x140ccc690(row, dept) and inserts it into that event's map at def+0x60 keyed by the trigger def (+0x58), and sets byte +0x93=1 on the department entry matching the target def+0x5c."
+  "proto": "void Career_Read_DepartmentEventTriggerLink(void *mgr, void *event_name_buf, void *row)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ccc8d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140ca0fd0",
+  "notes": "Reads the XOR-decoded 'trigger_event' string of the row; if not empty it looks the name up in the name map at mgr+0x110 (pointer array +0x138..+0x140) to get trigger event A (entry+0x60) and requires an event record (0xe8 stride in mgr+0xf8..+0x100) with +0x68 == A+0x5c. It then looks up the name in event_name_buf+0x10 the same way to get event B, computes a value with 0x140ccc690(row, record of A), inserts (A+0x58 -> value) into the map at B+0x60 through 0x140d66630, and sets byte +0x93 = 1 on the event record whose +0x68 == B+0x5c. Context from caller: Career_Read_CareerDepartmentEventsConfig calls it per event row while reading career.department_events, once directly and once for rows whose name matches. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.read_department_event_trigger_link",

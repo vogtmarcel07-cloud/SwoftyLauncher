@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1412692d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Schedule_AddTodayEntry_Kind1B_ForId(void *sched, uint32_t ownerId, uint32_t time)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269910 (RacingPC lab re_groups/_decomp);xref:0x140dae9f0",
-  "notes": "In today's day record (vector +0x410 stride 0x80, index +0x428) finds the owner slot (list +0x60..+0x68 stride 0xd8, id at +0xc0), looks up the activity definition with kind byte +0x10 == 0x1b in map +0x378, checks its game-mode mask +0x60 against Career_Is_MyTeamGameMode, creates an entry via slot vfunc+8 and inserts it time-ordered (ushort +0xa) into the slot entry vector +0x48, then re-sorts. Kind 0x1b meaning not shown; called when the My Team contract window opens."
+  "proto": "void Career_Schedule_InsertEntryAtDay_Kind0x1B_ForId(void *sched, uint32_t id, uint32_t day)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141269910 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140dae9f0",
+  "notes": "Renamed from Career_Schedule_AddTodayEntry_Kind1B_ForId: the entry is made for the day passed in param_3 (not today) and inserted sorted by day; only the 0x80-byte record is the current one. Picks the current record (array sched+0x410, index +0x428), finds the 0xd8-byte object with key +0xc0 == id in its list +0x60..+0x68, looks up the definition with type byte +0x10 == 0x1b in the map at sched+0x378, checks the definition mode mask +0x60 against Career_Is_MyTeamGameMode, builds an entry with object vfunc +8 (def, day) and inserts it before the first entry whose day (+0x0a) >= day in vector +0x50..+0x58, then sorts. Context from caller: Game_DriverContractsMyTeamComponent_OpenContractWindow passes calendar comp+0x298, the driver key and the first non-blocked meeting day it also stores at comp+0x468. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.schedule_add_today_entry_kind1_b_for_id",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1423d1490",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
   "proto": "void *Career_Init_OwnerPerkIconItemVm(void *self, void *vm_node)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423d3090 (RacingPC lab re_groups/_decomp);xref:0x1423cc530,0x1423ce510",
-  "notes": "VM item constructor: runs base ctor FUN_141932920, sets vtable 0x145787fc8 and creates held nodes \"num_more\" (string, +0x88), \"icon_tex\" (string, +0xa8), an unsigned node (name 0x145790cc1, initial 0xff, +0xc8) and \"relative\" (bool true, +0xe8)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423d3090 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1423cc530,0x1423ce510,0x1423d26e0",
+  "notes": "Constructor: runs the base ctor 0x141932920, sets vtable 0x145787fc8, then registers four view-model fields on vm_node and stores their binding handles in self: string 'num_more' at +0x88..+0xa0, string 'icon_tex' at +0xa8..+0xc0, a uint field (name at 0x145790cc1, default 0xff) at +0xc8..+0xe0 and bool 'relative' (default 1) at +0xe8..+0x100; returns self. Context from caller: all three callers allocate 0x108 bytes for it right after naming the list child 'popup_owner_perk_node' (Career_MyTeamManagement_Events, Career_OwnerPerksPopup_BuildPerkNodes, and 0x1423d26e0 which builds one owner perk node or the 'popup_owner_perk_extra' item), then set icon_tex through self+0xb0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.init_owner_perk_icon_item_vm",

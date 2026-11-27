@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141401480",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_Fill_CustomisationDecalSlots_A(void *self, void *source, void *slot_array)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141401ac0 (RacingPC lab re_groups/_decomp);xref:0x141401750,0x142468610",
-  "notes": "Resets the +0x12 word of every 0x28-byte slot in slot_array (count at +200) to 0xffff, asks 0x1413fac80(source, out, *(self+0x48), max=5) for up to 5 refcounted items, then writes each item's id (+0x10) into the slot whose index field +0x20 matches, or appends a new slot (vtable 0x145611370, prefix ptr k_Game_DecalNodePrefixPtr, +0x18=-1) while count<5. Twin of 0x141401c60 which uses slot vtable 0x1456112f0. Better context needed: which customisation part (helmet/suit/gloves) each twin covers."
+  "proto": "void Career_Fill_CustomisationDecalSlots_A(void *self, void *vehicle_decals, void *slot_array)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141401ac0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141401750,0x1416e7570,0x142468610",
+  "notes": "slot_array is a fixed array of up to 5 slots (0x28 bytes each, count at +0xc8). First writes 0xffff to the high word of every slot id (+0x12), then asks 0x1413fac80(vehicle_decals, &list, [self+0x48], &5) for up to 5 shared items; for item index i it copies the u32 at item+0x10 into the slot whose +0x20 equals i (resetting +0x18 to -1) or appends a new slot (vtable 0x145611370, +8 = k_Game_DecalNodePrefixPtr, +0x18 = -1, +0x20 = i) while count < 5; releases the list. Twin of 0x141401c60, which differs only in the slot vtable. Context from caller: Career_MyTeam_SyncDriverCustomisationsFromLivery and Wear_Load_DriverCustomisations pass vehicle customisation +0xe0 and a slot block inside a driver customisation record; caller 0x1416e7570 does the same for a locally built record. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.fill_customisation_decal_slots_a",

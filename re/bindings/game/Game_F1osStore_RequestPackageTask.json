@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1433747b0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_F1osStore_RequestPackageTask(void *self, void *outTaskRef, uint32_t packageId)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143376d30 (RacingPC lab re_groups/_decomp);xref:0x142e6a0d0",
-  "notes": "Picks a platform/region store string from a switch on a platform id (0x143ad31b0) and a 2-char region code (0x4143, 0x5345), copies it into a request with packageId, calls Game_F1osTasksystem_CreateTask_RequestPackagePTask with tasksystem +0x48, appends the ref-counted task to vector +0x28..+0x40 and returns it in outTaskRef."
+  "proto": "void *Game_F1osStore_RequestPackageTask(void *store, void *out_task_ptr, uint32_t package_id)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143376d30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142e6a0d0",
+  "notes": "Builds a request struct (vtable 0x145833b88) with two inline strings; the first is copied from a global string table chosen by the platform id (0x143ad31b0, switch 2..0x11) and for cases 2/0xd and 5/0xe by a 2-char code compare (0x4143 or 0x5345 from 0x143ad2d00); writes package_id into the struct, then calls Game_F1osTasksystem_CreateTask_RequestPackagePTask([store+0x48], &task, &req, store). A non-null task shared pointer is appended to the vector store+0x28..+0x40 and also returned through out_task_ptr. Caller GameTransactionSystem_RequestPurchasePremiumItem calls it with [[sys+0x38]+0x7948] and the package id to start the store purchase, then drops its reference. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1os_store_request_package_task",

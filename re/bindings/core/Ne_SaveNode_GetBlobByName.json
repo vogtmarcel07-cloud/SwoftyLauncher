@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1439323e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "uint64_t Ne_SaveNode_GetBlobByName(void *node, const char *name, int64_t *out_ptr_size)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143934970 (RacingPC lab re_groups/_decomp);xref:0x14128dd20,0x144509df0",
-  "notes": "Looks up a child object by name (Ne_StringPool_FindObjectByCStr), checks its type descriptor equals 0x14612baf8 (blob type) and returns data pointer and byte size (end minus begin) in out[0]/out[1]; returns 0 on success, error 0x57 if missing or 0x58 on type mismatch (also recorded in the TLS errno trace ring)."
+  "proto": "uint64_t Ne_SaveNode_GetBlobByName(void *node, const char *name, int64_t *out_ptr_len)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143934970 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f66330,0x14128dd20,0x144509df0",
+  "notes": "Finds the named child with Ne_StringPool_FindObjectByCStr(node, name), checks its type against the blob type descriptor DAT_14612baf8, and writes out[0] = data begin (value+8) and out[1] = byte length (value+0x10 minus value+8); returns 0. Returns 0x57 when the name is missing and 0x58 on a type mismatch, both logged to the errno trace ring. Callers: 0x140f66330 reads the packed_driver_stat_ids / start_career_session_index blobs, Career_Load_DeptEventState reads event_type_buffer and the other *_buffer blobs, Career_SaveBlobCurve_Deserialise reads a curve blob; they treat 0x57 as an optional field. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.save_node_get_blob_by_name",

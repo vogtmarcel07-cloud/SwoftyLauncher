@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ab4950",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "bool Career_Query_PlayerTeamOwnerListContainsField(void *self, void *outcome)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ab49a0 (RacingPC lab re_groups/_decomp);xref:0x140a952e0",
-  "notes": "Resolves the career object at ((self+8)+0x88)+0x260, rejects one runtime type, fetches the component described by k_Career_OwnerSetupComponentDesc, gets the local player identity from g_Game_Manager (+0x140 -> +0x198 -> +0x1c0 vfunc 0x38), finds the matching EntrantRecord in +0x2e0..+0x2e8, asks 0x14101c4f0 for a u32 list for that entrant's team_stat_id and returns 1 if Career_Get_BackgroundOutcomeField(outcome) is in it; otherwise records errno-trace code 2 and returns 0. Better context needed: what list 0x14101c4f0 returns (owner perk/unlock ids)."
+  "proto": "bool Career_Query_PlayerTeamOwnerListContainsField(void *ctx, void *name)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ab49a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140a952b0,0x140a952e0,0x140a95310",
+  "notes": "Takes the game mode at [[ctx+8]+0x88]+0x260, checks its type chain against 0x146050c60, and fetches the component for k_Career_OwnerSetupComponentDesc from the host at mode+0x1030. It reads the local player identity (g_Game_Manager +0x140 -> +0x198 -> +0x1c0, vslot +0x38), finds the matching EntrantRecord in mode+0x2e0..+0x2e8 with Sess_Match_EntrantIdentity_Thunk, gets a u32 list for that record's team_stat_id from 0x14101c4f0, and returns 1 if the list contains Career_Get_BackgroundOutcomeField(name), else 0 (also 0 on any missing object). Context from caller: three small wrappers pass a fixed name (0x14566b2d0, 'ProfessionalEngineer' at 0x14566b2a7, 0x14566b2e6) and turn the result into 1.0f or 0.0f; Career_Query_UpgradeEnabled_ProfessionalEngineer is one of them. Good hook to force such a query true. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.query_player_team_owner_list_contains_field",

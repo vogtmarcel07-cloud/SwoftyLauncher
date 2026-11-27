@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14182d3f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "void Vm_Set_TrackNodeRefByName_14182ebd0(void *ctx, void *parent_node, const char *name)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14182ebd0 (RacingPC lab re_groups/_decomp);xref:0x141bc8880",
-  "notes": "When ctx[0] is nonzero: takes the track data service at (ctx+8 obj)+0xf58 and the track ref at (ctx+0x10)+0x30, calls Game_TrackData_GetTrack with the id block from obj vfunc +200, and sets the node-ref child called name under parent_node (+8) to the track's node (+0x10) via Vm_Set_NodeRef."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14182ebd0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141bc8880",
+  "notes": "Whole body read. Only if ctx[0] flag is set: takes the owner at ctx+8, its track data at owner+0xf58 and the track ref at [ctx+0x10]+0x30, gets a key by owner vcall +200, calls Game_TrackData_GetTrack and binds that track node handle (+0x10) under parent_node as a child ref called name via Vm_Set_NodeRef(..., 1); temp intrusive refs are released. Caller Career_Update_ResourcePointsAvailable (session_track_info panel) calls it with name track_contextual_data right after two sibling binders 0x14182e610 and 0x14182ea30. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.set_track_node_ref_by_name_14182ebd0",

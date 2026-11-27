@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142386cb0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint64_t Career_Set_PopupAmountText_Slot128(void *ctx, int32_t amount)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423888b0 (RacingPC lab re_groups/_decomp);xref:0x1422e9250",
-  "notes": "ctx[0] is the popup view, ctx[1] a number formatter. Sets the bool node at view+0x128 to true, formats amount with Ui_Format_ResourcePointsAmountText (flags 1,1, style 0, options {2, 0x903, 1}) and writes the string node at view+0x148. Releases the temp string."
+  "proto": "uint64_t Career_Set_PopupAmountText_Slot128(void **ctx, int32_t amount)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1423888b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422e9250",
+  "notes": "ctx[0] = popup view, ctx[1] = formatter object. Sets the bool node at view+0x128 to true, formats amount with Ui_Format_ResourcePointsAmountText (flags 1,1, mode 0, options {2,0x903,1}) and writes the string to the node at view+0x148, then releases the temp string. Context from caller: Career_Bind_TeamHqPopupIcons uses it in popup kind 0 and pairs it with icon key #overrides.team_hq.popup_icons[cash_reward]; amount is a rounded float reward. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.set_popup_amount_text_slot128",

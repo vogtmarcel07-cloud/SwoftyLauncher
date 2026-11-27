@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14199c8a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "void *Vm_TeamHqAdvanceCardList_Ctor(void *self, void *parent_node, void *alloc, void *career)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14199e080 (RacingPC lab re_groups/_decomp);xref:0x1422be310,0x14232c650",
-  "notes": "Inits the node base from parent_node (+8) with descriptor 0x145736618, stores alloc at +0x20/+0x58/+0x78 and career at +0x28, zeroes three vectors, sets +0x30 = 0x3fff0000 (no driver). Then queries career+0x1030 vfunc +0x1c8 for the entrant list, matches the local player identity (Sess_Match_EntrantIdentity_Thunk) and stores that entrant's id (+0x50) at +0x30."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14199e080 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1422be310,0x14232c650",
+  "notes": "Whole body read. Base-inits self via 0x1442a3de0 with the parent node handle (parent+8) and name 0x145736618, stores alloc at +0x20/+0x58/+0x78 (three empty vectors) and career at +0x28, sets +0x30 = 0x3fff0000 (invalid id), then gets the entrant list by vcall +0x1c8 on career+0x1030, matches the local player identity (mask 0x10000000, Sess_Match_EntrantIdentity_Thunk) and copies that record +0x50 id into +0x30; returns self. Callers Career_TeamHqAdvanceVM_Initialise (slot at vm+0x828 count) and Vm_TeamHqMyTeam_RefreshStatIndexRow (vm+0x4a8 count) release the old 0x98-byte item, construct it in place, then call Career_TeamHqRender_ResolveServices and rebuild the cards. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.team_hq_advance_card_list_ctor",

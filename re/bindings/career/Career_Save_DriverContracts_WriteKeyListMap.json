@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140da61c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "uint32_t Career_Save_DriverContracts_WriteKeyListMap(void *self, void *writer)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da6d40 (RacingPC lab re_groups/_decomp);xref:0x140da4d50",
-  "notes": "Writes a list field (type 0x14612bce0) sized from self+0x860, then iterates the hash map at self+0x850/+0x858 (0x28-byte entries): per entry a child object with the u16 key and a nested list of the u16 values in the entry vector at +0x10..+0x18. Sets errno 0xc in the trace ring on allocation failure."
+  "proto": "uint32_t Career_Save_DriverContracts_WriteKeyListMap(void *comp, void *save_node)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140da6d40 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140da4d50",
+  "notes": "Whole body read. Creates array field 0x14568fe7b (type 0x14612bce0, vtable 0x145615020) and reserves comp+0x860 children, then walks every used slot of the hash map at comp+0x850 (0x28-byte slots, control words +0x858). Per entry it opens a child object (Gdb_Get_ReflectedTypeInfo), writes key field 0x145626783 from the entry start and an array field 0x1456610c4 holding the u16 items of the entry list (+0x10..+0x18), one child per item (Ne_SaveObject_ReserveChildSlot_14393a770). Returns the first error code. Context from caller: it is the last step of Career_Save_DriverContractsComponent, written under element 0x145694795 (the KB note lists reserve_drivers last). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.save_driver_contracts_write_key_list_map",

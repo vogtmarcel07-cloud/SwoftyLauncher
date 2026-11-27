@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1419a3e40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_TeamHq_FormatLocalisedNumString(void *self, void *outStr, uint32_t num)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419a5620 (RacingPC lab re_groups/_decomp);xref:0x1419a57e0",
-  "notes": "Fetches a fixed localisation key (0x14570bd8b) from the active language table (self +0xa0, index +0x160, vfunc +0x18), then formats it with one parameter named \"NUM\" (type 7, value num) via Ne_InternedString_Manage into outStr."
+  "proto": "void *Game_TeamHq_FormatLocalisedNumString(void *self, void *out_str, uint32_t value)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419a5620 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1419a57e0",
+  "notes": "Sets *out_str to an empty NeStr, fetches the localised text for key 0x14570bd8b from the active language table ([self+0xa0]+0x28+idx*0x10, idx u32 at +0x160, vtable +0x18) into a temp string, then formats it into *out_str with one argument named 'NUM' (0x4d554e) of type 7 carrying value (Ne_InternedString_Manage(args, fmt, out, 0)); releases the temp and returns out_str. Caller Game_Read_OverridesTeamHqConfig (sponsor contract risk status) passes its percent value and sets the result into the string node self+0x48. Context from caller: the number is the sponsor contract risk percent. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.team_hq_format_localised_num_string",

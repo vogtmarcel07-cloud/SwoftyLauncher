@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141af0430",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_ContractHub_CreateSlotCardView(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141af1c10 (RacingPC lab re_groups/_decomp);xref:0x141ae8490,0x141af4540",
-  "notes": "Fetches a shared data object for the current slot (func 0x1425b85c0 with vm+0x2d0 and byte *(vm+0x320)), allocates a 0x3b8-byte view object (constructed by the function labelled Ui_F1World_SetCardCanBeUpgraded) on child node hash 0xd7e36887 of view vm+0x330, stores it at view+0xda8 (allocator +0xda0, old one destroyed), calls its vfunc +8 with (data, vm+0x2d0, vm+0x2a0) and writes its node as UIDB reference into view property nodes +0xb88 and +0xbc8. Better context needed: the card view class name."
+  "proto": "void Career_ContractHub_CreateSlotCardView(void *screen)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141af1c10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141ae8490,0x141af4540",
+  "notes": "Resolves a shared object via func_0x1425b85c0(screen+0x2d0, key byte at *(screen+800)), gets-or-creates VM child node hash 0xd7e36887 under the sub-VM at screen+0x330 (only valid when +0x11c0 != 0), allocates a 0x3b8-byte view from the allocator at +0x298 and stores it at subVM+0xda8 (owner allocator at +0xda0, old view destroyed and freed). Then calls view vtbl+8 (init) with the resolved object, +0x2d0 and +0x2a0, and writes the view's node (+0x10) as a UIDB ref into the properties at subVM+0xb88 and +0xbc8. Context from caller: Career_ContractHubVM_RefreshSlots calls it at the end of the slot refresh and 0x141af4540 calls it when two resolved VM nodes are the same; the SlotCard noun is not proven by the body. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.contract_hub_create_slot_card_view",

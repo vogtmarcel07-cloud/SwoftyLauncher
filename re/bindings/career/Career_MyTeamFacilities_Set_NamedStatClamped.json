@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140f893b0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_MyTeamFacilities_Set_NamedStatClamped(void *self, float value)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140f89f30 (RacingPC lab re_groups/_decomp);xref:0x140f81210,0x140f83100",
-  "notes": "Finds the team entry matching packed id self+0x18 in the list at *(self+0x20)+0x2c8 (stride 0x30), locks its weak pointer (+0x20/+0x28), searches the stat list +0x28..+0x30 for the stat whose name equals the string at self+0x88, clamps value (passed in xmm1) to the stat definition min (+0x0c if flag +0x14) and max (+0x10 if flag +0x15), writes it to stat+0x78, invokes the change callbacks at +0x90..+0x98 (stride 0x40), sets dirty byte +0xb4 on the owner and calls func 0x1409ed250. Hook point for the facility capacity value; callback condition in the decompile looks inverted, verify in asm."
+  "proto": "void Career_MyTeamFacilities_Set_NamedStatClamped(void *facility, float value)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140f89f30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140f81210,0x140f83100,0x1423e8780",
+  "notes": "Finds the team entry (0x30 stride in [facility+0x20]+0x2c8..+0x2d0) whose id matches facility+0x18, locks its weak resource set (+0x20/+0x28), and searches the set list +0x28..+0x30 by strcmp for the stat named by facility+0x88. The float passed in xmm1 is clamped to the stat definition min (+0xc, used if flag +0x14) and max (+0x10, used if flag +0x15) and written to stat+0x78; the old value is compared with the new one and the std::function list at stat+0x90..+0x98 (0x40 stride) is run, then set+0xb4 is set to 1 and 0x1409ed250(set) is called. Context from caller: Career_MyTeamFacilitiesComponent_Slot0e0 passes facility+0x148 plus Career_Sum_FacilityNodesCompleted_A4; Career_FacilitiesAuto_AdjustCapacity and caller 0x1423e8780 (workforce screen handler that changes the workforce target at +0x50) pass the new capacity value. Good hook to watch or force a facility stat. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.my_team_facilities_set_named_stat_clamped",

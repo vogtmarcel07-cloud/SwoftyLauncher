@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140967bd0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_F1os_Parse_UInt32ArrayResult(void *result, void *reader)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140967c20 (RacingPC lab re_groups/_decomp);xref:0x140b657e0,0x140cf27e0,0x1425fa310,0x1426521d0,0x142667de0,0x1426968e0,0x1427d36d0,0x142817f10",
-  "notes": "Allocates a new shared vector of 4-byte values (allocator 0x1460c6c88, control block vtable 0x1456624c0) into result+8/+0x10. Looks at the reader's current value on its stack (reader+0x10): if it is an array (type tag 4) resizes the vector to the element count, then for each element pushes the child value (Ne_RingDeque_PushBack_F1os), calls reader vfunc +0x40 to read it into the 4-byte slot and pops. Generic helper reused by many F1os result handlers."
+  "proto": "void Game_F1os_Parse_UInt32ArrayResult(void *field, void *reader)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140967c20 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14095e250,0x140b657e0,0x140cf27e0",
+  "notes": "Allocates a fresh 0x20-byte vector holder {alloc,begin,end,cap} plus a 0x28 shared control block and stores them at field+8/+0x10 (old block released). Then reads the top entry of the JSON reader stack (reader+0x10 ring deque): if its type word +0xe is 4 (array) it resizes the vector to the array count and, per element, pushes the element (stride 0x10) on the reader stack, calls reader vtable +0x40 (reader,0,&vec[i]) to read one 4-byte value and pops. Callers are F1OS result handlers (GetActiveScenario, GetActiveChallengeCareer, and 0x14095e250: a result-object deserializer that looks up a 15-char key then reads further fields) which push the found key's value and call this to fill an array member of the result object. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.f1os_parse_u_int32_array_result",
