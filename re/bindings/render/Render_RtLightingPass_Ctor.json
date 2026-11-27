@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143da13a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
-  "proto": "void *Render_RtLightingPass_Ctor(void *self, void *owner, void *gfx, void *props)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143da3970 (RacingPC lab re_groups/_decomp)",
-  "notes": "Render pass ctor (base Render_GeometryPass_Ctor with 0x24 input slots, vtable 0x1459b8030) for the ray-traced lighting/path-trace resolve. Binds from the property bag: target, copydst, copydst2, targetSkyLight, specularHitDistance, splitSignalDiffuse/Specular, guideDiffuse/Specular, and optional unfilteredSplitSignalDiffuse/Specular, targetShadows, albedo, normal, surface, surface2, shadow_mask, gbuffer_depth, stencil, restir, hitPointBuffer, hitCountBuffer, pathSegmentBuffer, pathCountBuffer, extended_gbuffer_1..4, ddgi, rrStyleTargetForMlExportInNRDMode, plus 3 MD5-hashed fixed names. Creates two shared materials once (refcount 0x146c3b828, ptrs 0x146c3b818/0x146c3b820). Property 'mode' compared to a constant sets +0x558=1. Looks up 'scene' in the scene map, allocates 0x340 impl (vtable 0x1459b77d0) at +0x550 and registers callbacks FUN_143d9a940 / 0x143d9a9d0 in scene lists +0x3c8 / +0x3e0. No KB caller."
+  "proto": "void *Render_RtLightingPass_Ctor(void *self, void *allocator, void *renderer, void *props)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143da3970 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14012a010",
+  "notes": "Calls Render_GeometryPass_Ctor(self, allocator, renderer, props, 0x24), sets vtable 0x1459b8030, creates two shared 0x210-byte materials on first instance (refcount 0x146c3b828, pointers 0x146c3b818/0x146c3b820), then binds 36 resource slots through self+0x20 from props strings such as \"target\", \"copydst\", \"copydst2\", \"targetSkyLight\", \"specularHitDistance\", \"splitSignalDiffuse\", \"splitSignalSpecular\", \"guideDiffuse\", \"guideSpecular\", \"targetShadows\", \"albedo\", \"normal\", \"surface\", \"shadow_mask\", \"gbuffer_depth\", \"restir\", \"hitPointBuffer\", \"pathSegmentBuffer\", \"extended_gbuffer_1..4\", \"ddgi\", plus three MD5-hashed fixed names. Reads \"scene\" and looks up the scene object in a tree keyed by a 128-bit id; option \"mode\" sets self+0x558 = 1. Allocates a 0x340-byte state object (scene pointer at +0x38, stored at self+0x550) and registers callbacks FUN_143d9a940 / 0x143d9a9d0 in the scene lists at +0x3c8 and +0x3e0. Caller 0x14012a010: pass factory that allocates 0x560 bytes, constructs the pass with a cloned resource-desc set and returns {allocator, pass}. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.rt_lighting_pass_ctor",

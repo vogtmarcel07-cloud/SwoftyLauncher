@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143c930e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
-  "proto": "void *Render_DlssPass_Ctor(void *self, void *owner, void *gfx, void *props)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143c956b0 (RacingPC lab re_groups/_decomp)",
-  "notes": "Render pass ctor (base Render_GeometryPass_Ctor with 0x17 input slots, vtable 0x1458eae50). Binds named targets from the pass property bag: source, target, motionVectors, transparencyMask, velocity, velocity2, linear_depth, depth, stencil, taa_input (opt), guide_diffuse, guide_specular, guide_subsurface, normals_roughness, specularHitDistance, exposureBuffer (opt), hudlessBackbuffer, viewportRes, mainRenderTarget, lastFrame, accumulatedGroundTruth (opt). Creates shared material once (refcount 0x1464d47e0), allocates 0xa10 impl (vtable 0x1458eabf0) stored at +0x570, resolves 3 functions each for feature id 0 and 0x3e9 (1001) via 0x145381b80 and queries support via 0x145381a90 (looks like NVIDIA Streamline DLSS and DLSS Ray Reconstruction); result flags DAT_1464d47d0 (feature 0, only when adapter vendor at device+0x880 == 0x10de) and DAT_1464d47d1 (feature 1001). Those two bytes are the upscaler-available switches."
+  "proto": "void *Render_DlssPass_Ctor(void *self, void *allocator, void *renderer, void *props)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143c956b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14012bd80",
+  "notes": "Calls Render_GeometryPass_Ctor(self, allocator, renderer, props, 0x17), sets vtable 0x1458eae50, creates one shared 0x210-byte material on first instance (refcount 0x1464d47e0, pointer 0x1464d47d8), then binds 23 resource slots through self+0x20 from props strings: \"source\", \"target\", \"motionVectors\", \"transparencyMask\", \"velocity\", \"velocity2\", \"depth\", \"linear_depth\", \"stencil\", \"taa_input\", \"guide_diffuse\", \"guide_specular\", \"guide_subsurface\", \"normals_roughness\", \"specularHitDistance\", \"exposureBuffer\", \"hudlessBackbuffer\", \"viewportRes\", \"mainRenderTarget\", \"lastFrame\", \"accumulatedGroundTruth\". Allocates a 0xa10-byte state object (stored at self+0x570) with a 0x204-byte constant buffer, and queries features 0 and 0x3e9 into globals 0x1464d47d0/0x1464d47d1 (only when adapter vendor at device+0x880 is 0x10de). Caller 0x14012bd80: pass factory that allocates 0x580 bytes, constructs the pass with a cloned resource-desc set and returns {allocator, pass}. Hook point to see or change which buffers feed the upscaler. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.dlss_pass_ctor",

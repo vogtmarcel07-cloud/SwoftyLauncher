@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143879900",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_FrontendScene_BuildCareerCustomCars(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14387be90 (RacingPC lab re_groups/_decomp);xref:0x141a28bf0,0x141a2a500",
-  "notes": "Frontend scene setup that needs a 0x4ee00+ byte stack. For the scene description at self+0xd0 it walks std::map slot tables (+0x50, +0xb0, +0xf8, and feature-flag gated +0x180 / +0x200) and replaces each u16 car id with Game_FrontendSceneManager_FindOrCreateNewCustomCar(self+0x30). Then for each entry of the source maps (+0xe0 team via self+0x38 table, +0x20 entrants, +0x98 drivers, +0x150, +0x1d0) it resolves the entity (Sess_ResolveEntityHandle on self+0x40), builds spawn params and a vehicle customisation (FUN_1428c1530, Game_VehicleCustomisation_Copy, variant name table 0x14588eb30 with 3 entries) and applies it to the custom car with 0x1428ec610 unless 0x1428ed9a0 says it is already set. Missing map key throws (0x1456bf461). Ends with FUN_14387ac00 on +0x130 / +0x1b0. Better context needed: names of the +0x150 and +0x1d0 car groups."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14387be90 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141a28bf0,0x141a2a500,0x141a2abe0",
+  "notes": "Reads the data block at self+0xd0; for the id maps at +0x50, +0xb0, +0xf8 (and +0x180, +0x200 behind feature-flag bits) replaces each node's u16 at +0x1c with Game_FrontendSceneManager_FindOrCreateNewCustomCar(self+0x30, id). Then for each entry of the maps at +0xe0, +0x20, +0x98, +0x150, +0x1d0 it looks up the matching slot, skips slots already built (0x1428ed9a0), resolves the entity through Sess_ResolveEntityHandle(self+0x40), builds spawn params and a vehicle customisation (FUN_1428c1530, name from a 3-entry table at 0x14588eb30) and submits it to the scene manager (0x1428ec610). Returns nothing; throws on a missing map key. Context from caller: all callers pass *(view+0x270), the object also given to Ui_CareerWizard_ReleaseItemWidgets; called by Career_Update_AcclaimAndFacilityLevel, Game_OnlineCareerTypeSelect_OnScreenActivated and 0x141a2abe0 (a career screen handler that then releases wizard item widgets). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.frontend_scene_build_career_custom_cars",

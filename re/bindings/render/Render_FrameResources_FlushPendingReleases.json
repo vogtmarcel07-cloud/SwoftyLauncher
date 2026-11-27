@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143bd43f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
   "proto": "void Render_FrameResources_FlushPendingReleases(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143bd69c0 (RacingPC lab re_groups/_decomp)",
-  "notes": "Calls FUN_143bdb150(obj,3,0) on 11 members +0x2b0..+0x300, then walks the pending-resource hash map at +0x308 (entries 0x18: +8 resource ptr, +0x10 frame stamp; current frame at map+0x50). Per entry it RTTI-classifies the resource and hands it to the Gfx2 device (global 0x14618eaa8) via Render_Gfx2Device_ResolveHandle / QueueDeferredRelease / DeferRelease_A / DeferRelease_B / TrackResourceLocked / FUN_1439dce60 once age >= 3 frames or the resource is no longer in device maps +0x3f58/+0x4080, then erases the entry. Decompile body range is merged with code at 0x143bdb1xx; Better context needed: owner class of self (no KB caller)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143bd69c0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143bd53c0",
+  "notes": "Calls FUN_143bdb150(member, 3, 0) on the 11 pools at +0x2b0..+0x300, then walks the hash map at *(+0x308) whose 0x18-byte entries are (key, resource, frame stamp). Age = map+0x50 minus stamp; depending on the resource's RTTI type, entries aged 3 frames or more (or no longer referenced in the device tables at device+0x3f58/+0x4080) are passed to Render_Gfx2Device_ResolveHandle, _DeferRelease_A/_B, _TrackResourceLocked, FUN_1439dce60 or _QueueDeferredRelease on the global device 0x14618eaa8 and erased from the map (count at +0x30 decremented). Caller 0x143bd53c0: resolves or creates the pass resource objects and inserts them in this same map with the current stamp, then calls this once before running the command list at +0xf0. The constant 3 is the frame delay before a cached resource is released. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.frame_resources_flush_pending_releases",

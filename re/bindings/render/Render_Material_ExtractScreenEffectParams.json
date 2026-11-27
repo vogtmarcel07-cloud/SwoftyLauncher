@@ -7,9 +7,9 @@
   "addr": "0x143e92cd0",
   "level": "L1",
   "subsystem": "render",
-  "proto": "void Render_Material_ExtractScreenEffectParams(void *pkg, void *out_params, void *material)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143e952a0 (RacingPC lab re_groups/_decomp);xref:0x143e8d350",
-  "notes": "Fills a 0x1c-byte output {+0 float, +4 float intensity, +8 int32 texture/decal slot (-1 default), +0xc float3 colour, +0x18 flag bits} from material parameters looked up with Render_Material_FindParamIndexByHash using hash keys stored in pkg at +0x2c8, +0x2d8, +0x2e8, +0x2f8, +0x308, +0x4d8, and decal entries via Render_DecalLookup_ResolveEntry(pkg+0x318 / pkg+0x4b8, reads +0x160). When the +0x4d8 param is zero the colour is converted sRGB to linear (0.04045 / 12.92 / 2.4 curve) and multiplied by the scalar, setting flag 4; colour components above 1.0 raise errno 0x22. Parameter names are hashes only, so the exact meaning of each field is inferred; handles both material layouts (material+0x30 < 2 sparse table, else +0x100 block stride 0x48)."
+  "proto": "void Render_Material_ExtractScreenEffectParams(void *self, void *out_params, void *material)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143e952a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143e8d350",
+  "notes": "Fills a 0x1c-byte out struct (+0 float, +4 float, +8 int32 texture id default -1, +0xc vec3 colour, +0x18 flag byte) from material params looked up by the hash keys at self+0x2c8/+0x2d8/+0x2e8/+0x2f8/+0x308/+0x4d8 and decal entries self+0x318/+0x4b8. If key +0x2c8 exists: flag 2, scalar s; vec3 from +0x308 is either sRGB->linear converted (0.04045/12.92/2.4) and scaled by s with +4=1.0 and flag 4, or (int param +0x4d8 != 0) kept raw with +4=s and flag 1 (errno 0x22 if a component > 1). Key +0x2e8 > 0 overrides +4 and the colour with vec3 +0x2f8 and sets flags 3. Caller 0x143e8d350: builds a per-material draw record, packs colour to RGB bytes and writes rec+0xac..+0xb8 (flags<<24). The noun ScreenEffect is not confirmed by the code (hash keys only). Better context needed: the strings behind the hashes at self+0x2c8..+0x4d8. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.material_extract_screen_effect_params",

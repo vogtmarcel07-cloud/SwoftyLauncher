@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143ca5290",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
-  "proto": "void Render_AmbientLut_UploadLightingConstantBuffers(void *self, void *frameCtx, void *view, uint8_t rebuild)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143ca7860 (RacingPC lab re_groups/_decomp);xref:0x143eebfd0",
-  "notes": "Per-frame fill of several GPU constant/structured buffers (self+0x198,+0x1A0,+0x1A8,+0x1B0,+0x1B8,+0x1C0) allocated with Render_Gfx2Heap_BumpAllocPlacedResource and registered at frameCtx+0x16F0/+0x16F4. First block writes resolution (from self+0x160 +0x20/+0x24 clamped to globals 0x145f9908c/90), 16px tile counts, inverse sizes and many tuning globals (0x145f99088..c8, 0x1464d5128..3d). When rebuild!=0 it copies up to 32 volume records (0x40 stride, count +0x810), 128 records (count +0x2820) and 1024 records of 0x90 bytes (count +0x26830) from the source at *(self+0x288)+0x10, keeps a 40-frame history ring per volume (0x130-byte entries in statics 0x1464d5150..), copies large static LUT tables (0x1459c2c40.., 8x12x64 entries of 0x1E0 bytes), writes counts to self+0x240/+0x244, then calls view+0x200 vtable+0x1E0. Exact feature (volumetric/probe lighting) is inferred, not proven by strings."
+  "proto": "void Render_AmbientLut_UploadLightingConstantBuffers(void *self, void *cmd, void *view, char full_update)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143ca7860 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143cace20,0x143eebfd0",
+  "notes": "Allocates per-frame placed constant buffers (Render_Gfx2Heap_BumpAllocPlacedResource) for the buffers at self+0x198, +0x1a0, +0x1a8, +0x1b0, +0x1b8, +0x1c0 and fills them: +0x198 gets grid sizes from self+0x160 (+0x20,+0x24,+0x28) clamped by globals 0x145f9908c/0x145f99090, tile counts (size>>4), 32-deep slice count and tuning globals at 0x145f99088..0x145f990c8; when full_update is non-zero it also copies the light source lists from (self+0x288)+0x10 (up to 0x20 entries stride 0x40 at +0x10, up to 0x80 at +0x820, up to 0x400 entries stride 0x90 at +0x2830) into history rings at 0x1464d5150 and into the buffers, writes counts to self+0x240 (max 0x600) and self+0x244, and fills the +0x1a0 buffer with frustum planes, target sizes from self+0x128/+0x130/+0x140 and self+0x2c4..+0x2e0; always ends with the view+0x200 object vcall +0x1e0. Caller 0x143cace20: runs it with full_update=1 before its own light-culling work; caller 0x143eebfd0 (Render_AmbientLut_Generate) runs it with full_update=0 after uploading four textures. Class prefix taken from the caller Render_AmbientLut_Generate, which passes its own self. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.ambient_lut_upload_lighting_constant_buffers",

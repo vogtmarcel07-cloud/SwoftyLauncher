@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142a13c60",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "void *Sess_CopyAssign_Struct288_142a16020(void *dst, const void *src)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a16020 (RacingPC lab re_groups/_decomp);xref:0x1413e5330",
-  "notes": "Copy-assignment operator of a 0x288-byte settings-like struct, returns dst. Copies header +0x00..0x10, inline qword array +0x10 (count +0x70), POD block +0x80..0xFC, inline uint32 arrays at +0x100 (count +0x108) and +0x110 (count +0x160), sub-object +0x170 via 0x140bea760, vector of 0x88-byte elements at +0x198/0x1A0/0x1A8 (allocator +0x190; element copy-ctor 0x1407c7770, assign 0x140be9540, dtor 0x1407c7900), POD +0x1B0..0x220, vector of 0x20-byte PODs at +0x228 (allocator +0x220), POD +0x240..0x260, byte vector at +0x268 (allocator +0x260), uint32 +0x280 and byte +0x284. Better context needed: Sess_Apply_ContentAvailability would name the struct."
+  "proto": "void *Sess_CopyAssign_Struct288_142a16020(void *dst, void *src)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142a16020 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1413e5330",
+  "notes": "Copy-assigns a 0x288-byte record: +0x00 16 bytes, inline qword array at +0x10 with count at +0x70, plain fields +0x80..+0xf8, inline dword arrays at +0x100 (count +0x108) and +0x110 (count +0x160), sub-object at +0x170 via 0x140bea760, vector of 0x88-byte elements at +0x198/+0x1a0/+0x1a8 (allocator +0x190, element copy 0x1407c7770, assign 0x140be9540, destroy 0x1407c7900), plain +0x1b0..+0x218, vector of 0x20-byte PODs at +0x228 (allocator +0x220), plain +0x240..+0x258, byte vector at +0x268 (allocator +0x260), then dword +0x280 and byte +0x284; returns dst. Context from caller: Sess_Apply_ContentAvailability walks byte pairs at (self+0xf8)+0xb8..+0xc0 and copies entry [pair[1]] over entry [pair[0]] of the g_Game_Scenarios table (+0x48, stride 0x10, pointer at +8), then restores the destination's own +0xd8 qword and +0x80 byte. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.copy_assign_struct288_142a16020",

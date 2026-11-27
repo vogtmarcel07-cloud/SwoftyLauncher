@@ -7,9 +7,9 @@
   "addr": "0x140102560",
   "level": "L1",
   "subsystem": "render",
-  "proto": "void *Render_Gfx_SixSliceTargetSet_Ctor(void *self, void *gfxCtx, void *desc)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140102560 (RacingPC lab re_groups/_decomp);xref:0x140104f70",
-  "notes": "Constructor of a render-config helper that builds 6 slices (loop count 6) of GPU resources from printf-formatted names: per slice i it stores a hashed name at +0x58+i*0x60 and 5 owned resources at +0x08..+0x50+i*0x60 (one via FUN_140100be0, four via Render_Gfx_InitResourceDescBuilder with size flags 0x10000/0x40000), plus shared resources at +0x268/+0x278 and hashed names at +0x248/+0x258; also pushes 6 small 0x28-byte objects into the vector at +0x2b0. desc+0x58 (bool) switches a param between 2 and 4 and selects alternate string lists, desc+0x70 is an int passed to every resource. All name strings are unresolved UNK data, so what the 6 slices are (cube faces, cascades, mips) is not shown. Better context needed: the format strings at 0x1455db814..0x1455db85e."
+  "proto": "void *Render_Gfx_SixSliceTargetSet_Ctor(void *self, void *ctx, void *desc)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140102560 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140104f70",
+  "notes": "Stores ctx at +0, zeroes six 0x60-byte slice blocks (+0x08..), pushes six 0x28-byte nodes into the vector at +0x2b0, builds hashed names at +0x248/+0x258 from desc[0xc]/desc[0xd], creates two shared resources (+0x268/+0x270 and +0x278/+0x280), then loops 6 times creating one config entry and four pass-resource sets per slice (slice+0x08..+0x50, hashed name at slice+0x58) through Render_Gfx_ParamList_Push* and Render_Gfx_InitResourceDescBuilder; desc+0x58 byte selects sample count 2 or 4 and the alternate define list, desc+0x70 is passed as an int param. Listed caller 0x140104f70 (Render_Gfx_BuildConfigObject) failed to decompile (timeout), so the call was not seen. Better context needed: a readable caller to confirm these are cube faces. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.gfx_six_slice_target_set_ctor",

@@ -7,9 +7,9 @@
   "addr": "0x143d95e20",
   "level": "L1",
   "subsystem": "render",
-  "proto": "void *Render_DepthHierarchyTracePass_Ctor(void *self, void *owner, void *gfx, void *props)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143d983f0 (RacingPC lab re_groups/_decomp);xref:0x140104f70",
-  "notes": "Render pass ctor (base Render_GeometryPass_Ctor with 0x12 input slots, vtable 0x1459b7780). Binds from the property bag: target, depth, stencil, normal, surface, heatmap (opt), depth_hierarchy (opt), final_output, a name printf-built from 'scene', plus 8 MD5-hashed fixed target names (3 shared with the RT lighting pass). Reads int 'downscale' (default 1) into impl+0x2f4. Allocates 0x3a0 impl (vtable 0x1459b7350) at +0x550 with float defaults (+0x288 100.0, +0x28c 0.53, +0x294 0.99, 0.002/0.001, 0.75/2.2, 0.005, ints 128/1/4/2, +0x2dc 0.9) and sets impl+0x369=1 when device (0x14618eaa8)+0x39e8 == 1. Exact effect not proven: likely screen-space/ray-traced reflections using a Hi-Z depth chain. Impl defaults are tunable constants."
+  "proto": "void *Render_DepthHierarchyTracePass_Ctor(void *self, void *alloc, void *gfx, void *props)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143d983f0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140104f70",
+  "notes": "Calls Render_GeometryPass_Ctor with 0x12 resource slots, sets vtable 0x1459b7780, on first instance (counter 0x146c3b7e8) builds a shared 0x210-byte material at 0x146c3b7e0 and registers it; binds slots 0..0x11 from MD5-hashed names and prop strings \"target\",\"depth\",\"stencil\",\"normal\",\"surface\",\"heatmap\",\"depth_hierarchy\",\"final_output\",\"scene\"; reads int prop \"downscale\" (default 1) and allocates a 0x3a0-byte settings object stored at self+0x550 (+0x2f4 downscale). Listed caller 0x140104f70 (Render_Gfx_BuildConfigObject) failed to decompile (timeout), so the call was not seen. Better context needed: a readable caller. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.depth_hierarchy_trace_pass_ctor",

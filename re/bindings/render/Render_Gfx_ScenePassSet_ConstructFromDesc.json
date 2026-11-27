@@ -7,9 +7,9 @@
   "addr": "0x1400fd6d0",
   "level": "L1",
   "subsystem": "render",
-  "proto": "void *Render_Gfx_ScenePassSet_ConstructFromDesc(void *self, void *gfxCtx, void *desc)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1400fd6d0 (RacingPC lab re_groups/_decomp);xref:0x140104f70",
-  "notes": "Constructor for a per-view pass bundle: stores ctx at self+0, zeroes 12 owner/ptr pairs (+0x08..+0xC0), then for each sub-pass formats a name from desc[0] and index desc+0x64, fills a param list (Render_Gfx_ParamList_PushEntryDollarFlag / PushEntryKind3) and builds a pass via Render_Gfx_InitResourceDescBuilder or helper builders, storing results at self+0x08/+0x18/+0x28/+0x38/+0x48/+0x58/+0x68/+0x78/+0x88/+0x98/+0xA8/+0xB8. Byte desc+0x68 (copied to self+0x138) picks a 2-pass variant vs the full 6-pass variant with sort keys 0x5a000/0x64000/0x20000, byte desc+0x69 adds an optional last pass (self+0xB8); desc[3..8,10] are render-target names hashed into self+0xC8..+0x130. Param-key strings are unresolved pointers so exact pass meaning (gbuffer/forward/depth) is not shown. Better context needed: string contents at 0x1455db679..0x1455db7e9."
+  "proto": "void *Render_Gfx_ScenePassSet_ConstructFromDesc(void *self, void *ctx, void *desc)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1400fd6d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140104f70",
+  "notes": "Stores ctx at +0, copies desc+0x68 mode byte to +0x138, builds seven hashed names (+0xc8..+0x130) from desc[3..8] and desc[10], then creates config entries and pass-resource sets with Render_Gfx_ParamList_Push* and Render_Gfx_InitResourceDescBuilder into the owner/pointer pairs at +0x08..+0xc0; the mode byte picks a 5-pass branch (flags 0x5a000, 0x64000, 0x20000) or a 2-pass branch (0x61800), followed by four common passes (0x40000, 0xb000, 0x4b000 x2) and an optional entry at +0xb8 when desc+0x69 is set; desc+0x60 and desc+0x64 are int params. Listed caller 0x140104f70 (Render_Gfx_BuildConfigObject) failed to decompile (timeout), so the call was not seen. Better context needed: a readable caller. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.gfx_scene_pass_set_construct_from_desc",

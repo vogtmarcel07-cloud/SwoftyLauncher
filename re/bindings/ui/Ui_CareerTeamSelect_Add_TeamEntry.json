@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141879310",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
-  "proto": "void *Ui_CareerTeamSelect_Add_TeamEntry(void *self, uint32_t *team_key, uint32_t *driver_key, char *count)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14187aaf0 (RacingPC lab re_groups/_decomp)",
-  "notes": "Appends one 0x170-byte team row to the vector at self+0x28/+0x30 (grow x1.5), creating a VM child node named by printf(k_Team_BadgeSourceNames[team&0xff], team>>16), and increments *count. Binds the logo path \"#overrides.team_logos.driver_career_2024_team_select.%s\" (default \".no_team\") from the team name at teamdb+0x18, flags whether the driver (Career_Calc_DriverOverallRating_Cached, contract list) already belongs to that team, then if self+0xc69 is set builds the team's VehicleCustomisation and shows it in a frontend custom-car slot at \"VehicleSpawn\" (slot id kept at row+0x16c). Returns pointer to the new row. Better context needed: caller not identified, VM class name not confirmed."
+  "proto": "void *Ui_CareerTeamSelect_Add_TeamEntry(void *self, uint32_t *team_key, uint32_t *driver_key, uint8_t *count_io, void *career_comp)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14187aaf0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141875210",
+  "notes": "Formats a node name from k_Team_BadgeSourceNames[team_key low byte] and team_key>>16, gets or creates that VM child under the node at self+0x8, and appends a 0x170-byte entry (ctor 0x141874c90: node holder, team key, flag \"driver's current contract team == this team\" found via career_comp+0x3a8 and Career_Calc_DriverOverallRating_Cached, bool read from node self+0xb20) to the vector self+0x28/+0x30/+0x38 with 1.5x growth. Increments *count_io, binds the logo path \"#overrides.team_logos.driver_career_2024_team_select.%s\" (team name from self+0xc80 tables) to entry+0xc8. If self+0xc69 is set it also builds a vehicle customisation for the team's entrant and registers a \"VehicleSpawn\" custom car with the frontend scene manager (self+0xca0), storing the car id at entry+0x16c. Returns the new entry. Caller 0x141875210: builds the career team-select screen model (selected_team, is_f2_mode, show_carousel), calls it per sorted team and then sets the bool node at entry+0x110. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.career_team_select_add_team_entry",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143da87c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
-  "proto": "void *Render_RayTracedGeometryPass_Ctor(void *self, void *alloc, void *renderer, void *propBag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143daad90 (RacingPC lab re_groups/_decomp)",
-  "notes": "Constructor of a pass derived from Render_GeometryPass_Ctor with 0x18 (24) input slots, vtable 0x1459b86b0. Binds slots by index through the binder at self+0x20: 4 target, 5 target_alpha, 6 targetNRD, 7 target_alphaNRD, 8 depth, 9 normal, 10 surface, 11 surface2, 12 albedo, 13 a name formatted from the scene property, 14 heatmap, 19 vrsImage, 21 hit_distance, 22 guide_albedo, 23 guide_specular, and several MD5-hashed fixed names (slots 1-3, 15-18, 20). On first instance (counter 0x146c3b930) it creates a shared material stored at 0x146c3b928. Allocates a 0x470-byte worker stored at self+0x550 with float defaults (500.0, 0.01, 400.0, 0.067, 1.0, 2.0, 8000.0) and registers callback FUN_143da7090 in the scene object's list at +0x3c8. NRD/hit_distance/guide names suggest a ray-traced pass feeding a denoiser; the exact effect is not named in the body."
+  "proto": "void *Render_RayTracedGeometryPass_Ctor(void *self, void *alloc, void *gfx, void *props)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143daad90 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x140129e80",
+  "notes": "Calls Render_GeometryPass_Ctor with 0x18 resource slots, sets vtable 0x1459b86b0, on first instance (counter 0x146c3b930) builds a shared 0x210-byte material at 0x146c3b928; binds slots 0..0x17 from MD5-hashed names and optional prop strings \"target\",\"targetNRD\",\"target_alpha\",\"target_alphaNRD\",\"depth\",\"normal\",\"surface\",\"surface2\",\"albedo\",\"heatmap\",\"vrsImage\",\"hit_distance\",\"guide_albedo\",\"guide_specular\", looks up the \"scene\" by hashed name in the gfx scene map, then allocates a 0x470-byte settings object (vtable 0x1459b8090, +0x3d8 downscale prop default 1, +0x468 bool prop) stored at self+0x550, appends callback {0x143da7090, settings} to scene+0x3c8 and returns self. Caller 0x140129e80: factory that clones the resource desc arrays, allocates 0x560 bytes from the allocator, runs this ctor and returns the {allocator, object} pair. Good hook point to read or patch the ray-trace pass settings right after construction. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.ray_traced_geometry_pass_ctor",

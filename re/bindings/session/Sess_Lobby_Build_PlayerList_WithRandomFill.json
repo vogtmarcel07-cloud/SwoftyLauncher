@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142539a70",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "void Sess_Lobby_Build_PlayerList_WithRandomFill(void *self, void *outVec, void *slotTypeList, uint8_t fillWithRandom, int32_t maxCount)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14253b9a0 (RacingPC lab re_groups/_decomp)",
-  "notes": "Builds a participant list into outVec (elements 0x1810 bytes, user id at +0x17d0): for every slot-type byte in slotTypeList+8..+0x10 it walks the linked list at self+0xa0+type*0x50, skips the local user (vcall +0x38 on self+0x28->+0x140->+0x198->+0x1c0) and entries already present (Ne_UserId_Equals, id kinds 3 and 7 compared by XOR-obfuscated qwords), and appends up to maxCount entries (default 0x15 = 21 when the stack arg is -1). If fillWithRandom is set it copies the ref-counted name entries of the hash set at self+0x278..+0x298, shuffles them with a freshly seeded MT19937 (Ne_Rng_Mt19937_Refill) and appends one filler record per element of the vector self+0x248..+0x250, each with a 128-char name from the shuffled pool and an id from Ne_Make_RandomIdBlock. Looks like the source of fake/AI lobby names. Better context needed: caller to confirm which screen consumes the list."
+  "proto": "void Sess_Lobby_Build_PlayerList_WithRandomFill(void *lobby, void *out_vec, void *slot_type_vec, uint8_t fill, int32_t max_count)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14253b9a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1409a94d0,0x142547950,0x1425723d0",
+  "notes": "For each slot-type byte in slot_type_vec (+0x8..+0x10) walks the list at lobby+0xa0+type*0x50 (+0x10 head), skips entries with +0x58==0 and the local user (id from lobby+0x28->+0x140->+0x198->+0x1c0 vtable+0x38, Ne_UserId_Equals), dedupes against out_vec (0x1810-byte records, user id at +0x17d0) and appends a record via 0x14253c600; budget is max_count, or 21 when -1. If fill!=0 it copies the shared_ptr set at lobby+0x278..+0x298, shuffles it with a seeded MT19937 (Ne_Rng_Mt19937_Refill) and appends one record per element of lobby+0x248..+0x250 with a name (128-char inline string from entry+0x18) and a Ne_Make_RandomIdBlock id until the budget is used. Caller 0x1409a94d0: builds the list (types 1,2,4,3, fill=1) and looks up driver head asset groups per record (+0x690); caller 0x142547950: same list, posts a bus message when it is empty; caller 0x1425723d0: types 1,2,4 with fill=0 and max_count from its arg, copies user ids into its own vector at +0x130. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.lobby_build_player_list_with_random_fill",

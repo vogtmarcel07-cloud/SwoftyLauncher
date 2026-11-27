@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141901070",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "void Sess_PenaltyLog_FillRowViewModel_FromEntry(void *self, void *rowVm, void *logEntry, void *entrantList)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141902850 (RacingPC lab re_groups/_decomp)",
-  "notes": "Fills one penalty/incident log row view-model: finds local player (and P2 for splitscreen) in entrantList (+8..+0x10, 0x88 stride) and the offending entrant by index logEntry+8, sets bool nodes, time string from logEntry+0x24 seconds, driver name/team name/badge path (Team_Format_RenderBadgePath), platform icon, lap text from logEntry+0x10, then Sess_PenaltyLog_FormatInfringementText (type logEntry+0xA, other car logEntry+0xB) and Sess_PenaltyLog_FormatPenaltyText (type logEntry+9, args +0xC/+0x18). Strings: #overrides.player_select.results_icons[p1_result_indicator]/[p2_result_indicator], #overrides.icons.session_crossplay_platform.icon_platforms_generic_console, {o:mixed}%s{/o}. Good hook to read or rewrite stewards log entries; no KB caller listed so the owning class is inferred from callees."
+  "proto": "void Sess_PenaltyLog_FillRowViewModel_FromEntry(void *self, void *row_vm, void *entry, void *entrant_list)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141902850 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141900b20",
+  "notes": "Finds the offender in entrant_list (+0x08 begin, +0x10 end, stride 0x88) by entrant+0x82 == entry+0x08 and the local player 1/2 records by identity match, then fills the row view model nodes: time string from entry+0x24 seconds, lap text from entry+0x10, driver name and team refs, badge path, platform icon, player 1/2 result indicator (\"#overrides.player_select.results_icons[p1_result_indicator]\"/p2), points delta text, infringement text via Sess_PenaltyLog_FormatInfringementText (entry+0x0a type, +0x0c, +0x18), other-driver text when entry+0x0b != 0xff, and penalty text via Sess_PenaltyLog_FormatPenaltyText (entry+0x09 type); ends by calling 0x1418fffe0 with the is-player and is-teammate flags. Caller 0x141900b20: walks the penalty entries (stride 0x30 at (self+0x18)+0x48..+0x50), gets or creates one row view model per entry and passes session+0x2d8 as the entrant list. Good hook point to read every penalty-log row as it is shown. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.penalty_log_fill_row_view_model_from_entry",

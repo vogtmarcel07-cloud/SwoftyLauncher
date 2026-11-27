@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1436a4dc0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "session",
-  "proto": "void Sess_Strategy_TrimStintLaps_ToRemaining(void *self, void *vehCtx, void *plan, int32_t tyreSet)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1436a7350 (RacingPC lab re_groups/_decomp)",
-  "notes": "Race-strategy helper: sums planned laps over the stint vector plan+8..+0x10 (0x38-byte stints: +0 compound id, +4 laps done, +8 flag -1 = open stint, +0xc planned laps, +0x14, +0x24 tyre variant) and while the total exceeds vehCtx+0x234 (laps available) it scores each trimmable stint by integrating a time/wear cost of its last lap (Car_Tyre_SampleCurveSet2KeyLerp, Car_Tyre_SampleWearCurve2DAlt, Sess_VpTable_SelectBlocks, compound tables 0x14585bc48/0x14585bc9c, factors 0.33/0.66 for compounds 3/4, g_Game_TrackLength, g_Live_SectorEnds[3]) and decrements +0xc of the highest-scoring stint. Uses vehCtx+0xc4 car index, +0x1e4 per-compound wear scale, +0x240 and flag +0x26b bit 0x10 as a lap reserve; sentinel 1e38 (0x7e967699) marks scores to recompute. Good hook for AI/suggested pit strategy stint lengths. Better context needed: caller to confirm AI vs player strategy."
+  "proto": "void Sess_Strategy_TrimStintLaps_ToRemaining(void *self, void *ctx, void *stint_vec, int32_t wear_col)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1436a7350 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1436a4aa0",
+  "notes": "Sums planned laps over the stint vector (stint_vec+0x8/+0x10, 0x38-byte entries: +0x0 compound, +0x4 fixed laps, +0x8 -1=open, +0xc lap count) and returns if the total is <= ctx+0x234 (lap budget). Otherwise keeps a per-stint float cost array (sentinel 1e38 = 0x7e967699, allocator self+0x8) computed from tyre wear curves (Car_Tyre_SampleWearCurve2DAlt, ctx+0x1e4 scale table) and Sess_VpTable lookups, then repeatedly decrements +0xc of the highest-cost stint (tie: more laps) until the total fits; flag ctx+0x26b&0x10 with ctx+0x240 limits how many stints may be shortened. Caller 0x1436a4aa0: checks the plan with Sess_RaceStrategy_IsPlanValid, then calls this followed by 0x1436a8460(stint_vec, ctx+0x234) and 0x1436a85a0 to repair the plan. Hook point for AI/strategy stint lengths. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "session.strategy_trim_stint_laps_to_remaining",

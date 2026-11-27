@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142fc2980",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
   "proto": "void Ui_RankedListVM_Refresh_VisibleRows(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142fc4f10 (RacingPC lab re_groups/_decomp)",
-  "notes": "Refreshes a paged ranked list view-model (leaderboard-style): data source self+0x340 (+0x10 local player entry, +0x20..+0x28 vector of entry ptrs with rank at entry+8 and user id at +0x18, +0x38 total rows, +0x3c mode byte, 2 = contiguous page), visible row count self+0x3a8, first-row offset self+0x3b0, per-row rank cache int array at self+0x150 (-1 = empty row), list node self+0x138. Sets three bool VM nodes via Vm_NodeSet_Bool (+0xd8 has local entry, +0xf8 local entry flag from FUN_142fba600, +0x118 list not empty), then fills each row through virtuals (vt+0 row from entry, vt+8 row from converted entry via FUN_1418998d0, vt+0x20 empty row with rank, vt+0x10/+0x18 begin/end, vt+0x28 finish); the byte self+0x3b4 selects the converted-entry path, and in non-page mode it pins the local player's row at top or bottom when its rank is outside the window (Ne_UserId_Equals match). Better context needed: the concrete VM class (no named callers)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142fc4f10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142fb8bc0,0x142fba530,0x142fc6230",
+  "notes": "Sets three bool VM nodes (self+0xd8 = model+0x10 own entry present, self+0xf8 = own entry flag from 0x142fba600, self+0x118 = row vector model+0x20..+0x28 not empty; model = self+0x340). Then binds up to self+0x3a8 visible rows starting at scroll offset self+0x3b0 to list elements of self+0x138 through vtable slot 0 (or slot 1 with a 0x1418998d0 record copy when self+0x3b4 is set), stores each row rank (row+0x8) in self+0x150[i], fills the remaining slots as empty through vtable+0x20 (rank -1) and ends with vtable+0x28; when model+0x3c!=2 it searches the row with rank offset+1 and places the own entry (user id compare, Ne_UserId_Equals) in the first or last slot if it is outside the window. Context from caller: all callers also call Game_LeaderboardViewModelBase_RequestNextDataBlock on the same object, so this is the leaderboard view model. Caller 0x142fb8bc0: resets scroll offset to 0 and refreshes; caller 0x142fba530: sets scroll offset +0x3b0, refreshes, requests next data block; caller 0x142fc6230: scroll/page handler that clamps the offset and refreshes. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.ranked_list_vm_refresh_visible_rows",

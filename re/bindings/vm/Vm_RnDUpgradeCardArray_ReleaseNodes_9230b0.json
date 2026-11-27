@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1419218d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
   "proto": "void Vm_RnDUpgradeCardArray_ReleaseNodes_9230b0(void *cards)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419230b0 (RacingPC lab re_groups/_decomp)",
-  "notes": "Array destructor for 15 R&D upgrade card bindings of 0x4A0 bytes each: calls FUN_141809640 on elements 14..1 (offsets +0x40C0 down to +0x4A0) and releases the 37 node handles of element 0 inline (same unlink + Vm_Release_Node pattern). Called from 0x141803880 on bindings+0xB08."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419230b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141803880",
+  "notes": "Releases an array of 15 card blocks of 0x4a0 bytes each: calls Vm_RnDUpgradeCard_ReleaseNodes_809640 on elements 14..1 (offsets 0x40c0 down to 0x4a0) and has the same 37-holder release inlined for element 0. Caller 0x141803880: destructor-style teardown of the R&D screen object, passes self+0xb08 (the card array filled by Ui_Rnd_Populate_UpgradeCardEntry at self+0xb10+slot*0x4a0). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.rn_d_upgrade_card_array_release_nodes_9230b0",

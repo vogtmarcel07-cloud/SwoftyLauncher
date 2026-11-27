@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141854190",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "entrants",
   "proto": "void Ent_BadgeCache_RequestBadge(void *cache, void *request, void *badgeDesc, void *callback)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141855970 (RacingPC lab re_groups/_decomp)",
-  "notes": "Async badge (emblem) texture request with dedupe. cache: +0 entrants system, +8 job queue (+0x58 next request id), +0x20/+0x28/+0x30 vector of 0x188-byte entries, +0x40 map requestId->entry index. Searches entries equal to badgeDesc (func 0x142473240) and switches on entry state +0x164: 0 failed -> callback with error 0x16 and handle 0x3fff0000; 1 pending -> append callback (FUN_141856aa0) to list +0x168; 2 -> set pending and re-queue; 3 ready -> callback with handle at +0x160. Otherwise appends a new entry (defaults 'none' strings, handle 0x3fff0000), copies desc fields, calls Ent_EntrantsSystem_AddBadge_2(cache[0], desc, 3) and queues job via FUN_14388e780 with completion FUN_141857060. No KB caller; Better context needed: owning class (MyTeam/livery UI)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141855970 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c39dd0",
+  "notes": "Searches the entry vector (cache+0x20..+0x28, 0x188-byte entries) for a badge equal to badgeDesc (0x142473240). If found, switches on entry state +0x164: 0 = failed, calls callback with handle 0x3fff0000 and code 0x16; 1 = loading, appends request+callback to the waiter list at +0x168; 2 = sets state 1, appends the waiter and queues a job; 3 = ready, calls callback at once with the handle at +0x160. If not found, appends a default entry (strings \"none\"), copies badgeDesc into it, calls Ent_EntrantsSystem_AddBadge_2(cache[0], badgeDesc, 3), stores the returned handle (+0x160), adds the waiter, queues a job on cache[1] (FUN_14388e780, completion FUN_141857060) and maps job id -> entry index in the tree at cache+0x40. Caller 0x141c39dd0: copies a badge description from its object (+0x1218..+0x1370) and passes cache at +0x1200 with completion callback FUN_141df6380. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "entrants.badge_cache_request_badge",

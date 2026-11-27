@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143d3e970",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "render",
   "proto": "void Render_Update_InstanceWorldBounds(void *instance)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143d40f40 (RacingPC lab re_groups/_decomp)",
-  "notes": "Recomputes a render instance's world-space bounds from its transform (+0x1f0: three 4-float rows, +0x9c reflection offset, +0xa4 min radius, +0xa8 u16 bone index, 0xffff = unskinned) and model data (+0x1e8->+0x60: +0x30 local sphere, +0x38 AABB, +0x40 flags +0x128/+0x129/+0x12a). Flips the previous-transform double buffer (+0xd0/+0x100, index byte +0x143, ptrs +0x130/+0x138), writes world sphere center+radius to +0x10 and +0x20, AABB extents +0x30..+0x54, LOD/size factor +0x84 (1/r^2 scaled by u16 +0x88 /256, -1 = unset), flag bits in +0x8e (4, 8), and for reflective objects queries FUN_143d44810 for reflection plane height stored at +0x190/+0x194. Strings: \"odd dims - all zero on %s\" (channel ANDREW_WRIGHT), \"REFLECTIONS\" \"no support %s refl os %f pos %f %f %f rad %f\", \"second reflection os %f\". Caller not identified. Better context needed: caller would confirm whether this runs per frame or only on transform change."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143d40f40 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x143d3db30,0x143d41f80",
+  "notes": "Early-outs unless model (+0x1e8 -> +0x60) and +0x168 are set. Flips the buffer index at +0x143, copies the 0x30-byte transform from *(+0x1f0) into the double-buffered slot at +0xd0/+0x100 and updates the current/previous pointers +0x130/+0x138. Then recomputes the world bounding spheres at +0x10 and +0x20 (centre xyz, w = local radius * max axis scale; bone-attached path when transform+0xa8 != 0xffff uses the bone matrix from +0x168), the size factor at +0x84 (scaled by u16 +0x88 / 256), flags at +0x8e/+0x8f, reflection offsets +0x190/+0x194 (log channel \"REFLECTIONS\") and the AABB at +0x30..+0x54. Caller 0x143d3db30: instance (re)init that calls it twice so both transform buffers are filled. Caller 0x143d41f80: dirty-flag handler, calls it when flags & 0x80041 and a second time when 0x80000 is set. Good hook to read or override per-instance world transform and bounds. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "render.update_instance_world_bounds",

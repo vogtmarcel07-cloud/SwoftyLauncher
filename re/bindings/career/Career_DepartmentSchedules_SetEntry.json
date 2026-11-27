@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143510bb0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "career",
-  "proto": "void Career_DepartmentSchedules_SetEntry(void *schedules, uint8_t outer_key, uint8_t inner_key, void *src)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143513140 (RacingPC lab re_groups/_decomp);xref:0x143514780",
-  "notes": "Two-level robin-hood map insert: get-or-create the outer node for u8 outer_key in the map at self+0x20..+0x54 (node pool free list at +0x08, allocator +0x18, 0x60-byte nodes each holding an inner map), then get-or-create the inner node for u8 inner_key (node = key, FixedString64 with cap 0x40 at +0x10, buffer at +0x20) and copy 64 bytes from src+0x18 into it. Rehash/grow via FUN_1435e8400 / FUN_1435e8bd0 at 80 percent load; aborts after 256 failed probes. Better context needed: caller Career_Read_DepartmentSchedules decides whether keys are department id and schedule slot."
+  "proto": "void Career_DepartmentSchedules_SetEntry(void *self, uint8_t outer_key, uint8_t inner_key, void *inline_str64)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143513140 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141221ea0,0x143514780",
+  "notes": "Two-level byte-keyed robin-hood hash map insert. Outer map at self+0x20..+0x54 (mult +0x20, node ptrs +0x28, info bytes +0x30, count +0x38, mask +0x40), nodes of 0x60 bytes from the free list at self+0x8 (allocator self+0x18); each outer node holds an inner map (+0x28..+0x5c, free list +0x10). Inserts the outer node for outer_key if missing, inserts an inner node for inner_key, then copies the 0x40-byte inline string from value+0x18 into node+0x20 (cap 0x40 at +0x10, ptr +0x18). Called by Career_Read_DepartmentSchedules for every (department, slot) pair read from the save, and by 0x141221ea0, which generates schedules per team with a seeded RNG and stores slots 0..5. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "career.department_schedules_set_entry",
