@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142238c60",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
-  "proto": "uint32_t Vm_Read_U32Property_FromNode48(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14223a860 (RacingPC lab re_groups/_decomp);xref:0x142237230,0x142239480",
-  "notes": "Same pattern as the bool reader but for the node handle at self+0x48 and a fixed property name string at 0x14575601e; returns the 32-bit value when the value type id equals the type object at 0x14612bd40, else 0. Better context needed: the string at 0x14575601e and whether the type is int, uint or enum."
+  "proto": "uint32_t Vm_Read_U32Property_FromNode48(void *holder)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14223a860 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142237230,0x142239480",
+  "notes": "Takes the node handle at [holder+0x48]+8 (or k_Vm_EmptyNodeHandle), follows the link chain through node+0x58 vcall +0x38 while node vcall +0x30 is true (max 0x62 hops), binds a temporary intrusive handle with Ne_IntrusiveNode_Reassign and resolves the property named by the string at 0x14575601e with Ne_Property_ResolveBindingChain; if the property is valid (vcall +0x20) and its type id equals that of descriptor 0x14612bd40 it returns the 4-byte value from value vcall +0x38, else 0. Unlinks the temporary handle and calls Vm_Release_Node. Context from caller: Ui_TrackListVm_Init and Game_HotLoadData_ApplySetupSelection both pass self+0x420; the second one tests the result for 0 and otherwise pushes it into a list object with vcall +0x18 (selected index). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.read_u32_property_from_node48",

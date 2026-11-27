@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14248b610",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_CutSceneParams_Format_PlaceholderText(void *a1, void *outStr256, void *ctx, void *src)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14248d210 (RacingPC lab re_groups/_decomp);xref:0x14022ce90",
-  "notes": "If src+0x10 string is empty returns an empty 0x100 inline string. Otherwise fills three placeholder slots with Game_Character_FindPlaceholderSlot (keys at 0x14578de8e, 0x145611084 with ctx+0x310, 0x1456141d2), expands the template string src+0x10 through Game_Text_AssignOrAppendRefString and copies the result (max 255 chars) into outStr256. Context from caller: lead engineer from team."
+  "proto": "void *Game_Format_PlaceholderTemplate_Str256(void *self, void *outStr, void *ctx, void *tmpl)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14248d210 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14022ce90",
+  "notes": "Renamed from Game_CutSceneParams_Format_PlaceholderText: the this pointer is not CutSceneParams (the caller passes a record from another table), so the class prefix was only caller context. If the C string tmpl+0x10 is null or empty it returns an empty 0x100 fixed string in outStr. Else builds a name with 0x14248cf70(self, ctx, buf), registers three placeholders with Game_Character_FindPlaceholderSlot (that name, ctx+0x310, and a third), expands the template through Game_Text_AssignOrAppendRefString and copies at most 0x100 chars to outStr+0x18 (vt 0x145615538). Context from caller: Game_CutSceneParams_SetupLeadEngineerFromTeam calls it with the team member ctx, a record from [mgr+0x450] chosen by ctx+0x560 and that record's template +0x50, then copies the result to params+0x1b0 (lead engineer asset group path). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.cut_scene_params_format_placeholder_text",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143468df0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "-",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346b370 (RacingPC lab re_groups/_decomp);xref:0x1433adef0",
-  "notes": "Particle spawn initialiser with 40 float output pointers (10 vec4 attributes: position, two axes, velocity, scale, random direction, colour-like maxima, constants, size). Mixes Ne_Crt_Rand ranges from tuning globals (DAT_1460f9a30.., DAT_1460d0ca8..) with the shared per-instance float buffer DAT_1460fd6f0 (slot +0xc and +0x1b..+0x25) and interpolated 0x30-byte transforms from DAT_1460fd6b0 (blend DAT_1460fd6a0). Uses helper FUN_14346c8b0 on self+0x58. Context from caller: tyre kickup particle blocks; variant A of three identical templates."
+  "proto": "void Game_Vfx_Compute_ParticleSpawnAttribs_VariantA(void *node, uint64_t a2, uint64_t a3, float *out_pos_x, float *out_pos_y, float *out_pos_z, float *out_pos_w, ...)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346b370 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433adef0",
+  "notes": "Writes 40 float outputs (ten xyzw groups, args 4-43) for one new particle: randomised values from Ne_Crt_Rand scaled between tuning globals (0x1460f9a30.., 0x1460ce8e4.., 0x1460d0ca8..), a position built from two 0x30-stride matrices in the table at 0x1460fd6b0 blended by 0x1460fd6a0 plus a cos/sin offset, random unit vectors, max() of per-wheel floats at 0x1460fd6f0 indices +0x1b..+0x25, and a scalar that uses global table 0x1460c92a0[node+0x34 + 0x271]; clears the sub-node counters at node+0x48..+0x98 and calls FUN_14346c8b0(node+0x58). No return value. Context from caller: Game_Vfx_TyreKickup_UpdateParticleBlocks calls it when the emit accumulator (+0x28) reaches the spawn interval, passing pointers into the particle block (+0x90, +0xd0, +0x110 .. +0x590) for item+0x18; the caller pushes a 44th arg 0x3c888889 that the body does not read. Hook point for kickup particle spawn values. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_compute_particle_spawn_attribs_variant_a",

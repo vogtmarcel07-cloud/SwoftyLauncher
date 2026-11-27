@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144da56e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "int Ne_Ossl_EncoderCtx_SetCleanup(void *ctx, void *cleanup)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da80a0 (RacingPC lab re_groups/_decomp);xref:0x144da8fb0",
-  "notes": "OpenSSL OSSL_ENCODER_CTX setter: stores arg at ctx+0x28 and returns 1; null ctx raises ERR lib 0x3b reason 0xc0102 at line 0x160. Field name (cleanup) inferred from OpenSSL struct order."
+  "proto": "int Ne_Ossl_EncoderCtx_SetCleanup(void *ctx, void *cleanup_fn)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da80a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144da8fb0",
+  "notes": "OpenSSL OSSL_ENCODER_CTX_set_cleanup: null ctx raises ERR lib 0x3b reason 0xc0102 (line 0x160) and returns 0; else writes ctx+0x28 = cleanup_fn and returns 1. Ne_Openssl_Encoder_CtxSetupForPkey installs FUN_144da8f70 with it after the construct callback and data. Not game logic. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_encoder_ctx_set_cleanup",

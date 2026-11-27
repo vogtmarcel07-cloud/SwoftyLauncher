@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142f5a5d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "car",
-  "proto": "float Car_Calc_MassProfileEstimate_ForVehicle(void *ctx, uint8_t vehicle_idx, uint32_t arg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142f5cb60 (RacingPC lab re_groups/_decomp);xref:0x1411830e0,0x14118b860,0x141198bd0,0x14119a400",
-  "notes": "Looks up vehicle entity (ctx+0x38 -> +0x28 array) and its component (type DAT_146ceab00), picks a profile entry from the bitmap-slot table at ctx+0x40 whose +0x60 id equals component+0xab8, else the one named \"default\". Sums mass terms: car+0x540->+0x100, Car_Upgrades_CalcNonLinearMass for the matching upgrade, XOR-obfuscated floats at +0x558->+0x98/+0xa0 squared and a table value (ctx+0x48->+0x38->+0x178->+0x50[idx]); passes the total plus tyre compound (tyre component +0x9c98 -> -0x6c) to FUN_142904cb0 and scales by the XOR-decoded float at +0x548->+0x38/+0x40. Returns 0 for vehicle 0xff or missing data. Context from caller: fuel relevance criterion / fuel dynamic objective. Better context needed: what FUN_142904cb0 evaluates."
+  "proto": "float Car_Calc_MassProfileEstimate_ForVehicle(void *ctx, uint8_t vehicleIdx, uint32_t arg)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142f5cb60 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1411830e0,0x14118b860,0x141198bd0",
+  "notes": "Returns 0 for index 0xff or a missing vehicle. Gets the vehicle's component 0x146ceab00 from [ctx+0x38]+0x28[idx]; picks a profile from the bitmask map [ctx+0x40]+0x38 whose +0x60 equals component+0xab8, else the one named 'default' (or the first). With car = component+0x58: scale = XOR-decoded float [car+0x548]+0x38/+0x40; tyre compound from the tyre component ([+0x9c98]-0x6c, default 1); mass = [car+0x540]+0x100 (KB: FuelTank fuel mass) + Car_Upgrades_CalcNonLinearMass for the entrant's upgrade + square of decoded [car+0x558]+0x98 + squared g_Sess_VehicleTable[idx] value * (table [[ctx+0x48]+0x38]+0x178 entry by clamped level [ctx+0x50]+0x30+0x210) - that square. Returns scale * 0x142904cb0(profile, compound, 1, mass, arg). Context from caller: both Game_FuelRelevanceCriterion_Update variants and Game_FuelDynamicObjective_Activate use the result as a per-lap fuel use prediction that they multiply by laps left and compare with fuel in tank. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "car.calc_mass_profile_estimate_for_vehicle",

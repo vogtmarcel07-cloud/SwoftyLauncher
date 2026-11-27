@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x142002880",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void *Game_CarCustomisation_Apply_PreviewAndCameraLink(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142004480 (RacingPC lab re_groups/_decomp);xref:0x1420043c0",
-  "notes": "Calls Game_SponsorLoadout_ApplyCustomisationPreview on +0xc10, switches main camera to the name picked from vector +0xca8 by a global index, then finds the scene object for id (+0x290)+0x290 in a U16-keyed map and, depending on object flags +0x6a22/+0x6a26, adds or removes the pair {obj+0x7268, its +0x10} in the camera's list (+0x2a0..+0x2b0) found by Game_CameraCollection_FindByName. Decompile is partly obfuscated (opaque constants), treat details as approximate."
+  "proto": "int64_t *Game_CarCustomisation_Apply_PreviewAndCameraLink(void *self)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142004480 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142006fb0",
+  "notes": "Calls Game_SponsorLoadout_ApplyCustomisationPreview(self+0xc10, global 0x146068be8 != -1, global), then picks a camera name from the list self+0xca8..+0xcb0 by index global 0x146068c10 (0 if out of range) and calls Game_FrontendSceneSystem_ChangeMainCamera(self+0x288). Then finds the scene car by u16 id [self+0x290]+0x290 in the map at [[self+0x290]+0x40]+0xf78 and, if car+0x6a22 is set, links (car+0x6a26 != 0) or unlinks its handle car+0x7268 in the 'WritableCamera' list (+0x2a0..+0x2a8, 0x10 entries) and in [car+0x38]+0x80. Caller 0x142006fb0: deferred refresh that runs when dirty byte self+0x5ba is set, calls this and clears self+0xc60. Listed caller 0x1420043c0 shows no call in its decompile (shared tail body). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.car_customisation_apply_preview_and_camera_link",

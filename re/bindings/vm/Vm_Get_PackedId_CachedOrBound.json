@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141897180",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
-  "proto": "void *Vm_Get_PackedId_CachedOrBound(void *obj, void *out_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141898960 (RacingPC lab re_groups/_decomp);xref:0x142239480",
-  "notes": "If obj+100 flag is set returns the cached 4-byte id at obj+0x60. Otherwise follows the node reference chain from obj+0x48 (max 0x62 hops), resolves a bound u16 property (name at 0x14566106d) and unpacks it: out[0] = top 2 bits, out+2 = low 14 bits. Context from caller: hot-load setup selection. Better context needed: the property name string."
+  "proto": "uint8_t *Vm_Get_PackedId_CachedOrBound(void *binding, uint8_t *out)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141898960 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142239480",
+  "notes": "Whole body read. If byte +100 is set, copies the cached u32 at +0x60 to out. Else walks the binding chain from +0x48 (max 0x62 hops), resolves property 0x14566106d (Ne_Property_ResolveBindingChain), reads a u16 and unpacks it: out[0] = v >> 14, u16 out+2 = v and 0x3fff. Caller Game_HotLoadData_ApplySetupSelection reads it from ctx+0x310 and passes the id as arg 6 of Game_HotLoad_Post_SelectionChangeRequest. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.get_packed_id_cached_or_bound",

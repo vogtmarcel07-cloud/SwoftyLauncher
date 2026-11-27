@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1409ed930",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "int32_t Game_MyTeamAttributeSets_Read_FromPropBag(void *self, void *bag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1409ed980 (RacingPC lab re_groups/_decomp);xref:0x141218530",
-  "notes": "Optional u16 property (key 0x145626783) is unpacked into a packed id at self+0xae with flag +0xb2. Then reads a bag list (key 0x145670a6c): for each element reads a 128-char name (key 0x145670ba1), finds the attribute set with that name in the vector self+0x28..+0x30 (16-byte entries, name at **entry) and loads two 4-byte values (keys 0x145672a7c -> set+0x78, 0x145672a87 -> set+0x7c, second optional). Returns 0, or 0x57 (missing) / 0x58 (wrong type) after recording the errno trace."
+  "proto": "int Game_MyTeamAttributeSets_Read_FromPropBag(void *set, void *bag)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1409ed980 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1411375a0,0x141218530,0x14131a0a0",
+  "notes": "Whole body read. Optional u16 field 0x145626783 -> packed id at set+0xae with has-flag +0xb2. Then array field 0x145670a6c: per element reads a 128-char name (0x145670ba1), finds the entry in set+0x28..+0x30 (stride 0x10, name at **entry) and writes int field 0x145672a7c to entry+0x78 and optional 0x145672a87 to entry+0x7c. Returns 0 or 0x57 (missing) / 0x58 (wrong type). Callers: Game_MyTeamAttributeSets_Deserialise per driver/team set; 0x1411375a0: load routine that reads the sub-bag 0x1456c83ad for each handle in +0x5b0; 0x14131a0a0: load routine that reads the same sub-bag into the set at +0x2c0. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.my_team_attribute_sets_read_from_prop_bag",

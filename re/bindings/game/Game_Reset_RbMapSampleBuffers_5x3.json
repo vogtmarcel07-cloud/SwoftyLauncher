@@ -8,8 +8,8 @@
   "level": "L1",
   "subsystem": "game",
   "proto": "void Game_Reset_RbMapSampleBuffers_5x3(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142972f00 (RacingPC lab re_groups/_decomp);xref:0x142972120",
-  "notes": "Calls own vtable+0x140, then walks the red-black map at self+0x398 in order. For each node it resets five groups (node+0x70,+0x80,+0x90,+0xa0,+0xb0): in each of the group's three buffers (+0x8,+0x18,+0x28) zeroes +0x20..+0x38 and +0x3c and sets end=begin (+0x10=+0x8), and zeroes group +0x30/+0x38. Context from caller: practice fuel management settings read; likely per-vehicle sample history."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142972f00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142972120",
+  "notes": "Calls self vtable +0x140, then walks the red-black map at self+0x398 in order; for each node it takes the five objects at node+0x70/+0x80/+0x90/+0xa0/+0xb0 and for each of their three buffers (+0x8, +0x18, +0x28) zeroes +0x20..+0x38 and +0x3c and sets end (+0x10) = begin (+0x8), then zeroes object +0x30/+0x38. The listed caller Game_Read_PracticeFuelManagementSettings (0x142972120) contains the same loop inlined after its own vtable +0x140 call but no direct call was seen, so this is probably a virtual reset method of the same class. Better context needed: the vtable slot that points here. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.reset_rb_map_sample_buffers_5x3",

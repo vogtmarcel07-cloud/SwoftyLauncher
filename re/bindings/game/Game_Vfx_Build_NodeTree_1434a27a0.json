@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1434a0220",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Vfx_Build_NodeTree_1434a27a0(void *self, void *allocator, uint32_t id, void *ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434a27a0 (RacingPC lab re_groups/_decomp);xref:0x1433893d0",
-  "notes": "Node-tree builder with slots self+0x18 and +0x20 and id at +0x10. Embeds one named parameter node (float defaults 50.0/50.0/0.13) initialised by FUN_143467940 plus a 4-deep plain chain. Context from caller: tyre kickup VFX."
+  "proto": "void Game_Vfx_Build_NodeTree_1434a27a0(void *slot, void *allocator, uint32_t index, void *ctx)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434a27a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433893d0",
+  "notes": "Fills one 0x30-byte slot: allocator at +0x08, then allocates (allocator vtable +0x18) a 0x20 node at slot+0x20 holding a 0x68 leaf (ptr 0x145847984, floats 50.0, 50.0, 0.13, init FUN_143467940) and a 0x20 node at slot+0x18 that heads a 0x20/0x20/0x18 chain; each node gets [0]=0, [+8]=allocator, [+0x10]=index. Ends with slot+0x10=index, slot+0=0. Context from caller: Game_Vfx_TyreKickup_Update calls it per element of the 0x30-stride array at owner+0x1d8 (count +0x1e0) after allocating it. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_build_node_tree_1434a27a0",

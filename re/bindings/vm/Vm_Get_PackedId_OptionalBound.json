@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1418973e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "vm",
-  "proto": "void *Vm_Get_PackedId_OptionalBound(void *obj, void *out_opt)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141898bc0 (RacingPC lab re_groups/_decomp);xref:0x142239480",
-  "notes": "Optional variant of 0x141898960: when obj+100 flag is clear writes has_value=0 (out+4); otherwise resolves the same bound u16 property through the node chain at obj+0x48 and writes (low14 << 16) | top2 with has_value=1. Context from caller: hot-load setup selection."
+  "proto": "uint32_t *Vm_Get_PackedId_OptionalBound(void *binding, uint32_t *out)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141898bc0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142239480",
+  "notes": "Whole body read. If byte +100 is 0, writes has-flag out+4 = 0 and returns. Else resolves the same bound u16 property as 0x141898960 (chain from +0x48, property 0x14566106d) and writes out[0] = (v and 0x3fff) << 16 or (v >> 14) with has-flag out+4 = 1. Caller Game_HotLoadData_ApplySetupSelection reads it from ctx+0x310 and passes the optional id as arg 7 of Game_HotLoad_Post_SelectionChangeRequest. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "vm.get_packed_id_optional_bound",

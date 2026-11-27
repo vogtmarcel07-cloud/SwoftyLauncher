@@ -7,9 +7,9 @@
   "addr": "0x1403a0c40",
   "level": "L1",
   "subsystem": "car",
-  "proto": "void Car_Visual_Compute_PartVibrationEnvelope(void *self, int32_t id, uint32_t partIdx, uint32_t slotIdx, uint64_t a5, float dt, float k1, float t1, float k2, float t2, float ampA, float ampB, float ampC, float edgeMid, float edgeEnd, uint32_t boneIdx, uint8_t scaleBySpeed)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1403a0c80 (RacingPC lab re_groups/_decomp);xref:0x14039f9a0",
-  "notes": "Runs only if +0x1ad4 == id. Accumulates dt into part timer +0x5d4+part*0x50, gets min/max time range from the part's track objects, and when the timer passes the end clears +0x1adc=0x1e and +0x1ad0. Otherwise builds sine-window envelopes (pow of 1-sin), writes weights to +0x600+part*0x50 and +0x1380+slot*0x48, offsets to +0x1b60..+0x1b68 or +0x1b70..+0x1b78 depending on side table +0xec8, and a clamped scale to +0x1ac4 or +0x1ac8. Reads +0xff4 as signed drive value."
+  "proto": "void Car_Visual_Compute_PartVibrationEnvelope(void *vis, int32_t id, uint32_t part_idx, uint32_t slot_idx, void *out, float dt, float k_a, float off_a, float k_b, float off_b, float amp_z, float amp_y, float amp_x, float mid_margin, float edge_margin, uint32_t bone_idx, uint8_t scale_by_input)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1403a0c80 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14039f9a0",
+  "notes": "Whole body read. Runs only when vis+0x1ad4 == id and part +0x5e0[part*0x50] and slot +0x137c[slot*0x48] are valid. Advances timer +0x5d4[part*0x50] by dt; when it passes the max duration reported by the part's tracks (vcall +0x20) resets it and sets +0x1adc = 0x1e, +0x1ad0 = 0, +0x1ae8 = 0. Otherwise writes sine-shaped fade weights (1 - pow(1 - sin, n)) to +0x600[part] and +0x1380[slot], scaled by a factor from abs(+0xff4) and side +0xec8[part]; stores out ptr at +0x1ae0, offsets amp*weight to +0x1b60..+0x1b68 or +0x1b70..+0x1b78 by side and a 0..1 weight to +0x1ac8 or +0x1ac4; skips offsets when two bone positions (bone_idx vs +0x10b0/+0x10b4) are within 0.01. Context from caller: Car_Visual_UpdatePartVibration (itself L1) calls it 10 times with fixed ids 1..9 and constants. The timer/duration/side logic looks like a one-shot timed animation blend rather than vibration. Better context needed: what sets +0x1ad4 and what +0xff4 is; name kept, stays L1. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "car.visual_compute_part_vibration_envelope",

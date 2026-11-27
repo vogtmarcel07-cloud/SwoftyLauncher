@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14346a590",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Vfx_Compute_EmissionRate_VariantA(void *self, void *unused, float *out_rate)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346cb10 (RacingPC lab re_groups/_decomp);xref:0x1433adef0",
-  "notes": "Writes one float: 0 unless DAT_145f97c74 is set; otherwise a saturate-remapped abs value of shared buffer slot +0xc (thresholds DAT_1460d0cdc/DAT_1460ce8c4) combined with FUN_14346c8b0 output and distance fades between interpolated transform positions and a reference point, times scale constants and table DAT_1460c92a0[self+0x34 + 0x271], clamped to 500.0 and multiplied by DAT_145f97c78. Context from caller: tyre kickup particle blocks."
+  "proto": "void Game_Vfx_Compute_EmissionRate_VariantA(void *node, void *unused, float *out_rate)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346cb10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433adef0",
+  "notes": "Returns one float in *out_rate: if byte 0x145f97c74 is set, clamp01 of a blend (selector int 0x1460c8f08) of distance-falloff terms between interpolated matrix translations in the 0x1460fd6b0 table and the position at 0x1460fd6f0[0x1460fd6c8+5..7], scaled by a remap of abs(per-wheel float at index +0xc) between 0x1460d0cdc and 0x1460ce8c4, by FUN_14346c8b0(node+0x58) output, by 0x1460ce8c0, by table 0x1460c92a0[node+0x34 + 0x271] and 0x1460c9c60, capped at 500.0; else 0. Result is then multiplied by 0x145f97c78. Context from caller: Game_Vfx_TyreKickup_UpdateParticleBlocks calls it first for item+0x18 with out = node+0x20 and compares the result with 1e-08 to decide whether to emit; spawn interval is 1/rate. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_compute_emission_rate_variant_a",

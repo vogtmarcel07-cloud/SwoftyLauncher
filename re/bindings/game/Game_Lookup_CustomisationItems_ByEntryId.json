@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1401aff40",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_Lookup_CustomisationItems_ByEntryId(void *out, uint8_t entry_id)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1401aff40 (RacingPC lab re_groups/_decomp);xref:0x1401aae90",
-  "notes": "Clears three optional flags in out (+0x30, +0x68, +0xa0); 0xff id returns. Looks entry_id up in an FNV-hashed map inside g_Game_Manager+0x290 (buckets +0x658, mask +0x670) to get a (type byte, index) pair, finds the matching 0x108 customisation record (type +0x100, index +0x102) in the per-type list at +0x2f8, then queries g_FeTile_CustomisationSystem catalogs (+0x38 + type*0x10) for its tag 3 and tag 2 items and fills out+0x0 and out+0x38 item refs (guid, id) setting their flags. Context from caller: driver setup resolve, record is probably the team customisation."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1401aff40 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1401aae90",
+  "notes": "Clears the valid flags out+0x30, +0x68, +0xa0 and returns at once for entry_id 0xff. Looks entry_id up (FNV-1a) in the hash map at [g_Game_Manager+0x290]+0x640/+0x658/+0x670 to get a 4-byte id (type byte below 3, index in the high word), finds the record with that id (+0x100/+0x102) in the table [+0x2f8 + type*0x10], and resolves two item ids of the record (+0x40 and +0x10) through g_FeTile_CustomisationSystem (+0x38 + type*0x10, vcall +8). First hit fills out+0x00..+0x2c (id at +0x10, 0x14 bytes from item+0x58) and sets out+0x30; second fills out+0x38..+0x64 (from item+0x24) and sets out+0x68. Returns out. Context from caller: Wear_Spawner_ResolveDriverSetup uses it for the suit/gloves fallback (log text about driver customisation), tests out+0x30 and copies the first item, or passes out to 0x1401b0360. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.lookup_customisation_items_by_entry_id",

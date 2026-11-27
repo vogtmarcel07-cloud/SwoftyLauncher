@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144da44a0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "void Ne_Ossl_Encoder_DoAllProvided(void *libctx, void (*fn)(void *, void *), void *arg)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da6e60 (RacingPC lab re_groups/_decomp);xref:0x144da8fb0",
-  "notes": "OpenSSL OSSL_ENCODER_do_all_provided. Runs the inner encoder fetch with id 0 to force provider loading, iterates the temp method store (if any) and the libctx data slot index 10 store with callback FUN_144da7ca0, then frees the temp store."
+  "proto": "void Ne_Ossl_Encoder_DoAllProvided(void *libctx, void (*fn)(void *encoder, void *arg), void *arg)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da6e60 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144da8fb0",
+  "notes": "OpenSSL OSSL_ENCODER_do_all_provided: builds a method-data struct for libctx, runs FUN_144da79e0(data,0,0,0) to load all encoders, iterates the temporary store (if created) and the libctx store from FUN_144ca0250(libctx,10,..) with FUN_144f8b9c0 using trampoline FUN_144da7ca0 and the {fn,arg} pair, then frees the temporary store with Ne_Ossl_MethodStore_Free. Ne_Openssl_Encoder_CtxSetupForPkey calls it twice with FUN_144da8cf0 (collect matching encoders, second pass with flag bit set). Not game logic. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_encoder_do_all_provided",

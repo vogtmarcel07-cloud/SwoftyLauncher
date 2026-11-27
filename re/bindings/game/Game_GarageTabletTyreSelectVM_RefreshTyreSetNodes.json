@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141fa9110",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_GarageTabletTyreSelectVM_RefreshTyreSetNodes(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141faad10 (RacingPC lab re_groups/_decomp);xref:0x141faa0f0",
-  "notes": "Stores the local player slot at vm+0x680, the player vehicle index at +0x6f8 and the tyre component at +0x688. When the component has an inventory (+0x9c68) it gathers two tyre-set lists (FUN_141fabe40 with flag 0 and 1), creates on first use the node holder at vm+0x718 with two Game_GarageTabletTyreSelectVM_BuildSetToggleNodes lists and a \"selection\" ref, and creates or updates the \"currently_fitted\" node ref (holder at vm+0x728) to point at the list element for the fitted set."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141faad10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141faa0f0",
+  "notes": "Whole body read. Writes vm+0x680 (player slot flag), vm+0x6f8 (Sess_Get_PlayerVehicleIndex) and vm+0x688 (tyre component of that vehicle, needs +0x9c68 != 0). Builds two tyre-set lists (FUN_141fabe40 kind 0 and 1); on first use allocates the 0x40 holder at vm+0x718 with two 0xa0 toggle node groups (Game_GarageTabletTyreSelectVM_BuildSetToggleNodes) and a 'selection' node ref; creates or updates the 'currently_fitted' node ref object at vm+0x728. Caller BuildNodes calls it first and bails out if +0x688, +0x718 or +0x728 is still null. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.garage_tablet_tyre_select_vm_refresh_tyre_set_nodes",

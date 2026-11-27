@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1411cdca0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_Rebuild_ReflectedFieldRecord_Self(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1411ce2e0 (RacingPC lab re_groups/_decomp);xref:0x1411d5ea0",
-  "notes": "Destroys all entries of the writer array at +0x2c8 (count u16 at +0x2d0, allocator at +0x2c0) and resets the count, then writes one reflected field (name 0x14568ddb0, type global 0x14612bf08) with value from self vfunc +0x8 via Gdb_Write_ReflectedFieldA, appends it and calls self vfunc +0x10 with the writer. Context from caller: engine management on race session end."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1411ce2e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1411d5ea0",
+  "notes": "Destroys the u16-counted record array self+0x2c8 (count +0x2d0; each record: type vfunc+0x20, destructor, free through the writer allocator at self+0x2c0) and zeroes the count. Then takes value = self vfunc+8(), calls Gdb_Write_ReflectedFieldA(self+0x2c0, name 0x14568ddb0, type 0x14612bf08, &rec); on success initialises rec (type vfunc+0x50), stores the value (rec vfunc+0x40), appends rec to the array and calls self vfunc+0x10(self, writer, &tmp). Context from caller: Game_EngineMgmt_OnRaceSessionEnded calls it as its last step on the engine management component. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.rebuild_reflected_field_record_self",

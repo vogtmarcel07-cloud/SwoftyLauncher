@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144ce2370",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "audio",
-  "proto": "void *Snd_Job_ScheduleWithDependency(void *out, int64_t *job_handle, uint32_t tag, int64_t dependency)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144ce4d30 (RacingPC lab re_groups/_decomp);xref:0x144d18c80,0x144d1a140",
-  "notes": "Wwise job scheduler helper (inferred). Writes tag and the handle into out; if dependency != -1 links it via FUN_144ce6140. Then for the handle (low 12 bits index a 0x38 byte job table at global 0x145fbf3d8) atomically clears the top bit of the state word +0x30; if the remaining count is 0 enqueues the job to its queue (+0x1c, 4 queues) via FUN_144ce5840 and wakes that queue (FUN_144ce5f30)."
+  "proto": "void *Snd_Job_ScheduleWithDependency(void *out_handle, int64_t *jobs, uint32_t count, int64_t dependency)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144ce4d30 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1449f26ba,0x144cf7010,0x144cf7bf0",
+  "notes": "Writes out_handle = {count at +0, jobs[0] at +8}. If dependency is not -1 it first links the job to it with 0x144ce6140(jobs, dependency). Then for the single job handle it takes pool slot (handle and 0xfff) * 0x38 from the pool at [0x145fbf3d8], atomically clears bit 31 of slot+0x30 (hold flag) and, when the remaining count is 0, queues the job with 0x144ce5840(handle, queue index slot+0x1c) and wakes each touched queue (0..3) with 0x144ce5f30; without a dependency a queue is only woken when its counter at 0x145fbf3e8[i] is 0. Returns out_handle. Callers 0x144cf7010 (4 jobs) and 0x144cf7bf0 (3 jobs) chain jobs: each call passes the +8 handle of the previous result as dependency, the first one uses the handle from 0x144ce4bb0; caller 0x1449f26ba is the tail part of 0x1449f2522 and schedules its job the same way. Nothing in the body is audio specific; the subsystem is kept from the first pass. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "audio.job_schedule_with_dependency",

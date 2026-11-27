@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14346d890",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Vfx_Compute_EmissionRate_VariantB(void *self, void *unused, float *out_rate)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346fe10 (RacingPC lab re_groups/_decomp);xref:0x1433adef0",
-  "notes": "Same code as 0x14346cb10 with constants DAT_1460d0d24..d34, DAT_1460ce948..95c, toggles DAT_1460c8f48..f50 and helper FUN_14346fbb0; output clamped to 500.0 and scaled by DAT_145f97c78. Context from caller: tyre kickup particle blocks."
+  "proto": "void Game_Vfx_Compute_EmissionRate_VariantB(void *node, void *unused, float *out_rate)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346fe10 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433adef0",
+  "notes": "Same body as VariantA with tuning globals 0x1460d0d24..0x1460d0d34, 0x1460ce948..0x1460ce95c, selector ints 0x1460c8f48/4c/50 and helper FUN_14346fbb0(node+0x58): writes *out_rate = clamp01(distance and slip terms) * scale globals * table 0x1460c92a0[node+0x34 + 0x271], capped at 500.0, times 0x145f97c78; 0 when byte 0x145f97c74 is clear. Context from caller: Game_Vfx_TyreKickup_UpdateParticleBlocks calls it for the node at item+0x20 with out = node+0x20 and tests the rate against 1e-08 before emitting. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_compute_emission_rate_variant_b",

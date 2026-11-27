@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1428ac180",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_FrontendSceneCar_Toggle_Handle208(void *self, uint8_t enable)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428ae540 (RacingPC lab re_groups/_decomp);xref:0x1428ad5b0,0x142900500",
-  "notes": "enable == 0: destroys the 0x10-byte helper at +0x208 (allocator +0x200) and nulls both. enable != 0 and none present: allocates the helper (vtable 0x1458ea708) from allocator +0x30, creates a handle from the global service 0x146c641e0 (type 0x1464d4748), stores it, and if (+600 decimal) object exists sets constants at +0x210..+0x240 (1.4, 0.5, 2.8, and its +0x28 minus 0.5) and uploads its 16 bytes at +0x18. Better context needed: what service 0x146c641e0 is (looks like a light or shadow proxy tied to car visibility)."
+  "proto": "void Game_FrontendSceneCar_Toggle_Handle208(void *self, char enable)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1428ae540 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1428ad5b0,0x142900500",
+  "notes": "enable == 0: destroys the object self+0x208 (vfunc+8) and frees it through self+0x200, nulls both. enable != 0 and no object yet: allocates 0x10 bytes from self+0x30 (vt 0x1458ea708), creates a resource from global manager 0x146c641e0 with descriptor 0x1464d4748 into obj+8, stores obj at +0x208 and the allocator at +0x200; if node self+0x258 exists it sets params +0x210 = 1.4f, +0x224 = 0.5f, +0x238 = 2.8f, +0x240 = vector with [node+0x28] - 0.5 and uploads 16 bytes node+0x18..+0x20 into the resource (manager vfunc+0x20 map, +0x30 unmap). Context from caller: Game_FrontendSceneCar_SetVisibilityInternal calls it on the sub-object car+0x7258 with the visible flag; Game_Setup_FrontendCarFromVtf calls it with 1 on its own this when +0x258 is set and +0x208 is null, so self is that car sub-object, not the scene car itself. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.frontend_scene_car_toggle_handle208",

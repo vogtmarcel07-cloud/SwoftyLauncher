@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1448ff220",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
   "proto": "void *Ne_Ossl_EvpMd_Fetch(void *libctx, const char *algorithm, const char *properties)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144901be0 (RacingPC lab re_groups/_decomp);xref:0x1452a2210,0x1452a4740,0x1452a49a0,0x1452a65d0",
-  "notes": "OpenSSL EVP_MD_fetch. Forwards to the generic EVP fetch (Ne_Unk_144c956a0) with operation id 1 (digest) and three method callbacks (construct FUN_144902860, up_ref 0x144902de0, free FUN_144902df0)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144901be0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1449e9400,0x1449e9606,0x1449ea74e",
+  "notes": "Forwards to the generic fetch Ne_Unk_144c956a0(libctx, 1, algorithm, properties, new=0x144902860, up_ref=0x144902de0, free=0x144902df0) where 1 is the digest operation id; matches OpenSSL EVP_MD_fetch. Caller 0x1449ea74e is do_sigver_init (string crypto\\evp\\m_sigver.c) and stores the result at ctx[8], falling back to a by-name lookup when it is null; callers 0x1449e9400 and 0x1449e9606 fetch a digest by the name buffer filled just before, free it again with Ne_Ossl_EvpMd_Free and then use the libctx name map to walk the names. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_evp_md_fetch",

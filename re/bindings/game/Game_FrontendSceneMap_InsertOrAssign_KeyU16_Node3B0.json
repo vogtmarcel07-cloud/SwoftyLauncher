@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1429f70c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_FrontendSceneMap_InsertOrAssign_KeyU16_Node3B0(void *map, void *outPair, uint8_t *key, void *value)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429f9480 (RacingPC lab re_groups/_decomp);xref:0x1428deb70,0x1428e3300,0x1428e4e50,0x1428e6180",
-  "notes": "Chained hash map insert-or-assign keyed by u16 (node 0x3b0 bytes, key at +0x10, value at +0x18). Value has two optional sub-objects (flag at value+0x190 copied via 0x140c83880, flag at value+0x358 copied via 0x1416d39f0), two ref-counted strings (+0x360, +0x380), 24 bytes at +0x368, u16 at +0x388 and u64 at +0x390. Rehashes when load factor (float at map+0) is exceeded. Writes {node, inserted flag} to outPair. Context from caller: per-driver frontend scene data."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1429f9480 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1428deb70,0x1428e3300,0x1428e4e50",
+  "notes": "std unordered_map insert_or_assign with a u16 key (FNV-1a over 2 bytes), list sentinel map+0x10, size +0x18, buckets +0x28, mask +0x40. Hit: assigns the value in place (optional block +0x18 with flag +0x1a8, optional block +0x1b0 with flag +0x370, ref strings +0x378 and +0x398, 0x18 bytes +0x380, u16 +0x3a0, u64 +0x3a8) and returns {node, 0}. Miss: allocates a 0x3b0 node, copy-constructs the same fields, rehashes when the load factor map+0 is exceeded, links the node and returns {node, 1}. Context from caller: Game_FrontendSceneManager_SetupDriverInternal, SetDriverVisible and SetDriverAnimationOverlay store pending driver changes in the map mgr+0x7068 keyed by driver id (u16 at params+0xb8) when the scene is not ready ('Added Pending Changes'). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.frontend_scene_map_insert_or_assign_key_u16_node3_b0",

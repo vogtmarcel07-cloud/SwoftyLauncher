@@ -8,8 +8,8 @@
   "level": "L1",
   "subsystem": "game",
   "proto": "void Game_GarageMonitorTyreSelectVM_ShowProgrammeConfirm(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141f92ef0 (RacingPC lab re_groups/_decomp);xref:0x141f95a60",
-  "notes": "Queries an object at career+0xe40 (vtable+0x10) and builds a message id with snprintf from the programme name table at 0x145771078 indexed by vm+0x6e0 (0..5), using one of two format strings (0x145763cb1 with an extra suffix when the query returns 0, else 0x145763ca6). Displays it via Game_UiMessage_DisplayMessage with callback Game_GarageMonitorTyreSelectVM_OnTrackStateEvent and stores the handle at vm+0x6230. Better context needed: the two format strings."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141f92ef0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141f95a60",
+  "notes": "Whole body read. Calls vfunc +0x10 on the object at game(+0x648 -> +0x88 -> +0x260)+0xe40; result picks one of two snprintf formats (0x145763cb1 with extra suffix 0x14576f600, or 0x145763ca6), the %s arg is table 0x145771078[vm+0x6e0] (index < 6). Copies the id into an inline 128 string and calls Game_UiMessage_DisplayMessage with callback Game_GarageMonitorTyreSelectVM_OnTrackStateEvent, listener handle kept at vm+0x6230. Context from caller: OnTyreSetCommand shows it when the set is not heavily worn and the weather class matches (else the worn or weather warning). Message text not visible, so Confirm stays unproven; calls from 0x141f92ba0 and 0x141f92c70 were not seen in their decompiles. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.garage_monitor_tyre_select_vm_show_programme_confirm",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14295e240",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "uint32_t Game_PracticeFuel_Get_RaceLapCount(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142960600 (RacingPC lab re_groups/_decomp);xref:0x142972120",
-  "notes": "Gets the current game mode (self+0x1e0 -> +0x88 -> +0x260), finds the index of the session with byte key 1 (else 2) through Game_TyreAllocation_FindIndexByByteKey on the weekend data (+0x240), locates the matching track record (mode +0x1eb list, 0x30 stride) and its layout entry, then returns Game_RaceLength_ComputeLapCount(base laps from layout +0xe0 table[index], session +0x28, session +0x34). Returns 0 when any lookup fails. Good hook to read the race distance used for practice fuel targets."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142960600 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142972120,0x14298eaa0",
+  "notes": "Walks self+0x1e0 -> +0x88 -> +0x260 (game mode, type-checked), takes the sub-object at +0x1030 (vtable +0x90) and finds the session index for key 1 or else 2 in the table at +0x240, matches the current track entry in the list at mode+0xf58 (+0x68..+0x70, stride 0x30), then returns Game_RaceLength_ComputeLapCount(track lap value[index], session byte +0x28, byte +0x34); 0 when anything is missing. Caller Game_Read_PracticeFuelManagementSettings stores the result at self+0x2fc; caller 0x14298eaa0 (reads another practice programme's settings: difficulty_mult, target_time_mult) stores it at self+0x4cc. Context from caller: PracticeFuel is only one of the two users. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.practice_fuel_get_race_lap_count",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140a00fc0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "audio",
-  "proto": "void Snd_AudioF1Car_Update_StateFlagEvents(void *self, uint8_t active)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140a01010 (RacingPC lab re_groups/_decomp);xref:0x142bebe60",
-  "notes": "Needs +0xf80, +0xf88 and audio object +0xe28. Latches bit 4 of +0xff9 when (+0xf80)+0x18 == 2 and its +0xa5 is 0 and posts event 0x14566940d (if +0x6c == 0); clears it when the state is < 2. Latches or clears bit 8 from ((+0xf88)+0x1988 & 1), setting a switch (0x146052910 to 0x146052918 or 0x146052914) and posting event 0x145669424. Finally sets or clears parameter 0x146052924 on +0xe20 (1.0 with 0.8 extra arg when active). Context from caller: Game_DRS_UpdateCars, so +0xf80 is likely the car DRS state."
+  "proto": "void Snd_AudioF1Car_Update_StateFlagEvents(void *car_audio, char active)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140a01010 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142bebe60",
+  "notes": "Needs car_audio+0xf80, +0xf88 and the sound object +0xe28. Latch bit 4 of +0xff9: set when [+0xf80]+0x18 == 2 and [+0xf80]+0xa5 == 0 (posts event string 0x14566940d via vfunc+0x10 unless +0x6c != 0), cleared when that state is < 2. Latch bit 8: set when [+0xf88]+0x1988 bit 0 is on, cleared when the bit is off or state <= 1; each change sets switch 0x146052910 to 0x146052918 (on) or 0x146052914 (off) via vfunc+0x50 and posts event 0x145669424. Finally on the object +0xe20: active == 0 -> vfunc+0x68(id 0x146052924, 0), else vfunc+0x58(id, 1.0f, 0, 0.8f, 0). Context from caller: Game_DRS_UpdateCars calls it per car with the wing's audio pointer (wing+0x90) and active = (wing state +0x18 == 4). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "audio.audio_f1_car_update_state_flag_events",

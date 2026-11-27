@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14346c0f0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "-",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346e670 (RacingPC lab re_groups/_decomp);xref:0x1433adef0",
-  "notes": "Same code as 0x14346b370 with a different tuning-constant block (DAT_1460f2fb0, DAT_1460f9a90.., DAT_1460d0d00.., toggles DAT_1460c8f38..f44) and helper FUN_14346fbb0. Context from caller: tyre kickup particle blocks."
+  "proto": "void Game_Vfx_Compute_ParticleSpawnAttribs_VariantB(void *node, uint64_t a2, uint64_t a3, float *out_pos_x, float *out_pos_y, float *out_pos_z, float *out_pos_w, ...)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14346e670 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433adef0",
+  "notes": "Same body as VariantA line for line, with a different tuning block (0x1460f2fb0.., 0x1460f9a90..0x1460f9ad8, 0x1460ce96c..0x1460ce980, 0x1460d0d00..0x1460d0d20, selector ints 0x1460c8f38..0x1460c8f44) and helper FUN_14346fbb0(node+0x58): writes the 40 float outputs (args 4-43) for one new particle from Ne_Crt_Rand ranges, blended matrices of the 0x1460fd6b0 table and per-wheel floats at 0x1460fd6f0. Context from caller: Game_Vfx_TyreKickup_UpdateParticleBlocks calls it for the node at item+0x20 when the emit accumulator reaches the spawn interval, with output pointers into the particle block. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_compute_particle_spawn_attribs_variant_b",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ba54d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "uint32_t Game_InstantRace_Find_ByteOptionByText(void *self, void *str_ref)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ba54b0 (RacingPC lab re_groups/_decomp);xref:0x141c2db00",
-  "notes": "Iterates the bitmap-slot set at self+0x2c0/+0x2c8 (count +0x2d0, 2-byte entries, first byte is the value), formats each byte value with Ui_Format_NumberText_KMSuffix and compares it (length, hash, strcmp) with the given string; returns the matching byte value or 0xff. Releases the string reference passed in. Better context needed: what the byte set holds."
+  "proto": "uint32_t Game_InstantRace_Find_ByteOptionByText(void *self, void **text)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ba54b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c2db00",
+  "notes": "Whole body read. Iterates the bitmask hash set at self+0x2c0 (entries, 2 bytes each) / +0x2c8 (occupancy words) / +0x2d0 (count); formats each byte key with Ui_Format_NumberText_KMSuffix and compares it with the NeStr in *text (hash at +6, then strcmp). Returns the byte key or 0xff; releases *text. Caller Game_InstantRaceSetup_OnCommandRaised stores the result at item+0x52 when the option string is neither of the two fixed values (mode byte 2). (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.instant_race_find_byte_option_by_text",

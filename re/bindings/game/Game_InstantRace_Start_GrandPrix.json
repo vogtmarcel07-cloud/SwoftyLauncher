@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ba5250",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_InstantRace_Start_GrandPrix(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ba5230 (RacingPC lab re_groups/_decomp);xref:0x141c2db00",
-  "notes": "Finds the game mode satisfying Game_GameMode_IsGrandPrix via Career_Find_CareerSaveByPredicate (self+0x4c8); returns if none. Otherwise runs Game_InstantRace_Launch, Game_InstantRace_Apply_SetupMode, Game_InstantRace_SetupTrackList, FUN_140ba3360, Game_Settings_ResetWeatherTimeOfDayOverrides, applies the static entrants UI selection state, stops a pending async job, makes the mode current with Game_Game_SetCurrentGameMode if it is not already and calls its vtable +0xe8 and +0x60."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ba5230 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142259590",
+  "notes": "Whole body read. Finds the game mode via Career_Find_CareerSaveByPredicate((self+0x4c8), Game_GameMode_IsGrandPrix); returns if none. Then Game_InstantRace_Launch, Apply_SetupMode, SetupTrackList, FUN_140ba3360, Game_Settings_ResetWeatherTimeOfDayOverrides, Game_EntrantsUi_ApplySelectionState on static 0x146050ac0, stops an async job, Game_Game_SetCurrentGameMode(mode+0xf08) if not already current, then mode vfuncs +0xe8 and +0x60. Caller 0x142259590: UI command handler of the screen that owns the instant race object at +0x628, calls it when the command string equals 0x145778e40. Call from 0x141c2db00 was not seen. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.instant_race_start_grand_prix",

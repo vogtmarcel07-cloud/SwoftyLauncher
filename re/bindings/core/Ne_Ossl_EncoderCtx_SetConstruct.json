@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144da5620",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "int Ne_Ossl_EncoderCtx_SetConstruct(void *ctx, void *construct)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da7fe0 (RacingPC lab re_groups/_decomp);xref:0x144da8fb0",
-  "notes": "OpenSSL OSSL_ENCODER_CTX setter: stores arg at ctx+0x20 and returns 1; null ctx raises ERR lib 0x3b reason 0xc0102 (passed null) at line 0x14a. Field name (construct) inferred from OpenSSL struct order."
+  "proto": "int Ne_Ossl_EncoderCtx_SetConstruct(void *ctx, void *construct_fn)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da7fe0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144da8fb0",
+  "notes": "OpenSSL OSSL_ENCODER_CTX_set_construct: null ctx raises ERR lib 0x3b reason 0xc0102 (passed null, source line 0x14a) and returns 0; else writes ctx+0x20 = construct_fn and returns 1. Ne_Openssl_Encoder_CtxSetupForPkey installs FUN_144da8eb0 with it when the ctx has encoders. Not game logic. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_encoder_ctx_set_construct",

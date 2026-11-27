@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1420572d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_MyTeamSetup_Assign_DriverCustomisation(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142058ed0 (RacingPC lab re_groups/_decomp);xref:0x142057170",
-  "notes": "Driver counterpart of 0x1420589d0: if the stored driver customisation key (0x14606f424) is invalid it gets the driver customisation via FUN_1416e7570 and Wear_Get_DriverCustomisation_Thunk and reads the key at +0xc540, else reuses the stored key. Writes g_FeTile_DriverCustomisationKey, records it by team id and entity id in the map at (self+0x2b8)+0x70 and posts the same bus message (vtable 0x1456e7c20)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x142058ed0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142057170",
+  "notes": "Whole body read. Lazy-inits static g_Game_MyTeamSetupData. If the stored key 0x14606f424 is unset (high word 0x3fff): builds a key from self+0x358 and 0x14606f354 (FUN_1416e7570), gets the driver customisation (Wear_Get_DriverCustomisation_Thunk on self+0x2b0) and takes its key at +0xc540. Records key in the map (self+0x2b8)+0x70 [u32 (self+0x2d8)+0x2a8][u64 id from mode child +0x280], posts a bus message, writes g_FeTile_DriverCustomisationKey and 0x14606f424. Caller Game_MyTeamSetup_FlowMain: step 3, and step 4 when the record key (+0xe6) is still 0x3fff. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.my_team_setup_assign_driver_customisation",

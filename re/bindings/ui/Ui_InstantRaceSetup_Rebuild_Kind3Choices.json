@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141c2c930",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
   "proto": "void Ui_InstantRaceSetup_Rebuild_Kind3Choices(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c2e530 (RacingPC lab re_groups/_decomp);xref:0x141c2db00",
-  "notes": "When (vm+0x270)->+0x80->+0x38 exists: clears the choice list of option kind 3 (map at +0x20), gets parallel display-name and value string vectors from FUN_140ba6bd0 (instant race object vm+0x2c0), creates one child per entry with \"display_name\", \"value\" and \"enum_value\"=index, selects element 0, calls FUN_141c2ff20 and resets instant race +0x2a1=0 and +0x2a2=0x3fff0000 (invalid packed id). Better context needed: FUN_140ba6bd0 to say which list (likely drivers) this is."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c2e530 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c2db00",
+  "notes": "Whole body read. Gets the kind 3 item (FUN_141e5b3e0 with key 3), clears its list node +0x28, asks the model (vm+0x2c0) for two NeStr vectors via FUN_140ba6bd0, and adds one child per entry with 'display_name', 'value' and 'enum_value' = index; points the item's selected ref +0x48 at element 0, frees the vectors, calls FUN_141c2ff20(vm, firstItem+0x38) and resets model +0x2a1 = 0, +0x2a2 = 0x3fff0000. Caller Game_InstantRaceSetup_OnCommandRaised calls it after the setup mode string changed. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.instant_race_setup_rebuild_kind3_choices",

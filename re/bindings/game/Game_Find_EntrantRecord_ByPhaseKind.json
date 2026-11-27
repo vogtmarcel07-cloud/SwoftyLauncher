@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x140ab5c50",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "uint8_t *Game_Find_EntrantRecord_ByPhaseKind(void *mgr, uint32_t entrant_id, uint8_t kind, uint64_t opt_index)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ab5ca0 (RacingPC lab re_groups/_decomp);xref:0x1407bb700",
-  "notes": "Switch on kind 0..3. Kinds 1/3 resolve an index via Game_TyreAllocation_FindIndexByByteKey(mgr+0x240, key 1|2 or 5) (overridable by opt_index hi-dword flag), find record with id==index+0xf in vector +0x220..+0x228 (stride 0xa0), match entrant id (lo byte + hi word, 0x3fff = none) in +0x20..+0x28 and return the 0x60-byte entry from +0x70..+0x78 that matches via Sess_Match_EntrantIdentity_Thunk. Kinds 0/2 use the rb-tree at +0x488 (byte key) and a temp copy of the pointer vector +0x288..+0x290. Decompile tail is merged with a neighbour body, so details are approximate. Context from caller: SeasonUI championship variables."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x140ab5ca0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1407bb700,0x140a84690,0x140a84870,0x140f4b5d0",
+  "notes": "Switch on kind 0..3: kinds 0/2 pick the node with byte key <=1 / <=2 from the map at mgr+0x488, copy the pointer vector at +0x288..+0x290, find the entry whose +0x50/+0x52 match entrant_id lo byte / hi word (0x3fff = invalid) and return the matching 0x58-byte EntrantRecord from the node list (+0x30..+0x38); kinds 1/3 resolve a session index (keys 1 or 2 / key 5 in the table at +0x240, or opt_index when its bit 32 is set), find the 0xa0-byte session row at +0x220 with +0x8 == index+0xf and return the 0x60-byte result row (+0x70..+0x78) whose identity at +0x10 matches. Returns 0 if not found. Callers: Game_SeasonUI_SetupChampionshipVariables compares the first int of the row (position, default 0x1c) between player and team-mate for kinds 0 and 1; 0x140a84690/0x140a84870 count kind-1 rows whose +0x8 == 5 over all events; 0x140f4b5d0 returns the position difference between two events. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.find_entrant_record_by_phase_kind",

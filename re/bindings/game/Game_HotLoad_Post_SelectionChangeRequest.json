@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14291a320",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_HotLoad_Post_SelectionChangeRequest(void *self, const char *name, void *a, void *b, void *c, uint32_t id, const void *opt_id, uint8_t flag)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14291c6e0 (RacingPC lab re_groups/_decomp);xref:0x142239480",
-  "notes": "Clears the request block at self+0x2b8..+0x2e7, sets a bool VM node (+0x2a0) true, then fills the block: dirty flags +0x2b9.. set when name differs from the current one (strcmp), when the three pointers differ from the current career values (+0x2b0,+0xe10,+0xe18), when the packed id (+0x2be) or optional second id (+0x2c4) differ from the cached ones (+0x2e8..+0x2f2), and when flag*4 differs from byte +0xb6e. Posts bus message 0x457b8a40 carrying the block and calls func 0x142c78da0 with 2 or 3 depending on the +0x2b9 flag."
+  "proto": "void Game_HotLoad_Post_SelectionChangeRequest(void *self, char *track_name, void *a3, void *a4, void *a5, uint32_t packed_id, uint32_t *opt_id, char flag)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14291c6e0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142239480",
+  "notes": "Whole body read. Clears the request block self+0x2b8..+0x2e7, sets +0x2b8 = 1 and bool node +0x2a0 = true. Sets change flags: +0x2b9/+0x2ba if track_name differs from the current name, +0x2b9/+0x2bb/+0x2bc if a3/a4/a5 (stored +0x2d0/+0x2d8/+0x2e0) differ from the current game mode fields +0x2b0/+0xe10/+0xe18, +0x2bc if packed_id (+0x2be) or opt_id (+0x2c4) differ from cached +0x2e8.. / +0x2ee.., +0x2bd if flag differs from +0xb6e. Posts bus message 0x457b8a40 with pointer to +0x2b8. Context from caller: Game_HotLoadData_ApplySetupSelection passes track file name, game setup mode, entrant setup mode and entrant list. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.hot_load_post_selection_change_request",

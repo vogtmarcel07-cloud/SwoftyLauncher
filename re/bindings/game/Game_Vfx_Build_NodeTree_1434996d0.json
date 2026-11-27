@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x143497150",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Vfx_Build_NodeTree_1434996d0(void *self, void *allocator, uint32_t id, void *ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434996d0 (RacingPC lab re_groups/_decomp);xref:0x1433893d0",
-  "notes": "Node-tree builder with slots self+0x18..+0x28 and id at +0x10. Two 0x38 nodes each embed a named parameter node (name at +0x18, float defaults 200.0/1.5) initialised by FUN_14348e880 and FUN_143485d20. Context from caller: tyre kickup VFX."
+  "proto": "void Game_Vfx_Build_NodeTree_1434996d0(void *slot, void *allocator, uint32_t index, void *ctx)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1434996d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433893d0",
+  "notes": "Fills one 0x38-byte slot: stores allocator at +0x08, then allocates via allocator vtable +0x18 (size, align 8) three sub-trees stored at slot+0x28, +0x20 and +0x18; every node gets [+0x00]=0, [+0x08]=allocator, [+0x10]=index. The +0x28 and +0x20 trees are 0x38 nodes with three 0x18 leaves and a 0x70 leaf (ptr 0x145844cc0, floats 200.0 and 1.5) initialised by FUN_14348e880 and FUN_143485d20; the +0x18 tree is a 0x28 node with a 3-deep 0x20/0x20/0x18 chain plus one 0x18 leaf. Ends with slot+0x10=index, slot+0x00=0. Context from caller: Game_Vfx_TyreKickup_Update calls it in a loop over the 0x38-stride array at owner+0xd8 (count +0xe0) with the loop index, right after allocating and zeroing the array. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_build_node_tree_1434996d0",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144d9cdf0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
-  "proto": "int Ne_Ossl_EvpKeymgmt_NamesDoAll(void *keymgmt, void (*fn)(const char *, void *), void *data)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144d9f7b0 (RacingPC lab re_groups/_decomp);xref:0x144da8fb0,0x144f46000",
-  "notes": "OpenSSL EVP_*_names_do_all pattern: returns 1 if provider (+0x18) is null, else walks the libctx namemap for name_id (+0x4) under its lock, collects names into a temp array and calls fn(name,data) for each. Context from caller: encoder/decoder setup for pkey, so the object is most likely an EVP_KEYMGMT."
+  "proto": "int Ne_Ossl_EvpKeymgmt_NamesDoAll(void *keymgmt, void (*fn)(const char *name, void *data), void *data)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144d9f7b0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1449e61a0,0x144c91560,0x144da8fb0",
+  "notes": "OpenSSL EVP_KEYMGMT_names_do_all with ossl_namemap_doall_names inlined: returns 1 if keymgmt+0x18 (prov) is null; else gets the namemap, read-locks it, counts names, allocates count*8, collects the names for name_id keymgmt+0x04, unlocks, calls fn(name, data) for each and frees the array; returns 0 on lock or alloc failure. Caller 0x1449e61a0: EVP_PKEY_set_type_by_keymgmt (string) looks up the legacy type for a keymgmt; caller 0x144c91560: int_ctx_new (pmeth_lib.c string) gets the legacy alg type; Ne_Openssl_Encoder_CtxSetupForPkey collects keymgmt names into a stack. Not game logic. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_evp_keymgmt_names_do_all",

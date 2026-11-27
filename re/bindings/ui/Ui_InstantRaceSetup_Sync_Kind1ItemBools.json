@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x141c2c6d0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "ui",
   "proto": "void Ui_InstantRaceSetup_Sync_Kind1ItemBools(void *vm)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c2e2d0 (RacingPC lab re_groups/_decomp);xref:0x141c2db00",
-  "notes": "Finds the first item with kind byte +0x108 == 1 in the list (vm+0x270)->+0x80..+0x88 and sets its bool node (+0x118) to (instant race object vm+0x2c0 byte +0x2a0 == 1), then sets the bool node at (vm+0x270)->+0x158 to the opposite value. Better context needed: what item kind 1 and byte +0x2a0 are."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141c2e2d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141c2db00",
+  "notes": "Whole body read. Walks items (vm+0x270)+0x80..+0x88 (stride 0x10, object at +8) for the first with byte +0x108 == 1; sets its bool node +0x118 to (model(vm+0x2c0)+0x2a0 == 1) and the bool node (vm+0x270)+0x158 to the opposite value (Vm_NodeSet_Bool). Caller Game_InstantRaceSetup_OnCommandRaised calls it right after it wrote the mode byte for that setting. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "ui.instant_race_setup_sync_kind1_item_bools",

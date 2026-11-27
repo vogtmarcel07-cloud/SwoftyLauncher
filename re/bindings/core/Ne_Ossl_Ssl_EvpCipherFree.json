@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144c62fb0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
   "proto": "void Ne_Ossl_Ssl_EvpCipherFree(void *cipher)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144c65970 (RacingPC lab re_groups/_decomp);xref:0x1450b5420",
-  "notes": "OpenSSL ssl_evp_cipher_free pattern: for a non-null cipher, checks a getter (func 0x144903290, presumably get0_provider) and only then calls the free FUN_144c986b0, so only fetched ciphers are released."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144c65970 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144c87530,0x144c8a550,0x144f2d560",
+  "notes": "Null-safe: if cipher is non-null and 0x144903290() (provider getter) returns non-null it calls 0x144c986b0(cipher) to drop the fetched cipher; matches OpenSSL ssl_evp_cipher_free. Caller 0x144c87530: cipher-to-EVP resolver that frees the old *enc before storing a new one or on failure; caller 0x144c8a550: SSL3 state free (after Ne_Ossl_Ssl3_CleanupKeyBlock) frees the cipher at +0x320; caller 0x144f2d560: after Ne_Ossl_Ssl_CipherGetEvp succeeds it frees the old cipher at +0x320 and stores the new one. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_ssl_evp_cipher_free",

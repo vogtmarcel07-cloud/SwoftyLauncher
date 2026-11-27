@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1434961c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_Vfx_Build_NodeTree_143498740(void *self, void *allocator, uint32_t id, void *ctx)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143498740 (RacingPC lab re_groups/_decomp);xref:0x1433893d0",
-  "notes": "Node-tree builder with slots self+0x18..+0x38 and id at +0x10. Embeds three named parameter nodes (name pointer at node+0x18, float defaults 4.0/4.0/1.0, 200.0/1.5, 25.0/25.0/1.0) initialised by FUN_143460850, FUN_1434848c0 and FUN_14345c0f0. Context from caller: tyre kickup VFX."
+  "proto": "void Game_Vfx_Build_NodeTree_143498740(void *self, void *alloc, uint32_t tag, void *unused)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x143498740 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1433893d0",
+  "notes": "Stores alloc at self+0x8 and allocates (alloc vtable +0x18) five child nodes at self+0x18/+0x20/+0x28/+0x30/+0x38; three of them end in typed 0x68/0x70-byte leaves with default floats (4.0/1.0, 200.0/1.5, 25.0/1.0) and name pointers 0x145844cf1/0x145844cc0/0x145844d40, built by FUN_143460850, FUN_1434848c0 and FUN_14345c0f0. Sets self+0x0 = 0; no static table. Caller Game_Vfx_TyreKickup_Update calls it in a loop over the array at self+0xb8 (stride 0x48, count +0xc0) with the element index as tag. Context from caller: Vfx is only from the caller; the node schema itself is unnamed. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.vfx_build_node_tree_143498740",

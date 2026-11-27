@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x144da5680",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "core",
   "proto": "int Ne_Ossl_EncoderCtx_SetConstructData(void *ctx, void *construct_data)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da8040 (RacingPC lab re_groups/_decomp);xref:0x144da8fb0",
-  "notes": "OpenSSL OSSL_ENCODER_CTX setter: stores arg at ctx+0x30 and returns 1; null ctx raises ERR lib 0x3b reason 0xc0102 at line 0x155. Field name (construct_data) inferred from OpenSSL struct order."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144da8040 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144da8fb0",
+  "notes": "OpenSSL OSSL_ENCODER_CTX_set_construct_data: null ctx raises ERR lib 0x3b reason 0xc0102 (line 0x155) and returns 0; else writes ctx+0x30 = construct_data and returns 1. Ne_Openssl_Encoder_CtxSetupForPkey stores its allocated construct data with it and clears it to null on the failure path. Not game logic. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_encoder_ctx_set_construct_data",

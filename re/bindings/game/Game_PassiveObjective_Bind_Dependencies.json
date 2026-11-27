@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14297b740",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
-  "proto": "void Game_PassiveObjective_Bind_Dependencies(void *self, void *arg, void *dep_map)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14297db00 (RacingPC lab re_groups/_decomp);xref:0x1429558a0",
-  "notes": "Looks up two entries in the robin-hood map dep_map by type keys 0x146049ab8 and 0x146070cf8 and stores them at self+0x8 and self+0x10; when both exist calls the virtual at vtable+0x68(self, arg, dep_map), otherwise sets errno 0x16 with the errno trace. Context from caller: MyTeam attribute modifier passive objective. Better context needed: which systems the two type keys are."
+  "proto": "void Game_PassiveObjective_Bind_Dependencies(void *self, void *ctx, void *service_map)",
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14297db00 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1429558a0",
+  "notes": "Looks up two type keys (0x146049ab8, 0x146070cf8) in the robin-hood service map arg3 (slots at +0x18, end +0x20), stores the found pointers in self+0x8 and self+0x10, then calls self vtable +0x68 (self, ctx, map); if either is missing it sets errno 0x16 (EINVAL) and records it in the errno trace ring. Caller Game_PassiveObjectives_MyTeamAttributeModifier runs it on three member objects (+0xa00, +0xa10, +0xb40) after resolving its own services, forwarding the same ctx and map. Context from caller: PassiveObjective class is only from the caller. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.passive_objective_bind_dependencies",

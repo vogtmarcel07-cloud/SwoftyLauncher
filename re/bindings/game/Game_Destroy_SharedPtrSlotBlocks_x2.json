@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x1419360c0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void Game_Destroy_SharedPtrSlotBlocks_x2(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419378a0 (RacingPC lab re_groups/_decomp);xref:0x1425311a0,0x1425445b0,0x1427b2070,0x1430e2af0,0x1430f6240,0x143186dd0,0x14318afd0,0x14318ee50",
-  "notes": "Destroys two adjacent 0x120-byte blocks of the same type as in 0x141936940 (vtable 0x145614f80 at +0x120 and +0): releases the shared-pointer vector (+0xe0 allocator, +0xe8 begin, +0xf0 end), frees it, and destroys the inline 0x30-byte items (+0x60, count +0xc0) when flag +0xd0 is set. Context from caller: F1 Life config and customisation replication data."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1419378a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x14181b6b0,0x14181b9f0,0x14181bc70",
+  "notes": "Destructor body for two 0x120-byte blocks at +0x0 and +0x120 (vtable 0x145614f80): releases the shared_ptr pairs in the vector at block+0xe8..+0xf0, frees the buffer through the allocator at block+0xe0 (vtable +0x38), and if flag +0xd0 is set calls the deleting dtor on each 0x30-byte inline slot at block+0x60 (count +0xc0). Callers 0x14181b6b0/0x14181b9f0/0x14181bc70: set VM bool nodes then destroy a local vector of 0x1820-byte elements, calling this on element+0xd00 right after the 2x3 variant on element+0xf50. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.destroy_shared_ptr_slot_blocks_x2",

@@ -5,11 +5,11 @@
  "author": "vogtmarcel07-cloud",
  "row": {
   "addr": "0x14290b0e0",
-  "level": "L1",
+  "level": "L2",
   "subsystem": "game",
   "proto": "void *Game_Lookup_ByteKeyedEntry_IfFlag151(void *self)",
-  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14290d4a0 (RacingPC lab re_groups/_decomp);xref:0x1401aae90",
-  "notes": "Reads a byte key from the object at *(self+0x2c0)+0x2b0 (+0x80), probes an open-addressing hash map in self (multiplier +0x288, values +0x290, metadata +0x298, mask +0x2a8, info +0x2b8/+0x2bc) and returns entry+0x18 when the entry byte at +0x151 is non-zero, else null. Better context needed: what the keyed entries are (caller resolves a driver setup)."
+  "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x14290d4a0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1401aae90",
+  "notes": "Reads the key byte at [[self+0x2c0]+0x2b0]+0x80 (returns 0 if that object is null), looks it up in the robin-hood map at self+0x288 (multiplier), +0x290 (slots), +0x298 (info bytes/end), +0x2a8 (mask), +0x2b8/+0x2bc (info inc/shift) whose slots point at entries starting with the key byte, and returns entry+0x18 when the entry byte +0x151 is set, else 0. Context from caller: Wear_Spawner_ResolveDriverSetup gets self from 0x142912530(obj, 0x1460786a8) and scans the 4-byte items in result+8..+0x10 for a matching id (short at +2, byte 0 equal 0); it does not null-check the result. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "game.lookup_byte_keyed_entry_if_flag151",
