@@ -9,7 +9,7 @@
   "subsystem": "core",
   "proto": "int Ne_Ossl_Conf_ModuleAdd(const char *name, void *init_fn, void *finish_fn)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144ca3590 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x144ca1800,0x1450b9f50,0x14518c6a0",
-  "notes": "Returns 0x144ca3b00(NULL, name, init_fn, finish_fn) != 0, i.e. registers a config module with no DSO; matches OpenSSL CONF_module_add. All three callers reach it by a tail jump (their decompiles end in this body): each loads a static name plus an init/finish function pair (0x14547bb0c with 0x144ca1db0/0x144ca1fa0, 0x14552dce8 with 0x1450ba0c0/0x1450b9f80, 0x145554be0 with 0x14518c6d0/0x14518c940), so they are the per-module add wrappers. (lab L1 re-check with caller context 2026-11-27)"
+  "notes": "Returns 0x144ca3b00(NULL, name, init_fn, finish_fn) != 0, i.e. registers a config module with no DSO; matches OpenSSL CONF_module_add. All callers reach it by a tail jump (their decompiles end in this body): each loads a static name plus an init/finish function pair (0x14547bb0c with 0x144ca1db0/0x144ca1fa0, 0x14552dce8 with 0x1450ba0c0/0x1450b9f80, 0x145554be0 with 0x14518c6d0/0x14518c940), so they are the per-module add wrappers. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_conf_module_add",

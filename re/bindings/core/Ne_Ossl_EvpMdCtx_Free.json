@@ -9,7 +9,7 @@
   "subsystem": "core",
   "proto": "void Ne_Ossl_EvpMdCtx_Free(void *ctx)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x144900eb0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x142c4be70,0x142c4c770,0x14395bbd0",
-  "notes": "Null-safe: if ctx is non-null it calls 0x144901f70 (the context reset) and then Ne_Openssl_Crypto_Free(ctx); matches OpenSSL EVP_MD_CTX_free. All three callers free their local digest ctx on the exit path. Caller 0x142c4be70: reads fixed-size blocks (0x20/0x10/0x30) and advances the byte counter at arg4[3]; caller 0x142c4c770: replay-buffer routine that ends with Game_Replaybuffer_EndCompression; caller 0x14395bbd0: sets errno 0xe in the TLS errno chain on failure, then frees ctx and a second object. (lab L1 re-check with caller context 2026-11-27)"
+  "notes": "Null-safe: if ctx is non-null it calls 0x144901f70 (the context reset) and then Ne_Openssl_Crypto_Free(ctx); matches OpenSSL EVP_MD_CTX_free. All callers free their local digest ctx on the exit path. Caller 0x142c4be70: reads fixed-size blocks (0x20/0x10/0x30) and advances the byte counter at arg4[3]; caller 0x142c4c770: replay-buffer routine that ends with Game_Replaybuffer_EndCompression; caller 0x14395bbd0: sets errno 0xe in the TLS errno chain on failure, then frees ctx and a second object. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
   "id": "core.ossl_evp_md_ctx_free",
