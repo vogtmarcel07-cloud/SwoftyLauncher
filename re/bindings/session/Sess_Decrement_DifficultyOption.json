@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_StoryFail_ApplyLowerDifficultyOption",
+ "name": "Sess_Decrement_DifficultyOption",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Sess_StoryFail_ApplyLowerDifficultyOption: StoryFail comes only from the caller, the body just steps a difficulty option down by one. Reads the option object at owner+0x2a0 (vcall +0x10 = current value), maps it with Game_ChallengeCareer_FindDifficultyIndex to a byte index, takes index-1 for 1..3 (anything else becomes 3), then either uses that index directly (flag owner+0x2a8 set) or finds the option entry whose name equals the string table 0x14568f940[index] (entries 0x50 apart at option+0x80, range ints at +0xb8/+0xbc, default +0xc0) and applies it with vcall +0x18. Context from caller: Sess_StoryFail_OnRestartChoice calls it on *(this+0xdd0) right before it posts the restart_lower_difficulty bus message; good hook to change the step size. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.story_fail_apply_lower_difficulty_option",
+  "id": "session.decrement_difficulty_option",
   "section": ".xtls",
   "pattern": "41 57 41 56 56 57 53 48 83 EC 30 48 89 CF 48 8D B1 A0 02 00 00",
   "match": "0x14112a4e0",
@@ -23,7 +23,7 @@
   "target": "0x14112a4e0",
   "kind": "func_start",
   "names": [
-   "Sess_StoryFail_ApplyLowerDifficultyOption"
+   "Sess_Decrement_DifficultyOption"
   ],
   "verified": [
    {

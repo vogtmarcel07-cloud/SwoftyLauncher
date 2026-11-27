@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_RuleManager_FindSubsystem_ByTypeKey146082ce8",
+ "name": "Sess_Registry_GetComponent_ByTypeKey146082ce8",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -9,10 +9,10 @@
   "subsystem": "session",
   "proto": "void *Sess_Registry_GetComponent_ByTypeKey146082ce8(void *registry)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x141f29270 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x141f28e10,0x14356a7f0",
-  "notes": "Renamed from Sess_RuleManager_FindSubsystem_ByTypeKey146082ce8: the argument is the shared component registry map, not the rule manager, and a caller is not a RuleManager method. Calls Ne_RobinHoodMap_U64_FindIndex(registry, &0x146082ce8), indexes the 0x10-byte slot array at registry+0x18 and returns slot+8, or 0 when the slot equals the end pointer at registry+0x20. Context from caller: Sess_RuleManager_ResolveSubsystems stores the result at its +0xa8; caller 0x141f28e10 resolves a chain of registry components into its own fields and stores this one at +0x88, aborting if null. (lab L1 re-check with caller context 2026-11-27)"
+  "notes": "Renamed from Sess_RuleManager_FindSubsystem_ByTypeKey146082ce8: the argument is the shared component registry map, not the rule manager, and caller is not a RuleManager method. Calls Ne_RobinHoodMap_U64_FindIndex(registry, &0x146082ce8), indexes the 0x10-byte slot array at registry+0x18 and returns slot+8, or 0 when the slot equals the end pointer at registry+0x20. Context from caller: Sess_RuleManager_ResolveSubsystems stores the result at its +0xa8; caller 0x141f28e10 resolves a chain of registry components into its own fields and stores this one at +0x88, aborting if null. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.rule_manager_find_subsystem_by_type_key146082ce8",
+  "id": "session.registry_get_component_by_type_key146082ce8",
   "section": ".xtls",
   "pattern": "56 48 83 EC 30 48 89 CE 48 8D 05 ?? ?? ?? ?? 48 89 44 24 28 48 8D 54 24 28 E8 ?? ?? ?? ?? 48 C1 E0 04 48 03 46 18 48 3B 46 20 74 06 48 8B 40 08 EB 02 31 C0 48 83 C4 30 5E C3 CC CC CC CC CC CC 41 57 41 56 41 55 41 54 56 57 55 53 48 81 EC A8 00 00 00",
   "match": "0x141f27670",
@@ -23,7 +23,7 @@
   "target": "0x141f27670",
   "kind": "func_start",
   "names": [
-   "Sess_RuleManager_FindSubsystem_ByTypeKey146082ce8"
+   "Sess_Registry_GetComponent_ByTypeKey146082ce8"
   ],
   "verified": [
    {

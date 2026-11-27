@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_OvertakeRuleset_Find_ThresholdEntryByName",
+ "name": "Sess_Find_NamedEntryTierByLevel",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Sess_OvertakeRuleset_Find_ThresholdEntryByName: self is the object at ruleset+0x350 used by several rulesets, and the result is chosen by a level value, not only by name. Takes the name string self+0x2a0, scans the groups [self+0x370]+0x238..+0x240 (stride 0x10, record pointers at [group+8]+0x10..+0x18) for a record whose name +0x20 matches (strcmp; falls back to the first group), then takes level = int self+0x3e8, or when that is -1 the int +0x3a8 of the component 0x14605f630 found in [self+0x328]+0x1030, and returns the first pointer in record +0x448..+0x450 whose first int is >= level, else the first one; null when there is no record. Context from caller: Callers 0x142d12370, 0x142d1d2d0 and 0x142d255e0 (ruleset result evaluators) and Sess_OvertakeRuleset_InitRollingStart read the list at result +0x150..+0x158 of 12-byte {float target, u8 kind 0/1/2} to grade the score. Good hook point to change challenge targets. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.overtake_ruleset_find_threshold_entry_by_name",
+  "id": "session.find_named_entry_tier_by_level",
   "section": ".xtls",
   "pattern": "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC 38 48 BA F8 FF FF FF 07 00 00 00",
   "match": "0x140bb2350",
@@ -23,7 +23,7 @@
   "target": "0x140bb2350",
   "kind": "func_start",
   "names": [
-   "Sess_OvertakeRuleset_Find_ThresholdEntryByName"
+   "Sess_Find_NamedEntryTierByLevel"
   ],
   "verified": [
    {

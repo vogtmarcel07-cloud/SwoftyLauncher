@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_Rules_PaceCar_CheckVehiclePairLapOrder",
+ "name": "Sess_Rules_CheckVehiclePairEligible",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -9,10 +9,10 @@
   "subsystem": "session",
   "proto": "uint64_t Sess_Rules_CheckVehiclePairEligible(void *rules, uint8_t veh_a, uint8_t veh_b)",
   "evidence": "decomp:ghidra 12.2 decompile on 46009bd3 of 0x1435a29d0 (RacingPC lab re_groups/_decomp, L1 re-check with callers);xref:0x1435a13e0,0x1435a1c10",
-  "notes": "Renamed from Sess_Rules_PaceCar_CheckVehiclePairLapOrder: the body does no lap-order compare and PaceCar comes only from a caller name. Resolves both vehicle records through the cache at (rules+0x40)+0xa0[idx] (fallback scan of +0x88..+0x90 by entity byte +0xe8); returns 1 if either index is 0xff or unresolved. Otherwise returns 0 when B has flag 0x40 at +0x32, when A's per-vehicle mask (g_Game_VehicleStateRoot +0x38 -> +0xa8, stride 0x508, +0x168) has bit B set, when B+0x3c is below vfunc +0x78(rules, B+0x38), or (rule-table flag 4 at 0x1460fe960 and B+0x32 non-negative) when A+0x39 != B+0x39; else returns !(B+0x30 & 0x40). Context from caller: Sess_Rules_OnPaceCarLapForVehicle and 0x1435a13e0 (builds per-vehicle bitmask and count of other cars) both also require B+0x4c vs A+0x4c ordering before setting B's bit and incrementing a counter. (lab L1 re-check with caller context 2026-11-27)"
+  "notes": "Renamed from Sess_Rules_PaceCar_CheckVehiclePairLapOrder: the body does no lap-order compare and PaceCar comes only from a caller name. Resolves both vehicle records through the cache at (rules+0x40)+0xa0[idx] (fallback scan of +0x88..+0x90 by entity byte +0xe8); returns 1 if either index is 0xff or unresolved. Otherwise returns 0 when B has flag 0x40 at +0x32, when A's per-vehicle mask (g_Game_VehicleStateRoot +0x38 -> +0xa8, stride 0x508, +0x168) has bit B set, when B+0x3c is below vfunc +0x78(rules, B+0x38), or (rule-table flag 4 at 0x1460fe960 and B+0x32 non-negative) when A+0x39 != B+0x39; else returns !(B+0x30 & 0x40). Context from caller: Sess_Rules_OnPaceCarLapForVehicle and 0x1435a13e0 (builds per-vehicle bitmask and count of other cars) both also require B+0x4c vs A+0x4c ordering before setting B's bit and incrementing a counter. (lab L1 re-check with caller context 2026-11-27) Independent re-check (lab blind verifier 2026-11-27): partial, better name Sess_Rules_CheckEntryPairAllowed: Resolves two entries by byte id (0xff means none and returns 1), compares flags, a bit from g_Game_VehicleStateRoot data and a rank value, and returns 0 or 1; the vehicle pair meaning of eligible is inferred only. Independent re-check of the L1->L2 raise (lab blind verifier 2026-11-27): partial, better name Sess_Rules_CheckEntryPairAllowed: Resolves two entries by byte id (0xff means none and returns 1), compares flags, a bit from g_Game_VehicleStateRoot data and a rank value, and returns 0 or 1; the vehicle pair meaning of eligible is inferred only."
  },
  "signature": {
-  "id": "session.rules_pace_car_check_vehicle_pair_lap_order",
+  "id": "session.rules_check_vehicle_pair_eligible",
   "section": ".xtls",
   "pattern": "41 57 41 56 56 57 55 53 48 83 EC 28 B0 01 80 FA FF",
   "match": "0x1435a0440",
@@ -23,7 +23,7 @@
   "target": "0x1435a0440",
   "kind": "func_start",
   "names": [
-   "Sess_Rules_PaceCar_CheckVehiclePairLapOrder"
+   "Sess_Rules_CheckVehiclePairEligible"
   ],
   "verified": [
    {

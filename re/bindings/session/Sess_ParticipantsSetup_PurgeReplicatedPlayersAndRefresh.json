@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_Gamertags_PurgeReplicatedPlayersAndRefresh",
+ "name": "Sess_ParticipantsSetup_PurgeReplicatedPlayersAndRefresh",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Sess_Gamertags_PurgeReplicatedPlayersAndRefresh: the noun Gamertags came only from the caller name; self has the ParticipantsSetup layout (+0xd0, +0xd8, +0xe8) and the caller passes the same object to Sess_ParticipantsSetup_SyncHumanEntrantCustomisations. When the hash set at +0x178/+0x180 (count +0x188) is not empty it calls Game_EntrantReplicationManager_RemovePlayerReplicatedDataInterna([[setup+0xe8]+0x438], entry+0x18, 1) for every entry and on success 0x1432135b0(mgr+0x60, entry+0x18); then 0x142576220(setup), 0x142576420(setup, 1, 1, empty list, 0), and when the u32 vector +0x118..+0x120 count differs from [setup+0xd8]+0x298 it calls 0x14257a6c0 and, if setup+0x78 < 2, sends message id 0xbb through 0x144030ad0([setup+0xe8]+0x3d0, 1, ...). Callers: Sess_Read_SelectedGamertags runs it first, before it reads the saved data; Caller 0x14257b9f0: runs it when 0x142572250 returns 0, then copies an entrant vector. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.gamertags_purge_replicated_players_and_refresh",
+  "id": "session.participants_setup_purge_replicated_players_and_refresh",
   "section": ".xtls",
   "pattern": "41 57 41 56 41 54 56 57 53 48 83 EC 48 48 89 CE 48 83 B9 88 01 00 00 00",
   "match": "0x142576180",
@@ -23,7 +23,7 @@
   "target": "0x142576180",
   "kind": "func_start",
   "names": [
-   "Sess_Gamertags_PurgeReplicatedPlayersAndRefresh"
+   "Sess_ParticipantsSetup_PurgeReplicatedPlayersAndRefresh"
   ],
   "verified": [
    {

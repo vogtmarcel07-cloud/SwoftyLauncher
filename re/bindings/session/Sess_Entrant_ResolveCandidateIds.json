@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_ParticipantsSetup_Resolve_EntrantCandidate",
+ "name": "Sess_Entrant_ResolveCandidateIds",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Sess_ParticipantsSetup_Resolve_EntrantCandidate: self is the helper object at setup+0xa8, not the ParticipantsSetup itself, and the body writes two id fields. Returns 0 when the session [[ctx+0xa8]+0x88]+0x260 is missing. Otherwise packs the u16 at [ctx+0x98]+0x68 into candidate+0x6e as (v & 0x3fff) << 16 | v >> 14 and sets +0x72 = 1; when candidate+0x54 is set and u16 +0x52 != 0x3fff it calls Sess_Entrant_BuildCandidate with ctx+0xa0, the 16 bytes at session+0xe10 and allocator ctx+8, stores the first u32 of the result in candidate+0x68, sets +0x6c = 1, frees the result and returns 1. Caller Sess_ParticipantsSetup_ApplySelection calls it for a mode 1 selection whose entry id is not yet resolved, before it copies the candidate into the entrants document. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.participants_setup_resolve_entrant_candidate",
+  "id": "session.entrant_resolve_candidate_ids",
   "section": ".xtls",
   "pattern": "56 48 83 EC 60 48 8B 81 A8 00 00 00",
   "match": "0x1427698a0",
@@ -23,7 +23,7 @@
   "target": "0x1427698a0",
   "kind": "func_start",
   "names": [
-   "Sess_ParticipantsSetup_Resolve_EntrantCandidate"
+   "Sess_Entrant_ResolveCandidateIds"
   ],
   "verified": [
    {

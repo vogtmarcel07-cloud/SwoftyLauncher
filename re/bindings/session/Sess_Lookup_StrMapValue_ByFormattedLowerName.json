@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "name": "Sess_VirtualPerformance_FindTableByFormattedName",
+ "name": "Sess_Lookup_StrMapValue_ByFormattedLowerName",
  "table": "functions",
  "author": "vogtmarcel07-cloud",
  "row": {
@@ -12,7 +12,7 @@
   "notes": "Renamed from Sess_VirtualPerformance_FindTableByFormattedName: the body shows a string-map lookup, neither a table nor the VirtualPerformance class. Formats a name with Ne_StrBuf_Printf(fmt 0x1457f14af, arg, string at *(rec+0x18)+0x10, 0x66), copies it to a 256-char buffer, lowercases it and looks it up with Ne_RobinHoodMap_Str_FindIndex_2 in the map at *(*(0x1460826d8)+0x50)+0x138 (16-byte entries at map+0x18, end +0x20); returns the entry value at +8 or 0. Context from caller: Sess_VirtualPerformance_CalcPace passes the pointer at +8 of a 0x18-byte per-compound record and a value from +0x558/+0x128, then evaluates the spline at result+0xec0 with Car_Spline_EvalObfuscated. (lab L1 re-check with caller context 2026-11-27)"
  },
  "signature": {
-  "id": "session.virtual_performance_find_table_by_formatted_name",
+  "id": "session.lookup_str_map_value_by_formatted_lower_name",
   "section": ".xtls",
   "pattern": "56 57 53 48 81 EC 60 02 00 00 49 89 D0",
   "match": "0x142e880f0",
@@ -23,7 +23,7 @@
   "target": "0x142e880f0",
   "kind": "func_start",
   "names": [
-   "Sess_VirtualPerformance_FindTableByFormattedName"
+   "Sess_Lookup_StrMapValue_ByFormattedLowerName"
   ],
   "verified": [
    {
